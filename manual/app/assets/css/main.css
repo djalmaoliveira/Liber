@@ -1,0 +1,193 @@
+/* CSS Document */
+
+body {
+margin: 0;
+padding: 0;
+font: 0.9em arial, tahoma, sans-serif;
+background: #fff url("../images/body_background.png") repeat-x;
+}
+
+pre {
+
+}
+
+
+a {/* All undefined links */
+color: #ee1e23;
+}
+
+a:hover {/* All undefined hover links */
+color: #fc6;
+}
+
+#wrapper {/* Container centering entire layout */
+color: #333;
+width: 960px;
+margin: 0 auto 10px;
+}
+
+#content_wrapper {/* White container for entire contents on webpage */
+width: 920px;
+padding: 10px;
+margin: 0 auto;
+background: #fff;
+}
+
+#header {/* Header image */
+height: 100px;
+background: transparent url("../images/header_background.png") repeat-y;
+}
+
+#logo {/* Website Logo */
+float: left;
+width: 400px;
+height: 99px;
+margin-left: 30px;
+background: transparent url("../images/logo.png") repeat-y;
+}
+
+#border_line {/* Separates the Register and Login links with a line */
+border-right: 1px solid #ee1e23;
+}
+
+/* TopNav menu */
+#nav {
+height: 30px;
+margin: 0 auto;
+background: #fc6 url("../images/left_tab.png") 0 no-repeat;
+}
+
+#nav ul {
+margin: 0;
+padding: 0;
+height: 30px;
+background: transparent url("../images/right_tab.png") right no-repeat;
+}
+
+#nav li {
+float: left;
+list-style-type: none;
+}
+
+#nav a {
+height: 30px;
+display: block;
+color: #6f6ff6;
+padding: 0 10px;
+text-decoration: none;
+font: bold 1em/30px verdana, tahoma, sans-serif;
+}
+
+#nav a:hover {
+color: #fff;
+}
+
+
+#l_column {/* Left column Container */
+float: left;
+width: 180px;
+margin-top: 30px;
+}
+
+#l_column .box_top {/* Top curves of the yellow container */
+height: 8px;
+font-size: 0;
+background: transparent url("../images/top_side_menu.png");
+}
+
+#l_column .box_side {/* background color of the yellow container */
+padding: 0 10px;
+background: #fdd178;
+}
+
+#l_column .box_bottom {/* Bottom curves of the yellow container */
+height: 7px;
+font-size: 0;
+margin-bottom: 10px;
+background: transparent url("../images/bottom_side_menu.png");
+}
+
+#l_column h1 {/* All H1 tags in the left column */
+margin: 0;
+padding: 0;
+color: #fff;
+letter-spacing: -2px;
+font: normal 2em/1.5em georgia, arial, sans-serif;
+}
+
+#l_column ul {/* UL lists in Left column */
+margin: 0;
+padding: 0;
+margin-left: 10px;
+}
+
+#l_column li {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#l_column a {
+color: black;
+display: block;
+margin-top: 2px;
+padding-left: 10px;
+line-height: 1.5em;
+border-left: 5px solid #fff;
+}
+
+#l_column a:hover {
+color: #6f6ff6;
+line-height: 1.5em;
+
+}
+
+#main {/* The Main container */
+float: left;
+width: 730px;
+margin-left: 10px;
+}
+
+.blog {/* Blog contents in the Main container */
+width: 700px;
+padding: 0 15px;
+margin-top: 30px;
+background: transparent url("../images/main_background.png") no-repeat;
+}
+
+.blog h1 {/* All H1 tags in the Main container */
+margin: 0;
+padding: 0;
+color: #6f6ff6;
+border-bottom: 1px solid #fff;
+font: 2em/2em georgia, arial, sans-serif;
+}
+
+.blog p {/* All P tags in the Main container */
+padding: 0 5px;
+font-size: 1.1em;
+line-height: 1.4em;
+}
+
+.clear {/* Clear all floating elements */
+clear: both;
+}
+
+/* Footer and copyright text */
+#footer {
+color: #000;
+clear: both;
+height: 50px;
+text-align: center;
+font: 10px/40px verdana, sans-serif;
+background: transparent url("../images/footer.png") no-repeat;
+}
+
+#footer a {/* Footer links */
+color: #fff;
+}
+
+#footer a:hover {
+color: #000;
+}
+

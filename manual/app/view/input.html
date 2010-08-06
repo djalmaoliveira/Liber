@@ -1,0 +1,37 @@
+<div class="blog">
+<h1>Input Class</h1>
+
+
+<p>This class is used to get requested data, like post, get, cookies and file.</p>
+<p>This class is loaded by default.</p>
+<p>Code example:</p>
+
+<pre>
+
+    // show POST data
+    echo Input::post('name');
+    echo Input::post('email');
+
+    // show GET data
+    echo Input::get('name');
+    echo Input::get('email');
+
+    // show COOKIE data
+    echo Input::cookie('name');
+    echo Input::cookie('email');
+
+    // show FILE data
+    echo Input::file('image1');
+    echo Input::file('image2');
+    
+    // to get a Array of values call without a parameter
+    print_r( Input::get() );
+    
+</pre>
+
+<h2>Real example:</h2>
+<a href='?name=Liber'>Click to show get values</a>
+<br/>
+<?=print_r(Input::get(),true)?>
+
+</div>

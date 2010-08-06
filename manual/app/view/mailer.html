@@ -1,0 +1,33 @@
+<div class="blog">
+<h1>Mailer Class</h1>
+
+
+<p>This is a simple mailer class with essential methods to send mails.</p>
+<p>Code example:</p>
+
+<pre>
+    $oMailer = Liber::loadClass('Mailer',true);
+
+    $oMailer->addTo(    Input::post('to') );
+    $oMailer->from(     Input::post('from') );
+    $oMailer->subject(  Input::post('subject') );
+    $oMailer->body(     Input::post('body') );
+    $oMailer->html(     true );
+
+    $oMailer->send();
+
+</pre>
+
+<h2>Real example:</h2>
+
+<form method='post' action="<? url_to_('/mailersend')?>">
+    To: <? form_input_('to', ''); ?> <br/>
+    From: <? form_input_('from', ''); ?><br/>
+    Subject: <? form_input_('subject', ''); ?><br/>
+    Is Html: <? form_select_('html', Array('true'=>'Yes', 'false'=>'No')) ?><br/>
+    Body: <? form_textarea_('body', ''); ?><br/>
+    <? form_submit_('Send', 'Test Send'); ?><br/>
+    <em>(Your mail server must be working.)</em>
+</form>
+
+</div>

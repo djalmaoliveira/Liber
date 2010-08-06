@@ -1,0 +1,1285 @@
+<html>
+<head>
+<title>Docs For Class Liber</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">core</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                            
+                                                                      		  [ <a href="../classtrees_core.html" class="menu">class tree: core</a> ]
+		  [ <a href="../elementindex_core.html" class="menu">index: core</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+              <a href="../li_cache.html">cache</a><br />
+              <a href="../li_core.html">core</a><br />
+              <a href="../li_core-class.html">core-class</a><br />
+              <a href="../li_core-helpers.html">core-helpers</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../core/_Liber.php.html">		Liber.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../core/Liber.html">Liber</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: Liber</h1>
+Source Location: /Liber.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">Liber is a main class of framework.</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+          <li>Djalma Oliveira (djalmaoliveira@gmail.com)</li>
+            </ul>
+
+
+
+
+        
+
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../core/Liber.html#var$aConfig">$aConfig</a></li>
+    <li><a href="../core/Liber.html#var$aDbConfig">$aDbConfig</a></li>
+    <li><a href="../core/Liber.html#var$aRoute">$aRoute</a></li>
+    <li><a href="../core/Liber.html#var$_cache">$_cache</a></li>
+    <li><a href="../core/Liber.html#var$_controller">$_controller</a></li>
+    <li><a href="../core/Liber.html#var$_db">$_db</a></li>
+  </ul>
+</td>
+
+<td valign="top">
+<h3><a href="#class_consts">Constants</a></h3>
+<ul>
+    <li><a href="../core/Liber.html#constVERSION">VERSION</a></li>
+  </ul>
+</td>
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../core/Liber.html#methodcache">cache</a></li>
+    <li><a href="../core/Liber.html#methodconf">conf</a></li>
+    <li><a href="../core/Liber.html#methodcontroller">controller</a></li>
+    <li><a href="../core/Liber.html#methoddb">db</a></li>
+    <li><a href="../core/Liber.html#methodgetParams">getParams</a></li>
+    <li><a href="../core/Liber.html#methodgetRouteConf">getRouteConf</a></li>
+    <li><a href="../core/Liber.html#methodgetRouteMethod">getRouteMethod</a></li>
+    <li><a href="../core/Liber.html#methodisAjax">isAjax</a></li>
+    <li><a href="../core/Liber.html#methodisSSL">isSSL</a></li>
+    <li><a href="../core/Liber.html#methodload">load</a></li>
+    <li><a href="../core/Liber.html#methodloadClass">loadClass</a></li>
+    <li><a href="../core/Liber.html#methodloadConfig">loadConfig</a></li>
+    <li><a href="../core/Liber.html#methodloadContext">loadContext</a></li>
+    <li><a href="../core/Liber.html#methodloadController">loadController</a></li>
+    <li><a href="../core/Liber.html#methodloadHelper">loadHelper</a></li>
+    <li><a href="../core/Liber.html#methodloadModel">loadModel</a></li>
+    <li><a href="../core/Liber.html#methodloadPlugin">loadPlugin</a></li>
+    <li><a href="../core/Liber.html#methodparseRouteParams">parseRouteParams</a></li>
+    <li><a href="../core/Liber.html#methodprepareLoad">prepareLoad</a></li>
+    <li><a href="../core/Liber.html#methodprocessRoute">processRoute</a></li>
+    <li><a href="../core/Liber.html#methodredirect">redirect</a></li>
+    <li><a href="../core/Liber.html#methodrequestedMethod">requestedMethod</a></li>
+    <li><a href="../core/Liber.html#methodrun">run</a></li>
+    <li><a href="../core/Liber.html#methodsetup">setup</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 38]<br />
+Liber is a main class of framework.<br /><br /><p>How to setup configuration params:  <ol><li><div class="src-line"><span class="src-id"><a href="../core/Liber.html">Liber</a></span><span class="src-sym">::</span><a href="../core/Liber.html#methodconf">conf</a><span class="src-sym">(</span><span class="src-str">'APP_MODE'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'PROD'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>  and to get params:  <ol><li><div class="src-line"><span class="src-id"><a href="../core/Liber.html">Liber</a></span><span class="src-sym">::</span><a href="../core/Liber.html#methodconf">conf</a><span class="src-sym">(</span><span class="src-str">'APP_MODE'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>  There are many params that can be used:  <pre> BASE_PATH        ->  Internal path to Framework;
+ APP_PATH         ->  Internal path to application dir;
+ APP_URL          ->  URL to access aplication (i.e. http://www.domain.com);
+ APP_ROOT         ->  Application path (i.e. /www/app/public_html/);
+ APP_MODE         ->  Values: 'DEV' for development (default) and 'PROD' for production mode;
+ DB_LAYER         ->  Class name used to manipulate the access to database, using BasicDb class by default;
+ TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system, using TemplateEngine class by default;
+ ASSETS_DIR       ->  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
+ LOG_PATH         ->  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
+ CACHE_PATH       ->  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;
+ PAGE_NOT_FOUND   ->  Application Controller name of default for page not found,  'NotFoundController' by default;
+ SYS_ERROR        ->  Application Controller name of default for system error message,  'SysErrorController' by default;
+ LANG             ->  Application language, used to some system messages. See BASE_PATH/i18n. 'en' by default;</pre>  By default all <em>paths</em> used, must have a final slash '/', like &quot;/my/log/dir/&quot;.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Djalma Oliveira (djalmaoliveira@gmail.com)</td>
+  </tr>
+  <tr>
+    <td><b>since:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$aConfig"></a>
+	<p></p>
+	<h4>static $aConfig = <span class="value">array(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'BASE_PATH'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'APP_PATH'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'APP_URL'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'APP_ROOT'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'APP_MODE'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'DEV',&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'DB_LAYER'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'BasicDb',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'TEMPLATE_ENGINE'&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'TemplateEngine',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ASSETS_DIR'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'assets',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'LOG_PATH'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'log/',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CACHE_PATH'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'cache/',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'PAGE_NOT_FOUND'&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'NotFoundController',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SYS_ERROR'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'SysErrorController',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'LANG'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'en'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></h4>
+	<p>[line 52]</p>
+  Store all configurations of application.<br /><br /><p>Format: $config['config'] = Array - Basic configurations, index are the same properties of Object.            $config['route'] = Array - Configuration about how controller/action/module are invoke.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>Array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$aDbConfig"></a>
+	<p></p>
+	<h4>static $aDbConfig = <span class="value">array('DEV'=&gt;Array(),'PROD'=&gt;Array())</span></h4>
+	<p>[line 98]</p>
+  Database configuration<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>Array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$aRoute"></a>
+	<p></p>
+	<h4>static $aRoute = <span class="value">array()</span></h4>
+	<p>[line 92]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_cache"></a>
+	<p></p>
+	<h4>static $_cache = <span class="value"></span></h4>
+	<p>[line 110]</p>
+  Cache instance<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>Object</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_controller"></a>
+	<p></p>
+	<h4>static $_controller = <span class="value"></span></h4>
+	<p>[line 116]</p>
+  Current controller instance<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td><a href="../default/Controller.html">Controller</a></td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$_db"></a>
+	<p></p>
+	<h4>static $_db = <span class="value"></span></h4>
+	<p>[line 104]</p>
+  Database layer instance<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>Object</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodcache"></a>
+	<h3>static method cache <span class="smalllinenumber">[line 141]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static Cache cache(
+[
+$class = 'FileCache'], string
+$cacheType)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns a cache instance.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Object.</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$cacheType</b>&nbsp;&nbsp;</td>
+        <td>Cache type: file.</td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$class</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodconf"></a>
+	<h3>static method conf <span class="smalllinenumber">[line 217]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed conf(
+$p
+$p, [$v
+$v = null])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set/add config params.<br /><br /><p>Can be added new params if necessary.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$p&nbsp;&nbsp;</td>
+        <td><b>$p</b>&nbsp;&nbsp;</td>
+        <td>String - param name</td>
+      </tr>
+          <tr>
+        <td class="type">$v&nbsp;&nbsp;</td>
+        <td><b>$v</b>&nbsp;&nbsp;</td>
+        <td>String - param value</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodcontroller"></a>
+	<h3>static method controller <span class="smalllinenumber">[line 628]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static <a href="../default/Controller.html">Controller</a> controller(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Return current Controller instance.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methoddb"></a>
+	<h3>static method db <span class="smalllinenumber">[line 122]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static <a href="../core-class/BasicDb.html">BasicDb</a> &amp;db(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns a database object instance.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>based class,  the database singleton, auto create if the singleton has not been created yet.</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetParams"></a>
+	<h3>static method getParams <span class="smalllinenumber">[line 385]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static Array getParams(
+$rule
+$rule, $data
+$data)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get named params from uri.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- Array('paramName' =&gt; 'value')</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$rule&nbsp;&nbsp;</td>
+        <td><b>$rule</b>&nbsp;&nbsp;</td>
+        <td>Array</td>
+      </tr>
+          <tr>
+        <td class="type">$data&nbsp;&nbsp;</td>
+        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td>Array</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetRouteConf"></a>
+	<h3>static method getRouteConf <span class="smalllinenumber">[line 479]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static Array getRouteConf(
+$conf
+$conf)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Detect sort of configuration from route.<br /><br /><p>If Array return it, if string, it might be a re-routing or redirect to</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$conf&nbsp;&nbsp;</td>
+        <td><b>$conf</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetRouteMethod"></a>
+	<h3>static method getRouteMethod <span class="smalllinenumber">[line 510]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed getRouteMethod(
+$route
+$route)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Detects and returns a route options from a specified route, among methods os *.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- Array | string or false if don't find.</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$route&nbsp;&nbsp;</td>
+        <td><b>$route</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodisAjax"></a>
+	<h3>static method isAjax <span class="smalllinenumber">[line 636]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static bool isAjax(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodisSSL"></a>
+	<h3>static method isSSL <span class="smalllinenumber">[line 644]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static bool isSSL(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Check if the connection is a SSL connection<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>determined if it is a SSL connection</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodload"></a>
+	<h3>static method load <span class="smalllinenumber">[line 237]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed load(
+string
+$className, string
+$path, [bool
+$createObj = FALSE])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Imports the definition of class(es) and tries to create an object/a list of objects from the class.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in.</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$className</b>&nbsp;&nbsp;</td>
+        <td>Name of the class to be imported</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$path</b>&nbsp;&nbsp;</td>
+        <td>Path to the class file</td>
+      </tr>
+          <tr>
+        <td class="type">bool&nbsp;&nbsp;</td>
+        <td><b>$createObj</b>&nbsp;&nbsp;</td>
+        <td>Determined whether to create object(s) of the class</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadClass"></a>
+	<h3>static method loadClass <span class="smalllinenumber">[line 340]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed loadClass(
+$className
+$className, [$context
+$context = false], [$createObj
+$createObj = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Imports the definition of one Class. Class file is located at <strong>BASE_PATH/class/</strong> or <strong>$context/class/</strong><br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- object or boolean</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$className&nbsp;&nbsp;</td>
+        <td><b>$className</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$context&nbsp;&nbsp;</td>
+        <td><b>$context</b>&nbsp;&nbsp;</td>
+        <td>- name of module or boolean</td>
+      </tr>
+          <tr>
+        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td><b>$createObj</b>&nbsp;&nbsp;</td>
+        <td>boolean</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadConfig"></a>
+	<h3>static method loadConfig <span class="smalllinenumber">[line 200]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void loadConfig(
+$aConfig
+$aConfig)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Load and set application configurations.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$aConfig&nbsp;&nbsp;</td>
+        <td><b>$aConfig</b>&nbsp;&nbsp;</td>
+        <td>Array - configurations params.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadContext"></a>
+	<h3>static method loadContext <span class="smalllinenumber">[line 282]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed loadContext(
+$className
+$className, [$contextORcreateObj
+$contextORcreateObj = ''], [$createObj
+$createObj = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Import files of context.<br /><br /><p>Context can be a Module path or APP_PATH (default).</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- object or boolean</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$className&nbsp;&nbsp;</td>
+        <td><b>$className</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$contextORcreateObj&nbsp;&nbsp;</td>
+        <td><b>$contextORcreateObj</b>&nbsp;&nbsp;</td>
+        <td>mixed - name of module or boolean</td>
+      </tr>
+          <tr>
+        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td><b>$createObj</b>&nbsp;&nbsp;</td>
+        <td>boolean</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadController"></a>
+	<h3>static method loadController <span class="smalllinenumber">[line 302]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed loadController(
+$cName
+$cName, [$context
+$context = ''], [$createObj
+$createObj = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Imports the definition of Controller class. Class file is located at <strong>APP_PATH/controller/</strong> or <strong>APP_PATH/ModuleName/controller/</strong><br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- object or boolean</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$cName&nbsp;&nbsp;</td>
+        <td><b>$cName</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$context&nbsp;&nbsp;</td>
+        <td><b>$context</b>&nbsp;&nbsp;</td>
+        <td>- name of module or boolean</td>
+      </tr>
+          <tr>
+        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td><b>$createObj</b>&nbsp;&nbsp;</td>
+        <td>boolean</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadHelper"></a>
+	<h3>static method loadHelper <span class="smalllinenumber">[line 354]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed loadHelper(
+$helperName
+$helperName, [$context
+$context = false], $createObj
+2)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Imports the definition of functions Helper file. File is located at <strong>BASE_PATH/helper/</strong>  or <strong>$context/helper/</strong><br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- object or boolean</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td><b>2</b>&nbsp;&nbsp;</td>
+        <td>boolean</td>
+      </tr>
+          <tr>
+        <td class="type">$helperName&nbsp;&nbsp;</td>
+        <td><b>$helperName</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$context&nbsp;&nbsp;</td>
+        <td><b>$context</b>&nbsp;&nbsp;</td>
+        <td>- name of module or boolean</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadModel"></a>
+	<h3>static method loadModel <span class="smalllinenumber">[line 321]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed loadModel(
+$modelName
+$modelName, [$context
+$context = ''], [$createObj
+$createObj = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Imports the definition of Model class. Class file is located at <strong>APP_PATH/model/</strong> or<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- object or boolean</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$modelName&nbsp;&nbsp;</td>
+        <td><b>$modelName</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$context&nbsp;&nbsp;</td>
+        <td><b>$context</b>&nbsp;&nbsp;</td>
+        <td>- name of module or boolean</td>
+      </tr>
+          <tr>
+        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td><b>$createObj</b>&nbsp;&nbsp;</td>
+        <td>boolean</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadPlugin"></a>
+	<h3>static method loadPlugin <span class="smalllinenumber">[line 372]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static mixed loadPlugin(
+$pluginName
+$pluginName, [$context
+$context = false], [$createObj
+$createObj = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Imports the definition of Plugin class. Class file is located at <strong>BASE_PATH/plugin/</strong>  or <strong>$context/plugin/</strong><br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- object or boolean</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$pluginName&nbsp;&nbsp;</td>
+        <td><b>$pluginName</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$context&nbsp;&nbsp;</td>
+        <td><b>$context</b>&nbsp;&nbsp;</td>
+        <td>- name of module or boolean</td>
+      </tr>
+          <tr>
+        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td><b>$createObj</b>&nbsp;&nbsp;</td>
+        <td>boolean</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodparseRouteParams"></a>
+	<h3>static method parseRouteParams <span class="smalllinenumber">[line 429]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static boolean parseRouteParams(
+$aRoute
+$aRoute, $uri
+$uri)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Search for configured route and params returning it.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$aRoute&nbsp;&nbsp;</td>
+        <td><b>$aRoute</b>&nbsp;&nbsp;</td>
+        <td>Array</td>
+      </tr>
+          <tr>
+        <td class="type">$uri&nbsp;&nbsp;</td>
+        <td><b>$uri</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodprepareLoad"></a>
+	<h3>static method prepareLoad <span class="smalllinenumber">[line 260]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static Array prepareLoad(
+$context
+$context, $create
+$create)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Detect and return the current configuration about which context should be loaded.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$context&nbsp;&nbsp;</td>
+        <td><b>$context</b>&nbsp;&nbsp;</td>
+        <td>string - Module Name</td>
+      </tr>
+          <tr>
+        <td class="type">$create&nbsp;&nbsp;</td>
+        <td><b>$create</b>&nbsp;&nbsp;</td>
+        <td>boolean - if it must return a object</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodprocessRoute"></a>
+	<h3>static method processRoute <span class="smalllinenumber">[line 517]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void processRoute(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Process route, match and create related controller or redirect to default controller if don't match.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodredirect"></a>
+	<h3>static method redirect <span class="smalllinenumber">[line 451]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static string redirect(
+$url
+$url, [$return
+$return = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Redirect client to another URL<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$url&nbsp;&nbsp;</td>
+        <td><b>$url</b>&nbsp;&nbsp;</td>
+        <td>string</td>
+      </tr>
+          <tr>
+        <td class="type">$return&nbsp;&nbsp;</td>
+        <td><b>$return</b>&nbsp;&nbsp;</td>
+        <td>boolean - if must return a url string instead of redirect client</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodrequestedMethod"></a>
+	<h3>static method requestedMethod <span class="smalllinenumber">[line 465]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static string requestedMethod(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Return the requested method.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodrun"></a>
+	<h3>static method run <span class="smalllinenumber">[line 153]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void run(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Start and execute application.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetup"></a>
+	<h3>static method setup <span class="smalllinenumber">[line 190]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void setup(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Complete the basic configuration.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+
+</div><br />
+
+<hr />
+<a name="class_consts"></a>
+<h3>Class Constants</h3>
+<div class="tags">
+	<a name="constVERSION"></a>
+	<p></p>
+	<h4>VERSION = <span class="value">&nbsp;'1.0b'</span></h4>
+	<p>[line 43]</p>
+  Framework version<br /><br />
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Fri, 06 Aug 2010 16:03:52 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

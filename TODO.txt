@@ -1,0 +1,34 @@
+20/07/2010
+    - refactor View()->viewPath to path() method
+    
+23/04/2010
+    - Refactor View class using Liber::controller() static method
+
+03/04/2010
+    - Create a new cache system using "Fucky Cache" method. May be needed change to a new router system.
+    - Create a out put content based URL request like: /blog.html -> html | /blog.xml -> xml | /blog.rss -> rss
+
+25/01/2010
+    - Store in session URI request and Controller/Method/Module loaded and use on next request direct
+    - Refactorin/recreate route process, using * on unknow method get error. line 536-540 Liber.php
+
+1/12/2009
+    - Controller module auto detect on new instance
+
+14/11/2009
+    - (helper ?) to out put XML, Yaml, Json response.
+    - helper to create feed rss.
+    - To Refactor Doo:getParams, there is a faster way to exclude empty value
+
+06/11/2009
+    - load Methods, can accept Array of files (loading with include file1, file2) ??
+
+22/10/2009
+    - Add filters Input class
+    - Test unit
+    - Documentation (Api, Tutorial, lot of examples of use)
+    - Scaffolding system ?
+    - Module to manager installs of: plugins, templates engines, modules, diagnostics etc.
+    - create route like: ('/a/b/c/e/f' = Array('controller', '*')) to use a controller manage any action (method)
+    
+     
