@@ -35,8 +35,7 @@ class MainController extends Controller{
 	public function mailer() {
 
     	Liber::loadHelper('Form');
-        $aData['titulo'] = 'Mailer Class';
-        $this->oTPL->load("mailer.html",$aData);		
+        $this->oTPL->load("mailer.html");		
 	}
 	
 	public function mailersend() {
@@ -63,8 +62,13 @@ class MainController extends Controller{
 
 	public function input() {
     	Liber::loadHelper('Form');
-        $aData['titulo'] = 'Input Class';
-        $this->oTPL->load("input.html",$aData);		
+        $this->oTPL->load("input.html");		
+	}
+
+
+	public function log() {
+    	Liber::loadHelper('Form');
+        $this->oTPL->load("log.html");		
 	}
 
 

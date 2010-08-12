@@ -132,6 +132,19 @@ class Liber {
         self::$_db = call_user_func($c .'::getInstance');
         return self::$_db;
     }
+    
+    /**
+    *   Returns a log object instance;
+    *   @return object Log
+    */
+    public static function log() {
+        static $oLog;
+        
+        if ( !is_object($oLog) ) {
+            $oLog = Liber::loadClass('Log', true);
+        } 
+        return $oLog;
+    }
 
     /**
     *   Returns a cache instance.

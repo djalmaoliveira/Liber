@@ -1,4 +1,59 @@
 <div class="blog">
-<h1>What's Liber ?</h1>
-<p>Liber is a very simple php framework based in MVC pattern, indicated to who want to choose own database layer, template engine and so on.</p>
+    <h1>What's Liber ?</h1>
+    <p>Liber is a very simple php framework based in MVC pattern, indicated to who want to choose own database layer, template engine and so on.</p>
+</div>
+
+<div class="blog">
+    <h1>Get Started</h1>
+    <p>Before start, you need understand some conventions about how this framework works.</p>
+
+    <p>In general, it work like a <a href='http://en.wikipedia.org/wiki/Model%E2%80%93View%E2%80%93Controller' target='_blank'>MVC pattern.</a></p>
+
+    <p><strong>The <em>app/</em> folder</strong></p>
+    <p>This is a folder where you will find the structure of how Liber applications seem.</p>
+    
+    
+    <ul>
+        <li><em>app/assets/</em>: where are stored any public file used in your application; (optional)</li>
+        <li><em>app/class/</em>: personal classes that yon can use in your application; (optional)</li>
+        <li><em>app/config/</em>: store the <em>config.php</em> file, that configure your application or another file that you consider useful to put there;</li>
+        <li><em>app/controller/</em>: store several controller files used by application;</li>        
+        <li><em>app/helper/</em>: store several helper files used by application, the helper file can't be a PHP class, only simple functions; (optional)</li>        
+        <li><em>app/layout/</em>: store layout files that are simple HTML files that replace already existing view files; (optional)</li>                
+        <li><em>app/log/</em>: store several log files wrote by application;</li>        
+        <li><em>app/module/</em>: store several module folders, a module has the same structure that an app has; (optional)</li>        
+        <li><em>app/plugin/</em>: store several plugins files used by application; (optional)</li>        
+        <li><em>app/template/</em>: store several HTML files that build the general visual of application; (optional)</li>        
+        <li><em>app/view/</em>: store several view files used by application; (optional)</li>        
+    </ul>
+
+    <p>The minimal structure:</p>
+    <ul>
+        <li><em>app/config/</em></li>
+        <li><em>app/controller/</em></li>
+        <li><em>app/log/</em></li>
+    </ul>
+
+    <p>Code Example</p>
+    <pre>
+        // get configuration data
+        echo Liber::conf('LOG_PATH');
+        echo Liber::conf('APP_ROOT');
+        
+        // set your own configuration value
+        // warning, see on API docs which are the keywords that you can't use
+        Liber::conf('MY_PERSONAL_CONFIG', 'value');
+        
+        // load a class (framework)
+        Liber::loadClass('Mailer');
+        $m = new Mailer;
+        
+        // load and return a object class
+        $m = Liber::loadClass('Mailer', true);
+        
+    </pre>
+
+
+    <p>A good real example of application is this manual, go to <em>framework/manual</em> folder and see it.</p>
+
 </div>
