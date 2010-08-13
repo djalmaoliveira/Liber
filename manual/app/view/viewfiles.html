@@ -1,0 +1,28 @@
+<div class="blog">
+<h1>View Files</h1>
+
+
+<p>The view files are a simple HTML files that can be stored on <em>view/</em> folder.</p>
+<p>Inside of it, can be used the php syntax, i.e. <? echo  htmlentities ('<? ?>');  ?>.</p>
+<p>By default, this framework use a simple <em>TemplateEngine</em> class, that extract the data provided to current context of view.</p>
+<p>If you are using a external Template Engine, then you will have to write this files using its own syntax.</p>
+
+<p>Code example:</p>
+
+<pre>
+    <? echo  htmlentities ('
+    <html>
+        <body>
+            <div class="post">
+                <h1><? echo $title; ?></h1>
+                <? echo $message; ?>
+            </div>
+        </body>
+    </html>
+    ');
+
+    ?>
+</pre>
+
+
+</div>

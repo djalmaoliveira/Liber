@@ -67,10 +67,12 @@ class MainController extends Controller{
 
 
 	public function log() {
-    	Liber::loadHelper('Form');
         $this->oTPL->load("log.html");		
 	}
 
+	public function viewfiles() {
+        $this->oTPL->load("viewfiles.html");		
+	}
 
 }
 
