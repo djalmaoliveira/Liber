@@ -1,6 +1,3 @@
-20/07/2010
-    - refactor View()->viewPath to path() method
-    
 23/04/2010
     - Refactor View class using Liber::controller() static method
 

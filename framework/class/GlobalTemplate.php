@@ -81,7 +81,7 @@ class GlobalTemplate {
     *   @return mixed <null | String>
     */
     function load($fileName, $aData=Array(), $return=false) {
-        $viewFile = $this->_view->viewPath($fileName);        
+        $viewFile = $this->_view->path($fileName);        
         if ($this->_view->cache($fileName) > 0 and  Liber::conf('APP_MODE') == 'PROD'  ) {
 
             $cacheId  = $_SERVER['REQUEST_URI'].$viewFile.$this->modelName;

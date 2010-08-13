@@ -119,7 +119,7 @@ class View {
     *   @param String $fileName 
     *   @return String
     */
-    function viewPath($fileName) {
+    function path($fileName) {
         if ($fileName[0] == '/') { return $fileName; }  // if specified complete path
         $file_path = $this->module_path.'view/'.$fileName;
         if ( !empty($this->layout) ) {
@@ -146,7 +146,7 @@ class View {
     *   @return String - if output is true
     */
     function load($fileName, $data=null, $output=false) {
-        $file_path = $this->viewPath($fileName);
+        $file_path = $this->path($fileName);
         
         // use layout once time.
         if ( !empty($this->_layout_once) ) {
