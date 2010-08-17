@@ -12,6 +12,11 @@ pre {
 }
 
 
+quote div{
+    padding:5px;
+    background-color:#e5e5e5;
+}
+
 a {/* All undefined links */
 color: #ee1e23;
 }

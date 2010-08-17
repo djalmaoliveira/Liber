@@ -1,0 +1,34 @@
+<div class="blog">
+<h1>Controller Files</h1>
+
+
+<p>The controller files are stored on <em>controller/</em> folder.</p>
+<p>This files are PHP classes extending <em>Controller</em> class,  that manipules http requests and do something, e.g. load view files.</p>
+<p>For every controller file is recommended create a <em>index()</em> method, that is a default behaviour from routing mechanism.</p>
+<quote><div>Tips: if you want load a default classes or resources for each Controller load, you can use the <em>__construct()</em> method to do this.</div></quote>
+
+<p>Code example:</p>
+
+<pre>
+    <? echo  htmlentities ('
+        <?
+            class MainController extends Controller {
+                
+                function __construct() {
+                    // load some resources or validations
+                }
+        
+                public function index() {
+                    echo "yes, this is index method from ".__CLASS__;
+                }
+            }
+            
+        ?>
+
+    ');
+
+    ?>
+</pre>
+
+
+</div>

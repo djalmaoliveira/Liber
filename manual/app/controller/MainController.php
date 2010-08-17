@@ -74,6 +74,10 @@ class MainController extends Controller{
         $this->oTPL->load("viewfiles.html");		
 	}
 
+	public function controllerfiles() {
+        $this->oTPL->load("controllerfiles.html");		
+	}
+
 }
 
 ?>
