@@ -77,6 +77,11 @@ class MainController extends Controller{
 	public function controllerfiles() {
         $this->oTPL->load("controllerfiles.html");		
 	}
+	
+	
+	public function session() {
+	    $this->oTPL->load("session.html");		
+	}
 
 }
 

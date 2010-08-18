@@ -1,0 +1,40 @@
+<div class="blog">
+<h1>Session Class</h1>
+
+
+<p>With Session class you can store data on session at server.</p>
+<p>This is a simple way to manipulate and store data among request pages.</p>
+
+<quote><div>Tip: You can use a 'namespace' to separe different data values on the same session, e.g., Cart shop, Login user etc.</div></quote>
+
+<p>Code example:</p>
+
+<pre>
+    // Session load
+    Liber::loadClass('Session');
+    // You can still specifies a 'namespace' and 'session_id', they are optional.
+    $oSession = new Session('namespace', 'session_id');
+    
+    // Storing values
+    $oSession->val('data1', 'value1');
+    $oSession->val('data2', 'value2');
+    $oSession->val('data3', Array('value3'));
+    
+    // Get values
+    echo $oSession->val('data1');
+    echo $oSession->val('data2');
+    print_r( $oSession->val('data3') );
+    
+    // Return all data stored into Array
+    $arr = $oSession->toArray();
+    
+    // Clear all session data
+    $oSession->clear();
+    
+    // Destroy session
+    $oSession->destroy();
+    
+</pre>
+
+
+</div>
