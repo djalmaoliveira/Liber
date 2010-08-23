@@ -96,7 +96,7 @@
 			$form = "\n";
 		}
 
-		if (is_array($name))
+		if ( is_array($name) )
 		{
 			foreach ($name as $key => $val)
 			{
@@ -144,6 +144,15 @@
                 $elem .= form_input_($n, $v, $extra, true);
             }
         } else {
+            switch ( gettype($value) ) {
+                case 'array' :
+                    $value = $value[$data];
+                break;
+                case 'object':
+                    $value = $value->$data;
+                break;
+            }
+        
             $defaults = array('id' =>(( ! is_array($data)) ? $data : ''), 'type' => 'text', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);        
             $elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";
         }
@@ -479,7 +488,7 @@ function form_password_($data = '', $value = '', $extra = '', $return=false) {
  */
 	  function form_button_($data = '', $content = '', $extra = '', $return=false)
 	{
-		$defaults = array('name' => (( ! is_array($data)) ? $data : ''), 'type' => 'button');
+		$defaults = array('id'=>(( ! is_array($data)) ? $data : ''),'name' => (( ! is_array($data)) ? $data : ''), 'type' => 'button');
 
 		if ( is_array($data) AND isset($data['content']))
 		{
