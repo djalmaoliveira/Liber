@@ -27,13 +27,19 @@ function fs_relative_path_($source_path, $dest_path) {
     $dest_path = trim($dest_path);
    
     
-    $aS = explode('/', $source_path);
-    $aD = explode('/', $dest_path);
+    $aS = array_filter(explode('/', $source_path));
+    $aD = array_filter(explode('/', $dest_path));
+    
     $i  = count(array_intersect_assoc($aS, $aD));
     $countBackDest = (count($aD)-$i)-1;
     $relativePath = implode('/', array_slice($aS, $i));
 
-    $rel = str_repeat('../', $countBackDest).$relativePath;
+    if ($i > 0) {
+        $rel = str_repeat('../', $countBackDest).$relativePath;
+    } else {
+        $rel = '/'.$relativePath;
+    }
+
     return $rel;
 }
 ?>
