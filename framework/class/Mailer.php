@@ -11,7 +11,7 @@
 */
 class Mailer {
     
-    private $aMail = Array();
+    private $aMail = Array('headers'=>Array());
 
     function __construct() {
         $this->html();
@@ -101,11 +101,10 @@ class Mailer {
         $to = implode(' , ', $this->aMail['to']);
         // prepare headers
         $headers = '';
-        if ( is_array($this->aMail['headers']) ) {
-            foreach( $this->aMail['headers'] as $header => $value ) {
-                $headers .= $header.': '.$value."\r\n";
-            }
+        foreach( $this->aMail['headers'] as $header => $value ) {
+            $headers .= $header.': '.$value."\r\n";
         }
+
         // html
         $headers .= 'MIME-Version: 1.0'."\r\n"."Content-type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\r\n";        
         
