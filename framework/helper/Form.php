@@ -236,9 +236,10 @@ function form_password_($data = '', $value = '', $extra = '', $return=false) {
  * @param	string
  * @return	string
  */
-	  function form_textarea_($data = '', $value = '', $extra = '', $return=false)
-	{
-		$defaults = array('name' => (( ! is_array($data)) ? $data : ''));
+	  function form_textarea_($data = '', $value = '', $extra = '', $return=false)	{
+	  
+	    $name = (( ! is_array($data)) ? $data : '');
+		$defaults = array('name' => $name, 'id'=>$name);
 
 		if ( ! is_array($data) OR ! isset($data['value']))
 		{
