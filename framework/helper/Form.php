@@ -146,10 +146,10 @@
         } else {
             switch ( gettype($value) ) {
                 case 'array' :
-                    $value = $value[$data];
+                    $value = isset($value[$data])?$value[$data]:'';
                 break;
                 case 'object':
-                    $value = $value->$data;
+                    $value = property_exists($value,$data)?$value->$data:'';
                 break;
             }
         

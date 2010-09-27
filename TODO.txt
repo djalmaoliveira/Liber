@@ -1,3 +1,6 @@
+09/2010
+    - class Out, with shortcut in View (View->out()), with following methods(guess), file,text,json,zip, xml, used to output its content;
+    
 23/04/2010
     - Refactor View class using Liber::controller() static method
 
