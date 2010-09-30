@@ -49,16 +49,7 @@ function url_to_($relative_url = '', $return=false) {
  * @return string
  */
 function url_current_($return=false) 	{
-    $url = $_SERVER['REQUEST_URI'];
-    if ( $url[0] == '/' ) { 
-	    $url = substr($url,1);
-    }
-    
-    if ($return) {		
-        return Liber::conf('APP_URL').$url;
-    } else {
-        echo Liber::conf('APP_URL').$url;
-    }
+    return (Liber::isSSL()?'https':'http').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 }
 
 /**
