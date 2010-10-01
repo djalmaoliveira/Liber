@@ -164,35 +164,25 @@ class Liber {
     *   Start and execute application.
     */
     public static function run() {
-        
-        // error handler function
-        switch (self::conf('APP_MODE')) {
-            case 'DEV':
-                error_reporting(E_ALL | E_STRICT);
-                function LiberHandler() {
-                    echo Liber::loadClass('Log', true)->toPopUp( func_get_args() );  
-                    die();
-                } 
-                set_error_handler("LiberHandler");
-                set_exception_handler('LiberHandler');
-            break;
-            
-            case 'PROD':
-                error_reporting(-1);    
-                function LiberHandler() {
-                    $args = func_get_args();
-                    unset($args[4]);
-                    Liber::loadClass('Log', true)->add( "\n".implode("\n",  $args) );
-                    Liber::loadController(Liber::conf('SYS_ERROR'), true)->index();
-                    die();
-                }
-                set_error_handler("LiberHandler");
-                set_exception_handler('LiberHandler');
-            break;
+
+        if (  self::conf('APP_MODE') == 'DEV' ) {
+            error_reporting(-1);            
+        } elseif ( self::conf('APP_MODE') == 'PROD' ) {
+            ini_set('display_errors','Off'); 
         }
-        
+
+        function catchError() {
+            Liber::loadClass('Log', true)->handleError( func_get_args() );  
+            die();
+        } 
+
+        set_error_handler("catchError");
+        set_exception_handler('catchError');
+
         self::loadClass('Input');
         self::processRoute();
+        return;    
+            
     }
 
 

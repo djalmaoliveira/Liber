@@ -13,6 +13,7 @@ class Log {
     static $aLogMsg = Array();
     static $aLogAll = Array();
     static $debug   = true;
+    private static $handler = '';
     private static $instanced;
     
     function __construct() {
@@ -20,12 +21,105 @@ class Log {
             return ; 
         } else {
             self::$instanced = true;
-            if ( Liber::conf('APP_MODE') == 'PROD' ) {
-                register_shutdown_function ( Array($this, 'toFile') ) ;
-            }
+            register_shutdown_function ( Array($this, 'post') ) ;
         }
     }
     
+    
+    /**
+    *   Do the last action with log messages stored. 
+    *   The default on error behavior is:   DEV     => open a popup window showing actual information about error and enviroment.
+    *                                       PROD    => call to SYS_ERROR controller defined.
+    *   Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].
+    */
+    public function post() {
+
+        if ( !empty(self::$handler) ) {
+            call_user_func(self::$handler, self::$aLogMsg);
+        } 
+
+        $this->toFile();
+        // action on error
+        if ( error_get_last() !== null) {        
+            if ( Liber::conf('APP_MODE') == 'DEV' ) {
+                echo $this->toPopUp(); die();
+            } else {
+                Liber::loadController(Liber::conf('SYS_ERROR'), true)->index();
+            }
+        }
+    }
+
+    
+    /**
+    *   Set a handler function to control the behavior of log messages.
+    *   The behavior of this function will be called before the default behavior, if you don't want the default behavior, then call die() or exit on $func.
+    *   @param String $func - a function
+    */
+    function handler($func) {
+        if ( !empty($func) ) {
+            self::$handler = $func;
+        }
+    }
+
+
+    /**
+    *   Add a message of current error triggered.
+    *   At the end of method, the execution of script will be stopped.
+    */    
+    function handleError() {
+        $args       = func_get_args();
+        $errorData  = current($args);
+        $aError     = Array() ;
+        $o          = $errorData[0];
+
+        if ( gettype($o) == 'object' ) {
+            $aError['no']   = $o->getCode();
+            $aError['msg']  = $o->getMessage();
+            $aError['file'] = $o->getFile();
+            $aError['line'] = $o->getLine();
+            $trace          = $o->getTrace();
+        } else {
+            $aError['no']   = $errorData[0];
+            $aError['msg']  = $errorData[1];            
+            $aError['file'] = $errorData[2];
+            $aError['line'] = $errorData[3];
+            $trace          = debug_backtrace();
+        }
+
+        $profile = $this->profile($aError, $trace, (is_object($o)?'exception':'error'));
+
+        $this->add("Error: ".$aError['msg'].". \r\n".$profile, 'error');
+        
+        trigger_error('Error detected: '.$aError['msg'], E_USER_ERROR);
+    }
+
+
+    /**
+    *   Return a String of current error and enviroment information.
+    *   @param Array $context - Error context
+    *   @param Array $arr - backtrace 
+    *   @param String $type - 'error' or 'exception' 
+    *   @return String
+    */
+    private function profile($context, $arr, $type) {
+
+        $offset = ($type=='exception')?0:2;
+        $traces = '';
+        for ($i=$offset; $i < count($arr); $i++ ) {
+            $t          = $arr[$i];
+            $class      = (isset($t['class'])?$t['class'].$t['type']:'');
+            $function   = (isset($t['function'])?$t['function']:'');
+            $args       = (isset($t['args'])?str_replace("\n","",print_r($t['args'], true)):'');
+
+            $traces    .= ' '.$class.$function."( ".$args." ) \r\n    called at [".$t['file']."] line ".(isset($t['line'])?$t['line']:'')."\r\n";
+        }
+        $traces = "Where: [".$context['file']."] line ".$context['line']." \r\n \r\n".$traces;
+        
+        $env = "\r\n_SERVER: ".print_r($_SERVER, true)."\r\n_POST: ".print_r($_POST, true)."\r\n_GET: ".print_r($_GET, true)."\r\n_SESSION: ".print_r($_SESSION, true)."\r\n_COOKIE: ".print_r($_COOKIE, true)."\r\n_FILES: ".print_r($_FILES, true);
+
+        return $traces.$env;
+    }
+
     
     /**
     *   Adds a message log.  
@@ -38,9 +132,6 @@ class Log {
         $id = array_push(self::$aLogMsg[$level] , '['. date(DATE_RFC822).'] '.$msg."\n");
         $id--;
         self::$aLogAll[] = &self::$aLogMsg[$level][$id];
-        if ( Liber::conf('APP_MODE') == 'DEV' ) {
-            trigger_error("Framework Error.", E_USER_ERROR);
-        }
     }
     
     
@@ -50,7 +141,7 @@ class Log {
     */
     function toFile() {
         if ( !self::$debug or count(self::$aLogMsg)==0 ) { return; }
-        file_put_contents( Liber::conf('LOG_PATH').date('Ymd').'.log', implode("\n", self::$aLogAll), FILE_APPEND| LOCK_EX );
+        file_put_contents( Liber::conf('APP_PATH').Liber::conf('LOG_PATH').date('Ymd').'.log', implode("\n", self::$aLogAll), FILE_APPEND| LOCK_EX );
     }
     
     
@@ -65,42 +156,19 @@ class Log {
     
     /**
     *   Generate a html content to show a popup with PHP error.
-    *   Receive a Array $aData, can be from errorHandler or exceptionHandler.
-    *   @param Array $aData 
     *   @return String
     */
-    function toPopUp($aData) {
-        $errno      = '';
-        $errstr     = $aData[0];
-        $errfile    = '';
-        $errline    = '';
-    
-        if ( count($aData) > 1 ) {
-            $errno      = $aData[0];
-            $errstr     = $aData[1];
-            $errfile    = $aData[2];
-            $errline    = $aData[3];
-        } 
-    
-        $html = "<html><body>";
-        $html .= empty($errno)?'':" <div><b>Error</b>   : <i>#$errno</i></div>";
-        $html .= empty($errstr)?'':"<div><b>Message</b> : <i>$errstr</i></div>";
-        $html .= empty($errfile)?'':" <div><b>File</b>    : <i>$errfile (line $errline)</i></div>";
-        $html .= $this->toString()==''?'':"<div><b>System</b>  : <i>".$this->toString()."</i></div>";
-
-        ob_start();
-        debug_print_backtrace();
-        $html .= "<div><b>Trace:</b><pre>".ob_get_clean()."</pre></div>";
-
+    function toPopUp() {
+        $html  = "<html><body>";
+        $html .="<pre>".implode("\r\n", self::$aLogAll)."</pre>";
         $html .="</body></html>";
         
-        
-        $html = str_replace("'",'"', $html);
-        $html = str_replace("\n",'<br>', $html);
-        $html = "
-        <script>
-            var wError = window.open('about:blank', 'erro', 'top=10, left=200, width=700, height=200, resizable=yes');
-            wError.document.write('$html');
+        $output = str_replace("'",'"', $html);
+        $html   = "
+        <script type='text/javascript'>
+            var wError = window.open('about:blank', 'profile_window', 'top=10, left=200, width=700, height=200, resizable=yes, scrollbars=yes');
+            var output = ".json_encode(Array($output)).";
+            wError.document.write(output[0]);
         </script>";  
         return $html;
     }
