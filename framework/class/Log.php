@@ -34,7 +34,7 @@ class Log {
     */
     public function post() {
 
-        if ( !empty(self::$handler) ) {
+        if ( !empty(self::$handler) and count(self::$aLogMsg) > 0) {
             call_user_func(self::$handler, self::$aLogMsg);
         } 
 
