@@ -111,6 +111,9 @@ Source Location: /class/Log.php<br /><br />
 <ul>
     <li><a href="../core-class/Log.html#method__construct">__construct</a></li>
     <li><a href="../core-class/Log.html#methodadd">add</a></li>
+    <li><a href="../core-class/Log.html#methodhandleError">handleError</a></li>
+    <li><a href="../core-class/Log.html#methodhandler">handler</a></li>
+    <li><a href="../core-class/Log.html#methodpost">post</a></li>
     <li><a href="../core-class/Log.html#methodtoFile">toFile</a></li>
     <li><a href="../core-class/Log.html#methodtoPopUp">toPopUp</a></li>
     <li><a href="../core-class/Log.html#methodtoString">toString</a></li>
@@ -195,7 +198,7 @@ Class that manipulate produced logs in general.<br /><br /></div><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 18]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 19]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -211,7 +214,7 @@ Class that manipulate produced logs in general.<br /><br /></div><br /><br />
   </div>
   <hr />
 	<a name="methodadd"></a>
-	<h3>method add <span class="smalllinenumber">[line 35]</span></h3>
+	<h3>method add <span class="smalllinenumber">[line 129]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -243,8 +246,76 @@ $level = 'info'])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodhandleError"></a>
+	<h3>method handleError <span class="smalllinenumber">[line 69]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void handleError(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Add a message of current error triggered.<br /><br /><p>At the end of method, the execution of script will be stopped.</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodhandler"></a>
+	<h3>method handler <span class="smalllinenumber">[line 58]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void handler(
+String
+$func)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set a handler function to control the behavior of log messages.<br /><br /><p>The behavior of this function will be called before the default behavior, if you don't want the default behavior, then call die() or exit on $func.</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">String&nbsp;&nbsp;</td>
+        <td><b>$func</b>&nbsp;&nbsp;</td>
+        <td>- a function</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodpost"></a>
+	<h3>method post <span class="smalllinenumber">[line 35]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void post(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Do the last action with log messages stored.<br /><br /><p>The default on error behavior is:   DEV     =&gt; open a popup window showing actual information about error and enviroment.                                        PROD    =&gt; call to SYS_ERROR controller defined.    Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodtoFile"></a>
-	<h3>method toFile <span class="smalllinenumber">[line 51]</span></h3>
+	<h3>method toFile <span class="smalllinenumber">[line 142]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -260,34 +331,23 @@ $level = 'info'])</code>
   </div>
   <hr />
 	<a name="methodtoPopUp"></a>
-	<h3>method toPopUp <span class="smalllinenumber">[line 72]</span></h3>
+	<h3>method toPopUp <span class="smalllinenumber">[line 161]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>String toPopUp(
-Array
-$aData)</code>
+)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Generate a html content to show a popup with PHP error.<br /><br /><p>Receive a Array $aData, can be from errorHandler or exceptionHandler.</p><br /><br /><br />
+		Generate a html content to show a popup with PHP error.<br /><br /><br /><br />
 
 	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">Array&nbsp;&nbsp;</td>
-        <td><b>$aData</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodtoString"></a>
-	<h3>method toString <span class="smalllinenumber">[line 61]</span></h3>
+	<h3>method toString <span class="smalllinenumber">[line 152]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -306,7 +366,7 @@ $aData)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 13 Aug 2010 09:35:38 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 15 Oct 2010 11:48:59 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
