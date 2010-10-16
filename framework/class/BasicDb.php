@@ -13,13 +13,15 @@ class BasicDb {
     *   Return the instance
     *   @return object PDO
     */
-    static function getInstance() {
-        $config = Liber::$aDbConfig;
-        if ( isset($config[Liber::conf('APP_MODE')]) ) {
-            $config = $config[Liber::conf('APP_MODE')];
+    static function getInstance($app_mode=null) {
+        if ($app_mode==null) {
+            $app_mode = Liber::conf('APP_MODE');
+        }
+        if ( isset(Liber::$aDbConfig[$app_mode]) ) {
+            $config = Liber::$aDbConfig[$app_mode];
             $dsn    = $config[4].':dbname='.$config[1].';host='.$config[0];
             try {
-                $o      = new PDO($dsn, $config[2], $config[3]);
+                $o  = new PDO($dsn, $config[2], $config[3]);
                 if ($o) { 
                     $o->exec("set names 'utf8'"); 
                 } 
@@ -29,7 +31,7 @@ class BasicDb {
                 return null;
             }
         } else {
-            Liber::loadClass('Log',true)->add('Configure database settings.');
+            Liber::log()->add('Configure database settings.');
             return null;
         }
     }

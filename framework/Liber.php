@@ -119,8 +119,8 @@ class Liber {
     *   Returns a database object instance.
     *   @return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.
     */
-    public static function &db() {
-        if ( is_object(self::$_db) ) { return self::$_db; }
+    public static function &db($app_mode=null) {
+        if ( is_object(self::$_db[$app_mode]) ) { return self::$_db[$app_mode]; }
         
         $c = Liber::conf('DB_LAYER');
         if (  $c == 'BasicDb' ) {
@@ -129,8 +129,8 @@ class Liber {
             self::loadClass(Liber::conf('DB_LAYER'), 'APP');
         }
 
-        self::$_db = call_user_func($c .'::getInstance');
-        return self::$_db;
+        self::$_db[$app_mode] = call_user_func($c .'::getInstance', $app_mode);
+        return self::$_db[$app_mode];
     }
     
     /**
