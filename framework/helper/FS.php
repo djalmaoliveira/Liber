@@ -25,12 +25,19 @@
 function fs_relative_path_($source_path, $dest_path) {
     $source_path = trim($source_path);
     $dest_path = trim($dest_path);
-   
-    
+  
     $aS = array_filter(explode('/', $source_path));
     $aD = array_filter(explode('/', $dest_path));
-    
-    $i  = count(array_intersect_assoc($aS, $aD));
+    // check if the source has the same path of destination
+    $i = 0;
+    foreach($aS as $key => $value) {
+        if ( array_key_exists($key, $aD) and $value == $aD[$key]) {
+            $i++;
+        } else {
+            break;
+        }
+    }
+
     $countBackDest = (count($aD)-$i)-1;
     $relativePath = implode('/', array_slice($aS, $i));
 
