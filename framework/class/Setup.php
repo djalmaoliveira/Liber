@@ -84,12 +84,9 @@ class Setup {
             if ( is_link($link_path) ) {
                 unlink($link_path);
             }
-            $cp = getcwd();
-            chdir(dirname($link_path));
             $source = fs_relative_path_($asset_path, $link_path);
 
             symlink ($source , $link_path) ;
-            chdir($cp); // restore to current path
         }
     }
     
