@@ -453,9 +453,13 @@ class Liber {
     */
     public static function redirect($url, $return=false) {
         if ( $url[0] == '/' ) {
-            $url[0] = ' ';
-            $url = Liber::conf('APP_URL').trim($url);
-        } 
+        	if ( strpos($_SERVER['REQUEST_URI'], 'index.php') !== false ) {
+                $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);        
+            } else {
+                $url = Liber::conf('APP_URL').substr(trim($url), 1);        
+            }
+        }
+        $url = filter_var($url, FILTER_VALIDATE_URL);          
         if ($return) { return $url; }
         header("Location: $url");
         exit;
@@ -645,6 +649,7 @@ class Liber {
     *  @return bool determined if it is a SSL connection
     */
     public static function isSSL(){
+
         if(!isset($_SERVER['HTTPS']))
             return FALSE;
             

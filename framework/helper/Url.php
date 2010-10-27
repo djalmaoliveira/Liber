@@ -23,12 +23,8 @@
  * @return string
  */
 function url_to_($relative_url = '', $return=false) {
-    if ( $relative_url[0]=='/' ) { 
-	    $url = Liber::conf('APP_URL').substr($relative_url,1);    
-    } else {
-        $url = $relative_url;
-    }
-    
+    $url = Liber::redirect($relative_url, true);
+
     if ($return) {	
         return $url;
     } else {
