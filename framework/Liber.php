@@ -446,14 +446,16 @@ class Liber {
     }
 
     /**
-    *   Redirect client to another URL
+    *   Redirect client to another URL.
+    *   Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.
+    *   If this param don't exist, all urls will be used with 'index.php/'.
     *   @param $url string
     *   @param $return boolean - if must return a url string instead of redirect client
     *   @return string
     */
     public static function redirect($url, $return=false) {
         if ( $url[0] == '/' ) {
-        	if ( strpos($_SERVER['REQUEST_URI'], 'index.php') !== false ) {
+        	if ( !array_key_exists('Liber_URL_REWRITE', $_SERVER) ) {
                 $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);        
             } else {
                 $url = Liber::conf('APP_URL').substr(trim($url), 1);        
