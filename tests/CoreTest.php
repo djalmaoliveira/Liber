@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('/opt/PHP/phpunit/PHPUnit/Framework/TestCase.php');
 require_once(realpath(dirname(__FILE__).'/../').'/dooframework/Doo.php');
 

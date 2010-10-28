@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Main framework class file.
  * Copyright (c) 2010, Djalma Oliveira (djalmaoliveira@gmail.com)

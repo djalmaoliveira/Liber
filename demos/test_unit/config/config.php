@@ -1,4 +1,4 @@
-<?
+<?php
 
 $aConfigs = Array('configs'=>Array(), 'routes'=>Array());
 $config = &$aConfigs['configs'];
