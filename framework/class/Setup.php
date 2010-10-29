@@ -34,7 +34,8 @@ class Setup {
     function publishAssets() {
         $aOut           = Array();
         clearstatcache ( ) ;
-
+        $this->prepareAssetDir();
+        
         // delete all links from asset root dir
         $path = $this->app_root.$this->assets_dir;
         $aFiles = scandir($path);
