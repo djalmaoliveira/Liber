@@ -372,7 +372,7 @@ function form_password_($data = '', $value = '', $extra = '', $return=false) {
 		$name = (( ! is_array($data)) ? $data : '');
 		$defaults = array('type' => 'checkbox', 'name' => $name, 'id'=>$name, 'value' => $value);
 
-		if (is_array($data) AND array_key_exists('checked', $data))
+		if (is_array($data) AND isset($data['checked']))
 		{
 			$checked = $data['checked'];
 

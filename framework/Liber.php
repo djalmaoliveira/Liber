@@ -455,7 +455,7 @@ class Liber {
     */
     public static function redirect($url, $return=false) {
         if ( $url[0] == '/' ) {
-        	if ( !array_key_exists('Liber_URL_REWRITE', $_SERVER) ) {
+        	if ( !isset($_SERVER['Liber_URL_REWRITE']) ) {
                 $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);        
             } else {
                 $url = Liber::conf('APP_URL').substr(trim($url), 1);        

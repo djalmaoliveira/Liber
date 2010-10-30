@@ -31,7 +31,7 @@ function fs_relative_path_($source_path, $dest_path) {
     // check if the source has the same path of destination
     $i = 0;
     foreach($aS as $key => $value) {
-        if ( array_key_exists($key, $aD) and $value == $aD[$key]) {
+        if ( isset($aD[$key]) and $value == $aD[$key]) {
             $i++;
         } else {
             break;

@@ -146,6 +146,7 @@ class View {
     *   @return String - if output is true
     */
     function load($fileName, $data=null, $output=false) {
+        
         $file_path = $this->path($fileName);
         
         // use layout once time.
