@@ -78,128 +78,82 @@
 
 
 
-/**
- * Hidden Input Field
- *
- * Generates hidden fields.  You can pass a simple key/value string or an associative
- * array with multiple values.
- * @param	mixed
- * @param	string
- * @return	string
- */
-	  function form_hidden_($name, $value = '', $recursing = FALSE, $return=false)
-	{
-		static $form;
-
-		if ($recursing === FALSE)
-		{
-			$form = "\n";
-		}
-
-		if ( is_array($name) )
-		{
-			foreach ($name as $key => $val)
-			{
-				 form_hidden_($key, $val, TRUE, $return);
-			}
-			return $form;
-		}
-
-		if ( ! is_array($value))
-		{
-			$form .= '<input type="hidden" id="'.$name.'" name="'.$name.'" value="'. form_prep_($value, $name).'" />'."\n";
-		}
-		else
-		{
-			foreach ($value as $k => $v)
-			{
-				$k = (is_int($k)) ? '' : $k; 
-				 form_hidden_($name.'['.$k.']', $v, TRUE, $return);
-			}
-		}
-
-        if ( $return ) {
-            return $form;
-        } else {
-            echo $form;
-        }
-		
-	}
+    function _parse_input_params_($params) {
+        $out['name']  = &$params[0];
+        $out['value'] = ( isset($params[1]) and is_array($params[1]) and isset($params[1][$out['name']]) )?$params[1][$out['name']]:(isset($params[1])?$params[1]:'');
+        $out['extras']= isset($params[2])?$params[2]:'';
+        return 'id="'.$out['name'].'" name="'.$out['name'].'" value="'.$out['value'].'" '.$out['extras'];
+    }
 
 
-
-
-/**
- * Text Input Field
- * @param	mixed
- * @param	string
- * @param	string
- * @return	string
- */
-	  function form_input_($data = '', $value = '', $extra = '', $return=false)	{
-		
-        $elem = '';
-        if ( is_array($data) ) {
-            foreach( $data as $n => $v ) {
-                $elem .= form_input_($n, $v, $extra, true);
-            }
-        } else {
-            switch ( gettype($value) ) {
-                case 'array' :
-                    $value = isset($value[$data])?$value[$data]:'';
-                break;
-                case 'object':
-                    $value = property_exists($value,$data)?$value->$data:'';
-                break;
-            }
-        
-            $defaults = array('id' =>(( ! is_array($data)) ? $data : ''), 'type' => 'text', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);        
-            $elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";
-        }
-        
-        if ( $return ) {
+    /**
+     * Create a Text Input Field.
+     * Params usage:    (name)
+     *                  (name, value)
+     *                  (name, Array()) => 'value' will be the 'name' as an item of Array
+     *                  (name, value, extras)
+     *                  (name, Array(), extras) =>  same of above
+     *                  (..., boolean) => will return a html string of element.
+     * @param	string
+     * @param	String | Array
+     * @param	String
+     * @return	Boolean
+     */
+    function form_input_($name = '', $value = '', $extra = '', $return=false)	{
+        $args = func_get_args();
+        $elem = '<input type="text" '._parse_input_params_( $args).'/>';
+        if ( (is_bool(end($args))?end($args):false) ) {
             return $elem;
         } else {
             echo $elem;
         }
-		
 	}
 
-
-
-
-/**
- * Password Field
- *
- * Identical to the input function but adds the "password" type
- *
-
- * @param	mixed
- * @param	string
- * @param	string
- * @return	string
- */
-function form_password_($data = '', $value = '', $extra = '', $return=false) {
-
-    
-    $elem = '';
-    if ( is_array($data) ) {
-        foreach( $data as $n => $v ) {
-            $elem .= form_password_($n, $v, $extra, true);
+    /**
+     * Create a Hidden Input Field
+     * Params usage:    (name)
+     *                  (name, value)
+     *                  (name, Array()) => 'value' will be the 'name' as an item of Array
+     *                  (name, value, extras)
+     *                  (name, Array(), extras) =>  same of above
+     *                  (..., boolean) => will return a html string of element.
+     * @param	string
+     * @param	String | Array
+     * @param	String
+     * @return	Boolean
+     */
+    function form_hidden_($name = '', $value = '', $extra = '', $return=false)	{
+        $args = func_get_args();
+        $elem = '<input type="hidden" '._parse_input_params_( $args).'/>';
+        if ( (is_bool(end($args))?end($args):false) ) {
+            return $elem;
+        } else {
+            echo $elem;
         }
-    } else {
-        $defaults = array('id' =>(( ! is_array($data)) ? $data : ''), 'type' => 'password', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);    
-        $elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";
+	}
+
+    /**
+     * Create a Password Input Field.
+     * Params usage:    (name)
+     *                  (name, value)
+     *                  (name, Array()) => 'value' will be the 'name' as an item of Array
+     *                  (name, value, extras)
+     *                  (name, Array(), extras) =>  same of above
+     *                  (..., boolean) => will return a html string of element.
+     * @param	string
+     * @param	String | Array
+     * @param	String
+     * @return	Boolean
+     */
+    function form_password_($name = '', $value = '', $extra = '', $return=false) {
+        $args = func_get_args();
+        $elem = '<input type="password" '._parse_input_params_( $args).'/>';
+        if ( (is_bool(end($args))?end($args):false) ) {
+            return $elem;
+        } else {
+            echo $elem;
+        }
     }
-
-    if ( $return ) {
-        return $elem;
-    } else {
-        echo $elem;
-    }
-
-
-}
 
 
 
