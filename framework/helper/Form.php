@@ -97,7 +97,7 @@
      * @param	string
      * @param	String | Array
      * @param	String
-     * @return	Boolean
+     * @return	String
      */
     function form_input_($name = '', $value = '', $extra = '', $return=false)	{
         $args = func_get_args();
@@ -120,7 +120,7 @@
      * @param	string
      * @param	String | Array
      * @param	String
-     * @return	Boolean
+     * @return	String
      */
     function form_hidden_($name = '', $value = '', $extra = '', $return=false)	{
         $args = func_get_args();
@@ -143,7 +143,7 @@
      * @param	string
      * @param	String | Array
      * @param	String
-     * @return	Boolean
+     * @return	String
      */
     function form_password_($name = '', $value = '', $extra = '', $return=false) {
         $args = func_get_args();
@@ -182,37 +182,32 @@
 
 
 
-/**
- * Textarea field
- *
- * @param	mixed
- * @param	string
- * @param	string
- * @return	string
- */
+    /**
+     * Create a TextArea  Field
+     * Params usage:    (name)
+     *                  (name, value)
+     *                  (name, Array()) => 'value' will be the 'name' as an item of Array
+     *                  (name, value, extras)
+     *                  (name, Array(), extras) =>  same of above
+     *                  (..., boolean) => will return a html string of element.
+     * @param	string
+     * @param	String | Array
+     * @param	String
+     * @return	String
+     */
 	  function form_textarea_($data = '', $value = '', $extra = '', $return=false)	{
+	    $params = func_get_args();
+        $out['name']  = &$params[0];
+        $out['value'] = ( isset($params[1]) and is_array($params[1]) and isset($params[1][$out['name']]) )?$params[1][$out['name']]:(isset($params[1])?$params[1]:'');
+        $out['extras']= isset($params[2])?$params[2]:'';
+	    
+	    $elem = '<textarea id="'.$out['name'].'" name="'.$out['name'].'" cols="" rows="" '.$out['extras'].' >'.$out['value'].'</textarea>';
 	  
-	    $name = (( ! is_array($data)) ? $data : '');
-		$defaults = array('name' => $name, 'id'=>$name);
-
-		if ( ! is_array($data) OR ! isset($data['value']))
-		{
-			$val = $value;
-		}
-		else
-		{
-			$val = $data['value']; 
-			unset($data['value']); // textareas don't use the value attribute
-		}
-		
-		$name = (is_array($data)) ? $data['name'] : $data;
-		$elem = "<textarea ". _parse_form_attributes_($data, $defaults).$extra.">". form_prep_($val, $name)."</textarea>";;
 		if ( $return ) {
     		return $elem;
 		} else {
 		    echo $elem;
 		}
-		
 	}
 
 
