@@ -82,7 +82,7 @@ Source Location: /helper/Form.php<br /><br />
 <br />
   <hr />
 	<a name="functionform_button_"></a>
-	<h3>form_button_ <span class="smalllinenumber">[line 491]</span></h3>
+	<h3>form_button_ <span class="smalllinenumber">[line 440]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -120,7 +120,7 @@ Source Location: /helper/Form.php<br /><br />
 	</div>
   <hr />
 	<a name="functionform_checkbox_"></a>
-	<h3>form_checkbox_ <span class="smalllinenumber">[line 370]</span></h3>
+	<h3>form_checkbox_ <span class="smalllinenumber">[line 319]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -163,7 +163,7 @@ Source Location: /helper/Form.php<br /><br />
 	</div>
   <hr />
 	<a name="functionform_close_"></a>
-	<h3>form_close_ <span class="smalllinenumber">[line 602]</span></h3>
+	<h3>form_close_ <span class="smalllinenumber">[line 551]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -191,7 +191,7 @@ Source Location: /helper/Form.php<br /><br />
 	</div>
   <hr />
 	<a name="functionform_fieldset_"></a>
-	<h3>form_fieldset_ <span class="smalllinenumber">[line 556]</span></h3>
+	<h3>form_fieldset_ <span class="smalllinenumber">[line 505]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -224,7 +224,7 @@ Source Location: /helper/Form.php<br /><br />
 	</div>
   <hr />
 	<a name="functionform_fieldset_close_"></a>
-	<h3>form_fieldset_close_ <span class="smalllinenumber">[line 584]</span></h3>
+	<h3>form_fieldset_close_ <span class="smalllinenumber">[line 533]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -252,32 +252,32 @@ Source Location: /helper/Form.php<br /><br />
 	</div>
   <hr />
 	<a name="functionform_hidden_"></a>
-	<h3>form_hidden_ <span class="smalllinenumber">[line 90]</span></h3>
+	<h3>form_hidden_ <span class="smalllinenumber">[line 125]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string form_hidden_(
-mixed $name, [string $value = &#039;&#039;], [ $recursing = FALSE], [ $return = false])</code>
+		<code>String form_hidden_(
+[string $name = &#039;&#039;], [String $value = &#039;&#039;], [String $extra = &#039;&#039;], [ $return = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Hidden Input Field<br /><br /><p>Generates hidden fields.  You can pass a simple key/value string or an associative  array with multiple values.</p><br />    <br /><br />
+		Create a Hidden Input Field<br /><br /><p>Params usage:    (name)                   (name, value)                   (name, Array()) =&gt; 'value' will be the 'name' as an item of Array                   (name, value, extras)                   (name, Array(), extras) =&gt;  same of above                   (..., boolean) =&gt; will return a html string of element.</p><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td class="type">string&nbsp;&nbsp;</td>
         <td><b>$name</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td></td>
+        <td>| Array</td>
       </tr>
 		      <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$recursing</b>&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
+        <td><b>$extra</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
@@ -290,31 +290,31 @@ mixed $name, [string $value = &#039;&#039;], [ $recursing = FALSE], [ $return = 
 	</div>
   <hr />
 	<a name="functionform_input_"></a>
-	<h3>form_input_ <span class="smalllinenumber">[line 139]</span></h3>
+	<h3>form_input_ <span class="smalllinenumber">[line 102]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string form_input_(
-[mixed $data = &#039;&#039;], [string $value = &#039;&#039;], [string $extra = &#039;&#039;], [ $return = false])</code>
+		<code>String form_input_(
+[string $name = &#039;&#039;], [String $value = &#039;&#039;], [String $extra = &#039;&#039;], [ $return = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Text Input Field<br /><br />    <br /><br />
+		Create a Text Input Field.<br /><br /><p>Params usage:    (name)                   (name, value)                   (name, Array()) =&gt; 'value' will be the 'name' as an item of Array                   (name, value, extras)                   (name, Array(), extras) =&gt;  same of above                   (..., boolean) =&gt; will return a html string of element.</p><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td></td>
+        <td>| Array</td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$extra</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
@@ -328,7 +328,7 @@ mixed $name, [string $value = &#039;&#039;], [ $recursing = FALSE], [ $return = 
 	</div>
   <hr />
 	<a name="functionform_label_"></a>
-	<h3>form_label_ <span class="smalllinenumber">[line 519]</span></h3>
+	<h3>form_label_ <span class="smalllinenumber">[line 468]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -366,7 +366,7 @@ mixed $name, [string $value = &#039;&#039;], [ $recursing = FALSE], [ $return = 
 	</div>
   <hr />
 	<a name="functionform_multiselect_"></a>
-	<h3>form_multiselect_ <span class="smalllinenumber">[line 276]</span></h3>
+	<h3>form_multiselect_ <span class="smalllinenumber">[line 225]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -485,31 +485,31 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_password_"></a>
-	<h3>form_password_ <span class="smalllinenumber">[line 182]</span></h3>
+	<h3>form_password_ <span class="smalllinenumber">[line 148]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string form_password_(
-[mixed $data = &#039;&#039;], [string $value = &#039;&#039;], [string $extra = &#039;&#039;], [ $return = false])</code>
+		<code>String form_password_(
+[string $name = &#039;&#039;], [String $value = &#039;&#039;], [String $extra = &#039;&#039;], [ $return = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Password Field<br /><br /><p>Identical to the input function but adds the &quot;password&quot; type</p><br />    <br /><br />
+		Create a Password Input Field.<br /><br /><p>Params usage:    (name)                   (name, value)                   (name, Array()) =&gt; 'value' will be the 'name' as an item of Array                   (name, value, extras)                   (name, Array(), extras) =&gt;  same of above                   (..., boolean) =&gt; will return a html string of element.</p><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td></td>
+        <td>| Array</td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$extra</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
@@ -523,7 +523,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_prep_"></a>
-	<h3>form_prep_ <span class="smalllinenumber">[line 621]</span></h3>
+	<h3>form_prep_ <span class="smalllinenumber">[line 570]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -551,7 +551,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_radio_"></a>
-	<h3>form_radio_ <span class="smalllinenumber">[line 419]</span></h3>
+	<h3>form_radio_ <span class="smalllinenumber">[line 368]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -594,7 +594,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_reset_"></a>
-	<h3>form_reset_ <span class="smalllinenumber">[line 468]</span></h3>
+	<h3>form_reset_ <span class="smalllinenumber">[line 417]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -632,7 +632,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_select_"></a>
-	<h3>form_select_ <span class="smalllinenumber">[line 301]</span></h3>
+	<h3>form_select_ <span class="smalllinenumber">[line 250]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -675,7 +675,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_set_checkbox_"></a>
-	<h3>form_set_checkbox_ <span class="smalllinenumber">[line 754]</span></h3>
+	<h3>form_set_checkbox_ <span class="smalllinenumber">[line 703]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -708,7 +708,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_set_radio_"></a>
-	<h3>form_set_radio_ <span class="smalllinenumber">[line 805]</span></h3>
+	<h3>form_set_radio_ <span class="smalllinenumber">[line 754]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -741,7 +741,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_set_select_"></a>
-	<h3>form_set_select_ <span class="smalllinenumber">[line 703]</span></h3>
+	<h3>form_set_select_ <span class="smalllinenumber">[line 652]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -774,7 +774,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_set_value_"></a>
-	<h3>form_set_value_ <span class="smalllinenumber">[line 675]</span></h3>
+	<h3>form_set_value_ <span class="smalllinenumber">[line 624]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -802,7 +802,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_submit_"></a>
-	<h3>form_submit_ <span class="smalllinenumber">[line 445]</span></h3>
+	<h3>form_submit_ <span class="smalllinenumber">[line 394]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -840,31 +840,31 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_textarea_"></a>
-	<h3>form_textarea_ <span class="smalllinenumber">[line 239]</span></h3>
+	<h3>form_textarea_ <span class="smalllinenumber">[line 198]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string form_textarea_(
-[mixed $data = &#039;&#039;], [string $value = &#039;&#039;], [string $extra = &#039;&#039;], [ $return = false])</code>
+		<code>String form_textarea_(
+[string $data = &#039;&#039;], [String $value = &#039;&#039;], [String $extra = &#039;&#039;], [ $return = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Textarea field<br /><br />    <br /><br />
+		Create a TextArea  Field<br /><br /><p>Params usage:    (name)                   (name, value)                   (name, Array()) =&gt; 'value' will be the 'name' as an item of Array                   (name, value, extras)                   (name, Array(), extras) =&gt;  same of above                   (..., boolean) =&gt; will return a html string of element.</p><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td class="type">string&nbsp;&nbsp;</td>
         <td><b>$data</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td></td>
+        <td>| Array</td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$extra</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
@@ -878,7 +878,7 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 	</div>
   <hr />
 	<a name="functionform_upload_"></a>
-	<h3>form_upload_ <span class="smalllinenumber">[line 217]</span></h3>
+	<h3>form_upload_ <span class="smalllinenumber">[line 171]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -914,10 +914,33 @@ string $action, [array $attributes = array()], [array $hidden = array()], [ $ret
 				</table>
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
+  <hr />
+	<a name="function_parse_input_params_"></a>
+	<h3>_parse_input_params_ <span class="smalllinenumber">[line 81]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void _parse_input_params_(
+ $params)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		    <br /><br />
+	
+    		<h4>Parameters</h4>
+    <table border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$params</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+				</table>
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 15 Oct 2010 11:48:58 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Tue, 02 Nov 2010 13:20:47 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

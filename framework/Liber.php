@@ -232,13 +232,19 @@ class Liber {
     /**
      * Imports the definition of class(es) and tries to create an object/a list of objects from the class.
      * 
-     * @param string $className Name of the class to be imported
+     * @param string|Array $className Name of the class to be imported, or Array of classNames to load.
      * @param string $path Path to the class file
      * @param bool $createObj Determined whether to create object(s) of the class
      * @return mixed returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in.
      */
     public static function load($className, $path, $createObj=FALSE){
         $ret = true;
+        if (is_array($className)) {
+            foreach($className as $class) {
+                self::load($class, $path, false);
+            }
+            return true;
+        }
         if ( !class_exists($className)  ) {
             if ( file_exists($path . $className.'.php') ) {
                 $ret =  (include $path . $className.'.php')!=1?false:true;

@@ -423,7 +423,7 @@ $v = null])</code>
   </div>
   <hr />
 	<a name="methodcontroller"></a>
-	<h3>static method controller <span class="smalllinenumber">[line 631]</span></h3>
+	<h3>static method controller <span class="smalllinenumber">[line 637]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -453,7 +453,8 @@ $v = null])</code>
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>static <a href="../core-class/BasicDb.html">BasicDb</a> &amp;db(
-)</code>
+[
+$app_mode = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -472,6 +473,16 @@ $v = null])</code>
 <br /><br />
 
 	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$app_mode</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
@@ -521,7 +532,7 @@ $data)</code>
   </div>
   <hr />
 	<a name="methodgetRouteConf"></a>
-	<h3>static method getRouteConf <span class="smalllinenumber">[line 482]</span></h3>
+	<h3>static method getRouteConf <span class="smalllinenumber">[line 488]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -548,7 +559,7 @@ $conf)</code>
   </div>
   <hr />
 	<a name="methodgetRouteMethod"></a>
-	<h3>static method getRouteMethod <span class="smalllinenumber">[line 513]</span></h3>
+	<h3>static method getRouteMethod <span class="smalllinenumber">[line 519]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -587,7 +598,7 @@ $route)</code>
   </div>
   <hr />
 	<a name="methodisAjax"></a>
-	<h3>static method isAjax <span class="smalllinenumber">[line 639]</span></h3>
+	<h3>static method isAjax <span class="smalllinenumber">[line 645]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -612,7 +623,7 @@ $route)</code>
   </div>
   <hr />
 	<a name="methodisSSL"></a>
-	<h3>static method isSSL <span class="smalllinenumber">[line 647]</span></h3>
+	<h3>static method isSSL <span class="smalllinenumber">[line 653]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1142,7 +1153,7 @@ $create)</code>
   </div>
   <hr />
 	<a name="methodprocessRoute"></a>
-	<h3>static method processRoute <span class="smalllinenumber">[line 520]</span></h3>
+	<h3>static method processRoute <span class="smalllinenumber">[line 526]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1167,7 +1178,7 @@ $create)</code>
   </div>
   <hr />
 	<a name="methodredirect"></a>
-	<h3>static method redirect <span class="smalllinenumber">[line 454]</span></h3>
+	<h3>static method redirect <span class="smalllinenumber">[line 456]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1178,7 +1189,7 @@ $return = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Redirect client to another URL<br /><br /><br /><br />
+		Redirect client to another URL.<br /><br /><p>Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.    If this param don't exist, all urls will be used with 'index.php/'.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1209,7 +1220,7 @@ $return = false])</code>
   </div>
   <hr />
 	<a name="methodrequestedMethod"></a>
-	<h3>static method requestedMethod <span class="smalllinenumber">[line 468]</span></h3>
+	<h3>static method requestedMethod <span class="smalllinenumber">[line 474]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1300,7 +1311,7 @@ $return = false])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 15 Oct 2010 11:48:59 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Tue, 02 Nov 2010 13:20:48 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
