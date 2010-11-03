@@ -20,9 +20,6 @@
     - helper to create feed rss.
     - To Refactor Doo:getParams, there is a faster way to exclude empty value
 
-06/11/2009
-    - load Methods, can accept Array of files (loading with include file1, file2) ??
-
 22/10/2009
     - Add filters Input class
     - Test unit
