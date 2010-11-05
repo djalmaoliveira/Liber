@@ -11,8 +11,9 @@
 */
 class Mailer {
     
-    private $aMail = Array('headers'=>Array());
-
+    private $aMail      = Array('subject'=>'', 'body'=>'','headers'=>Array());
+    private $files      = Array();
+    
     function __construct() {
         $this->html();
         $this->charset();
@@ -93,6 +94,37 @@ class Mailer {
     }    
     
     /**
+    *   Set ReplyTo email address.
+    *   You can use: reply('name', 'email') or reply('email')        
+    *   @param String $name
+    *   @param String $email
+    */
+    public function reply($name, $email='') {
+        $reply = '';
+        if ( func_num_args() == 1 ) {
+            $reply = $name;  
+        } else {
+            $reply  = "$name <$email>";
+        }
+        $this->header('Reply-To', $reply);
+    }    
+
+    /**
+    *   Add attachment files.
+    *   Usage:  ->file('/path/to/file');
+    *           ->file(Array('/path/file1', '/path/file2'));
+    *   @param String | Array $files
+    */
+    public function file($files=null) {
+        if ( is_array($files) ) {
+            $this->files = $this->files + $files;
+        } else {
+            $this->files[] = $files;
+        }
+    }
+
+
+    /**
     *   Try to deliver the mail to MTA.
     *   Return true if get, or false otherwise.        
     *   @return boolean
@@ -102,14 +134,39 @@ class Mailer {
         // prepare headers
         $headers = '';
         foreach( $this->aMail['headers'] as $header => $value ) {
-            $headers .= $header.': '.$value."\r\n";
+            $headers .= $header.': '.$value."\n";
         }
-
-        // html
-        $headers .= 'MIME-Version: 1.0'."\r\n"."Content-type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\r\n";        
         
-        return mail($to, $this->aMail['subject'], $this->aMail['body'],$headers);
+        $headers .= "MIME-Version: 1.0\n";
+        $message_header = "Content-Type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\nContent-Transfer-Encoding: 8bit";
+       
+        // attachments
+        if ( count($this->files) > 0 ) {
+            $boundary = 'Multipart_Boundary_x'.md5(time()).'x';
+            $headers  .= 'Content-Type: multipart/mixed; boundary="'."{$boundary}".'"'."\n";
+            $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--{$boundary}\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
+            $attachs = '';
+            foreach( $this->files as $filepath ) {
+                if ( file_exists($filepath) ) {
+                    $name = basename($filepath);
+                    $h  = "--{$boundary}\n";
+                    $h .= "Content-Type: application/octet-stream; name=\"$name\"\n";
+                    $h .= "Content-Disposition: attachment; filename=\"$name\"\n";
+                    $h .= "Content-Transfer-Encoding: base64\n\n";
+                    $h .= chunk_split(base64_encode(file_get_contents($filepath)))."\n";
+                    
+                    $attachs .= $h;
+                }
+            }
+            $attachs .= "--{$boundary}--\n";
+            $this->aMail['body'] .= $attachs;
+        } else {
+            $headers = $headers.$message_header;
+        }
+        
+        return mail($to, $this->aMail['subject'], $this->aMail['body'], $headers);
     }    
+
 
 
 
