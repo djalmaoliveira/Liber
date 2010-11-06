@@ -14,7 +14,8 @@
         <?
             class MainController extends Controller {
                 
-                function __construct() {
+                function __construct($args) {
+                    parent::__construct($args); // necessary to set context parameters correctly.
                     // load some resources or validations
                 }
         

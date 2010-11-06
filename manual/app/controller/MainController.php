@@ -65,6 +65,10 @@ class MainController extends Controller{
         $this->oTPL->load("input.html");		
 	}
 
+	public function liber() {
+        $this->oTPL->load("liber.html");		
+	}
+
 
 	public function log() {
         $this->oTPL->load("log.html");		

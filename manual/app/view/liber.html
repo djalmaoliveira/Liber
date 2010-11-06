@@ -1,0 +1,100 @@
+<div class="blog">
+<h1>Liber Class</h1>
+
+<p>Liber Class is a main access to framework features, through its static methods.</p>
+<p>The most useful methods are:</p>
+<ul>
+  <li>
+    <p><strong>Liber::conf(keyword, value)</strong>: To get/set configuration value either of framework or your application.</p>
+    <em>See API docs for restricted keywords.</em>
+    <code><pre>  
+      echo Liber::conf('LOG_PATH'); // get
+      Liber::conf('LOG_PATH', '/tmp/webapp/log/'); // set
+      Liber::conf('MY_CONFIG_KEY', 'VALUE_OF_CONFIG'); // set personal configuration
+      </pre>
+    </code>
+    
+  </li>
+  <li>
+    <p><strong>Liber::redirect(url, return)</strong>: Redirect to a specified url or return entire url.</p>
+    <em>Is recommended to use this function to filter urls and build correctly urls when use internal pages.</em>
+    <pre>  
+      // redirect to a url at internal page/route (start with '/')
+      Liber::redirect('/blog'); 
+
+      // redirect to a external page (start without '/')
+      Liber::redirect('www.php.net'); 
+      
+      // return url
+      $url = Liber::redirect('www.php.net', true); 
+    </pre>
+  </li>
+ 
+  <li>
+    <p><strong>Liber::loadClass(className, module, createObject)</strong>: Load a class file by name.</p>
+    <pre>  
+      // load Session class avaliabled by framework
+      Liber::loadClass('Session'); 
+
+      // load Session and Mailer class avaliabled by framework using Array of classNames
+      Liber::loadClass(Array('Session', 'Mailer')); 
+
+      // load classes using Array of classNames and create a object each of them
+      list($oSession, $oMail) = Liber::loadClass(Array('Session', 'Mailer'), true); 
+      
+      // load Session class and create a object
+      $oSession = Liber::loadClass('Session', true); 
+      
+      // load MyClass from application(app/class/MyClass.php)
+      Liber::loadClass('MyClass', 'APP'); 
+
+      // load Posts class from Blog module (app/module/Blog/class/Posts.php)
+      Liber::loadClass('Posts', 'Blog'); 
+
+      // load and create object
+      $oPosts = Liber::loadClass('Posts', 'Blog', true); 
+    </pre>
+  </li>
+  <li>
+    <p><strong>Liber::loadModel(modelName, module, createObject)</strong>: Load a class file(model) by name.</p>
+    <pre>  
+      // load User class from application (app/model/User.php)
+      Liber::loadModel('User'); 
+
+      // load Customer and Order model from application
+      Liber::loadModel(Array('Customer', 'Order')); 
+
+      // load models using Array of classNames and create a object each of them
+      list($oUser, $oOrder) = Liber::loadModel(Array('Customer', 'Order'), true); 
+      
+      // load Customer model and create a object
+      $oCustomer = Liber::loadModel('Customer', true); 
+      
+      // load Customer model from Shop module (app/module/Shop/model/Customer.php)
+      Liber::loadModel('Customer', 'Shop'); 
+
+      // load and create object
+      $oCustomer = Liber::loadModel('Customer', 'Shop', true); 
+    </pre>
+  </li>
+  <li>
+    <p><strong>Liber::loadHelper(helperName, module)</strong>: Load a file(helper) by name.</p>
+    <pre>  
+      // load Form helper avaliabled by framework
+      Liber::loadHelper('Form'); 
+
+      // load Form and Url helpers avaliabled by framework using Array of helperNames
+      Liber::loadHelper(Array('Form', 'Url')); 
+     
+      // load MyHelper from application(app/helper/MyHelper.php)
+      Liber::loadHelper('MyHelper', 'APP'); 
+
+      // load MyHelper from Blog module (app/module/Blog/helper/MyHelper.php)
+      Liber::loadHelper('MyHelper', 'Blog'); 
+    </pre>
+  </li>
+</ul>
+
+
+
+</div>

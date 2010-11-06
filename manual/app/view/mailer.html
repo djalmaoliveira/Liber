@@ -10,8 +10,10 @@
 
     $oMailer->addTo(    Input::post('to') );
     $oMailer->from(     Input::post('from') );
+    $oMailer->reply(    Input::post('reply') );
     $oMailer->subject(  Input::post('subject') );
     $oMailer->body(     Input::post('body') );
+    $oMailer->file(     '/path/to/file' ); // attachments
     $oMailer->html(     true );
 
     $oMailer->send();
