@@ -200,8 +200,9 @@
         $out['name']  = &$params[0];
         $out['value'] = ( isset($params[1]) and is_array($params[1]) and isset($params[1][$out['name']]) )?$params[1][$out['name']]:(isset($params[1])?$params[1]:'');
         $out['extras']= isset($params[2])?$params[2]:'';
-	    
-	    $elem = '<textarea id="'.$out['name'].'" name="'.$out['name'].'" cols="" rows="" '.$out['extras'].' >'.$out['value'].'</textarea>';
+	    $cols = strpos(strtolower($out['extras']), 'cols=')!==false?'':'cols="30"';
+	    $rows = strpos(strtolower($out['extras']), 'rows=')!==false?'':'rows="3"';	    
+	    $elem = '<textarea id="'.$out['name'].'" name="'.$out['name'].'" '." $cols $rows ".' '.$out['extras'].' >'.$out['value'].'</textarea>';
 	  
 		if ( $return ) {
     		return $elem;
