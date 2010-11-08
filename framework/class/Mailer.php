@@ -11,7 +11,7 @@
 */
 class Mailer {
     
-    private $aMail      = Array('subject'=>'', 'body'=>'','headers'=>Array());
+    private $aMail      = Array('to'=>Array(), 'subject'=>'', 'body'=>'','headers'=>Array());
     private $files      = Array();
     
     function __construct() {
@@ -71,10 +71,17 @@ class Mailer {
     
     /**
     *   Add one or more destinations to mail.
-    *   @param String $to
+    *   Usage:  ->addTo('myname@mydomain.com');
+    *           ->addTo(Array('myname@mydomain.com', 'othermail@mydomain.com'));
+    *   @param String | Array $to
     */
     public function addTo($to) {
-        $this->aMail['to'][] = trim($to);
+        if ( is_array($to) ) {
+            $this->aMail['to'] = $this->aMail['to']+$to;    
+        } else {
+            $this->aMail['to'][] = trim($to);        
+        }
+        
     }    
     
     /**

@@ -537,9 +537,10 @@ class Liber {
         // detect subfolder uses
         if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  {
             if ( strpos($uri, 'index.php')!==false ) { // with index.php
-                $uri = '/'.str_replace($_SERVER['SCRIPT_NAME'], '',  $uri);    
+                $uri = substr($uri, strpos($uri, $_SERVER['SCRIPT_NAME'])+strlen($_SERVER['SCRIPT_NAME']) );
             } else { // without index.php
-                $uri = '/'.str_replace(str_replace('index.php', '', $_SERVER['SCRIPT_NAME']), '',$uri );
+                $script = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+                $uri = '/'.substr($uri, strpos($uri, $script)+strlen($script));
             }
         }
 
@@ -554,7 +555,6 @@ class Liber {
         }
         $uri = str_replace('index.php','', $uri);
         $uri = str_replace('//','/', $uri);
-
 
 
         // Direct match, load pre-configured route (the fast way, recommended)
@@ -583,12 +583,12 @@ class Liber {
             $previousSegment = dirname($uri);
             if ( isset($aRoute[$previousSegment]) )  {
                 $routeOption =  self::getRouteMethod($previousSegment);
-                $routeConf = Liber::getRouteConf( $routeOption ); 
+                $routeConf   = Liber::getRouteConf( $routeOption ); 
             } else {
                 $routeConf = Array('','','');
             }
             $m = false;
-            
+
             // detect '*' for method name
             if ( is_array($routeConf) and $routeConf[1] == '*' ) { 
                 $c = &$routeConf[0];
