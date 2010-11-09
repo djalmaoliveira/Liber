@@ -47,7 +47,7 @@ class SqlExtract {
                         $rs  = $this->db->query($sql)->fetch();
                         if ( $withoutKeys ) {
                             $lines = explode("\n", $rs[1]);
-                            $keys  = (preg_grep('/[\s]*(CONSTRAINT|FOREIGN[\s]+KEY|PRIMARY[\s]+KEY|KEY)/', $lines));
+                            $keys  = (preg_grep('/[\s]*(CONSTRAINT|FOREIGN[\s]+KEY|PRIMARY[\s]+KEY)/', $lines));
                             $lines = array_diff_key($lines, $keys);
                             end($lines);
                             $line = prev($lines);
