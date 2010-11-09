@@ -168,7 +168,7 @@ $db_app_mode = 'PROD'])</code>
   </div>
   <hr />
 	<a name="methodisTable"></a>
-	<h3>method isTable <span class="smalllinenumber">[line 162]</span></h3>
+	<h3>method isTable <span class="smalllinenumber">[line 189]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -240,17 +240,18 @@ $tables)</code>
   </div>
   <hr />
 	<a name="methodtableData"></a>
-	<h3>method tableData <span class="smalllinenumber">[line 125]</span></h3>
+	<h3>method tableData <span class="smalllinenumber">[line 131]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>Array tableData(
 String
-$tables)</code>
+$tables, [String
+$destFolder = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Return an array of SQL Insert code of each data retrieved from $tables specified, by table name.<br /><br /><br /><br />
+		Return an array of SQL Insert code of each data retrieved from $tables specified, by table name.<br /><br /><p>If specified $destFolder, each table data will be written on a file like 'tableName.sql' on this folder and return the path to this file instead of data.    Remember that you have to remove the files written after its use.    Usage:  -&gt;tableData('customer'); // return Array('customer'=&gt;'INSERT ...');            -&gt;tableData('customer', '/home/user/sql/'); // written on '/home/user/sql/customer.sql'            -&gt;tableData('customer', 'temp/'); // written on 'APP_PATH/temp/customer.sql'</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -265,6 +266,11 @@ $tables)</code>
         <h4>Parameters:</h4>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">String&nbsp;&nbsp;</td>
+        <td><b>$destFolder</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
           <tr>
         <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$tables</b>&nbsp;&nbsp;</td>
@@ -357,7 +363,7 @@ $views)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 08 Nov 2010 22:43:29 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Tue, 09 Nov 2010 13:45:22 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

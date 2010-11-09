@@ -119,10 +119,16 @@ class SqlExtract {
 
     /**
     *   Return an array of SQL Insert code of each data retrieved from $tables specified, by table name.
+    *   If specified $destFolder, each table data will be written on a file like 'tableName.sql' on this folder and return the path to this file instead of data.
+    *   Remember that you have to remove the files written after its use.
+    *   Usage:  ->tableData('customer'); // return Array('customer'=>'INSERT ...');
+    *           ->tableData('customer', '/home/user/sql/'); // written on '/home/user/sql/customer.sql'
+    *           ->tableData('customer', 'temp/'); // written on 'APP_PATH/temp/customer.sql'  
     *   @param String | Array $tables
+    *   @param String $destFolder
     *   @return Array
     */
-    public function tableData($tables) {
+    public function tableData($tables, $destFolder='') {
         if ( !is_array($tables) ) {
             $tables = Array($tables);
         }
@@ -134,21 +140,42 @@ class SqlExtract {
             $value = filter_var($value, FILTER_SANITIZE_MAGIC_QUOTES);
             return "\'$value\'";
         ');
+        
         foreach( $tables as $tableName ) {
-            $rs = $this->db->query("SELECT * FROM $tableName")->fetchAll(PDO::FETCH_ASSOC);
-            if ( $rs ) {
-                $fields = array_keys($rs[0]);
-                switch ( Liber::$aDbConfig[$this->db_app_mode][4] ) {
-                    case 'mysql':
-                        
-                        foreach( $rs as $row) {
-                            $values = array_map($funcValue, array_values($row));
-                            $aList[$tableName][] = "INSERT INTO $tableName (".implode(', ', $fields).") VALUES (".implode(', ', $values).") ;";
-                        }
-                    break;
+            $aList[$tableName] = '';
+            $q = $this->db->query("SELECT * FROM $tableName");
+            if ( empty($destFolder) ) {
+                $rs = $q->fetchAll(PDO::FETCH_ASSOC);
+                if ( $rs ) {
+                    $fields = array_keys($rs[0]);
+                    foreach( $rs as $row) {
+                        $values = array_map($funcValue, array_values($row));
+                        $aList[$tableName] .= "INSERT INTO $tableName (".implode(', ', $fields).") VALUES (".implode(', ', $values).") ;\r\n";
+                    }
                 }
+            } else {
+                $buffer = Array();
+                $destFolder = trim($destFolder);
+                if ( $destFolder[strlen($destFolder)-1] != '/' ) { $destFolder .= '/'; }
+                if ($destFolder[0]!='/') { 
+                    $destFolder = Liber::conf('APP_PATH').$destFolder; 
+                    if ( !file_exists($destFolder) ) { mkdir ( $destFolder, 0760, true); }
+                }
+                $aList[$tableName] = ($destFolder.$tableName.'.sql');
+                $row    = $q->fetch(PDO::FETCH_ASSOC);
+                $fields = array_keys($row);
+                do {
+                    $values   = array_map($funcValue, array_values($row));
+                    $buffer[] = "INSERT INTO $tableName (".implode(', ', $fields).") VALUES (".implode(', ', $values).") ;";
+                    if ( count($buffer) > 20 ) {
+                        file_put_contents($aList[$tableName], implode("\r\n", $buffer) ,FILE_APPEND);
+                        $buffer = Array();
+                    }
+                } while ( $row = $q->fetch(PDO::FETCH_ASSOC) );
+                file_put_contents($aList[$tableName], implode("\r\n", $buffer) ,FILE_APPEND);
             }
-        }
+        }        
+        
         return $aList;
     }
         
