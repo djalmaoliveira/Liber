@@ -292,6 +292,8 @@
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodisAjax">Liber::isAjax()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools</dd>
 							<dt><b>isSSL</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodisSSL">Liber::isSSL()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Check if the connection is a SSL connection</dd>
+							<dt><b>isTable</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodisTable">SqlExtract::isTable()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return if $table is table or not.</dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -436,6 +438,8 @@
 				<dd>procedural page <a href="core-class/_class---Session.php.html">Session.php</a></dd>
 							<dt><b>Setup.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Setup.php.html">Setup.php</a></dd>
+							<dt><b>SqlExtract.php</b></dt>
+				<dd>procedural page <a href="core-class/_class---SqlExtract.php.html">SqlExtract.php</a></dd>
 							<dt><b>search</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#methodsearch">Cart::search()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Search if a item exists in cart.</dd>
 							<dt><b>send</b></dt>
@@ -444,10 +448,12 @@
 				<dd>in file Session.php, class <a href="core-class/Session.html">Session</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manage values stored in session.</dd>
 							<dt><b>setLayoutOnce</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodsetLayoutOnce">View::setLayoutOnce()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set layout that must be used once time.</dd>
-							<dt><b>Setup</b></dt>
-				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
 							<dt><b>setup</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodsetup">Liber::setup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Complete the basic configuration.</dd>
+							<dt><b>Setup</b></dt>
+				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
+							<dt><b>SqlExtract</b></dt>
+				<dd>in file SqlExtract.php, class <a href="core-class/SqlExtract.html">SqlExtract</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates extraction from databases.</dd>
 							<dt><b>subject</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodsubject">Mailer::subject()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set the subject of mail.</dd>
 					</dl>
@@ -460,14 +466,20 @@
 		<dl>
 							<dt><b>TemplateEngine.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---TemplateEngine.php.html">TemplateEngine.php</a></dd>
+							<dt><b>tableConstraints</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodtableConstraints">SqlExtract::tableConstraints()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the constraints(PRIMARY and FOREIGN KEYS) of $tables specified.</dd>
+							<dt><b>tableData</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodtableData">SqlExtract::tableData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return an array of SQL Insert code of each data retrieved from $tables specified, by table name.</dd>
+							<dt><b>tableScheme</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodtableScheme">SqlExtract::tableScheme()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the SQL code of table creation.</dd>
 							<dt><b>template</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodtemplate">View::template()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a GlobalTemplate instance base on current view context.</dd>
 							<dt><b>TemplateEngine</b></dt>
 				<dd>in file TemplateEngine.php, class <a href="core-class/TemplateEngine.html">TemplateEngine</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class base from others Template Engines classes.</dd>
 							<dt><b>toArray</b></dt>
-				<dd>in file Session.php, method <a href="core-class/Session.html#methodtoArray">Session::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return array of field/values from current session.</dd>
-							<dt><b>toArray</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodtoArray">Mailer::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return Array of data stored on current object Mailer.</dd>
+							<dt><b>toArray</b></dt>
+				<dd>in file Session.php, method <a href="core-class/Session.html#methodtoArray">Session::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return array of field/values from current session.</dd>
 							<dt><b>toFile</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodtoFile">Log::toFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Write current log to file.</dd>
 							<dt><b>toPopUp</b></dt>
@@ -524,6 +536,8 @@
 				<dd>in file View.php, class <a href="core-class/View.html">View</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates html output and html template engine loads.</dd>
 							<dt><b>view</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodview">Controller::view()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get instance of View class.</dd>
+							<dt><b>viewScheme</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodviewScheme">SqlExtract::viewScheme()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the SQL code of view creation specified.</dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -545,31 +559,33 @@
 							<dt><b>_parse_input_params_</b></dt>
 				<dd>in file Form.php, function <a href="core-helpers/_helper---Form.php.html#function_parse_input_params_">_parse_input_params_()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Setup.php, method <a href="core-class/Setup.html#method__construct">Setup::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#method__construct">SqlExtract::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#method__construct">View::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
+				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#method__construct">Mailer::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Liber.php, method <a href="default/Controller.html#method__construct">Controller::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file FileCache.php, method <a href="cache/FileCache.html#method__construct">FileCache::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Cart.php, method <a href="core-class/Cart.html#method__construct">Cart::__construct()</a></dd>
+				<dd>in file Setup.php, method <a href="core-class/Setup.html#method__construct">Setup::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#method__construct">Log::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#method__construct">GlobalTemplate::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file FileCache.php, method <a href="cache/FileCache.html#method__construct">FileCache::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Liber.php, method <a href="default/Controller.html#method__construct">Controller::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Cart.php, method <a href="core-class/Cart.html#method__construct">Cart::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#method__construct">Mailer::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 08 Nov 2010 13:37:18 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 08 Nov 2010 22:38:07 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

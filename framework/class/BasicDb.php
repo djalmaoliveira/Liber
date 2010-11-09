@@ -22,8 +22,10 @@ class BasicDb {
             $dsn    = $config[4].':dbname='.$config[1].';host='.$config[0];
             try {
                 $o  = new PDO($dsn, $config[2], $config[3]);
-                if ($o) { 
-                    $o->exec("set names 'utf8'"); 
+                if ($o) {
+                    if ($config[4] == 'mysql') {
+                        $o->exec("set names 'utf8'"); 
+                    }
                 } 
                 return $o;                                 
             } catch(PDOException $e) {

@@ -50,6 +50,8 @@
 		</a><br>
 			<a href="core-class/_class---Setup.php.html">		Setup.php
 		</a><br>
+			<a href="core-class/_class---SqlExtract.php.html">		SqlExtract.php
+		</a><br>
 			<a href="core-class/_class---TemplateEngine.php.html">		TemplateEngine.php
 		</a><br>
 			<a href="core-class/_class---Validation.php.html">		Validation.php
@@ -69,6 +71,7 @@
 	    		<a href="core-class/Mailer.html">Mailer</a><br />
 	    		<a href="core-class/Session.html">Session</a><br />
 	    		<a href="core-class/Setup.html">Setup</a><br />
+	    		<a href="core-class/SqlExtract.html">SqlExtract</a><br />
 	    		<a href="core-class/TemplateEngine.html">TemplateEngine</a><br />
 	    		<a href="core-class/Validation.html">Validation</a><br />
 	    		<a href="core-class/View.html">View</a><br />
@@ -108,19 +111,21 @@
 							<dt><b>_duplicateLayout</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method_duplicateLayout">Setup::_duplicateLayout()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Duplicate dirs and files for Layout.</dd>
 							<dt><b>__construct</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#method__construct">SqlExtract::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
 				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#method__construct">View::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method__construct">Setup::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#method__construct">GlobalTemplate::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#method__construct">Log::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#method__construct">Mailer::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#method__construct">Cart::__construct()</a></dd>
 					</dl>
@@ -273,6 +278,8 @@
 				<dd>in file Input.php, class <a href="core-class/Input.html">Input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates input data from client.</dd>
 							<dt><b>insert</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#methodinsert">Cart::insert()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Insert a item and return id of it.</dd>
+							<dt><b>isTable</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodisTable">SqlExtract::isTable()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return if $table is table or not.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_core-class.html#top">top</a><br>
@@ -371,6 +378,8 @@
 				<dd>procedural page <a href="core-class/_class---Session.php.html">Session.php</a></dd>
 							<dt><b>Setup.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Setup.php.html">Setup.php</a></dd>
+							<dt><b>SqlExtract.php</b></dt>
+				<dd>procedural page <a href="core-class/_class---SqlExtract.php.html">SqlExtract.php</a></dd>
 							<dt><b>search</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#methodsearch">Cart::search()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Search if a item exists in cart.</dd>
 							<dt><b>send</b></dt>
@@ -381,6 +390,8 @@
 				<dd>in file View.php, method <a href="core-class/View.html#methodsetLayoutOnce">View::setLayoutOnce()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set layout that must be used once time.</dd>
 							<dt><b>Setup</b></dt>
 				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
+							<dt><b>SqlExtract</b></dt>
+				<dd>in file SqlExtract.php, class <a href="core-class/SqlExtract.html">SqlExtract</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates extraction from databases.</dd>
 							<dt><b>subject</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodsubject">Mailer::subject()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set the subject of mail.</dd>
 					</dl>
@@ -393,14 +404,20 @@
 		<dl>
 							<dt><b>TemplateEngine.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---TemplateEngine.php.html">TemplateEngine.php</a></dd>
+							<dt><b>tableConstraints</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodtableConstraints">SqlExtract::tableConstraints()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the constraints(PRIMARY and FOREIGN KEYS) of $tables specified.</dd>
+							<dt><b>tableData</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodtableData">SqlExtract::tableData()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return an array of SQL Insert code of each data retrieved from $tables specified, by table name.</dd>
+							<dt><b>tableScheme</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodtableScheme">SqlExtract::tableScheme()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the SQL code of table creation.</dd>
 							<dt><b>template</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodtemplate">View::template()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a GlobalTemplate instance base on current view context.</dd>
 							<dt><b>TemplateEngine</b></dt>
 				<dd>in file TemplateEngine.php, class <a href="core-class/TemplateEngine.html">TemplateEngine</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class base from others Template Engines classes.</dd>
 							<dt><b>toArray</b></dt>
-				<dd>in file Session.php, method <a href="core-class/Session.html#methodtoArray">Session::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return array of field/values from current session.</dd>
-							<dt><b>toArray</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodtoArray">Mailer::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return Array of data stored on current object Mailer.</dd>
+							<dt><b>toArray</b></dt>
+				<dd>in file Session.php, method <a href="core-class/Session.html#methodtoArray">Session::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return array of field/values from current session.</dd>
 							<dt><b>toFile</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodtoFile">Log::toFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Write current log to file.</dd>
 							<dt><b>toPopUp</b></dt>
@@ -427,12 +444,14 @@
 				<dd>in file Validation.php, class <a href="core-class/Validation.html">Validation</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates several kind of values validation.</dd>
 							<dt><b>View</b></dt>
 				<dd>in file View.php, class <a href="core-class/View.html">View</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates html output and html template engine loads.</dd>
+							<dt><b>viewScheme</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodviewScheme">SqlExtract::viewScheme()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the SQL code of view creation specified.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_core-class.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 08 Nov 2010 13:37:18 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 08 Nov 2010 22:38:07 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
