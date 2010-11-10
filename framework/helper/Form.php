@@ -82,7 +82,7 @@
         $out['name']  = &$params[0];
         $out['value'] = ( isset($params[1]) and is_array($params[1]) and isset($params[1][$out['name']]) )?$params[1][$out['name']]:(isset($params[1])?$params[1]:'');
         $out['extras']= isset($params[2])?$params[2]:'';
-        return 'id="'.$out['name'].'" name="'.$out['name'].'" value="'.$out['value'].'" '.$out['extras'];
+        return 'id="'.$out['name'].'" name="'.$out['name'].'" value="'. htmlspecialchars($out['value']).'" '.$out['extras'];
     }
 
 
@@ -320,7 +320,7 @@
 	  function form_checkbox_($data = '', $value = '', $checked = FALSE, $extra = '', $return=false)
 	{
 		$name = (( ! is_array($data)) ? $data : '');
-		$defaults = array('type' => 'checkbox', 'name' => $name, 'id'=>$name, 'value' => $value);
+		$defaults = array('type' => 'checkbox', 'name' => $name, 'id'=>$name, 'value' => htmlspecialchars($value));
 
 		if (is_array($data) AND isset($data['checked']))
 		{
@@ -394,7 +394,7 @@
  */
 	  function form_submit_($data = '', $value = '', $extra = '', $return=false)
 	{
-		$defaults = array('type' => 'submit', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
+		$defaults = array('type' => 'submit', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => htmlspecialchars($value));
 
         $elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";;
         if ( $return ) {
@@ -417,7 +417,7 @@
  */
 	  function form_reset_($data = '', $value = '', $extra = '', $return=false)
 	{
-		$defaults = array('type' => 'reset', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
+		$defaults = array('type' => 'reset', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => htmlspecialchars($value));
 
         $elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";
         if ( $return ) {
