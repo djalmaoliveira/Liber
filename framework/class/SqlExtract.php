@@ -162,6 +162,7 @@ class SqlExtract {
                     if ( !file_exists($destFolder) ) { mkdir ( $destFolder, 0760, true); }
                 }
                 $aList[$tableName] = ($destFolder.$tableName.'.sql');
+                file_put_contents($aList[$tableName], '');
                 $row    = $q->fetch(PDO::FETCH_ASSOC);
                 $fields = array_keys($row);
                 do {
