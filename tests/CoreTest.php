@@ -1,54 +1,54 @@
 <?php
-require_once('/opt/PHP/phpunit/PHPUnit/Framework/TestCase.php');
-require_once(realpath(dirname(__FILE__).'/../').'/dooframework/Doo.php');
+include 'include.php';
+
 
 class CoreTest extends PHPUnit_Framework_TestCase {
 
     function SetUp() {
         include $config = realpath(dirname(__FILE__).'/../demos/test_unit/config/config.php');
-        Doo::loadConfig($aConfigs);
+        Liber::loadConfig($aConfigs);
     }
 
     function testLoad() {
-        $this->assertTrue( Doo::load('Main', Doo::conf('APP_PATH').'controller/' ) , 'Não foi possível carregar Controller Main da aplicação.');
+        $this->assertTrue( Liber::load('Main', Liber::conf('APP_PATH').'controller/' ) , "Didn't load MainController.");
     }
 
 
-    function testLoadControllerDaAplicacao() {
-        $this->assertTrue( Doo::loadController('Main'), 'Não foi possível carregar Controller Main da aplicação.' );
+    function testLoadControllerOfApp() {
+        $this->assertTrue( Liber::loadController('Main'), "Didn't load MainController." );
     }
 
-    function testLoadControllerDaAplicacaoComRetornoObjeto() {
-        $o = Doo::loadController('Main', true);
-        $this->assertEquals( 'Main', get_class($o), 'Não foi possível instanciar Controller Main da aplicação.' );
+    function testLoadControllerOfAppWithReturningObject() {
+        $o = Liber::loadController('Main', true);
+        $this->assertEquals( 'Main', get_class($o), "Didn't instanciate MainController." );
     }
 
-    function testLoadControllerDoModulo() {
-        $this->assertTrue( Doo::loadController('Module', 'Module1'), 'Não foi possível carregar Controller Module do módulo.' );
+    function testLoadModuleController() {
+        $this->assertTrue( Liber::loadController('Module', 'Module1'), "Didn't load Controller of Module1." );
     }
 
-    function testLoadControllerDoModuloComRetorno() {
-        $o = Doo::loadController('Module', 'Module1', true);
-        $this->assertEquals( 'Module', get_class($o), 'Não foi possível instanciar Controller Module do módulo Module1.' );
+    function testLoadModuleControllerWithReturnObject() {
+        $o = Liber::loadController('Module', 'Module1', true);
+        $this->assertEquals( 'Module', get_class($o), "Didn't instanciate Controller of Module1." );
     }
 
  
-    function testLoadModelDaAplicacao() {
-        $this->assertTrue( Doo::loadModel('Model'), 'Não foi possível carregar Model da aplicação.' );
+    function testLoadAppModel() {
+        $this->assertTrue( Liber::loadModel('Model'), "Didn't load App Model." );
     }
 
-    function testLoadModelDaAplicacaoComRetornoObjeto() {
-        $o = Doo::loadModel('Model', true);
-        $this->assertEquals( 'Model', get_class($o), 'Não foi possível instanciar Model da aplicação.' );
+    function testLoadAppModelWithReturningObject() {
+        $o = Liber::loadModel('Model', true);
+        $this->assertEquals( 'Model', get_class($o), "Didn't instanciate App Model." );
     }
     
-     function testLoadModelDoModulo() {
-        $this->assertTrue( Doo::loadModel('ModelModule', 'Module1'), 'Não foi possível carregar Model ModelModule do módulo.' );
+     function testLoadModuleModel() {
+        $this->assertTrue( Liber::loadModel('ModelModule', 'Module1'), "Didn't load ModelModule of Module1." );
     }
 
-    function testLoadModelDoModuloComRetorno() {
-        $o = Doo::loadModel('ModelModule', 'Module1', true);
-        $this->assertEquals( 'ModelModule', get_class($o), 'Não foi possível instanciar Model ModelModule do módulo Module1.' );
+    function testLoadModuleModelWithReturningObject() {
+        $o = Liber::loadModel('ModelModule', 'Module1', true);
+        $this->assertEquals( 'ModelModule', get_class($o), "Didn't load ModelModule of Module1." );
     }
 
     

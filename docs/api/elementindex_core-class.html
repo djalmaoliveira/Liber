@@ -38,6 +38,8 @@
 		</a><br>
 			<a href="core-class/_class---Cart.php.html">		Cart.php
 		</a><br>
+			<a href="core-class/_class---FileUpdate.php.html">		FileUpdate.php
+		</a><br>
 			<a href="core-class/_class---GlobalTemplate.php.html">		GlobalTemplate.php
 		</a><br>
 			<a href="core-class/_class---Input.php.html">		Input.php
@@ -65,6 +67,7 @@
         <div class="package">
 		    		<a href="core-class/BasicDb.html">BasicDb</a><br />
 	    		<a href="core-class/Cart.html">Cart</a><br />
+	    		<a href="core-class/FileUpdate.html">FileUpdate</a><br />
 	    		<a href="core-class/GlobalTemplate.html">GlobalTemplate</a><br />
 	    		<a href="core-class/Input.html">Input</a><br />
 	    		<a href="core-class/Log.html">Log</a><br />
@@ -98,7 +101,9 @@
 	[ <a href="elementindex_core-class.html#r">r</a> ]
 	[ <a href="elementindex_core-class.html#s">s</a> ]
 	[ <a href="elementindex_core-class.html#t">t</a> ]
+	[ <a href="elementindex_core-class.html#u">u</a> ]
 	[ <a href="elementindex_core-class.html#v">v</a> ]
+	[ <a href="elementindex_core-class.html#w">w</a> ]
 	[ <a href="elementindex_core-class.html#_">_</a> ]
 
   <hr />
@@ -142,6 +147,8 @@
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$aLogMsg">Log::$aLogMsg</a></dd>
 							<dt><b>add</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodadd">Log::add()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a message log.</dd>
+							<dt><b>addFile</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodaddFile">FileUpdate::addFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a file to update, returning the status of operation.</dd>
 							<dt><b>addTo</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodaddTo">Mailer::addTo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add one or more destinations to mail.</dd>
 					</dl>
@@ -202,6 +209,8 @@
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$debug">Log::$debug</a></dd>
 							<dt><b>DATE</b></dt>
 				<dd>in file Validation.php, class constant <a href="core-class/Validation.html#constDATE">Validation::DATE</a></dd>
+							<dt><b>deleteFile</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methoddeleteFile">FileUpdate::deleteFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Mark to delete a file.</dd>
 							<dt><b>destroy</b></dt>
 				<dd>in file Session.php, method <a href="core-class/Session.html#methoddestroy">Session::destroy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ends current session.</dd>
 					</dl>
@@ -224,10 +233,16 @@
 	<div>
 		<h2>f</h2>
 		<dl>
-							<dt><b>file</b></dt>
-				<dd>in file Input.php, method <a href="core-class/Input.html#methodfile">Input::file()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _FILES var, or all _FILES if not specified.</dd>
+							<dt><b>FileUpdate.php</b></dt>
+				<dd>procedural page <a href="core-class/_class---FileUpdate.php.html">FileUpdate.php</a></dd>
 							<dt><b>file</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodfile">Mailer::file()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add attachment files.</dd>
+							<dt><b>file</b></dt>
+				<dd>in file Input.php, method <a href="core-class/Input.html#methodfile">Input::file()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _FILES var, or all _FILES if not specified.</dd>
+							<dt><b>files</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodfiles">FileUpdate::files()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return an array of current added, ignored and deleted files.</dd>
+							<dt><b>FileUpdate</b></dt>
+				<dd>in file FileUpdate.php, class <a href="core-class/FileUpdate.html">FileUpdate</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class used for create a update file and to use it for updates remote an application.</dd>
 							<dt><b>from</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodfrom">Mailer::from()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set original sender to mail.</dd>
 					</dl>
@@ -274,6 +289,8 @@
 		<dl>
 							<dt><b>Input.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Input.php.html">Input.php</a></dd>
+							<dt><b>ignoreFile</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodignoreFile">FileUpdate::ignoreFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Mark to ignore a file.</dd>
 							<dt><b>Input</b></dt>
 				<dd>in file Input.php, class <a href="core-class/Input.html">Input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates input data from client.</dd>
 							<dt><b>insert</b></dt>
@@ -295,9 +312,11 @@
 							<dt><b>load</b></dt>
 				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#methodload">TemplateEngine::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load and parse a template from file.</dd>
 							<dt><b>load</b></dt>
-				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
-							<dt><b>load</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodload">View::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Call 'load' method from template engine instance.</dd>
+							<dt><b>load</b></dt>
+				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
+							<dt><b>loadUpdate</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodloadUpdate">FileUpdate::loadUpdate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load an update file in current instance, returning the state of operation.</dd>
 							<dt><b>Log</b></dt>
 				<dd>in file Log.php, class <a href="core-class/Log.html">Log</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulate produced logs in general.</dd>
 					</dl>
@@ -339,11 +358,13 @@
 							<dt><b>path</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodpath">View::path()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the path of view file specified related from current module.</dd>
 							<dt><b>post</b></dt>
-				<dd>in file Input.php, method <a href="core-class/Input.html#methodpost">Input::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _POST var, or all _POST if not specified.</dd>
-							<dt><b>post</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodpost">Log::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Do the last action with log messages stored.</dd>
+							<dt><b>post</b></dt>
+				<dd>in file Input.php, method <a href="core-class/Input.html#methodpost">Input::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _POST var, or all _POST if not specified.</dd>
 							<dt><b>prepareAssetDir</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#methodprepareAssetDir">Setup::prepareAssetDir()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a assets dir on www.</dd>
+							<dt><b>processUpdate</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodprocessUpdate">FileUpdate::processUpdate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Execute the update using current update data, returning the state of operation.</dd>
 							<dt><b>publishAsset</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#methodpublishAsset">Setup::publishAsset()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Publish application assets by default or module assets if specified.</dd>
 							<dt><b>publishAssets</b></dt>
@@ -428,6 +449,16 @@
 	</div>
 	<a href="elementindex_core-class.html#top">top</a><br>
   <hr />
+	<a name="u"></a>
+	<div>
+		<h2>u</h2>
+		<dl>
+							<dt><b>$updateData</b></dt>
+				<dd>in file FileUpdate.php, variable <a href="core-class/FileUpdate.html#var$updateData">FileUpdate::$updateData</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Store update data.</dd>
+					</dl>
+	</div>
+	<a href="elementindex_core-class.html#top">top</a><br>
+  <hr />
 	<a name="v"></a>
 	<div>
 		<h2>v</h2>
@@ -449,9 +480,21 @@
 					</dl>
 	</div>
 	<a href="elementindex_core-class.html#top">top</a><br>
+  <hr />
+	<a name="w"></a>
+	<div>
+		<h2>w</h2>
+		<dl>
+							<dt><b>workingDir</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodworkingDir">FileUpdate::workingDir()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set or Get the working dir, it will be used to make relative path from files added.</dd>
+							<dt><b>writeUpdate</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodwriteUpdate">FileUpdate::writeUpdate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Write the current update data to file, returning the state of operation.</dd>
+					</dl>
+	</div>
+	<a href="elementindex_core-class.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 10 Nov 2010 15:30:51 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Thu, 11 Nov 2010 22:01:31 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -1,6 +1,6 @@
 <?php
 
-require_once('/opt/PHP/phpunit/PHPUnit/Framework/TestCase.php');
+include_once dirname(dirname(__FILE__)).'/include.php'        ;
 
 class FSTest extends PHPUnit_Framework_TestCase {
 
