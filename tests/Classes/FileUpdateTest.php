@@ -22,7 +22,7 @@ class FileUpdateTest extends PHPUnit_Framework_TestCase {
 
     function testAddFiles() {
         $oFU = Liber::loadClass('FileUpdate', true);
-        $oFU->addFile(__FILE__);
+        $oFU->add(__FILE__);
         $aFiles = $oFU->files();
         
         $compare['data'] = file_get_contents(__FILE__);
@@ -31,9 +31,18 @@ class FileUpdateTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(current($aFiles['add']), $compare, "File cannot be added.'");
     }
 
+    function testAddRecursive() {
+        $oFU = Liber::loadClass('FileUpdate', true);
+        $oFU->add( realpath('../../'.dirname(__FILE__)), true );
+        $aFiles = $oFU->files();
+        
+        $this->assertGreaterThan(count($aFiles['add']) , 0, "Path cannot be added recursively.");
+    }
+
+
     function testWriteUpdateAndLoadUpdate() {
         $oFU = Liber::loadClass('FileUpdate', true);
-        $oFU->addFile(__FILE__);
+        $oFU->add(__FILE__);
         $serial = serialize($oFU);
         $oFU->writeUpdate('fileUpdate.test');
         
@@ -47,20 +56,44 @@ class FileUpdateTest extends PHPUnit_Framework_TestCase {
     function testProcessUpdate() {
         $oFU = Liber::loadClass('FileUpdate', true);
         // source file        
-        mkdir('/tmp/test/dir1/dir2', 0700, true);
+        if (!is_dir('/tmp/test/dir1/dir2')) {
+            mkdir('/tmp/test/dir1/dir2', 0700, true);
+        }
+        
         file_put_contents('/tmp/test/dir1/dir2/a.txt', 'test');
         
         // target file
-        mkdir('/tmp/test2/dir1/dir2', 0700, true);
+        if (!is_dir('/tmp/test2/dir1/dir2')) {
+            mkdir('/tmp/test2/dir1/dir2', 0700, true);
+        }
         
         // create a update and add some files
         $oFU->workingDir('/tmp/test/');
-        $oFU->addFile('/tmp/test/dir1/dir2/a.txt');
+        $oFU->add('/tmp/test/dir1/dir2/a.txt');
         
         // setup target update
         $oFU->workingDir('/tmp/test2/');
         
-        $this->assertEquals($oFU->processUpdate(), true, "Problem with processUpdate().'");
+        $this->assertEquals($oFU->processUpdate(), true, "Problem with processUpdate().");
+    }
+
+
+    function testIgnoreFile() {
+        $oFU = Liber::loadClass('FileUpdate', true);
+        $oFU->ignore(__FILE__);
+        $oFU->add(__FILE__);
+        $aFiles = $oFU->files();
+        
+        $this->assertEquals($aFiles['add'], Array(), "File cannot be ignored.");
+    }
+
+    function testIgnorePath() {
+        $oFU = Liber::loadClass('FileUpdate', true);
+        $oFU->ignore(dirname(__FILE__));
+        $oFU->add(__FILE__);
+        $aFiles = $oFU->files();
+        
+        $this->assertEquals($aFiles['add'], Array(), "Path cannot be ignored.");
     }
 
     

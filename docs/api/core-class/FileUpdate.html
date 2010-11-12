@@ -113,14 +113,15 @@ Source Location: /class/FileUpdate.php<br /><br />
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
-    <li><a href="../core-class/FileUpdate.html#methodaddFile">addFile</a></li>
-    <li><a href="../core-class/FileUpdate.html#methoddeleteFile">deleteFile</a></li>
+    <li><a href="../core-class/FileUpdate.html#methodadd">add</a></li>
+    <li><a href="../core-class/FileUpdate.html#methoddelete">delete</a></li>
     <li><a href="../core-class/FileUpdate.html#methodfiles">files</a></li>
-    <li><a href="../core-class/FileUpdate.html#methodignoreFile">ignoreFile</a></li>
+    <li><a href="../core-class/FileUpdate.html#methodignore">ignore</a></li>
     <li><a href="../core-class/FileUpdate.html#methodloadUpdate">loadUpdate</a></li>
     <li><a href="../core-class/FileUpdate.html#methodprocessUpdate">processUpdate</a></li>
     <li><a href="../core-class/FileUpdate.html#methodworkingDir">workingDir</a></li>
     <li><a href="../core-class/FileUpdate.html#methodwriteUpdate">writeUpdate</a></li>
+    <li><a href="../core-class/FileUpdate.html#method_ignore">_ignore</a></li>
   </ul>
 </td>
 
@@ -182,18 +183,62 @@ Class used for create a update file and to use it for updates remote an applicat
 <div class="tags">
 
   <hr />
-	<a name="methodaddFile"></a>
-	<h3>method addFile <span class="smalllinenumber">[line 47]</span></h3>
+	<a name="methodadd"></a>
+	<h3>method add <span class="smalllinenumber">[line 48]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>boolean addFile(
+		<code>boolean add(
 String
+$path, [boolean
+$recursive = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Add a path that can be a file or directory, returning the status of operation.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">String&nbsp;&nbsp;</td>
+        <td><b>$path</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$recursive</b>&nbsp;&nbsp;</td>
+        <td>- only used for directory</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methoddelete"></a>
+	<h3>method delete <span class="smalllinenumber">[line 84]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void delete(
+
+$path, [boolean
+$recursive = false], String
 $filePath)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Add a file to update, returning the status of operation.<br /><br /><br /><br />
+		Path to delete, that can be a file or directory.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -213,40 +258,14 @@ $filePath)</code>
         <td><b>$filePath</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methoddeleteFile"></a>
-	<h3>method deleteFile <span class="smalllinenumber">[line 70]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void deleteFile(
-String
-$filePath)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Mark to delete a file.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">String&nbsp;&nbsp;</td>
-        <td><b>$filePath</b>&nbsp;&nbsp;</td>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$recursive</b>&nbsp;&nbsp;</td>
+        <td>- only used for directory</td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$path</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
         </table>
@@ -255,7 +274,7 @@ $filePath)</code>
   </div>
   <hr />
 	<a name="methodfiles"></a>
-	<h3>method files <span class="smalllinenumber">[line 177]</span></h3>
+	<h3>method files <span class="smalllinenumber">[line 225]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -279,18 +298,19 @@ $filePath)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodignoreFile"></a>
-	<h3>method ignoreFile <span class="smalllinenumber">[line 61]</span></h3>
+	<a name="methodignore"></a>
+	<h3>method ignore <span class="smalllinenumber">[line 74]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void ignoreFile(
-String
+		<code>void ignore(
+
+$path, String
 $filePath)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Mark to ignore a file.<br /><br /><br /><br />
+		Path to ignore, that can be a file or directory.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -310,13 +330,18 @@ $filePath)</code>
         <td><b>$filePath</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$path</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodloadUpdate"></a>
-	<h3>method loadUpdate <span class="smalllinenumber">[line 80]</span></h3>
+	<h3>method loadUpdate <span class="smalllinenumber">[line 110]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -352,7 +377,7 @@ $filePath)</code>
   </div>
   <hr />
 	<a name="methodprocessUpdate"></a>
-	<h3>method processUpdate <span class="smalllinenumber">[line 106]</span></h3>
+	<h3>method processUpdate <span class="smalllinenumber">[line 136]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -381,7 +406,7 @@ $filePath)</code>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed workingDir(
+		<code>String workingDir(
 [String
 $dirPath = null])</code>
     </td></tr></table>
@@ -413,7 +438,7 @@ $dirPath = null])</code>
   </div>
   <hr />
 	<a name="methodwriteUpdate"></a>
-	<h3>method writeUpdate <span class="smalllinenumber">[line 92]</span></h3>
+	<h3>method writeUpdate <span class="smalllinenumber">[line 122]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -447,12 +472,48 @@ $filePath)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="method_ignore"></a>
+	<h3>method _ignore <span class="smalllinenumber">[line 96]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean _ignore(
+String
+$path)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Search in ignore list if there is a path that match with $path specified.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">String&nbsp;&nbsp;</td>
+        <td><b>$path</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 11 Nov 2010 22:01:32 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 12 Nov 2010 14:28:54 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

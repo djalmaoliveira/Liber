@@ -24,7 +24,7 @@ class FileUpdate {
     /**
     *   Set or Get the working dir, it will be used to make relative path from files added.
     *   @param String $dirPath
-    *   @return mixed
+    *   @return String
     */
     public function workingDir($dirPath=null) {
         if ( $dirPath === null ) {
@@ -40,36 +40,66 @@ class FileUpdate {
     }
 
     /**
-    *   Add a file to update, returning the status of operation.
-    *   @param String $filePath
+    *   Add a path that can be a file or directory, returning the status of operation.
+    *   @param String $path
+    *   @param boolean $recursive - only used for directory 
     *   @return boolean
     */
-    public function addFile($filePath) {
-        if ( file_exists($filePath) ) {
-            $file = str_replace($this->updateData['workingDir'], '', $filePath);
-            $this->updateData['add'][$file]['data'] = file_get_contents($filePath);
-            $this->updateData['add'][$file]['sha1'] = sha1($this->updateData['add'][$file]['data']);
-            return (strlen($this->updateData['add'][$file]['data']) > 0);
+    public function add($path, $recursive=false) {
+        $_path = str_replace($this->updateData['workingDir'], '', $path);
+        if ( is_dir($path) ) {
+            
+            if ($recursive) {
+                
+            } else {
+                $this->updateData['add'][$_path] = true;
+            }
+        } elseif ( file_exists($path) ) {
+
+            if ( $this->_ignore($_path) ) {
+                return true;
+            }
+            
+            $this->updateData['add'][$_path]['data'] = file_get_contents($path);
+            $this->updateData['add'][$_path]['sha1'] = sha1($this->updateData['add'][$_path]['data']);
+            return (strlen($this->updateData['add'][$_path]['data']) > 0);
         }
         return false;
     }
 
     /**
-    *   Mark to ignore a file.
+    *   Path to ignore, that can be a file or directory.
     *   @param String $filePath
     */
-    public function ignoreFile($filePath) {
-       $file = str_replace($this->updateData['workingDir'], '', $filePath);
-       $this->updateData['ignore'][$file] = true;
+    public function ignore($path) {
+       $_path = str_replace($this->updateData['workingDir'], '', $path);
+       $this->updateData['ignore'][$_path] = true;
     }
 
     /**
-    *   Mark to delete a file.
+    *   Path to delete, that can be a file or directory.
     *   @param String $filePath
+    *   @param boolean $recursive - only used for directory         
     */
-    public function deleteFile($filePath) {
-       $file = str_replace($this->updateData['workingDir'], '', $filePath);
-       $this->updateData['delete'][$file] = true;
+    public function delete($path, $recursive=false) {
+       $_path = str_replace($this->updateData['workingDir'], '', $path);
+       if ($this->_ignore($_path)) { return; }
+       $this->updateData['delete'][$_path] = $recursive;
+    }
+    
+    
+    /**
+    *   Search in ignore list if there is a path that match with $path specified.
+    *   @param String $path
+    *   @return boolean
+    */
+    protected function _ignore($path) {
+        foreach( $this->updateData['ignore'] as $_path => $v) {
+            if ( strpos($path, $_path) === 0 ) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -115,11 +145,11 @@ class FileUpdate {
         // verify data integrity and target files
         foreach( $this->updateData['add'] as $file => $aFile ) {
             $filePath = $this->updateData['workingDir'].$file;
-            if ( sha1($aFile['data']) != $aFile['sha1']) {
+            if ( is_array($aFile) and sha1($aFile['data']) != $aFile['sha1']) {
                 $errors[$file] = $msg['CHECKSUM'];
                 continue;
             }
-            if ( file_exists($filePath) and !is_writeable($filePath)) {
+            if ( is_array($aFile) and file_exists($filePath) and !is_writeable($filePath)) {
                 $errors[$file] = $msg['FILENOTWRITE'];
             }
         }
@@ -131,18 +161,29 @@ class FileUpdate {
 
         // write files
         foreach( $this->updateData['add'] as $file => $aFile ) {
-            $filePath = $this->updateData['workingDir'].$file;echo "\r\n".dirname($filePath)."\r\n";
-            if ( !file_exists(dirname($filePath)) ) {
+            $filePath = $this->updateData['workingDir'].$file;
+            $dir = '';
+            if ( is_array($aFile) ) {
+                if ( !is_dir(dirname($filePath)) ) {
+                    $dir = dirname($filePath);
+                }
+            } else {
+                $dir = $aFile;
+            }    
+            
+            if ( !empty($dir) ) {
                 try {
-                    mkdir(dirname($filePath), 0700, true);
+                    mkdir($dir, 0700, true);
                 } catch(Exception $e) {
-                    $errors[dirname($filePath)] = $msg['DIRNOTWRITE'];
+                    $errors[$dir] = $msg['DIRNOTWRITE'];
                     break;
                 }
             }
-            if ( file_put_contents($filePath, $aFile['data']) === false ) {
+
+            if ( is_array($aFile) and file_put_contents($filePath, $aFile['data']) === false ) {
                 $errors[$file] = $msg['NOTWRITED'];
             }
+            
         }
 
         // error found
@@ -152,9 +193,16 @@ class FileUpdate {
 
 
         // delete files
-        foreach( $this->updateData['delete'] as $file => $aFile ) {
+        foreach( $this->updateData['delete'] as $file => $recursive ) {
             $filePath = $this->updateData['workingDir'].$file;
-            if ( file_exists(($filePath)) ) {
+            
+            if ( is_dir($filePath) ) {
+                if ( $recursive ) {
+                    // remove recursively
+                } else {
+                    rmdir($filePath);
+                }
+            } else if ( file_exists(($filePath)) ) {
                 if ( !unlink($filePath) ) {
                     $errors[$file] = $msg['NOTDELETED'];
                 }

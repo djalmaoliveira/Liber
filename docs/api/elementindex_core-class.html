@@ -115,14 +115,16 @@
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method_duplicateDir">Setup::_duplicateDir()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Make a copy from $source_path to $dest_path, only .</dd>
 							<dt><b>_duplicateLayout</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method_duplicateLayout">Setup::_duplicateLayout()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Duplicate dirs and files for Layout.</dd>
+							<dt><b>_ignore</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#method_ignore">FileUpdate::_ignore()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Search in ignore list if there is a path that match with $path specified.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#method__construct">SqlExtract::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#method__construct">View::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Setup.php, method <a href="core-class/Setup.html#method__construct">Setup::__construct()</a></dd>
+				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#method__construct">GlobalTemplate::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance.</dd>
 							<dt><b>__construct</b></dt>
@@ -130,9 +132,9 @@
 							<dt><b>__construct</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#method__construct">Mailer::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#method__construct">Cart::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Setup.php, method <a href="core-class/Setup.html#method__construct">Setup::__construct()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex_core-class.html#top">top</a><br>
@@ -146,9 +148,9 @@
 							<dt><b>$aLogMsg</b></dt>
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$aLogMsg">Log::$aLogMsg</a></dd>
 							<dt><b>add</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodadd">FileUpdate::add()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a path that can be a file or directory, returning the status of operation.</dd>
+							<dt><b>add</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodadd">Log::add()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a message log.</dd>
-							<dt><b>addFile</b></dt>
-				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodaddFile">FileUpdate::addFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a file to update, returning the status of operation.</dd>
 							<dt><b>addTo</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodaddTo">Mailer::addTo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add one or more destinations to mail.</dd>
 					</dl>
@@ -209,8 +211,8 @@
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$debug">Log::$debug</a></dd>
 							<dt><b>DATE</b></dt>
 				<dd>in file Validation.php, class constant <a href="core-class/Validation.html#constDATE">Validation::DATE</a></dd>
-							<dt><b>deleteFile</b></dt>
-				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methoddeleteFile">FileUpdate::deleteFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Mark to delete a file.</dd>
+							<dt><b>delete</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methoddelete">FileUpdate::delete()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Path to delete, that can be a file or directory.</dd>
 							<dt><b>destroy</b></dt>
 				<dd>in file Session.php, method <a href="core-class/Session.html#methoddestroy">Session::destroy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ends current session.</dd>
 					</dl>
@@ -289,8 +291,8 @@
 		<dl>
 							<dt><b>Input.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Input.php.html">Input.php</a></dd>
-							<dt><b>ignoreFile</b></dt>
-				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodignoreFile">FileUpdate::ignoreFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Mark to ignore a file.</dd>
+							<dt><b>ignore</b></dt>
+				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodignore">FileUpdate::ignore()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Path to ignore, that can be a file or directory.</dd>
 							<dt><b>Input</b></dt>
 				<dd>in file Input.php, class <a href="core-class/Input.html">Input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates input data from client.</dd>
 							<dt><b>insert</b></dt>
@@ -494,7 +496,7 @@
 	<a href="elementindex_core-class.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 11 Nov 2010 22:01:31 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 12 Nov 2010 14:28:53 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
