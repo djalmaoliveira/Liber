@@ -33,11 +33,26 @@ class FileUpdateTest extends PHPUnit_Framework_TestCase {
 
     function testAddRecursive() {
         $oFU = Liber::loadClass('FileUpdate', true);
-        $oFU->add( realpath('../../'.dirname(__FILE__)), true );
+        $p = '../';
+        $oFU->add( realpath($p), true );
         $aFiles = $oFU->files();
-        
-        $this->assertGreaterThan(count($aFiles['add']) , 0, "Path cannot be added recursively.");
+
+        $this->assertGreaterThan(0 , count($aFiles['add']), "Path cannot be added recursively.");
     }
+
+    function testDeleteRecursive() {
+        $oFU = Liber::loadClass('FileUpdate', true);
+
+        $oFU->workingDir('/tmp/test/');
+        if ( !file_exists('/tmp/test/t1') ) {
+            mkdir('/tmp/test/t1/t2/t3/t4/t4', 0777, true);
+        }
+        $oFU->delete('/tmp/test', true);
+        $oFU->processUpdate();
+        
+        $this->assertTrue(!file_exists('/tmp/test'), "Delete recursively have a problem.");
+    }
+
 
 
     function testWriteUpdateAndLoadUpdate() {
@@ -53,7 +68,7 @@ class FileUpdateTest extends PHPUnit_Framework_TestCase {
     }
 
 
-    function testProcessUpdate() {
+    function atestProcessUpdate() {
         $oFU = Liber::loadClass('FileUpdate', true);
         // source file        
         if (!is_dir('/tmp/test/dir1/dir2')) {

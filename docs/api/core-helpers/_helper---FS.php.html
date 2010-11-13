@@ -108,10 +108,57 @@ string $source_path, string $dest_path)</code>
 				</table>
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
+  <hr />
+	<a name="functionfs_scan_"></a>
+	<h3>fs_scan_ <span class="smalllinenumber">[line 63]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed fs_scan_(
+String $path,  &$func, [boolean $recursive = false], Function $func)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Scan the specified $path using callback user function.<br /><br /><p>The $func accept two parameters: $dir and $file.    The return type of $func must be Array or String.    If $recursive is true, then scan recursively the $path.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- Result of callback function</td>
+  </tr>
+</table>
+</div>
+    <br /><br />
+	
+    		<h4>Parameters</h4>
+    <table border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+        <td class="type">String&nbsp;&nbsp;</td>
+        <td><b>$path</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+		      <tr>
+        <td class="type">Function&nbsp;&nbsp;</td>
+        <td><b>$func</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+		      <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$recursive</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+		      <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>&$func</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+				</table>
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 12 Nov 2010 14:28:55 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Sat, 13 Nov 2010 03:22:07 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

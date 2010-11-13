@@ -50,7 +50,14 @@ class FileUpdate {
         if ( is_dir($path) ) {
             
             if ($recursive) {
-                
+                Liber::loadHelper("FS");
+                $func = create_function('$dir, $file', '
+                    return Array($dir."/".$file);
+                ');
+                $files = fs_scan_($path, $func, $recursive);
+                foreach($files as $file) {
+                    $this->add($file);
+                }
             } else {
                 $this->updateData['add'][$_path] = true;
             }
@@ -198,10 +205,26 @@ class FileUpdate {
             
             if ( is_dir($filePath) ) {
                 if ( $recursive ) {
-                    // remove recursively
-                } else {
-                    rmdir($filePath);
-                }
+                    Liber::loadHelper("FS");
+                    $func = create_function('$dir, $file', '
+                        $path = $dir."/".$file ;
+                        return Array($path);
+                    ');
+                    $files = (fs_scan_($filePath, $func, $recursive));
+                    $files = array_flip($files);
+                    foreach($files as $file_ => $size) {
+                        $files[$file_] = substr_count($file_, '/');
+                    }
+                    arsort($files); // begin from directory that has the longest path
+                    foreach($files as $deletePath => $size ) {
+                        if ( is_dir($deletePath) ) {
+                            rmdir($deletePath);
+                        } else {
+                            unlink($deletePath);
+                        }
+                    }
+                }   
+                rmdir($filePath);
             } else if ( file_exists(($filePath)) ) {
                 if ( !unlink($filePath) ) {
                     $errors[$file] = $msg['NOTDELETED'];

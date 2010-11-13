@@ -24,7 +24,7 @@
  */
 function fs_relative_path_($source_path, $dest_path) {
     $source_path = trim($source_path);
-    $dest_path = trim($dest_path);
+    $dest_path   = trim($dest_path);
   
     $aS = array_filter(explode('/', $source_path));
     $aD = array_filter(explode('/', $dest_path));
@@ -39,7 +39,7 @@ function fs_relative_path_($source_path, $dest_path) {
     }
 
     $countBackDest = (count($aD)-$i)-1;
-    $relativePath = implode('/', array_slice($aS, $i));
+    $relativePath  = implode('/', array_slice($aS, $i));
 
     if ($i > 0) {
         $rel = str_repeat('../', $countBackDest).$relativePath;
@@ -49,4 +49,55 @@ function fs_relative_path_($source_path, $dest_path) {
 
     return $rel;
 }
+
+/**
+*   Scan the specified $path using callback user function.
+*   The $func accept two parameters: $dir and $file.
+*   The return type of $func must be Array or String.
+*   If $recursive is true, then scan recursively the $path.
+*   @param String $path
+*   @param Function $func
+*   @param boolean $recursive
+*   @return mixed - Result of callback function
+*/
+function fs_scan_($path, &$func, $recursive=false) {
+    static $out = null; 
+    static $count = 0;
+
+    // initialize output towards first return of $func
+    if ( $out === null ) {
+        $out = gettype($func('a','b'))=='array'?Array():'';
+    }
+    
+    $count++;
+    $entries = scandir($path);
+    foreach( $entries as $entry ) {
+        if ( in_array($entry, Array('.', '..')) ) { continue; }
+        $_path = $path.'/'.$entry;
+
+        $o = $func($path, $entry); 
+            
+        if ( is_array($o) ) {
+            if (  key($o) == '0' and count($o) == 1) {
+                $o = current($o);
+            }
+            $out[] = $o;
+        } else {
+            $out .= $o;
+        }
+
+        if ( $recursive  and is_dir($_path)) {
+            fs_scan_($_path, $func, $recursive);
+        }
+    }
+    
+    $count--;
+    if ( $count == 0 ) { // detect end of recursion
+        $buffer = $out;
+        $out    = null;
+        return $buffer;
+    }
+    return $out;
+}
+
 ?>
