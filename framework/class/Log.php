@@ -107,6 +107,7 @@ class Log {
         $traces = '';
         for ($i=$offset; $i < count($arr); $i++ ) {
             $t          = $arr[$i];
+            $t['file']  = isset($t['file'])?$t['file']:'';
             $class      = (isset($t['class'])?$t['class'].$t['type']:'');
             $function   = (isset($t['function'])?$t['function']:'');
             $args       = (isset($t['args'])?str_replace("\n","",print_r($t['args'], true)):'');

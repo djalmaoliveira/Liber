@@ -132,6 +132,10 @@ class SqlExtract {
         if ( !is_array($tables) ) {
             $tables = Array($tables);
         }
+        $destFolder = trim(str_replace('/', DIRECTORY_SEPARATOR, $destFolder));
+        if ( $destFolder[strlen($destFolder)-1] != DIRECTORY_SEPARATOR ) { $destFolder .= DIRECTORY_SEPARATOR; }
+        if ( !is_dir($destFolder) ) { mkdir ( $destFolder, 0760, true); }
+        
         $aList = Array();
         $funcValue = create_function('$value','
             if ( is_null($value) ) {
@@ -155,12 +159,6 @@ class SqlExtract {
                 }
             } else {
                 $buffer = Array();
-                $destFolder = trim($destFolder);
-                if ( $destFolder[strlen($destFolder)-1] != '/' ) { $destFolder .= '/'; }
-                if ($destFolder[0]!='/') { 
-                    $destFolder = Liber::conf('APP_PATH').$destFolder; 
-                    if ( !file_exists($destFolder) ) { mkdir ( $destFolder, 0760, true); }
-                }
                 $aList[$tableName] = ($destFolder.$tableName.'.sql');
                 file_put_contents($aList[$tableName], '');
                 $row    = $q->fetch(PDO::FETCH_ASSOC);

@@ -191,7 +191,7 @@ class Liber {
     *
     */
     public static function setup() {
-        self::conf('APP_ROOT'  , dirname($_SERVER['SCRIPT_FILENAME']).'/');
+        self::conf('APP_ROOT'  , dirname($_SERVER['SCRIPT_FILENAME']).DIRECTORY_SEPARATOR);
         self::conf('APP_URL'   , ((self::isSSL())?'https':'http').'://'.$_SERVER['HTTP_HOST'].str_replace('//','/',  dirname($_SERVER['SCRIPT_NAME']).'/') );
     }
 
@@ -532,30 +532,27 @@ class Liber {
     */
     public static function processRoute() {
         $aRoute = &Liber::$aRoute;
-        $uri    = $_SERVER['REQUEST_URI'];
+        
+        // avoid http:// in url, used to forward by proxy
+        $uri = substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'],$_SERVER['SCRIPT_NAME']));
 
         // detect subfolder uses
         if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  {
             if ( strpos($uri, 'index.php')!==false ) { // with index.php
-                $uri = substr($uri, strpos($uri, $_SERVER['SCRIPT_NAME'])+strlen($_SERVER['SCRIPT_NAME']) );
+                $uri = '/'.str_replace($_SERVER['SCRIPT_NAME'], '', $uri);
             } else { // without index.php
-                $script = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
-                $uri = '/'.substr($uri, strpos($uri, $script)+strlen($script));
+                $uri = '/'.str_replace(str_replace('index.php', '', $_SERVER['SCRIPT_NAME']), '', $uri);
             }
         }
 
         // cleaning uri 
         //
-        if ( $_SERVER['QUERY_STRING'] != ''  )  { // detect query string
-            $uri = substr($uri, 0, strpos($uri, '?'));
-        }
+        $uri = str_replace('?'.$_SERVER['QUERY_STRING'], '', $uri);
         if ( $uri[strlen($uri)-1] == '/' and strlen($uri) > 1 ) {
             $uri[strlen($uri)-1] = ' ';
             $uri = rtrim($uri);                
         }
-        $uri = str_replace('index.php','', $uri);
-        $uri = str_replace('//','/', $uri);
-
+        $uri = str_replace(Array('index.php','//'),Array('','/'), $uri);
 
         // Direct match, load pre-configured route (the fast way, recommended)
         $routeOption =  self::getRouteMethod($uri);
@@ -574,13 +571,13 @@ class Liber {
 
             $p = false;
         } else { 
-            // trying to guess route - /controller/method/param1/param2...
-            $aUri = explode('/', $uri);
-            $aUri = array_filter($aUri); // remove empty values
+            $aUri = array_filter(explode('/', $uri));
             $seg1 = ucfirst(current($aUri));
             
             // try if match a previous segment
-            $previousSegment = dirname($uri);
+            $last = strrpos($uri, '/');
+            $previousSegment = ($last===0?'/':substr($uri, 0, strrpos($uri, '/')));
+
             if ( isset($aRoute[$previousSegment]) )  {
                 $routeOption =  self::getRouteMethod($previousSegment);
                 $routeConf   = Liber::getRouteConf( $routeOption ); 
@@ -596,7 +593,10 @@ class Liber {
                 $a = basename($uri); 
                 $p = false;
                 Liber::loadController($c, $m); 
+
+            // trying to guess route like: /controller/method/param1/param2...
             } elseif ( Liber::loadController($seg1, $m) ) { // Controller exists 
+                
                 $c  = &$seg1;
                 $oC = new $c;
                 $a  = next($aUri);
@@ -606,8 +606,9 @@ class Liber {
                 }
                 $p = array_slice($aUri, key($aUri) );
                 $m = false;
+            
+            // trying routes with named params                
             } else {
-                // trying routes with named params
                 if ( $aParsed = self::parseRouteParams($aRoute, $uri) ) {
                    $routeOption =  self::getRouteMethod($aParsed['route']);
                    $routeConf   = Liber::getRouteConf( $routeOption ); 
