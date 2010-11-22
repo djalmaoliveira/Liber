@@ -1,0 +1,47 @@
+<div class="blog">
+<h1>Url Helper</h1>
+
+
+<p>This helper will help you to create URLs.</p>
+<p>These helpers are parsed by URL filter.</p>
+<p>Code example:</p>
+
+<pre>
+    Liber::loadHelper('Url');
+
+    // relative Url
+    url_to_('/manual/helper_form');
+    <? url_to_('/helper_form'); ?>
+
+
+    // external Url
+    url_to_('https://github.com/djalmaoliveira/Liber');
+    <? url_to_('https://github.com/djalmaoliveira/Liber'); ?>
+
+
+    // current Url
+    url_current_();
+    <? url_current_(); ?>
+
+
+    // assets Url
+    url_asset_('/js/main.js');
+    <? url_asset_('/js/main.js'); ?>
+
+
+    // module assets Url
+    url_module_name_asset_('blog'); // set module name
+    url_module_asset_('/css/main.css');
+    <?
+        url_module_name_asset_('blog');
+        url_module_asset_('/css/main.css');
+    ?>
+
+
+    // clean a URL parsing to valid URL
+    url_clean_('http://blog/post/my first post.html');
+    <? url_clean_('http://blog/post/my first post.html'); ?>
+</pre>
+
+
+</div>

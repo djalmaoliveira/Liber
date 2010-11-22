@@ -2,7 +2,7 @@
 <h1>Log Class</h1>
 
 
-<p>This class is used to log messages gerated during normal or not expected working of application.</p>
+<p>This class is used to log messages generated during normal or not expected working of application.</p>
 <p>By default all messages will be write to file on default LOG_PATH in production mode (PROD).</p>
 <p>If application mode is DEV, the framework will open a popup window with result of error or exception catched.</p>
 
@@ -11,16 +11,23 @@
 <pre>
     // Login simple menssage
     Liber::log()->add('This is a message log.');
-    
+
     // Specifing a level of message
     Liber::log()->add('This is a message log.', 'error');
     Liber::log()->add('This is a message log.', 'info');
     Liber::log()->add('This is a message log.', 'whatever');
-    
+
     // Actually, you can get the object instance to work where you want
     $oLog = Liber::log();
     $oLog->add('Another message');
-    
+
+    // Using user function handler
+    $func = create_function('$aMsg', '
+        print_r($aMsg); // $aMsg is a Array [level]=value of all error messages registered.
+    ');
+    // before, the default behaviour of system log
+    Liber::log()->handler( $func );
+    // after, will call $func on error trigged.
 </pre>
 
 

@@ -2,11 +2,11 @@
 
 /**
  *
- * @package core.helpers 
+ * @package core.helpers
  * @author		djalmaoliveira@gmail.com
  * @copyright	djalmaoliveira@gmail.com
- * @license		
- * @link		
+ * @license
+ * @link
  * @since		Version 1.0
  */
 
@@ -18,14 +18,14 @@
  *
  *
  * @access	public
- * @param $relative_url string
- * @param $return boolean
+ * @param string $relative_url
+ * @param boolean $return
  * @return string
  */
 function url_to_($relative_url = '', $return=false) {
     $url = Liber::redirect($relative_url, true);
 
-    if ($return) {	
+    if ($return) {
         return $url;
     } else {
         echo $url;
@@ -40,23 +40,28 @@ function url_to_($relative_url = '', $return=false) {
  * Returns the current URL requested.
  *
  * @access	public
- * @param $relative_url string
- * @param $return boolean
+ * @param string $relative_url
+ * @param boolean $return
  * @return string
  */
 function url_current_($return=false) 	{
-    return (Liber::isSSL()?'https':'http').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+    $url = (Liber::isSSL()?'https':'http').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+    if ($return) {
+        return $url;
+    } else {
+        echo $url;
+    }
 }
 
 /**
 *   Returns a URL to app asset.
-*   @param $relative_url string
-*   @param $return boolean
+*   @param string $relative_url
+*   @param boolean $return
 *   @return string
-*/  
+*/
 function url_asset_( $relative_url='' , $return=false) {
     $url = Liber::conf('APP_URL').Liber::conf('ASSETS_DIR').'/app'.$relative_url;
-            
+
     if ( $return ) {
         return $url;
     } else {
@@ -68,16 +73,16 @@ function url_asset_( $relative_url='' , $return=false) {
 /**
 *   Returns current module name that will be used by others helper functions that use it.
 *   If specified a name, will set up with it.
-*   @param $moduleName string
+*   @param string $moduleName
 *   @return string
-*/  
+*/
 function url_module_name_asset_( $moduleName=null ) {
     static $modName = '';
+
     if ( $modName =='' ) {
         $modName = Liber::conf('ASSETS_DIR');
     }
-    
-    if ( $moduleName==null )  {
+    if ( func_num_args() == 0 )  {
         return $modName;
     } else {
         $modName = $moduleName;
@@ -87,10 +92,10 @@ function url_module_name_asset_( $moduleName=null ) {
 
 /**
 *   Returns a URL to module asset.
-*   @param $relative_url string
-*   @param $return boolean
+*   @param string $relative_url
+*   @param boolean $return
 *   @return string
-*/  
+*/
 function url_module_asset_($relative_url='', $return=false) {
     $url = Liber::conf('APP_URL').Liber::conf('ASSETS_DIR').'/'.url_module_name_asset_().$relative_url;
 
@@ -106,9 +111,9 @@ function url_module_asset_($relative_url='', $return=false) {
 /**
 *   Return a clean specified URL.
 *   Change spaces and others charactes to $separator by default '-'.
-*   @param $url String
-*   @param $separator String
-*   @param $return boolean
+*   @param String $url
+*   @param String $separator
+*   @param boolean $return
 *   @return String
 */
 function url_clean_($url, $separator="-", $return=false) {
@@ -116,16 +121,21 @@ function url_clean_($url, $separator="-", $return=false) {
         $return = $separator;
         $separator = '-';
     }
-    
-    $url = strtr(utf8_decode($url), utf8_decode('ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ'),'AAAAAAACEEEEIIIIDNOOOOOOUUUUYbsaaaaaaaceeeeiiiidnoooooouuuyybyRr');
-    $url = urlencode( str_replace(' ', $separator, trim($url)) );            
 
-    while ( ($pos = strpos($url, '%')) !== false ) {
-        $part = substr($url, $pos,3);
-        $url  = str_replace($part, $separator, $url);
+    $aUrl = parse_url($url);
+    $path = isset($aUrl['path'])?$aUrl['path']:'';
+
+    $path = strtr(utf8_decode($path), utf8_decode('ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ'),'AAAAAAACEEEEIIIIDNOOOOOOUUUUYbsaaaaaaaceeeeiiiidnoooooouuuyybyRr');
+    $path = urlencode( str_replace(' ', $separator, trim($path)) );
+    $path = str_replace('%2F', '/', $path);
+    while ( ($pos = strpos($path, '%')) !== false ) {
+        $part = substr($path, $pos,3);
+        $path  = str_replace($part, $separator, $path);
     }
 
-    if ( $return  ) {
+    $url = (isset($aUrl['scheme'])?$aUrl['scheme'].'://':'').((isset($aUrl['host'])?$aUrl['host']:'')).$path;
+
+    if ( $return ) {
         return $url;
     } else {
         echo $url;

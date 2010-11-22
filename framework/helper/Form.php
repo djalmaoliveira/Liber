@@ -2,41 +2,40 @@
 
 /**
  *
- * @package core.helpers 
+ * @package core.helpers
  * @author		djalmaoliveira@gmail.com
  * @copyright	djalmaoliveira@gmail.com
- * @license		
- * @link		
+ * @license
+ * @link
  * @since		Version 1.0
  */
 
 
-/**
- * Form Declaration
- *
- * Creates the opening portion of the form.
- *
- * @param	string	$action the URI segments of the form destination
- * @param	array	$attributes a key/value pair of attributes
- * @param	array	$hidden a key/value pair hidden data
- * @param   boolean $return
- * @return	string
- */	
+    /**
+    * Form Declaration
+    *
+    * Creates the opening portion of the form.
+    *
+    * @param	string	$action the URI segments of the form destination
+    * @param	array	$attributes a key/value pair of attributes
+    * @param	array	$hidden a key/value pair hidden data
+    * @param   boolean $return
+    * @return	string
+    */
 	function form_open_($action = '', $attributes = '', $hidden = array(), $return=false)
 	{
 
 
-		if ($attributes == '')
-		{
+		if ($attributes == '') {
 			$attributes = 'method="post"';
 		}
 
 		$action = ( strpos($action, '://') === FALSE) ? Liber::conf('APP_URL') : $action;
 
 		$form = '<form action="'.$action.'"';
-	
+
 		$form .= _attributes_to_string_($attributes, TRUE);
-	
+
 		$form .= '>';
 
 		if (is_array($hidden) AND count($hidden) > 0)
@@ -49,7 +48,7 @@
 		} else {
 		    echo $form;
 		}
-		
+
 	}
 
 
@@ -64,7 +63,7 @@
  * @param	array	a key/value pair hidden data
  * @return	string
  */
-	  function form_open_multipart_($action, $attributes = array(), $hidden = array(), $return=false)
+    function form_open_multipart_($action, $attributes = array(), $hidden = array(), $return=false)
 	{
 		$attributes['enctype'] = 'multipart/form-data';
 		if ( $return ) {
@@ -72,7 +71,7 @@
 		} else {
 		    echo form_open_($action, $attributes, $hidden);
 		}
-		
+
 	}
 
 
@@ -158,26 +157,25 @@
 
 
 
-/**
- * Upload Field
- *
- * Identical to the input function but adds the "file" type
- *
- * @param	mixed
- * @param	string
- * @param	string
- * @return	string
- */
-	  function form_upload_($data = '', $value = '', $extra = '', $return=false)	{
-
+    /**
+    * Upload Field
+    *
+    * Identical to the input function but adds the "file" type
+    *
+    * @param	mixed
+    * @param	string
+    * @param	string
+    * @return	string
+    */
+    function form_upload_($data = '', $value = '', $extra = '', $return=false)	{
         $defaults = array('id' =>(( ! is_array($data)) ? $data : ''), 'type' => 'file', 'name' => (( ! is_array($data)) ? $data : ''), 'value' => $value);
         $elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";
-		if ( $return ) {
-		    return $elem;
-		} else {
-    		echo  $elem;
-		}
-	}
+        if ( $return ) {
+            return $elem;
+        } else {
+            echo  $elem;
+        }
+    }
 
 
 
@@ -201,9 +199,9 @@
         $out['value'] = ( isset($params[1]) and is_array($params[1]) and isset($params[1][$out['name']]) )?$params[1][$out['name']]:(isset($params[1])?$params[1]:'');
         $out['extras']= isset($params[2])?$params[2]:'';
 	    $cols = strpos(strtolower($out['extras']), 'cols=')!==false?'':'cols="30"';
-	    $rows = strpos(strtolower($out['extras']), 'rows=')!==false?'':'rows="3"';	    
+	    $rows = strpos(strtolower($out['extras']), 'rows=')!==false?'':'rows="3"';
 	    $elem = '<textarea id="'.$out['name'].'" name="'.$out['name'].'" '." $cols $rows ".' '.$out['extras'].' >'.$out['value'].'</textarea>';
-	  
+
 		if ( $return ) {
     		return $elem;
 		} else {
@@ -233,7 +231,7 @@
     		return form_select_($name, $options, $selected, $extra);
         } else {
             echo form_select_($name, $options, $selected, $extra, $return);
-        }    		
+        }
 	}
 
 
@@ -344,7 +342,7 @@
 		{
 			unset($defaults['checked']);
 		}
-		
+
 		$elem = "<input ". _parse_form_attributes_($data, $defaults).$extra." />";
         if ( $return ) {
             return $elem;
@@ -369,7 +367,7 @@
 	  function form_radio_($data = '', $value = '', $checked = FALSE, $extra = '', $return=false)
 	{
 		if ( ! is_array($data))
-		{	
+		{
 			$data = array('name' => $data);
 		}
 
@@ -571,7 +569,7 @@
 	function form_prep_($str = '', $field_name = '')
 	{
 		static $prepped_fields = array();
-		
+
 		// if the field name is an array we do this recursively
 		if (is_array($str))
 		{
@@ -596,7 +594,7 @@
 		{
 			return $str;
 		}
-		
+
 		$str = htmlspecialchars($str);
 
 		// In case htmlspecialchars misses these.
@@ -606,7 +604,7 @@
 		{
 			$prepped_fields[$field_name] = $str;
 		}
-		
+
 		return $str;
 	}
 
@@ -706,7 +704,7 @@
 		$OBJ =& _get_validation_object();
 
 		if ($OBJ === FALSE)
-		{ 
+		{
 			if ( ! isset($_POST[$field]))
 			{
 				if (count($_POST) === 0 AND $default == TRUE)
@@ -717,7 +715,7 @@
 			}
 
 			$field = $_POST[$field];
-			
+
 			if (is_array($field))
 			{
 				if ( ! in_array($value, $field))
@@ -768,7 +766,7 @@
 			}
 
 			$field = $_POST[$field];
-			
+
 			if (is_array($field))
 			{
 				if ( ! in_array($value, $field))
@@ -823,7 +821,7 @@
 		}
 
 		$att = '';
-		
+
 		foreach ($default as $key => $val)
 		{
 			if ($key == 'value')
@@ -861,7 +859,7 @@
 
 		return ' '.$attributes;
 		}
-	
+
 		if (is_object($attributes) AND count($attributes) > 0)
 		{
 			$attributes = (array)$attributes;
@@ -884,9 +882,6 @@
 		return $atts;
 		}
 	}
-
-
-
 
 
 ?>

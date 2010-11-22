@@ -1,3 +1,6 @@
+11/2010
+    - create helpers to compress css, html, images using ETAGs
+    - helpers/classes to access API from Twitter, Facebook...
 09/2010
     - class Out, with shortcut in View (View->out()), with following methods(guess), file,text,json,zip, xml, used to output its content;
     
@@ -18,7 +21,7 @@
 14/11/2009
     - (helper ?) to out put XML, Yaml, Json response.
     - helper to create feed rss.
-    - To Refactor Doo:getParams, there is a faster way to exclude empty value
+    - To Refactor Liber:getParams, there is a faster way to exclude empty value
 
 22/10/2009
     - Add filters Input class

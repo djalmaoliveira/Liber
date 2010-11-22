@@ -1,11 +1,11 @@
 <?php
 /**
  *
- * @package core.helpers 
+ * @package core.helpers
  * @author		djalmaoliveira@gmail.com
  * @copyright	djalmaoliveira@gmail.com
- * @license		
- * @link		
+ * @license
+ * @link
  * @since		Version 1.0
  */
 
@@ -13,19 +13,19 @@
 /**
  *
  * Return a relative path from $dest_path to $source_path specified.
- * 
+ *
  * The path returned is relative a first parent directory from $dest_path.
  * Example: $dest_path = '/home/user/myfolder/dest_path';
  *          $source_path = '/home/user/oldfolder/source';
  * The path will consider that you are on '/home/user/myfolder' and will return '../oldfolder/source'.
- * @param	string $source_path 
- * @param   string $dest_path   
+ * @param	string $source_path
+ * @param   string $dest_path
  * @return	string
  */
 function fs_relative_path_($source_path, $dest_path) {
     $source_path = trim($source_path);
     $dest_path   = trim($dest_path);
-  
+
     $aS = array_filter(explode('/', $source_path));
     $aD = array_filter(explode('/', $dest_path));
     // check if the source has the same path of destination
@@ -51,32 +51,32 @@ function fs_relative_path_($source_path, $dest_path) {
 }
 
 /**
-*   Scan the specified $path using callback user function.
+*   Scan the specified $path using callback user function for each file found.
 *   The $func accept two parameters: $dir and $file.
 *   The return type of $func must be Array or String.
-*   If $recursive is true, then scan recursively the $path.
+*   If $recursive is true, then will scan recursively the $path.
 *   @param String $path
 *   @param Function $func
 *   @param boolean $recursive
 *   @return mixed - Result of callback function
 */
 function fs_scan_($path, &$func, $recursive=false) {
-    static $out = null; 
+    static $out = null;
     static $count = 0;
 
     // initialize output towards first return of $func
     if ( $out === null ) {
         $out = gettype($func('a','b'))=='array'?Array():'';
     }
-    
+
     $count++;
     $entries = scandir($path);
     foreach( $entries as $entry ) {
         if ( in_array($entry, Array('.', '..')) ) { continue; }
         $_path = $path.'/'.$entry;
 
-        $o = $func($path, $entry); 
-            
+        $o = $func($path, $entry);
+
         if ( is_array($o) ) {
             if (  key($o) == '0' and count($o) == 1) {
                 $o = current($o);
@@ -90,7 +90,7 @@ function fs_scan_($path, &$func, $recursive=false) {
             fs_scan_($_path, $func, $recursive);
         }
     }
-    
+
     $count--;
     if ( $count == 0 ) { // detect end of recursion
         $buffer = $out;
