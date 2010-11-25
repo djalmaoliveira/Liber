@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Docs for page FS.php</title>
+<title>Docs for page DT.php</title>
 <link rel="stylesheet" type="text/css" href="../media/style.css">
 </head>
 <body>
@@ -49,8 +49,8 @@
     <td>
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
-<h1>Procedural File: FS.php</h1>
-Source Location: /helper/FS.php<br /><br />
+<h1>Procedural File: DT.php</h1>
+Source Location: /helper/DT.php<br /><br />
 
 <br>
 <br>
@@ -83,75 +83,61 @@ Source Location: /helper/FS.php<br /><br />
 <br /><br />
 <br />
   <hr />
-	<a name="functionfs_relative_path_"></a>
-	<h3>fs_relative_path_ <span class="smalllinenumber">[line 25]</span></h3>
+	<a name="functiondt_diffsince_"></a>
+	<h3>dt_diffsince_ <span class="smalllinenumber">[line 22]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string fs_relative_path_(
-string $source_path, string $dest_path)</code>
+		<code>String dt_diffsince_(
+mixed $past, mixed $future, [integer $detail_level = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Return a relative path from $dest_path to $source_path specified.<br /><br /><p>The path returned is relative a first parent directory from $dest_path.  Example: $dest_path = '/home/user/myfolder/dest_path';           $source_path = '/home/user/oldfolder/source';  The path will consider that you are on '/home/user/myfolder' and will return '../oldfolder/source'.</p><br />    <br /><br />
+		Return a textual date/time between two dates $past and $future specified.<br /><br /><p>$past and $future can be a text like '2010-01-10 15:20:25' or as a seconds like 1263144025.    This function consider one month with 30 days.    $detail_level show more detailed text from range 1 to 6.</p><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$source_path</b>&nbsp;&nbsp;</td>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$past</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$dest_path</b>&nbsp;&nbsp;</td>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$future</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+		      <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$detail_level</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 				</table>
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
   <hr />
-	<a name="functionfs_scan_"></a>
-	<h3>fs_scan_ <span class="smalllinenumber">[line 63]</span></h3>
+	<a name="functiondt_timesince_"></a>
+	<h3>dt_timesince_ <span class="smalllinenumber">[line 67]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed fs_scan_(
-String $path,  &$func, [boolean $recursive = false], Function $func)</code>
+		<code>String dt_timesince_(
+mixed $past, [integer $detail_level = 0])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Scan the specified $path using callback user function for each file found.<br /><br /><p>The $func accept two parameters: $dir and $file.    The return type of $func must be Array or String.    If $recursive is true, then will scan recursively the $path.</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>- Result of callback function</td>
-  </tr>
-</table>
-</div>
-    <br /><br />
+		Return a textual date/time passed from $past specified to now.<br /><br /><p>See dt_diffsince_().</p><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-        <td class="type">String&nbsp;&nbsp;</td>
-        <td><b>$path</b>&nbsp;&nbsp;</td>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$past</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 		      <tr>
-        <td class="type">Function&nbsp;&nbsp;</td>
-        <td><b>$func</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-		      <tr>
-        <td class="type">boolean&nbsp;&nbsp;</td>
-        <td><b>$recursive</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-		      <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>&$func</b>&nbsp;&nbsp;</td>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$detail_level</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
 				</table>
@@ -160,7 +146,7 @@ String $path,  &$func, [boolean $recursive = false], Function $func)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 25 Nov 2010 11:08:21 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Thu, 25 Nov 2010 11:08:20 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
