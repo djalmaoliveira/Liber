@@ -1,0 +1,51 @@
+<div class="blog">
+<h1>Cart Class</h1>
+
+<p>With Cart class you can manage a generic Cart System.</p>
+<p>A Cart is a way where you can put 'things' inside a cart like a product with its id, quantity, price and so on.</p>
+
+<p>Code example:</p>
+
+<pre>
+    // Cart load
+    Liber::loadClass('Cart');
+
+    // You can still specifies a 'namespace' as a option to differents carts.
+    $oCart = new Cart('namespace');
+
+    // Storing values of 'things'
+    $item1 = $oCart->insert( Array('#'=>369, 'product'=>'LiberManual', 'price'=>10.10) );
+    $item2 = $oCart->insert( Array('#'=>2549, 'product'=>'Support Service - month', 'price'=>15.99) );
+
+    // replacing existing item
+    $oCart->insert( Array('#'=>2549, 'product'=>'Support Service - month', 'price'=>13.99), $item2 );
+
+    // Get entire item
+    print_r( $oCartn->get($item1) ) ;
+
+    // Get only field of item
+    echo $oCart->get($item2, 'product');
+
+    // Search a item by key/value and return item id
+    echo $oCart->search( Array('#'=>'2549') );
+
+    // Clear specified item in cart
+    $oCart->clear($item1);
+
+    // Clear all cart
+    $oCart->clear();
+
+</pre>
+
+<h2>Real example:</h2>
+<a href='?add=true'>Click to add a item</a>
+<br/>
+<a href='?clear=true'>Click to clear</a>
+<br/>
+<pre>
+<? print_r($cart->get()) ?>
+</pre>
+<br/>
+Items Count: <?= count($cart->get()) ?>
+
+</div>

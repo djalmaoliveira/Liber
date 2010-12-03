@@ -22,8 +22,8 @@ class Cart {
     /**
     *   Insert a item and return id of it.
     *   If $id specified, $data will be replace current data stored.
-    *   @param mixed $data 
-    *   @param integer $id    
+    *   @param mixed $data
+    *   @param integer $id
     *   @return integer
     */
     public function insert($data, $id=null) {
@@ -40,30 +40,30 @@ class Cart {
     }
 
 
-        
+
     /**
     *   Get a item from cart by a specified $id.
     *   If you specify a $field, it will return the value of it stored on $item.
     *   If not specified any args, it will return all Array of items.
-    *   @param integer $id 
-    *   @param String $field 
+    *   @param integer $id
+    *   @param String $field
     *   @return mixed
     */
     public function get($id=null, $field=null) {
         $args = func_num_args();
         if ( $args == 0 ) {
             return $this->session;
-        } elseif ( $args == 1 ) { 
+        } elseif ( $args == 1 ) {
             return $this->session[$id];
         } else {
             return $this->getField($this->session[$id], $field);
         }
     }
-    
-    
+
+
     /**
     *   Clear all Cart or specified $id on stored cart.
-    *   @param integer $id 
+    *   @param integer $id
     */
     public function clear($id=null) {
         if ( $id == null ) {
@@ -77,9 +77,9 @@ class Cart {
     /**
     *   Search if a item exists in cart.
     *   You have to specify a key/value Array to search on cart and will return id of it if matched.
-    *   @param Array $aSearch 
+    *   @param Array $aSearch
     *   @return integer
-    */    
+    */
     public function search($aSearch=null) {
         if ( is_array($aSearch) ) {
             foreach( $this->session as $id => $data ) {
@@ -96,7 +96,7 @@ class Cart {
     *   Check and retrieve value of $data from specified $field.
     *   $data must be Array or Object to get it.
     *   @param mixed $data <Array|Object>
-    *   @param String $field 
+    *   @param String $field
     *   @return mixed
     */
     private function getField($data, $field) {
@@ -106,8 +106,8 @@ class Cart {
             return isset($data->$field)?$data->$field:null;
         }
         return null;
-    } 
-    
+    }
+
 }
 
 ?>

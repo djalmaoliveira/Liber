@@ -86,6 +86,19 @@ class MainController extends Controller{
         $this->oTPL->load("session.html");
     }
 
+    public function cart() {
+        $aData['cart'] = Liber::loadClass('Cart', true);
+
+        if ( Input::get('add') == 'true' ) {
+            $aData['cart']->insert(Array('#'=>'4548', 'product'=>'Liber Manual'));
+        }
+        if ( Input::get('clear') == 'true' ) {
+            $aData['cart']->clear();
+        }
+
+        $this->oTPL->load("cart.html", $aData);
+    }
+
     public function helper_form() {
         Liber::loadHelper('Form');
         $this->oTPL->load("helper_form.html");
@@ -95,6 +108,7 @@ class MainController extends Controller{
         Liber::loadHelper('Url');
         $this->oTPL->load("helper_url.html");
     }
+
 
 }
 
