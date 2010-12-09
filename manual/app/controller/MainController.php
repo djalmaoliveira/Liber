@@ -99,6 +99,13 @@ class MainController extends Controller{
         $this->oTPL->load("cart.html", $aData);
     }
 
+
+    public function minify() {
+        Liber::loadHelper('Url');
+        $this->oTPL->load("minify.html");
+    }
+
+
     public function helper_form() {
         Liber::loadHelper('Form');
         $this->oTPL->load("helper_form.html");

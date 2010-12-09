@@ -13,7 +13,7 @@
   <tr>
     <td class="header_menu">
         
-                                                                                                                      	    [ <a href="elementindex.html" class="menu">all elements</a> ]
+                                                                                                                                          	    [ <a href="elementindex.html" class="menu">all elements</a> ]
     </td>
   </tr>
   <tr><td class="header_line"><img src="media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
@@ -25,6 +25,7 @@
       <b>Packages:</b><br />
               <a href="li_core-class.html">core-class</a><br />
               <a href="li_default.html">default</a><br />
+              <a href="li_Minify.html">Minify</a><br />
               <a href="li_core.html">core</a><br />
               <a href="li_cache.html">cache</a><br />
               <a href="li_core-helpers.html">core-helpers</a><br />
@@ -44,6 +45,7 @@
 	[ <a href="elementindex.html#g">g</a> ]
 	[ <a href="elementindex.html#h">h</a> ]
 	[ <a href="elementindex.html#i">i</a> ]
+	[ <a href="elementindex.html#j">j</a> ]
 	[ <a href="elementindex.html#l">l</a> ]
 	[ <a href="elementindex.html#m">m</a> ]
 	[ <a href="elementindex.html#n">n</a> ]
@@ -71,10 +73,14 @@
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$aLogMsg">Log::$aLogMsg</a></dd>
 							<dt><b>$aRoute</b></dt>
 				<dd>in file Liber.php, variable <a href="core/Liber.html#var$aRoute">Liber::$aRoute</a></dd>
+							<dt><b>$assignOp</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$assignOp">JSToken::$assignOp</a></dd>
 							<dt><b>add</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodadd">FileUpdate::add()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a path that can be a file or directory, returning the status of operation.</dd>
 							<dt><b>add</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodadd">Log::add()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a message log.</dd>
+							<dt><b>addNode</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSNode.html#methodaddNode">JSNode::addNode()</a></dd>
 							<dt><b>addTo</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodaddTo">Mailer::addTo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add one or more destinations to mail.</dd>
 					</dl>
@@ -85,6 +91,8 @@
 	<div>
 		<h2>b</h2>
 		<dl>
+							<dt><b>$bracketLevel</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$bracketLevel">JSCompilerContext::$bracketLevel</a></dd>
 							<dt><b>BasicDb</b></dt>
 				<dd>in file BasicDb.php, class <a href="core-class/BasicDb.html">BasicDb</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Basic class that manipulates action with a some database</dd>
 							<dt><b>body</b></dt>
@@ -101,6 +109,8 @@
 		<dl>
 							<dt><b>$context</b></dt>
 				<dd>in file Session.php, variable <a href="core-class/Session.html#var$context">Session::$context</a></dd>
+							<dt><b>$curlyLevel</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$curlyLevel">JSCompilerContext::$curlyLevel</a></dd>
 							<dt><b>cache</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodcache">View::cache()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set the cache expires.</dd>
 							<dt><b>cache</b></dt>
@@ -114,11 +124,11 @@
 							<dt><b>clean</b></dt>
 				<dd>in file Input.php, method <a href="core-class/Input.html#methodclean">Input::clean()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Do a cleaning .</dd>
 							<dt><b>clear</b></dt>
+				<dd>in file FileCache.php, method <a href="cache/FileCache.html#methodclear">FileCache::clear()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clear all stored cache from current context or a specified $id only.</dd>
+							<dt><b>clear</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#methodclear">Cart::clear()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clear all Cart or specified $id on stored cart.</dd>
 							<dt><b>clear</b></dt>
 				<dd>in file Session.php, method <a href="core-class/Session.html#methodclear">Session::clear()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Cleans current session.</dd>
-							<dt><b>clear</b></dt>
-				<dd>in file FileCache.php, method <a href="cache/FileCache.html#methodclear">FileCache::clear()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clear all stored cache from current context or a specified $id only.</dd>
 							<dt><b>conf</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodconf">Liber::conf()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set/add config params.</dd>
 							<dt><b>context</b></dt>
@@ -133,8 +143,12 @@
 				<dd>in file Input.php, method <a href="core-class/Input.html#methodcookie">Input::cookie()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _COOKIE var, or all _COOKIE if not specified.</dd>
 							<dt><b>createLayout</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#methodcreateLayout">Setup::createLayout()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a layout structure based on current application.</dd>
+							<dt><b>css</b></dt>
+				<dd>in file Minify.php, method <a href="core-class/Minify.html#methodcss">Minify::css()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a CSS code.</dd>
 							<dt><b>current</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodcurrent">View::current()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return current setting from instance.</dd>
+							<dt><b>currentToken</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodcurrentToken">JSTokenizer::currentToken()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -149,6 +163,8 @@
 				<dd>in file Validation.php, class constant <a href="core-class/Validation.html#constDATE">Validation::DATE</a></dd>
 							<dt><b>db</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methoddb">Liber::db()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a database object instance.</dd>
+							<dt><b>DECLARED_FORM</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineDECLARED_FORM">DECLARED_FORM</a></dd>
 							<dt><b>delete</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methoddelete">FileUpdate::delete()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Path to delete, that can be a file or directory.</dd>
 							<dt><b>destroy</b></dt>
@@ -171,10 +187,16 @@
 	<div>
 		<h2>e</h2>
 		<dl>
+							<dt><b>$ecmaStrictMode</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$ecmaStrictMode">JSCompilerContext::$ecmaStrictMode</a></dd>
+							<dt><b>$end</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$end">JSToken::$end</a></dd>
 							<dt><b>EMAIL</b></dt>
 				<dd>in file Validation.php, class constant <a href="core-class/Validation.html#constEMAIL">Validation::EMAIL</a></dd>
 							<dt><b>engine</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodengine">View::engine()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return current TemplateEngine instance.</dd>
+							<dt><b>EXPRESSED_FORM</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineEXPRESSED_FORM">EXPRESSED_FORM</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -183,6 +205,12 @@
 	<div>
 		<h2>f</h2>
 		<dl>
+							<dt><b>$filename</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$filename">JSTokenizer::$filename</a></dd>
+							<dt><b>$funDecls</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSNode.html#var$funDecls">JSNode::$funDecls</a></dd>
+							<dt><b>$funDecls</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$funDecls">JSCompilerContext::$funDecls</a></dd>
 							<dt><b>FileCache.php</b></dt>
 				<dd>procedural page <a href="cache/_cache---FileCache.php.html">FileCache.php</a></dd>
 							<dt><b>FileUpdate.php</b></dt>
@@ -268,11 +296,15 @@
 							<dt><b>GlobalTemplate.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---GlobalTemplate.php.html">GlobalTemplate.php</a></dd>
 							<dt><b>get</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodget">JSTokenizer::get()</a></dd>
+							<dt><b>get</b></dt>
 				<dd>in file Input.php, method <a href="core-class/Input.html#methodget">Input::get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _GET var, or all _GET if not specified.</dd>
 							<dt><b>get</b></dt>
 				<dd>in file FileCache.php, method <a href="cache/FileCache.html#methodget">FileCache::get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get stored cache by $id specified.</dd>
 							<dt><b>get</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#methodget">Cart::get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get a item from cart by a specified $id.</dd>
+							<dt><b>getInput</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodgetInput">JSTokenizer::getInput()</a></dd>
 							<dt><b>getInstance</b></dt>
 				<dd>in file BasicDb.php, method <a href="core-class/BasicDb.html#methodgetInstance">BasicDb::getInstance()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the instance</dd>
 							<dt><b>getParams</b></dt>
@@ -291,6 +323,8 @@
 	<div>
 		<h2>h</h2>
 		<dl>
+							<dt><b>$hookLevel</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$hookLevel">JSCompilerContext::$hookLevel</a></dd>
 							<dt><b>handleError</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodhandleError">Log::handleError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a message of current error triggered.</dd>
 							<dt><b>handler</b></dt>
@@ -299,6 +333,8 @@
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodheader">Controller::header()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set http headers to send. See header function on PHP manual.</dd>
 							<dt><b>header</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodheader">Mailer::header()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set headers of mail, like Reply-to, From.</dd>
+							<dt><b>html</b></dt>
+				<dd>in file Minify.php, method <a href="core-class/Minify.html#methodhtml">Minify::html()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a HTML code.</dd>
 							<dt><b>html</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodhtml">Mailer::html()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set if mail is a html message, default value 'false'.</dd>
 					</dl>
@@ -309,20 +345,80 @@
 	<div>
 		<h2>i</h2>
 		<dl>
+							<dt><b>$inForLoopInit</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$inForLoopInit">JSCompilerContext::$inForLoopInit</a></dd>
+							<dt><b>$inFunction</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$inFunction">JSCompilerContext::$inFunction</a></dd>
 							<dt><b>Input.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Input.php.html">Input.php</a></dd>
 							<dt><b>ignore</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodignore">FileUpdate::ignore()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Path to ignore, that can be a file or directory.</dd>
+							<dt><b>init</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodinit">JSTokenizer::init()</a></dd>
 							<dt><b>Input</b></dt>
 				<dd>in file Input.php, class <a href="core-class/Input.html">Input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates input data from client.</dd>
 							<dt><b>insert</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#methodinsert">Cart::insert()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Insert a item and return id of it.</dd>
 							<dt><b>isAjax</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodisAjax">Liber::isAjax()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools</dd>
+							<dt><b>isDone</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodisDone">JSTokenizer::isDone()</a></dd>
 							<dt><b>isSSL</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodisSSL">Liber::isSSL()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Check if the connection is a SSL connection</dd>
 							<dt><b>isTable</b></dt>
 				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodisTable">SqlExtract::isTable()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return if $table is table or not.</dd>
+					</dl>
+	</div>
+	<a href="elementindex.html#top">top</a><br>
+  <hr />
+	<a name="j"></a>
+	<div>
+		<h2>j</h2>
+		<dl>
+							<dt><b>JSMinPlus.php</b></dt>
+				<dd>procedural page <a href="default/_class---JSMinPlus.php.html">JSMinPlus.php</a></dd>
+							<dt><b>js</b></dt>
+				<dd>in file Minify.php, method <a href="core-class/Minify.html#methodjs">Minify::js()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a JavaScript code.</dd>
+							<dt><b>JSCompilerContext</b></dt>
+				<dd>in file JSMinPlus.php, class <a href="default/JSCompilerContext.html">JSCompilerContext</a></dd>
+							<dt><b>JSMinPlus</b></dt>
+				<dd>in file JSMinPlus.php, class <a href="default/JSMinPlus.html">JSMinPlus</a></dd>
+							<dt><b>JSNode</b></dt>
+				<dd>in file JSMinPlus.php, class <a href="default/JSNode.html">JSNode</a></dd>
+							<dt><b>JSParser</b></dt>
+				<dd>in file JSMinPlus.php, class <a href="default/JSParser.html">JSParser</a></dd>
+							<dt><b>JSToken</b></dt>
+				<dd>in file JSMinPlus.php, class <a href="default/JSToken.html">JSToken</a></dd>
+							<dt><b>JSTokenizer</b></dt>
+				<dd>in file JSMinPlus.php, class <a href="default/JSTokenizer.html">JSTokenizer</a></dd>
+							<dt><b>JS_ARRAY_INIT</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_ARRAY_INIT">JS_ARRAY_INIT</a></dd>
+							<dt><b>JS_BLOCK</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_BLOCK">JS_BLOCK</a></dd>
+							<dt><b>JS_CALL</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_CALL">JS_CALL</a></dd>
+							<dt><b>JS_FOR_IN</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_FOR_IN">JS_FOR_IN</a></dd>
+							<dt><b>JS_GETTER</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_GETTER">JS_GETTER</a></dd>
+							<dt><b>JS_GROUP</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_GROUP">JS_GROUP</a></dd>
+							<dt><b>JS_INDEX</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_INDEX">JS_INDEX</a></dd>
+							<dt><b>JS_LABEL</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_LABEL">JS_LABEL</a></dd>
+							<dt><b>JS_LIST</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_LIST">JS_LIST</a></dd>
+							<dt><b>JS_NEW_WITH_ARGS</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_NEW_WITH_ARGS">JS_NEW_WITH_ARGS</a></dd>
+							<dt><b>JS_OBJECT_INIT</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_OBJECT_INIT">JS_OBJECT_INIT</a></dd>
+							<dt><b>JS_PROPERTY_INIT</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_PROPERTY_INIT">JS_PROPERTY_INIT</a></dd>
+							<dt><b>JS_SCRIPT</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_SCRIPT">JS_SCRIPT</a></dd>
+							<dt><b>JS_SETTER</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineJS_SETTER">JS_SETTER</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -333,6 +429,12 @@
 		<dl>
 							<dt><b>$layout</b></dt>
 				<dd>in file View.php, variable <a href="core-class/View.html#var$layout">View::$layout</a></dd>
+							<dt><b>$lineno</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$lineno">JSTokenizer::$lineno</a></dd>
+							<dt><b>$lineno</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$lineno">JSToken::$lineno</a></dd>
+							<dt><b>$lookahead</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$lookahead">JSTokenizer::$lookahead</a></dd>
 							<dt><b>Log.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Log.php.html">Log.php</a></dd>
 							<dt><b>Liber</b></dt>
@@ -340,13 +442,13 @@
 							<dt><b>Liber.php</b></dt>
 				<dd>procedural page <a href="core/_Liber.php.html">Liber.php</a></dd>
 							<dt><b>load</b></dt>
+				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
+							<dt><b>load</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodload">Liber::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of class(es) and tries to create an object/a list of objects from the class.</dd>
 							<dt><b>load</b></dt>
 				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#methodload">TemplateEngine::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load and parse a template from file.</dd>
 							<dt><b>load</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodload">View::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Call 'load' method from template engine instance.</dd>
-							<dt><b>load</b></dt>
-				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
 							<dt><b>loadClass</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadClass">Liber::loadClass()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of one Class. Class file is located at <strong>BASE_PATH/class/</strong> or <strong>$context/class/</strong></dd>
 							<dt><b>loadClass</b></dt>
@@ -358,17 +460,17 @@
 							<dt><b>loadController</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadController">Liber::loadController()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Controller class. Class file is located at <strong>APP_PATH/controller/</strong> or <strong>APP_PATH/ModuleName/controller/</strong></dd>
 							<dt><b>loadHelper</b></dt>
-				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadHelper">Controller::loadHelper()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load helper from application or module if was instanced with it.</dd>
-							<dt><b>loadHelper</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadHelper">Liber::loadHelper()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of functions Helper file. File is located at <strong>BASE_PATH/helper/</strong>  or <strong>$context/helper/</strong></dd>
+							<dt><b>loadHelper</b></dt>
+				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadHelper">Controller::loadHelper()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load helper from application or module if was instanced with it.</dd>
 							<dt><b>loadModel</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadModel">Liber::loadModel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Model class. Class file is located at <strong>APP_PATH/model/</strong> or</dd>
 							<dt><b>loadModel</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadModel">Controller::loadModel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load model from application or module if was instanced with it.</dd>
 							<dt><b>loadPlugin</b></dt>
-				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadPlugin">Controller::loadPlugin()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load plugin from application or module if was instanced with it.</dd>
-							<dt><b>loadPlugin</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadPlugin">Liber::loadPlugin()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Plugin class. Class file is located at <strong>BASE_PATH/plugin/</strong>  or <strong>$context/plugin/</strong></dd>
+							<dt><b>loadPlugin</b></dt>
+				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadPlugin">Controller::loadPlugin()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load plugin from application or module if was instanced with it.</dd>
 							<dt><b>loadUpdate</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodloadUpdate">FileUpdate::loadUpdate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load an update file in current instance, returning the state of operation.</dd>
 							<dt><b>log</b></dt>
@@ -385,10 +487,30 @@
 		<dl>
 							<dt><b>Mailer.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Mailer.php.html">Mailer.php</a></dd>
+							<dt><b>Minify.php</b></dt>
+				<dd>procedural page <a href="core-class/_class---Minify.php.html">Minify.php</a></dd>
+							<dt><b>Minify_CSS_Compressor.php</b></dt>
+				<dd>procedural page <a href="Minify/_class---Minify_CSS_Compressor.php.html">Minify_CSS_Compressor.php</a></dd>
+							<dt><b>Minify_HTML.php</b></dt>
+				<dd>procedural page <a href="Minify/_class---Minify_HTML.php.html">Minify_HTML.php</a></dd>
 							<dt><b>Mailer</b></dt>
 				<dd>in file Mailer.php, class <a href="core-class/Mailer.html">Mailer</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A simple Mailer class, for sending e-mails.</dd>
+							<dt><b>match</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodmatch">JSTokenizer::match()</a></dd>
+							<dt><b>minify</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#methodminify">Minify_HTML::minify()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&quot;Minify&quot; an HTML page</dd>
+							<dt><b>Minify</b></dt>
+				<dd>in file Minify.php, class <a href="core-class/Minify.html">Minify</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class used to minify HTML, CSS and JavaScript code.</dd>
+							<dt><b>minify</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSMinPlus.html#methodminify">JSMinPlus::minify()</a></dd>
+							<dt><b>Minify_CSS_Compressor</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, class <a href="Minify/Minify_CSS_Compressor.html">Minify_CSS_Compressor</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Compress CSS</dd>
+							<dt><b>Minify_HTML</b></dt>
+				<dd>in file Minify_HTML.php, class <a href="Minify/Minify_HTML.html">Minify_HTML</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Compress HTML</dd>
 							<dt><b>model</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodmodel">GlobalTemplate::model()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set or Get file name of model name into template folder.</dd>
+							<dt><b>mustMatch</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodmustMatch">JSTokenizer::mustMatch()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -399,6 +521,8 @@
 		<dl>
 							<dt><b>name</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodname">GlobalTemplate::name()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set or Get the name of template folder on current context.</dd>
+							<dt><b>newSyntaxError</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodnewSyntaxError">JSTokenizer::newSyntaxError()</a></dd>
 							<dt><b>NOTNULL</b></dt>
 				<dd>in file Validation.php, class constant <a href="core-class/Validation.html#constNOTNULL">Validation::NOTNULL</a></dd>
 							<dt><b>NUMERIC</b></dt>
@@ -411,20 +535,32 @@
 	<div>
 		<h2>p</h2>
 		<dl>
+							<dt><b>$parenLevel</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$parenLevel">JSCompilerContext::$parenLevel</a></dd>
 							<dt><b>params</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodparams">Controller::params()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get named or unamed params from uri.</dd>
+							<dt><b>parse</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSParser.html#methodparse">JSParser::parse()</a></dd>
 							<dt><b>parseRouteParams</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodparseRouteParams">Liber::parseRouteParams()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Search for configured route and params returning it.</dd>
 							<dt><b>path</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodpath">View::path()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the path of view file specified related from current module.</dd>
-							<dt><b>post</b></dt>
-				<dd>in file Log.php, method <a href="core-class/Log.html#methodpost">Log::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Do the last action with log messages stored.</dd>
+							<dt><b>peek</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodpeek">JSTokenizer::peek()</a></dd>
+							<dt><b>peekOnSameLine</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodpeekOnSameLine">JSTokenizer::peekOnSameLine()</a></dd>
 							<dt><b>post</b></dt>
 				<dd>in file Input.php, method <a href="core-class/Input.html#methodpost">Input::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _POST var, or all _POST if not specified.</dd>
+							<dt><b>post</b></dt>
+				<dd>in file Log.php, method <a href="core-class/Log.html#methodpost">Log::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Do the last action with log messages stored.</dd>
 							<dt><b>prepareAssetDir</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#methodprepareAssetDir">Setup::prepareAssetDir()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a assets dir on www.</dd>
 							<dt><b>prepareLoad</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodprepareLoad">Liber::prepareLoad()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Detect and return the current configuration about which context should be loaded.</dd>
+							<dt><b>process</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#methodprocess">Minify_HTML::process()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify the markeup given in the constructor</dd>
+							<dt><b>process</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#methodprocess">Minify_CSS_Compressor::process()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a CSS string</dd>
 							<dt><b>processRoute</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodprocessRoute">Liber::processRoute()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Process route, match and create related controller or redirect to default controller if don't match.</dd>
 							<dt><b>processUpdate</b></dt>
@@ -463,10 +599,18 @@
 	<div>
 		<h2>s</h2>
 		<dl>
+							<dt><b>$scanNewlines</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$scanNewlines">JSTokenizer::$scanNewlines</a></dd>
+							<dt><b>$scanOperand</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$scanOperand">JSTokenizer::$scanOperand</a></dd>
 							<dt><b>$session</b></dt>
 				<dd>in file Cart.php, variable <a href="core-class/Cart.html#var$session">Cart::$session</a></dd>
+							<dt><b>$start</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$start">JSToken::$start</a></dd>
 							<dt><b>$started</b></dt>
 				<dd>in file Session.php, variable <a href="core-class/Session.html#var$started">Session::$started</a></dd>
+							<dt><b>$stmtStack</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$stmtStack">JSCompilerContext::$stmtStack</a></dd>
 							<dt><b>Session.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Session.php.html">Session.php</a></dd>
 							<dt><b>Setup.php</b></dt>
@@ -481,12 +625,14 @@
 				<dd>in file Session.php, class <a href="core-class/Session.html">Session</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manage values stored in session.</dd>
 							<dt><b>setLayoutOnce</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodsetLayoutOnce">View::setLayoutOnce()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set layout that must be used once time.</dd>
-							<dt><b>setup</b></dt>
-				<dd>in file Liber.php, method <a href="core/Liber.html#methodsetup">Liber::setup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Complete the basic configuration.</dd>
 							<dt><b>Setup</b></dt>
 				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
+							<dt><b>setup</b></dt>
+				<dd>in file Liber.php, method <a href="core/Liber.html#methodsetup">Liber::setup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Complete the basic configuration.</dd>
 							<dt><b>SqlExtract</b></dt>
 				<dd>in file SqlExtract.php, class <a href="core-class/SqlExtract.html">SqlExtract</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates extraction from databases.</dd>
+							<dt><b>STATEMENT_FORM</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineSTATEMENT_FORM">STATEMENT_FORM</a></dd>
 							<dt><b>subject</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodsubject">Mailer::subject()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set the subject of mail.</dd>
 					</dl>
@@ -497,6 +643,14 @@
 	<div>
 		<h2>t</h2>
 		<dl>
+							<dt><b>$tokenIndex</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$tokenIndex">JSTokenizer::$tokenIndex</a></dd>
+							<dt><b>$tokens</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$tokens">JSTokenizer::$tokens</a></dd>
+							<dt><b>$treeNodes</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSNode.html#var$treeNodes">JSNode::$treeNodes</a></dd>
+							<dt><b>$type</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$type">JSToken::$type</a></dd>
 							<dt><b>TemplateEngine.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---TemplateEngine.php.html">TemplateEngine.php</a></dd>
 							<dt><b>tableConstraints</b></dt>
@@ -510,11 +664,25 @@
 							<dt><b>TemplateEngine</b></dt>
 				<dd>in file TemplateEngine.php, class <a href="core-class/TemplateEngine.html">TemplateEngine</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class base from others Template Engines classes.</dd>
 							<dt><b>toArray</b></dt>
-				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodtoArray">Mailer::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return Array of data stored on current object Mailer.</dd>
-							<dt><b>toArray</b></dt>
 				<dd>in file Session.php, method <a href="core-class/Session.html#methodtoArray">Session::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return array of field/values from current session.</dd>
+							<dt><b>toArray</b></dt>
+				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodtoArray">Mailer::toArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return Array of data stored on current object Mailer.</dd>
 							<dt><b>toFile</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodtoFile">Log::toFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Write current log to file.</dd>
+							<dt><b>TOKEN_CONDCOMMENT_MULTILINE</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_CONDCOMMENT_MULTILINE">TOKEN_CONDCOMMENT_MULTILINE</a></dd>
+							<dt><b>TOKEN_END</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_END">TOKEN_END</a><br>&nbsp;&nbsp;&nbsp;&nbsp;JSMinPlus version 1.1</dd>
+							<dt><b>TOKEN_IDENTIFIER</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_IDENTIFIER">TOKEN_IDENTIFIER</a></dd>
+							<dt><b>TOKEN_NEWLINE</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_NEWLINE">TOKEN_NEWLINE</a></dd>
+							<dt><b>TOKEN_NUMBER</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_NUMBER">TOKEN_NUMBER</a></dd>
+							<dt><b>TOKEN_REGEXP</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_REGEXP">TOKEN_REGEXP</a></dd>
+							<dt><b>TOKEN_STRING</b></dt>
+				<dd>in file JSMinPlus.php, constant <a href="default/_class---JSMinPlus.php.html#defineTOKEN_STRING">TOKEN_STRING</a></dd>
 							<dt><b>toPopUp</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodtoPopUp">Log::toPopUp()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generate a html content to show a popup with PHP error.</dd>
 							<dt><b>toString</b></dt>
@@ -531,6 +699,8 @@
 				<dd>in file FileUpdate.php, variable <a href="core-class/FileUpdate.html#var$updateData">FileUpdate::$updateData</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Store update data.</dd>
 							<dt><b>Url.php</b></dt>
 				<dd>procedural page <a href="core-helpers/_helper---Url.php.html">Url.php</a></dd>
+							<dt><b>unget</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodunget">JSTokenizer::unget()</a></dd>
 							<dt><b>url_asset_</b></dt>
 				<dd>in file Url.php, function <a href="core-helpers/_helper---Url.php.html#functionurl_asset_">url_asset_()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a URL to app asset.</dd>
 							<dt><b>url_clean_</b></dt>
@@ -551,6 +721,12 @@
 	<div>
 		<h2>v</h2>
 		<dl>
+							<dt><b>$value</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$value">JSToken::$value</a></dd>
+							<dt><b>$varDecls</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$varDecls">JSCompilerContext::$varDecls</a></dd>
+							<dt><b>$varDecls</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSNode.html#var$varDecls">JSNode::$varDecls</a></dd>
 							<dt><b>Validation.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Validation.php.html">Validation.php</a></dd>
 							<dt><b>View.php</b></dt>
@@ -567,10 +743,10 @@
 				<dd>in file Validation.php, class <a href="core-class/Validation.html">Validation</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates several kind of values validation.</dd>
 							<dt><b>VERSION</b></dt>
 				<dd>in file Liber.php, class constant <a href="core/Liber.html#constVERSION">Liber::VERSION</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Framework version</dd>
-							<dt><b>View</b></dt>
-				<dd>in file View.php, class <a href="core-class/View.html">View</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates html output and html template engine loads.</dd>
 							<dt><b>view</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodview">Controller::view()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get instance of View class.</dd>
+							<dt><b>View</b></dt>
+				<dd>in file View.php, class <a href="core-class/View.html">View</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates html output and html template engine loads.</dd>
 							<dt><b>viewScheme</b></dt>
 				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#methodviewScheme">SqlExtract::viewScheme()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the SQL code of view creation specified.</dd>
 					</dl>
@@ -597,44 +773,98 @@
 				<dd>in file Liber.php, variable <a href="core/Liber.html#var$_cache">Liber::$_cache</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Cache instance</dd>
 							<dt><b>$_controller</b></dt>
 				<dd>in file Liber.php, variable <a href="core/Liber.html#var$_controller">Liber::$_controller</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Current controller instance</dd>
+							<dt><b>$_cssMinifier</b></dt>
+				<dd>in file Minify_HTML.php, variable <a href="Minify/Minify_HTML.html#var$_cssMinifier">Minify_HTML::$_cssMinifier</a></dd>
 							<dt><b>$_db</b></dt>
 				<dd>in file Liber.php, variable <a href="core/Liber.html#var$_db">Liber::$_db</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Database layer instance</dd>
+							<dt><b>$_inHack</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, variable <a href="Minify/Minify_CSS_Compressor.html#var$_inHack">Minify_CSS_Compressor::$_inHack</a></dd>
+							<dt><b>$_isXhtml</b></dt>
+				<dd>in file Minify_HTML.php, variable <a href="Minify/Minify_HTML.html#var$_isXhtml">Minify_HTML::$_isXhtml</a></dd>
+							<dt><b>$_jsMinifier</b></dt>
+				<dd>in file Minify_HTML.php, variable <a href="Minify/Minify_HTML.html#var$_jsMinifier">Minify_HTML::$_jsMinifier</a></dd>
+							<dt><b>$_options</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, variable <a href="Minify/Minify_CSS_Compressor.html#var$_options">Minify_CSS_Compressor::$_options</a></dd>
+							<dt><b>$_placeholders</b></dt>
+				<dd>in file Minify_HTML.php, variable <a href="Minify/Minify_HTML.html#var$_placeholders">Minify_HTML::$_placeholders</a></dd>
+							<dt><b>$_replacementHash</b></dt>
+				<dd>in file Minify_HTML.php, variable <a href="Minify/Minify_HTML.html#var$_replacementHash">Minify_HTML::$_replacementHash</a></dd>
+							<dt><b>_commentCB</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#method_commentCB">Minify_CSS_Compressor::_commentCB()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Process a comment and return a replacement</dd>
+							<dt><b>_commentCB</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_commentCB">Minify_HTML::_commentCB()</a></dd>
 							<dt><b>_duplicateDir</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method_duplicateDir">Setup::_duplicateDir()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Make a copy from $source_path to $dest_path, only .</dd>
 							<dt><b>_duplicateLayout</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method_duplicateLayout">Setup::_duplicateLayout()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Duplicate dirs and files for Layout.</dd>
+							<dt><b>_fontFamilyCB</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#method_fontFamilyCB">Minify_CSS_Compressor::_fontFamilyCB()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Process a font-family listing and return a replacement</dd>
 							<dt><b>_ignore</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#method_ignore">FileUpdate::_ignore()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Search in ignore list if there is a path that match with $path specified.</dd>
+							<dt><b>_needsCdata</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_needsCdata">Minify_HTML::_needsCdata()</a></dd>
+							<dt><b>_outsideTagCB</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_outsideTagCB">Minify_HTML::_outsideTagCB()</a></dd>
 							<dt><b>_parse_input_params_</b></dt>
 				<dd>in file Form.php, function <a href="core-helpers/_helper---Form.php.html#function_parse_input_params_">_parse_input_params_()</a></dd>
+							<dt><b>_process</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#method_process">Minify_CSS_Compressor::_process()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a CSS string</dd>
+							<dt><b>_removeCdata</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_removeCdata">Minify_HTML::_removeCdata()</a></dd>
+							<dt><b>_removePreCB</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_removePreCB">Minify_HTML::_removePreCB()</a></dd>
+							<dt><b>_removeScriptCB</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_removeScriptCB">Minify_HTML::_removeScriptCB()</a></dd>
+							<dt><b>_removeStyleCB</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_removeStyleCB">Minify_HTML::_removeStyleCB()</a></dd>
+							<dt><b>_removeTextareaCB</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_removeTextareaCB">Minify_HTML::_removeTextareaCB()</a></dd>
+							<dt><b>_reservePlace</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method_reservePlace">Minify_HTML::_reservePlace()</a></dd>
+							<dt><b>_selectorsCB</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#method_selectorsCB">Minify_CSS_Compressor::_selectorsCB()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Replace what looks like a set of selectors</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file View.php, method <a href="core-class/View.html#method__construct">View::__construct()</a></dd>
+				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
+				<dd>in file JSMinPlus.php, method <a href="default/JSCompilerContext.html#method__construct">JSCompilerContext::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#method__construct">SqlExtract::__construct()</a></dd>
+				<dd>in file JSMinPlus.php, method <a href="default/JSNode.html#method__construct">JSNode::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#method__construct">Setup::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#method__construct">Mailer::__construct()</a></dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Liber.php, method <a href="default/Controller.html#method__construct">Controller::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#method__construct">GlobalTemplate::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a new instance.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file SqlExtract.php, method <a href="core-class/SqlExtract.html#method__construct">SqlExtract::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file FileCache.php, method <a href="cache/FileCache.html#method__construct">FileCache::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Cart.php, method <a href="core-class/Cart.html#method__construct">Cart::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
+				<dd>in file View.php, method <a href="core-class/View.html#method__construct">View::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#method__construct">Mailer::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#method__construct">Minify_HTML::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a minifier object</dd>
+							<dt><b>__construct</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#method__construct">Log::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Session.php, method <a href="core-class/Session.html#method__construct">Session::__construct()</a></dd>
+				<dd>in file Liber.php, method <a href="default/Controller.html#method__construct">Controller::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSParser.html#method__construct">JSParser::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#method__construct">JSTokenizer::__construct()</a></dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#method__construct">TemplateEngine::__construct()</a></dd>
+							<dt><b>__get</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSNode.html#method__get">JSNode::__get()</a></dd>
+							<dt><b>__set</b></dt>
+				<dd>in file JSMinPlus.php, method <a href="default/JSNode.html#method__set">JSNode::__set()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 03 Dec 2010 16:56:49 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Thu, 09 Dec 2010 16:56:50 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

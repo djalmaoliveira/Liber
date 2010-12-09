@@ -1,0 +1,39 @@
+<div class="blog">
+<h1>Minify Class</h1>
+
+
+<p>With Minify class you can reduce the size of HTML, CSS or JavaScript files, it can be used, for example, to caching purpose.</p>
+<p>This class use a code which was developed from 3rd party programmers.</p>
+<ul>
+    <li><strong>Minify_HTML:</strong> Ryan Grove < ryan@wonko.com > and Steve Clay < steve@mrclay.org ></li>
+    <li><strong>Minify_CSS_Compressor:</strong> Stephen Clay < steve@mrclay.org ></li>
+    <li><strong>JSMinPlus:</strong> Tino Zijdel < crisp@tweakers.net ></li>
+</ul>
+
+
+
+<p>Code example:</p>
+
+<pre>
+    // Class load
+    Liber::loadClass('Minify');
+
+    // load HTML file
+    $html_file = file_get_contents('file.html');
+    // output Minified version
+    echo Minify::html($html_file);
+
+    // load CSS file
+    $css_file = file_get_contents('file.css');
+    // output Minified version
+    echo Minify::css($css_file);
+
+    // load JavaScript file
+    $js_file = file_get_contents('file.js');
+    // output Minified version
+    echo Minify::js($js_file);
+
+</pre>
+
+
+</div>
