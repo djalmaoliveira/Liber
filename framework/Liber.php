@@ -5,11 +5,11 @@
  * All rights reserved.
  * @license license.txt
  */
- 
- 
+
+
 /**
  * Liber is a main class of framework.
- * 
+ *
  * How to setup configuration params:
  * <code>Liber::conf('APP_MODE', 'PROD');</code>
  * and to get params:
@@ -50,19 +50,19 @@ class Liber {
     *   @var Array
     */
     protected static $aConfig = Array(
-                                    'BASE_PATH'         => '',      
-                                    'APP_PATH'          => '',      
-                                    'APP_URL'           => '',       
-                                    'APP_ROOT'          => '',       
-                                    'APP_MODE'          => 'DEV',    
-                                    'DB_LAYER'          => 'BasicDb',      
-                                    'TEMPLATE_ENGINE'   => 'TemplateEngine',      
-                                    'ASSETS_DIR'        => 'assets',      
-                                    'LOG_PATH'          => 'log/',      
+                                    'BASE_PATH'         => '',
+                                    'APP_PATH'          => '',
+                                    'APP_URL'           => '',
+                                    'APP_ROOT'          => '',
+                                    'APP_MODE'          => 'DEV',
+                                    'DB_LAYER'          => 'BasicDb',
+                                    'TEMPLATE_ENGINE'   => 'TemplateEngine',
+                                    'ASSETS_DIR'        => 'assets',
+                                    'LOG_PATH'          => 'log/',
                                     'CACHE_PATH'        => 'cache/',
                                     'PAGE_NOT_FOUND'    => 'NotFoundController',
                                     'SYS_ERROR'         => 'SysErrorController',
-                                    'LANG'              => 'en'     
+                                    'LANG'              => 'en'
                                 );
     /**
      * Route format:    $r[URI][METHOD] = Array('ControllerName', 'Action', 'ModuleName');
@@ -83,19 +83,19 @@ class Liber {
         /blog/post/:post:  -> get all, but depends of declared order;
         /blog/post/a:post: -> the previous route get this pattern;
         /blog/a:id:-:mes:  -> allowed only one param per segment;
-    */   
-    
+    */
+
     /**
         Route definitions.
-        @var Array        
-    */                                
-    public    static $aRoute    = Array();        
+        @var Array
+    */
+    public    static $aRoute    = Array();
 
     /**
     *   Database configuration
     *   @var Array
     */
-    public    static $aDbConfig = Array('DEV'=>Array(), 'PROD' => Array());    
+    public    static $aDbConfig = Array('DEV'=>Array(), 'PROD' => Array());
 
     /**
     *   Database layer instance
@@ -121,7 +121,7 @@ class Liber {
     */
     public static function &db($app_mode=null) {
         if ( is_object(self::$_db[$app_mode]) ) { return self::$_db[$app_mode]; }
-        
+
         $c = Liber::conf('DB_LAYER');
         if (  $c == 'BasicDb' ) {
             self::loadClass($c);
@@ -132,23 +132,23 @@ class Liber {
         self::$_db[$app_mode] = call_user_func($c .'::getInstance', $app_mode);
         return self::$_db[$app_mode];
     }
-    
+
     /**
     *   Returns a log object instance;
     *   @return object Log
     */
     public static function log() {
         static $oLog;
-        
+
         if ( !is_object($oLog) ) {
             $oLog = Liber::loadClass('Log', true);
-        } 
+        }
         return $oLog;
     }
 
     /**
     *   Returns a cache instance.
-    *   @param string $cacheType Cache type: file.
+    *   @param String $cacheType Cache type: file.
     *   @return Cache Object.
     */
     public static function cache($class='FileCache') {
@@ -166,23 +166,23 @@ class Liber {
     public static function run() {
 
         if (  self::conf('APP_MODE') == 'DEV' ) {
-            error_reporting(-1);            
+            error_reporting(-1);
         } elseif ( self::conf('APP_MODE') == 'PROD' ) {
-            ini_set('display_errors','Off'); 
+            ini_set('display_errors','Off');
         }
 
         function catchError() {
-            Liber::loadClass('Log', true)->handleError( func_get_args() );  
+            Liber::loadClass('Log', true)->handleError( func_get_args() );
             die();
-        } 
+        }
 
         set_error_handler("catchError");
         set_exception_handler('catchError');
 
         self::loadClass('Input');
         self::processRoute();
-        return;    
-            
+        return;
+
     }
 
 
@@ -195,15 +195,15 @@ class Liber {
         self::conf('APP_URL'   , ((self::isSSL())?'https':'http').'://'.$_SERVER['HTTP_HOST'].str_replace('//','/',  dirname($_SERVER['SCRIPT_NAME']).'/') );
     }
 
-    
+
     /**
     *   Load and set application configurations.
-    *   @param $aConfig Array - configurations params.
+    *   @param Array $aConfig  - configurations params.
     */
     public static function loadConfig( $aConfig ) {
         // set config values
         self::$aConfig = array_merge(self::$aConfig,  $aConfig['configs']);
-        
+
         self::$aDbConfig  = &$aConfig['dbconfig'];
         self::$aRoute     = &$aConfig['routes'];
         self::setup();
@@ -213,14 +213,14 @@ class Liber {
     /**
     *   Set/add config params.
     *   Can be added new params if necessary.
-    *   @param $p String - param name
-    *   @param $v String - param value
+    *   @param String $p -> param name
+    *   @param String $v -> param value
     *   @return mixed
     */
     public static function conf($p, $v=null) {
         if (  $v === NULL ) {
             return isset(self::$aConfig[$p])?self::$aConfig[$p]:null;
-        } 
+        }
         elseif( empty ($v) ) {
             self::$aConfig[$p] = NULL;
         } else {
@@ -228,12 +228,12 @@ class Liber {
         }
     }
 
-        
+
     /**
      * Imports the definition of class(es) and tries to create an object/a list of objects from the class.
-     * 
-     * @param string|Array $className Name of the class to be imported, or Array of classNames to load.
-     * @param string $path Path to the class file
+     *
+     * @param String|Array $className Name of the class to be imported, or Array of classNames to load.
+     * @param String $path Path to the class file
      * @param bool $createObj Determined whether to create object(s) of the class
      * @return mixed returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in, if $classname is a Array it will return an Array of objects created in same order.
      */
@@ -259,12 +259,12 @@ class Liber {
         }
         return $ret;
     }
-    
-    
+
+
     /**
     *   Detect and return the current configuration about which context should be loaded.
-    *   @param $context string - Module Name
-    *   @param $create boolean - if it must return a object
+    *   @param String $context  - Module Name
+    *   @param boolean $create  - if it must return a object
     *   @return Array
     */
     protected static function prepareLoad($context, $create) {
@@ -284,19 +284,19 @@ class Liber {
     /**
     *   Import files of context.
     *   Context can be a Module path or APP_PATH (default).
-    *   @param  $className string
-    *   @param  $contextORcreateObj mixed - name of module or boolean 
-    *   @param  $createObj boolean
+    *   @param  String $className
+    *   @param  mixed $contextORcreateObj  - name of module or boolean
+    *   @param  boolean $createObj
     *   @return mixed - object or boolean
     */
     protected static function loadContext($className, $contextORcreateObj='', $createObj=false) {
-        $path = Liber::conf('APP_PATH');    
+        $path = Liber::conf('APP_PATH');
         if ( is_bool($contextORcreateObj) ) {
             $createObj = $contextORcreateObj;
         } else {
             if ( !empty($contextORcreateObj) ) {
                 $path = (($contextORcreateObj[0]=='/')?'':$path).$contextORcreateObj;
-            }            
+            }
         }
         return self::load($className, $path, $createObj);
     }
@@ -304,9 +304,9 @@ class Liber {
 
     /**
     *   Imports the definition of Controller class. Class file is located at <b>APP_PATH/controller/</b> or <b>APP_PATH/ModuleName/controller/</b>
-    *   @param  $cName string
-    *   @param  $context  - name of module or boolean
-    *   @param  $createObj boolean
+    *   @param  String $cName
+    *   @param  String|boolean  $context  - name of module or boolean
+    *   @param  boolean $createObj
     *   @return mixed - object or boolean
     */
     public static function loadController( $cName, $context='', $createObj=false ) {
@@ -316,16 +316,16 @@ class Liber {
         } elseif ( empty($context) ) {
             $context = 'controller/';
         } else {
-            $context = ($context[0] == '/'?$context.'controller/':'module/'.$context.'/controller/');            
+            $context = ($context[0] == '/'?$context.'controller/':'module/'.$context.'/controller/');
         }
         return self::loadContext($cName, $context, $createObj);
     }
 
     /**
     *   Imports the definition of Model class. Class file is located at <b>APP_PATH/model/</b> or <b>APP_PATH/ModuleName/model/b>
-    *   @param  $modelName string
-    *   @param  $context  - name of module or boolean
-    *   @param  $createObj boolean
+    *   @param  String $modelName
+    *   @param  String|boolean $context  - name of module or boolean
+    *   @param  boolean $createObj
     *   @return mixed - object or boolean
     */
     public static function loadModel( $modelName, $context='', $createObj=false ) {
@@ -335,16 +335,16 @@ class Liber {
         } elseif ( empty($context) ) {
             $context = 'model/';
         } else {
-            $context = 'module/'.$context.'/model/';            
+            $context = 'module/'.$context.'/model/';
         }
         return self::loadContext($modelName, $context, $createObj);
     }
-        
+
     /**
-    *   Imports the definition of one Class. Class file is located at <b>BASE_PATH/class/</b> or <b>$context/class/</b> 
-    *   @param  $className string
-    *   @param  $context  - name of module or boolean
-    *   @param  $createObj boolean
+    *   Imports the definition of one Class. Class file is located at <b>BASE_PATH/class/</b> or <b>$context/class/</b>
+    *   @param  String $className
+    *   @param  String|boolean $context  - name of module or boolean
+    *   @param  boolean $createObj
     *   @return mixed - object or boolean
     */
     public static function loadClass( $className, $context=false, $createObj=false ) {
@@ -356,27 +356,27 @@ class Liber {
 
     /**
     *   Imports the definition of functions Helper file. File is located at <b>BASE_PATH/helper/</b>  or <b>$context/helper/</b>
-    *   @param  $helperName string
-    *   @param  $context  - name of module or boolean
-    *   @param  $createObj boolean
+    *   @param  String $helperName
+    *   @param  String|boolean $context  - name of module or boolean
+    *   @param  boolean $createObj
     *   @return mixed - object or boolean
     */
     public static function loadHelper( $helperName, $context=false) {
         static $loaded = Array();
         // avoid to include already included file
-        $i = $context.'helper/'.$helperName; 
+        $i = $context.'helper/'.$helperName;
         if ( !isset($loaded[$i]) ) {
             $out        = self::prepareLoad($context, false);
             $loaded[$i] = true;
             return self::load($helperName, $out['context'].'helper/'); // Class not exists, so don't need to create
-        } 
+        }
     }
 
     /**
     *   Imports the definition of Plugin class. Class file is located at <b>BASE_PATH/plugin/</b>  or <b>$context/plugin/</b>
-    *   @param  $pluginName string
-    *   @param  $context  - name of module or boolean
-    *   @param  $createObj boolean
+    *   @param  String $pluginName
+    *   @param  String|boolean $context  - name of module or boolean
+    *   @param  boolean $createObj
     *   @return mixed - object or boolean
     */
     public static function loadPlugin( $pluginName, $context=false, $createObj=false ) {
@@ -388,10 +388,10 @@ class Liber {
 
     /**
     *   Get named params from uri.
-    *   @param $rule Array    
-    *   @param $data Array   
+    *   @param Array $rule
+    *   @param Array $data
     *   @return Array - Array('paramName' => 'value')
-    */        
+    */
     public static function getParams($rule, $data) {
         // remove empty items
         $ruleItems = array_filter( explode('/',$rule) );
@@ -415,7 +415,7 @@ class Liber {
                     } else {
                         $params[substr($ruleValue, $i+1, $f-1)] = $dataItems[$ruleKey];;
                     }
-                    
+
                 } else { //when not start at begin
                     // ended before end
                     if ( $f < $size-1 ) {
@@ -432,10 +432,10 @@ class Liber {
 
     /**
     *   Search for configured route and params returning it.
-    *   @param $aRoute Array
-    *   @param $uri string
+    *   @param Array $aRoute
+    *   @param String $uri
     *   @return boolean
-    */        
+    */
     public static function parseRouteParams($aRoute, $uri) {
         foreach ( $aRoute as $km => $vm ) {
             if ( strpos($km, ':')===false ) { continue ;}
@@ -445,38 +445,39 @@ class Liber {
             // there are some route that match ?
             if ( preg_match('/('.$regex.')/', $uri) ) {
                 $out['route'] = $km;
-                $out['params'] = self::getParams($km, $uri) ; 
+                $out['params'] = self::getParams($km, $uri) ;
                 return $out;
             }
         }
-        return false;    
+        return false;
     }
 
     /**
     *   Redirect client to another URL.
     *   Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.
     *   If this param don't exist, all urls will be used with 'index.php/'.
-    *   @param $url string
-    *   @param $return boolean - if must return a url string instead of redirect client
-    *   @return string
+    *   @param String $url
+    *   @param boolean $return  - if must return a url String instead of redirect client
+    *   @return String
     */
     public static function redirect($url, $return=false) {
+
         if ( $url[0] == '/' ) {
         	if ( !isset($_SERVER['Liber_URL_REWRITE']) ) {
-                $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);        
+                $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);
             } else {
-                $url = Liber::conf('APP_URL').substr(trim($url), 1);        
+                $url = Liber::conf('APP_URL').substr(trim($url), 1);
             }
         }
-        $url = filter_var($url, FILTER_VALIDATE_URL);          
+        $url = filter_var($url, FILTER_VALIDATE_URL);
         if ($return) { return $url; }
         header("Location: $url");
         exit;
     }
-    
+
     /**
     *   Return the requested method.
-    *   @return string
+    *   @return String
     */
     public static function requestedMethod() {
         static $method;
@@ -485,54 +486,54 @@ class Liber {
         }
         return $method;
     }
-    
+
     /**
-    *   Detect sort of configuration from route.  
-    *   If Array return it, if string, it might be a re-routing or redirect to
-    *   @param $conf 
+    *   Detect sort of configuration from route.
+    *   If Array return it, if String, it might be a re-routing or redirect to
+    *   @param mixed $conf
     *   @return Array
     */
     static function getRouteConf( $conf ) {
 
-        if ( is_string($conf) ) {
+        if ( is_String($conf) ) {
             // re-routing
-            if ( $conf[0]=='/' )  { 
+            if ( $conf[0]=='/' )  {
                 $option = self::getRouteMethod($conf);
                 if ( is_array($option)  ) {
                     return $option ;
-                } elseif ( is_string($option) ) {
+                } elseif ( is_String($option) ) {
                     return self::getRouteConf($option);
                 }
-                
+
             } else {
                 Liber::redirect($conf);
             }
         } else {
 
-            // normalize to 3 
+            // normalize to 3
             if ( count($conf) == 2 ) {
                 $conf[] = '';
             }
-        } 
+        }
         return $conf;
     }
- 
- 
+
+
     /**
     *   Detects and returns a route options from a specified route, among methods os *.
-    *   @param $route
-    *   @return mixed - Array | string or false if don't find.
+    *   @param String $route
+    *   @return mixed - Array | String or false if don't find.
     */
     protected static function getRouteMethod($route) {
-        return isset(Liber::$aRoute[$route]['*'])?Liber::$aRoute[$route]['*']:  (isset(Liber::$aRoute[$route][self::requestedMethod()])?Liber::$aRoute[$route][self::requestedMethod()]:false);    
+        return isset(Liber::$aRoute[$route]['*'])?Liber::$aRoute[$route]['*']:  (isset(Liber::$aRoute[$route][self::requestedMethod()])?Liber::$aRoute[$route][self::requestedMethod()]:false);
     }
-    
+
     /**
     *   Process route, match and create related controller or redirect to default controller if don't match.
     */
     public static function processRoute() {
         $aRoute = &Liber::$aRoute;
-        
+
         // avoid http:// in url, used to forward by proxy
         $uri = substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'],$_SERVER['SCRIPT_NAME']));
 
@@ -545,19 +546,19 @@ class Liber {
             }
         }
 
-        // cleaning uri 
+        // cleaning uri
         //
         $uri = str_replace('?'.$_SERVER['QUERY_STRING'], '', $uri);
         if ( $uri[strlen($uri)-1] == '/' and strlen($uri) > 1 ) {
             $uri[strlen($uri)-1] = ' ';
-            $uri = rtrim($uri);                
+            $uri = rtrim($uri);
         }
         $uri = str_replace(Array('index.php','//'),Array('','/'), $uri);
 
         // Direct match, load pre-configured route (the fast way, recommended)
         $routeOption =  self::getRouteMethod($uri);
-        if ( $routeOption ) { 
-            $routeConf = Liber::getRouteConf( $routeOption ); 
+        if ( $routeOption ) {
+            $routeConf = Liber::getRouteConf( $routeOption );
             $c = $routeConf[0];
             $m = $routeConf[2];
 
@@ -570,33 +571,33 @@ class Liber {
             }
 
             $p = false;
-        } else { 
+        } else {
             $aUri = array_filter(explode('/', $uri));
             $seg1 = ucfirst(current($aUri));
-            
+
             // try if match a previous segment
             $last = strrpos($uri, '/');
             $previousSegment = ($last===0?'/':substr($uri, 0, strrpos($uri, '/')));
 
             if ( isset($aRoute[$previousSegment]) )  {
                 $routeOption =  self::getRouteMethod($previousSegment);
-                $routeConf   = Liber::getRouteConf( $routeOption ); 
+                $routeConf   = Liber::getRouteConf( $routeOption );
             } else {
                 $routeConf = Array('','','');
             }
             $m = false;
 
             // detect '*' for method name
-            if ( is_array($routeConf) and $routeConf[1] == '*' ) { 
+            if ( is_array($routeConf) and $routeConf[1] == '*' ) {
                 $c = &$routeConf[0];
                 $m = &$routeConf[2];
-                $a = basename($uri); 
+                $a = basename($uri);
                 $p = false;
-                Liber::loadController($c, $m); 
+                Liber::loadController($c, $m);
 
             // trying to guess route like: /controller/method/param1/param2...
-            } elseif ( Liber::loadController($seg1, $m) ) { // Controller exists 
-                
+            } elseif ( Liber::loadController($seg1, $m) ) { // Controller exists
+
                 $c  = &$seg1;
                 $oC = new $c;
                 $a  = next($aUri);
@@ -606,18 +607,18 @@ class Liber {
                 }
                 $p = array_slice($aUri, key($aUri) );
                 $m = false;
-            
-            // trying routes with named params                
+
+            // trying routes with named params
             } else {
                 if ( $aParsed = self::parseRouteParams($aRoute, $uri) ) {
                    $routeOption =  self::getRouteMethod($aParsed['route']);
-                   $routeConf   = Liber::getRouteConf( $routeOption ); 
+                   $routeConf   = Liber::getRouteConf( $routeOption );
                    $c = $routeConf[0];
-                   $a = $routeConf[1];       
-                   $m = $routeConf[2];                   
-                   $p = $aParsed['params'];  
+                   $a = $routeConf[1];
+                   $m = $routeConf[2];
+                   $p = $aParsed['params'];
 
-                   Liber::loadController($c, $m);                   
+                   Liber::loadController($c, $m);
                 } else {
                     Liber::loadController( Liber::conf('PAGE_NOT_FOUND') );
                     $c = Liber::conf('PAGE_NOT_FOUND');
@@ -632,7 +633,7 @@ class Liber {
         self::$_controller = new $c( Array('module'=>$m, 'params'=>$p) );
 
         if ( empty($a) or !method_exists(self::$_controller, $a) ) {
-            self::$_controller->index();        
+            self::$_controller->index();
         } else {
             self::$_controller->$a();
         }
@@ -662,7 +663,7 @@ class Liber {
 
         if(!isset($_SERVER['HTTPS']))
             return FALSE;
-            
+
         //Apache
         if($_SERVER['HTTPS'] === 1) {
             return TRUE;
@@ -688,7 +689,7 @@ class Controller {
 
     /**
     *   Module name
-    *   @var string
+    *   @var String
     */
     private $module;
 
@@ -697,7 +698,7 @@ class Controller {
     *   @var Array
     */
     private $params;
-    
+
     /**
     *   View instance
     *   @var View
@@ -707,10 +708,10 @@ class Controller {
 
     /**
     *   Constructor.
-    *   @param $args array
+    *   @param Array $args
     *   $args values are:   ['module'] = 'module name' - empty for application controller
     *                       ['params'] = Array() - values of detected named params from route
-    */    
+    */
     public function __construct( $args=Array('module'=>'','params'=>Array()) ) {
         $this->module = isset($args['module'])?$args['module']:'';
         $this->params = isset($args['params'])?$args['params']:Array();
@@ -719,7 +720,7 @@ class Controller {
 
     /**
     *   Set http headers to send. See header function on PHP manual.
-    *   @param $header String
+    *   @param String $header
     *
     */
     public function header($header=null) {
@@ -728,20 +729,20 @@ class Controller {
 
     /**
     *   Load model from application or module if was instanced with it.
-    *   @param $modelName string  - Model name
-    *   @param $createObj boolean - if must create a object 
-    *   @return mixed - Model object or boolean 
+    *   @param String $modelName   - Model name
+    *   @param String|boolean $createObj  - if must create a object
+    *   @return mixed - Model object or boolean
     */
     public function loadModel( $modelName, $createObj=false  ) {
-        $module = !empty($this->module)?$this->module:'model/'; 
+        $module = !empty($this->module)?$this->module:'model/';
         return Liber::loadModel($modelName, $this->module, $createObj);
     }
-    
+
     /**
     *   Load Class from application or module if was instanced with it.
-    *   @param $className string  - Model name
-    *   @param $createObj boolean - if must create a object 
-    *   @return mixed - Class object or boolean     
+    *   @param String $className   - Model name
+    *   @param String|boolean $createObj boolean - if must create a object
+    *   @return mixed - Class object or boolean
     */
     public function loadClass( $className, $createObj=false  ) {
         $module = !empty($this->module)?$this->module.'/':'class/';
@@ -750,9 +751,9 @@ class Controller {
 
     /**
     *   Load helper from application or module if was instanced with it.
-    *   @param $helperName string  - Helper name
-    *   @param $createObj boolean - if must create a object 
-    *   @return mixed - Helper object or boolean     
+    *   @param String $helperName   - Helper name
+    *   @param String|boolean $createObj boolean - if must create a object
+    *   @return mixed - Helper object or boolean
     */
     public function loadHelper( $helperName, $createObj=false ) {
         $module = !empty($this->module)?$this->module:'';
@@ -761,18 +762,18 @@ class Controller {
 
     /**
     *   Load plugin from application or module if was instanced with it.
-    *   @param $pluginName string  - Plugin name
-    *   @param $createObj boolean - if must create a object 
-    *   @return mixed - Plugin object or boolean     
+    *   @param String $pluginName - Plugin name
+    *   @param boolean $createObj  - if must create a object
+    *   @return mixed - Plugin object or boolean
     */
     public function loadPlugin( $pluginName, $createObj=false ) {
-        $module = !empty($this->module)?$this->module:'plugin/';    
-        return Liber::loadPlugin($pluginName, $module, $createObj);    
+        $module = !empty($this->module)?$this->module:'plugin/';
+        return Liber::loadPlugin($pluginName, $module, $createObj);
     }
 
     /**
     *   Get instance of View class.
-    *   @param $layout_once string - Name of layout that this call will use
+    *   @param String $layout_once  - Name of layout that this call will use
     *   @return View object
     */
     public function view($layout_once='') {
@@ -786,8 +787,8 @@ class Controller {
 
     /**
     *   Get named or unamed params from uri.
-    *   @param $name string - Param name
-    *   @return string
+    *   @param String $name  - Param name
+    *   @return String
     */
     public function params( $name ) {
         return isset($this->params[$name])?urldecode($this->params[$name]):'';

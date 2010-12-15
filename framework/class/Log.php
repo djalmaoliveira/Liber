@@ -9,25 +9,25 @@
 *   Class that manipulate produced logs in general.
 */
 class Log {
-    
+
     static $aLogMsg = Array();
     static $aLogAll = Array();
     static $debug   = true;
     private static $handler = '';
     private static $instanced;
-    
+
     function __construct() {
-        if ( self::$instanced ) { 
-            return ; 
+        if ( self::$instanced ) {
+            return ;
         } else {
             self::$instanced = true;
             register_shutdown_function ( Array($this, 'post') ) ;
         }
     }
-    
-    
+
+
     /**
-    *   Do the last action with log messages stored. 
+    *   Do the last action with log messages stored.
     *   The default on error behavior is:   DEV     => open a popup window showing actual information about error and enviroment.
     *                                       PROD    => call to SYS_ERROR controller defined.
     *   Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].
@@ -36,11 +36,11 @@ class Log {
 
         if ( !empty(self::$handler) and count(self::$aLogMsg) > 0) {
             call_user_func(self::$handler, self::$aLogMsg);
-        } 
+        }
 
         $this->toFile();
         // action on error
-        if ( error_get_last() !== null) {        
+        if ( error_get_last() !== null) {
             if ( Liber::conf('APP_MODE') == 'DEV' ) {
                 echo $this->toPopUp(); die();
             } else {
@@ -49,7 +49,7 @@ class Log {
         }
     }
 
-    
+
     /**
     *   Set a handler function to control the behavior of log messages.
     *   The behavior of this function will be called before the default behavior, if you don't want the default behavior, then call die() or exit on $func.
@@ -65,7 +65,7 @@ class Log {
     /**
     *   Add a message of current error triggered.
     *   At the end of method, the execution of script will be stopped.
-    */    
+    */
     function handleError() {
         $args       = func_get_args();
         $errorData  = current($args);
@@ -80,7 +80,7 @@ class Log {
             $trace          = $o->getTrace();
         } else {
             $aError['no']   = $errorData[0];
-            $aError['msg']  = $errorData[1];            
+            $aError['msg']  = $errorData[1];
             $aError['file'] = $errorData[2];
             $aError['line'] = $errorData[3];
             $trace          = debug_backtrace();
@@ -89,7 +89,7 @@ class Log {
         $profile = $this->profile($aError, $trace, (is_object($o)?'exception':'error'));
 
         $this->add("Error: ".$aError['msg'].". \r\n".$profile, 'error');
-        
+
         trigger_error('Error detected: '.$aError['msg'], E_USER_ERROR);
     }
 
@@ -97,8 +97,8 @@ class Log {
     /**
     *   Return a String of current error and enviroment information.
     *   @param Array $context - Error context
-    *   @param Array $arr - backtrace 
-    *   @param String $type - 'error' or 'exception' 
+    *   @param Array $arr - backtrace
+    *   @param String $type - 'error' or 'exception'
     *   @return String
     */
     private function profile($context, $arr, $type) {
@@ -115,16 +115,16 @@ class Log {
             $traces    .= ' '.$class.$function."( ".$args." ) \r\n    called at [".$t['file']."] line ".(isset($t['line'])?$t['line']:'')."\r\n";
         }
         $traces = "Where: [".$context['file']."] line ".$context['line']." \r\n \r\n".$traces;
-        
+
         $env = "\r\n_SERVER: ".print_r($_SERVER, true)."\r\n_POST: ".print_r($_POST, true)."\r\n_GET: ".print_r($_GET, true)."\r\n_SESSION: ".print_r($_SESSION, true)."\r\n_COOKIE: ".print_r($_COOKIE, true)."\r\n_FILES: ".print_r($_FILES, true);
 
         return $traces.$env;
     }
 
-    
+
     /**
-    *   Adds a message log.  
-    *   @param String $msg 
+    *   Adds a message log.
+    *   @param String $msg
     *   @param String $level - NameSpace to log like 'ERROR', 'URGENT', etc
     */
     function add($msg, $level='info') {
@@ -134,18 +134,26 @@ class Log {
         $id--;
         self::$aLogAll[] = &self::$aLogMsg[$level][$id];
     }
-    
-    
+
+
     /**
     *   Write current log to file.
-    *   
+    *
     */
     function toFile() {
         if ( !self::$debug or count(self::$aLogMsg)==0 ) { return; }
-        file_put_contents( Liber::conf('APP_PATH').Liber::conf('LOG_PATH').date('Ymd').'.log', implode("\n", self::$aLogAll), FILE_APPEND| LOCK_EX );
+        // absolute path
+        if ( substr(Liber::conf('LOG_PATH'), 0,1) == '/' ) {
+            $path = Liber::conf('LOG_PATH');
+        // relative path from APP_PATH
+        } else {
+            $path = Liber::conf('APP_PATH').Liber::conf('LOG_PATH');
+        }
+
+        file_put_contents( $path.date('Ymd').'.log', implode("\n", self::$aLogAll), FILE_APPEND| LOCK_EX );
     }
-    
-    
+
+
     /**
     *   Return textual stored log.
     *   @return String
@@ -153,8 +161,8 @@ class Log {
     function toString() {
         return implode("\n", self::$aLogAll);
     }
-    
-    
+
+
     /**
     *   Generate a html content to show a popup with PHP error.
     *   @return String
@@ -163,17 +171,16 @@ class Log {
         $html  = "<html><body>";
         $html .="<pre>".implode("\r\n", self::$aLogAll)."</pre>";
         $html .="</body></html>";
-        
+
         $output = str_replace("'",'"', $html);
         $html   = "
         <script type='text/javascript'>
             var wError = window.open('about:blank', 'profile_window', 'top=10, left=200, width=700, height=200, resizable=yes, scrollbars=yes');
             var output = ".json_encode(Array($output)).";
             wError.document.write(output[0]);
-        </script>";  
+        </script>";
         return $html;
     }
 }
-
 
 ?>

@@ -117,7 +117,7 @@ Source Location: /Liber.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 687]<br />
+[line 688]<br />
 Class that manipulates Controllers, its creation can be relative a module.<br /><br /><p>All controllers must extends it and have at least the 'index' method.</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -129,12 +129,12 @@ Class that manipulates Controllers, its creation can be relative a module.<br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 714]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 715]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>Controller __construct(
-[$args
+[Array
 $args = array('module'=&gt;'','params'=&gt;Array())])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -155,9 +155,9 @@ $args = array('module'=&gt;'','params'=&gt;Array())])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$args&nbsp;&nbsp;</td>
+        <td class="type">Array&nbsp;&nbsp;</td>
         <td><b>$args</b>&nbsp;&nbsp;</td>
-        <td>array    $args values are:   ['module'] = 'module name' - empty for application controller                        ['params'] = Array() - values of detected named params from route</td>
+        <td>$args values are:   ['module'] = 'module name' - empty for application controller                        ['params'] = Array() - values of detected named params from route</td>
       </tr>
         </table>
     </div><br />
@@ -165,12 +165,12 @@ $args = array('module'=&gt;'','params'=&gt;Array())])</code>
   </div>
   <hr />
 	<a name="methodheader"></a>
-	<h3>method header <span class="smalllinenumber">[line 725]</span></h3>
+	<h3>method header <span class="smalllinenumber">[line 726]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>void header(
-[$header
+[String
 $header = null])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -191,9 +191,9 @@ $header = null])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$header&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$header</b>&nbsp;&nbsp;</td>
-        <td>String</td>
+        <td></td>
       </tr>
         </table>
     </div><br />
@@ -201,13 +201,13 @@ $header = null])</code>
   </div>
   <hr />
 	<a name="methodloadClass"></a>
-	<h3>method loadClass <span class="smalllinenumber">[line 746]</span></h3>
+	<h3>method loadClass <span class="smalllinenumber">[line 747]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>mixed loadClass(
-$className
-$className, [$createObj
+String
+$className, [String|boolean
 $createObj = false])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -231,12 +231,12 @@ $createObj = false])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$className&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$className</b>&nbsp;&nbsp;</td>
-        <td>string  - Model name</td>
+        <td><ul><li>Model name</li></ul></td>
       </tr>
           <tr>
-        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td class="type">String|boolean&nbsp;&nbsp;</td>
         <td><b>$createObj</b>&nbsp;&nbsp;</td>
         <td>boolean - if must create a object</td>
       </tr>
@@ -246,13 +246,13 @@ $createObj = false])</code>
   </div>
   <hr />
 	<a name="methodloadHelper"></a>
-	<h3>method loadHelper <span class="smalllinenumber">[line 757]</span></h3>
+	<h3>method loadHelper <span class="smalllinenumber">[line 758]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>mixed loadHelper(
-$helperName
-$helperName, [$createObj
+String
+$helperName, [String|boolean
 $createObj = false])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -276,12 +276,12 @@ $createObj = false])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$helperName&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$helperName</b>&nbsp;&nbsp;</td>
-        <td>string  - Helper name</td>
+        <td><ul><li>Helper name</li></ul></td>
       </tr>
           <tr>
-        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td class="type">String|boolean&nbsp;&nbsp;</td>
         <td><b>$createObj</b>&nbsp;&nbsp;</td>
         <td>boolean - if must create a object</td>
       </tr>
@@ -291,13 +291,13 @@ $createObj = false])</code>
   </div>
   <hr />
 	<a name="methodloadModel"></a>
-	<h3>method loadModel <span class="smalllinenumber">[line 735]</span></h3>
+	<h3>method loadModel <span class="smalllinenumber">[line 736]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>mixed loadModel(
-$modelName
-$modelName, [$createObj
+String
+$modelName, [String|boolean
 $createObj = false])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -321,14 +321,14 @@ $createObj = false])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$modelName&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$modelName</b>&nbsp;&nbsp;</td>
-        <td>string  - Model name</td>
+        <td><ul><li>Model name</li></ul></td>
       </tr>
           <tr>
-        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td class="type">String|boolean&nbsp;&nbsp;</td>
         <td><b>$createObj</b>&nbsp;&nbsp;</td>
-        <td>boolean - if must create a object</td>
+        <td><ul><li>if must create a object</li></ul></td>
       </tr>
         </table>
     </div><br />
@@ -336,13 +336,13 @@ $createObj = false])</code>
   </div>
   <hr />
 	<a name="methodloadPlugin"></a>
-	<h3>method loadPlugin <span class="smalllinenumber">[line 768]</span></h3>
+	<h3>method loadPlugin <span class="smalllinenumber">[line 769]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>mixed loadPlugin(
-$pluginName
-$pluginName, [$createObj
+String
+$pluginName, [boolean
 $createObj = false])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -366,14 +366,14 @@ $createObj = false])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$pluginName&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$pluginName</b>&nbsp;&nbsp;</td>
-        <td>string  - Plugin name</td>
+        <td>- Plugin name</td>
       </tr>
           <tr>
-        <td class="type">$createObj&nbsp;&nbsp;</td>
+        <td class="type">boolean&nbsp;&nbsp;</td>
         <td><b>$createObj</b>&nbsp;&nbsp;</td>
-        <td>boolean - if must create a object</td>
+        <td><ul><li>if must create a object</li></ul></td>
       </tr>
         </table>
     </div><br />
@@ -381,12 +381,12 @@ $createObj = false])</code>
   </div>
   <hr />
 	<a name="methodparams"></a>
-	<h3>method params <span class="smalllinenumber">[line 792]</span></h3>
+	<h3>method params <span class="smalllinenumber">[line 793]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string params(
-$name
+		<code>String params(
+String
 $name)</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -407,9 +407,9 @@ $name)</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$name&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$name</b>&nbsp;&nbsp;</td>
-        <td>string - Param name</td>
+        <td><ul><li>Param name</li></ul></td>
       </tr>
         </table>
     </div><br />
@@ -417,12 +417,12 @@ $name)</code>
   </div>
   <hr />
 	<a name="methodview"></a>
-	<h3>method view <span class="smalllinenumber">[line 778]</span></h3>
+	<h3>method view <span class="smalllinenumber">[line 779]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code><a href="../core-class/View.html">View</a> view(
-[$layout_once
+[String
 $layout_once = ''])</code>
     </td></tr></table>
     </td></tr></table><br />
@@ -446,9 +446,9 @@ $layout_once = ''])</code>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">$layout_once&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$layout_once</b>&nbsp;&nbsp;</td>
-        <td>string - Name of layout that this call will use</td>
+        <td><ul><li>Name of layout that this call will use</li></ul></td>
       </tr>
         </table>
     </div><br />
@@ -459,7 +459,7 @@ $layout_once = ''])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 09 Dec 2010 16:56:52 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 15 Dec 2010 12:15:57 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
