@@ -129,10 +129,12 @@ class Log {
     */
     function add($msg, $level='info') {
         if ( !self::$debug ) { return; }
-        self::$aLogMsg[$level] = Array();
+        if ( !array_key_exists($level, self::$aLogMsg) ) { self::$aLogMsg[$level] = Array(); }
+
         $id = array_push(self::$aLogMsg[$level] , '['. date(DATE_RFC822).'] '.$msg."\n");
         $id--;
         self::$aLogAll[] = &self::$aLogMsg[$level][$id];
+
     }
 
 

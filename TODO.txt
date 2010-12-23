@@ -1,9 +1,11 @@
+12/2010
+    - research about add complete html code in html messages
 11/2010
     - create helpers to compress css, html, images using ETAGs
     - helpers/classes to access API from Twitter, Facebook...
 09/2010
     - class Out, with shortcut in View (View->out()), with following methods(guess), file,text,json,zip, xml, used to output its content;
-    
+
 23/04/2010
     - Refactor View class using Liber::controller() static method
 
@@ -30,5 +32,5 @@
     - Scaffolding system ?
     - Module to manager installs of: plugins, templates engines, modules, diagnostics etc.
     - create route like: ('/a/b/c/e/f' = Array('controller', '*')) to use a controller manage any action (method)
-    
-     
+
+
