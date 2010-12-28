@@ -27,18 +27,18 @@ class GlobalTemplate {
     *   @var Current module.
     */
     private $module   ;
-    
+
     /**
     *   @var View instance
-    */   
+    */
     private $_view;
 
 
     /**
     *   Create a new instance.
     *   If $view specified, then the behaviour of load() method will use this $view instance, else will create a $_view relative to $module specified.
-    *   @param String $module 
-    *   @param View $view 
+    *   @param String $module
+    *   @param View $view
     */
     function __construct( $module=null, $view=null) {
         if ( $view instanceof View ) {
@@ -51,12 +51,12 @@ class GlobalTemplate {
         $this->context($module);
     }
 
-    
+
     /**
     *   Set ou Get context path of template.
     *   Can be specified a ModuleName, non value for default application folder or full path.
     *   @param String $context  - empty to get
-    *   @return String - Path of current template context 
+    *   @return String - Path of current template context
     */
     function context( $context=null ) {
 
@@ -67,7 +67,7 @@ class GlobalTemplate {
         } else {    // module
             $this->contextPath = Liber::conf('APP_PATH')."module/$context/template/";
         }
-        $this->module = &$context;            
+        $this->module = &$context;
 
         return $this->contextPath;
     }
@@ -75,13 +75,13 @@ class GlobalTemplate {
 
     /**
     *   Same functionality of View::load() method, but using current template.
-    *   @param String $fileName 
-    *   @param Array $aData 
-    *   @param boolean $return 
+    *   @param String $fileName
+    *   @param Array $aData
+    *   @param boolean $return
     *   @return mixed <null | String>
     */
     function load($fileName, $aData=Array(), $return=false) {
-        $viewFile = $this->_view->path($fileName);        
+        $viewFile = $this->_view->path($fileName);
         if ($this->_view->cache($fileName) > 0 and  Liber::conf('APP_MODE') == 'PROD'  ) {
 
             $cacheId  = $_SERVER['REQUEST_URI'].$viewFile.$this->modelName;
@@ -94,7 +94,6 @@ class GlobalTemplate {
             $out = $this->_view->engine()->load($this->contextPath.$this->templateFolderName.'/'.$this->modelName, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
         }
 
-        
         if ($return) { return $out; }
         echo $out;
     }
@@ -102,30 +101,29 @@ class GlobalTemplate {
 
     /**
     *   Set or Get the name of template folder on current context.
-    *   @param String $name 
+    *   @param String $name
     *   @return String - Current template folder name.
     */
     function name($name=null) {
         if ($name !== null) {
             $this->templateFolderName = $name;
         }
-        
+
         return $this->templateFolderName;
     }
-    
+
     /**
     *   Set or Get file name of model name into template folder.
-    *   @param String $model 
+    *   @param String $model
     *   @return String - Current file name of model template.
     */
     function model($model=null) {
         if ($model !== null) {
             $this->modelName = $model;
         }
-        
+
         return $this->modelName;
     }
 }
-
 
 ?>
