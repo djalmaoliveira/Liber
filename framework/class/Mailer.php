@@ -146,11 +146,13 @@ class Mailer {
 
         $headers .= "MIME-Version: 1.0\n";
         $message_header = "Content-Type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\nContent-Transfer-Encoding: 8bit";
+        $boundary = 'Multipart_Boundary_x'.md5(time()).'x';
 
         // attachments
         if ( count($this->files) > 0 ) {
-            $boundary = 'Multipart_Boundary_x'.md5(time()).'x';
+
             $headers  .= 'Content-Type: multipart/mixed; boundary="'."{$boundary}".'"'."\n";
+
             $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--{$boundary}\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
             $attachs = '';
             foreach( $this->files as $filepath ) {
@@ -168,17 +170,23 @@ class Mailer {
             $attachs .= "--{$boundary}--\n";
             $this->aMail['body'] .= $attachs;
         } else {
-            $headers = $headers.$message_header;
+            // with text/plain
+            if ( $this->aMail['html'] ) {
+                $body  = "This is a MIME encoded message.\n\n--" . $boundary . "\n";
+                $body .= "Content-type: text/plain;charset={$this->aMail['charset']}\n\n";
+                $body .= strip_tags($this->aMail['body'])."\n\n--" . $boundary . "\n";
+                $body .= $message_header."\n\n";
+                $body .= $this->aMail['body']."\n\n--" . $boundary . "\n";
+                $headers = $headers."Content-Type: multipart/alternative;boundary=" . $boundary . "\n";
+                $this->aMail['body'] = &$body;
+            } else {
+                $headers = $headers.$message_header;
+            }
         }
 
         $return_path = ( !isset($this->aMail['headers']['Return-Path']) )?'-f '.$this->aMail['headers']['From']:'';
         return mail($to, $this->aMail['subject'], $this->aMail['body'], $headers, $return_path);
     }
 
-
-
-
 }
-
-
 ?>
