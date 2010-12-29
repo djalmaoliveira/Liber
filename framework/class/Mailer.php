@@ -10,10 +10,10 @@
 *   It is capable to send text or html messages.
 */
 class Mailer {
-    
+
     private $aMail      = Array('to'=>Array(), 'subject'=>'', 'body'=>'','headers'=>Array());
     private $files      = Array();
-    
+
     function __construct() {
         $this->html();
         $this->charset();
@@ -24,16 +24,16 @@ class Mailer {
     *   @return Array
     */
     public function toArray() {
-        return $this->aMail;        
-    }    
-    
+        return $this->aMail;
+    }
+
     /**
     *   Set current charset of mail, default value 'utf-8'.
     *   @param String $charset
     */
     public function charset($charset='utf-8') {
         $this->aMail['charset'] = $charset;
-    }    
+    }
 
     /**
     *   Set if mail is a html message, default value 'false'.
@@ -41,34 +41,34 @@ class Mailer {
     */
     public function html($isHtml = false) {
         $this->aMail['html'] = $isHtml;
-    }    
-    
+    }
+
     /**
     *   Set the subject of mail.
     *   @param String $subject
     */
     public function subject($subject) {
         $this->aMail['subject'] = trim($subject);
-    }    
-    
+    }
+
     /**
     *   Set mail body.
     *   @param String $body
     */
     public function body($body) {
         $this->aMail['body'] = trim($body);
-    }    
-    
+    }
+
     /**
-    *   Set headers of mail, like Reply-to, From. 
+    *   Set headers of mail, like Reply-to, From.
     *   @param String $header
     *   @param String $value
     */
     public function header($header, $value) {
         $this->aMail['headers'][$header] = $value;
-    }    
-    
-    
+    }
+
+
     /**
     *   Add one or more destinations to mail.
     *   Usage:  ->addTo('myname@mydomain.com');
@@ -77,44 +77,44 @@ class Mailer {
     */
     public function addTo($to) {
         if ( is_array($to) ) {
-            $this->aMail['to'] = $this->aMail['to']+$to;    
+            $this->aMail['to'] = $this->aMail['to']+$to;
         } else {
-            $this->aMail['to'][] = trim($to);        
+            $this->aMail['to'][] = trim($to);
         }
-        
-    }    
-    
+
+    }
+
     /**
     *   Set original sender to mail.
-    *   You can use: from('name', 'email') or from('email')        
+    *   You can use: from('name', 'email') or from('email')
     *   @param String $name
     *   @param String $email
     */
     public function from($name, $email='') {
         $from = '';
         if ( func_num_args() == 1 ) {
-            $from = $name;  
+            $from = $name;
         } else {
             $from  = "$name <$email>";
         }
         $this->header('From', $from);
-    }    
-    
+    }
+
     /**
     *   Set ReplyTo email address.
-    *   You can use: reply('name', 'email') or reply('email')        
+    *   You can use: reply('name', 'email') or reply('email')
     *   @param String $name
     *   @param String $email
     */
     public function reply($name, $email='') {
         $reply = '';
         if ( func_num_args() == 1 ) {
-            $reply = $name;  
+            $reply = $name;
         } else {
             $reply  = "$name <$email>";
         }
         $this->header('Reply-To', $reply);
-    }    
+    }
 
     /**
     *   Add attachment files.
@@ -133,7 +133,7 @@ class Mailer {
 
     /**
     *   Try to deliver the mail to MTA.
-    *   Return true if get, or false otherwise.        
+    *   Return true if get, or false otherwise.
     *   @return boolean
     */
     public function send() {
@@ -143,10 +143,10 @@ class Mailer {
         foreach( $this->aMail['headers'] as $header => $value ) {
             $headers .= $header.': '.$value."\n";
         }
-        
+
         $headers .= "MIME-Version: 1.0\n";
         $message_header = "Content-Type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\nContent-Transfer-Encoding: 8bit";
-       
+
         // attachments
         if ( count($this->files) > 0 ) {
             $boundary = 'Multipart_Boundary_x'.md5(time()).'x';
@@ -161,7 +161,7 @@ class Mailer {
                     $h .= "Content-Disposition: attachment; filename=\"$name\"\n";
                     $h .= "Content-Transfer-Encoding: base64\n\n";
                     $h .= chunk_split(base64_encode(file_get_contents($filepath)))."\n";
-                    
+
                     $attachs .= $h;
                 }
             }
@@ -170,9 +170,10 @@ class Mailer {
         } else {
             $headers = $headers.$message_header;
         }
-        
-        return mail($to, $this->aMail['subject'], $this->aMail['body'], $headers);
-    }    
+
+        $return_path = ( !isset($this->aMail['headers']['Return-Path']) )?'-f '.$this->aMail['headers']['From']:'';
+        return mail($to, $this->aMail['subject'], $this->aMail['body'], $headers, $return_path);
+    }
 
 
 
