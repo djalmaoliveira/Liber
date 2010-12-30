@@ -14,7 +14,7 @@ class MailerTest extends PHPUnit_Framework_TestCase {
     }
 
 
-    function atestSendMailText() {
+    function testSendMailText() {
         $m = Liber::loadClass('Mailer', true);
 
         $m->addTo('test@localhost');
@@ -25,7 +25,7 @@ class MailerTest extends PHPUnit_Framework_TestCase {
     }
 
 
-    function atestSendMailHtmlk() {
+    function testSendMailHtmlk() {
         $m = Liber::loadClass('Mailer', true);
 
         $m->addTo('test@localhost');
@@ -36,7 +36,7 @@ class MailerTest extends PHPUnit_Framework_TestCase {
         $m->send();
     }
 
-    function atestSendMailTextWithFile() {
+    function testSendMailTextWithFile() {
         $m = Liber::loadClass('Mailer', true);
 
         $m->addTo('test@localhost');
