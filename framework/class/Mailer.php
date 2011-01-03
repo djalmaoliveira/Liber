@@ -17,6 +17,7 @@ class Mailer {
     function __construct() {
         $this->html();
         $this->charset();
+        $this->aMail['headers']['From'] = $_SERVER['SERVER_ADMIN']; // default server address
     }
 
     /**
@@ -70,56 +71,90 @@ class Mailer {
 
 
     /**
+    *   Set To mail field.
+    *   You can use:    to('name', 'email') or to('email')
+    *                   to( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') )
+    *   @param String $name
+    *   @param String $email
+    */
+    public function to($name, $email='') {
+        $to = '';
+        if ( is_array($name) )  {
+            $to = $this->_parseAddresses($name);
+        } else {
+            if ( func_num_args() == 1 ) {
+                $to = $this->_parseAddresses(Array($name));
+            } else {
+                $to = $this->_parseAddresses(Array($name=>$email));
+            }
+        }
+        $this->aMail['to'] = Array($to);
+    }
+
+
+    /**
     *   Add one or more destinations to mail.
-    *   Usage:  ->addTo('myname@mydomain.com');
-    *           ->addTo(Array('myname@mydomain.com', 'othermail@mydomain.com'));
+    *   You can use:    addTo('myname@mydomain.com');
+    *                   addTo(Array('myname@mydomain.com', 'othermail@mydomain.com'));
     *   @param String | Array $to
     */
     public function addTo($to) {
         if ( is_array($to) ) {
             $this->aMail['to'] = $this->aMail['to']+$to;
         } else {
-            $this->aMail['to'][] = trim($to);
+            $this->aMail['to'][] = $to;
         }
 
     }
 
     /**
-    *   Set original sender to mail.
-    *   You can use: from('name', 'email') or from('email')
+    *   Set original sender(s) to mail.
+    *   You can use:    from('name', 'email') or from('email')
+    *                   from( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') )
     *   @param String $name
     *   @param String $email
     */
     public function from($name, $email='') {
         $from = '';
-        if ( func_num_args() == 1 ) {
-            $from = $name;
+        if ( is_array($name) )  {
+            $from = $this->_parseAddresses($name);
         } else {
-            $from  = "$name <$email>";
+            if ( func_num_args() == 1 ) {
+                $from = $this->_parseAddresses(Array($name));
+            } else {
+                $from = $this->_parseAddresses(Array($name=>$email));
+            }
         }
+
         $this->header('From', $from);
     }
 
     /**
-    *   Set ReplyTo email address.
-    *   You can use: reply('name', 'email') or reply('email')
+    *   Set Reply-To field with email address.
+    *   You can use:    reply('name', 'email@domain.com') or reply('email@domain.com')
+    *                   reply( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') )
     *   @param String $name
     *   @param String $email
     */
     public function reply($name, $email='') {
         $reply = '';
-        if ( func_num_args() == 1 ) {
-            $reply = $name;
+        if ( is_array($name) )  {
+            $reply = $this->_parseAddresses($name);
         } else {
-            $reply  = "$name <$email>";
+            if ( func_num_args() == 1 ) {
+                $reply = $this->_parseAddresses(Array($name));
+            } else {
+                $reply = $this->_parseAddresses(Array($name=>$email));
+            }
         }
+
         $this->header('Reply-To', $reply);
     }
 
     /**
     *   Add attachment files.
-    *   Usage:  ->file('/path/to/file');
-    *           ->file(Array('/path/file1', '/path/file2'));
+    *   You can use:    file('/path/to/file');
+    *                   file( Array('/path/file1', '/path/file2') );
     *   @param String | Array $files
     */
     public function file($files=null) {
@@ -137,7 +172,7 @@ class Mailer {
     *   @return boolean
     */
     public function send() {
-        $to = implode(' , ', $this->aMail['to']);
+        $to = $this->_parseAddresses(  $this->aMail['to']  );
         // prepare headers
         $headers = '';
         foreach( $this->aMail['headers'] as $header => $value ) {
@@ -184,8 +219,28 @@ class Mailer {
             }
         }
 
-        $return_path = ( !isset($this->aMail['headers']['Return-Path']) )?'-f '.$this->aMail['headers']['From']:'';
+        $return_path = ( !isset($this->aMail['headers']['Return-Path']) )?'-f '.$this->aMail['headers']['From']:null;
         return mail($to, $this->aMail['subject'], $this->aMail['body'], $headers, $return_path);
+    }
+
+
+    /**
+    *   Parse and return a standard list of mail addresses from Array specified.
+    *   @param Array $arr
+    *   @return String
+    */
+    private function _parseAddresses($arr) {
+        $out = '';
+        foreach ($arr as $_name => $_email) {
+            if ( filter_var($_email, FILTER_VALIDATE_EMAIL) ) {
+                if ( is_string($_name) ) {
+                    $out .= $_name.' <'.$_email.'>,';
+                } else {
+                    $out .= $_email.',';
+                }
+            }
+        }
+        return  substr($out, 0, -1);
     }
 
 }

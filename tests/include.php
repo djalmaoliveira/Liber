@@ -6,7 +6,8 @@
 
     // simulates on HOST
     $_SERVER['HTTP_HOST'] = 'liber';
-    
+    $_SERVER['SERVER_ADMIN'] = 'server_admin@localhost';
+
     Liber::loadConfig($aConfigs);
     Liber::setup();
 ?>
