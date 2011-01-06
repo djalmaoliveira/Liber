@@ -96,7 +96,7 @@ Source Location: /helper/HTML.php<br /><br />
     </td></tr></table>
     </td></tr></table><br />
 
-		Print Html tags for external CSS and JS files included in 'head' tag.<br /><br /><p>Usage:  html_header_('css', 'my.css'); // register a css file in template file            html_header_(); // print tags to use among html head tags.</p><br /><br /><br />
+		Set or print Html tags for external CSS and JS files included in 'head' tag.<br /><br /><p>Usage:  html_header_('css', 'my.css'); // register a css file in template file, used inside template files            html_header_(); // print tags to use among html head tags.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -122,10 +122,42 @@ Source Location: /helper/HTML.php<br /><br />
 				</table>
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
+  <hr />
+	<a name="functionhtml_meta_"></a>
+	<h3>html_meta_ <span class="smalllinenumber">[line 45]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>String html_meta_(
+[Array $aData = null])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Set or print html meta tags with some data, that should be included in 'head' tag.<br /><br /><p>Usage:  html_meta_( Array('name'=&gt;'author', 'content'=&gt;'Liber framework') ); // set a meta author content, used inside template files            html_meta_(); // print tags to use among html head tags.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>- Html meta tags</td>
+  </tr>
+</table>
+</div>
+    <br /><br />
+	
+    		<h4>Parameters</h4>
+    <table border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$aData</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+				</table>
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 03 Jan 2011 15:51:58 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Thu, 06 Jan 2011 13:51:46 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -10,8 +10,8 @@
  */
 
 /**
-*   Print Html tags for external CSS and JS files included in 'head' tag.
-*   Usage:  html_header_('css', 'my.css'); // register a css file in template file
+*   Set or print Html tags for external CSS and JS files included in 'head' tag.
+*   Usage:  html_header_('css', 'my.css'); // register a css file in template file, used inside template files
 *           html_header_(); // print tags to use among html head tags.
 *   @param String $type - 'css' or 'js'
 *   @param String $url - Relative url to assets folder.
@@ -35,5 +35,24 @@ function html_header_($type=null, $url=null) {
     }
 }
 
+/**
+*   Set or print html meta tags with some data, that should be included in 'head' tag.
+*   Usage:  html_meta_( Array('name'=>'author', 'content'=>'Liber framework') ); // set a meta author content, used inside template files
+*           html_meta_(); // print tags to use among html head tags.
+*   @param Array $aData
+*   @return String - Html meta tags
+*/
+function html_meta_( $aData=null ) {
+    static $metas = Array();
+    $tag = '';
+    if ( is_array($aData) ) {
+        foreach( $aData as $attr => $value) {
+            $tag .= $attr.'="'.$value.'" ';
+        }
+        $metas[] = "<meta $tag />";
+    } else {
+        echo implode("\r\n", $metas);
+    }
+}
 
 ?>
