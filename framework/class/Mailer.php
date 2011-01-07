@@ -83,9 +83,9 @@ class Mailer {
             $to = $this->_parseAddresses($name);
         } else {
             if ( func_num_args() == 1 ) {
-                $to = $this->_parseAddresses(Array($name));
+                $to = $this->_parseAddresses(Array(trim($name)));
             } else {
-                $to = $this->_parseAddresses(Array($name=>$email));
+                $to = $this->_parseAddresses(Array($name=>trim($email)));
             }
         }
         $this->aMail['to'] = Array($to);
@@ -102,7 +102,7 @@ class Mailer {
         if ( is_array($to) ) {
             $this->aMail['to'] = $this->aMail['to']+$to;
         } else {
-            $this->aMail['to'][] = $to;
+            $this->aMail['to'][] = trim($to);
         }
 
     }
@@ -120,9 +120,9 @@ class Mailer {
             $from = $this->_parseAddresses($name);
         } else {
             if ( func_num_args() == 1 ) {
-                $from = $this->_parseAddresses(Array($name));
+                $from = $this->_parseAddresses(Array(trim($name)));
             } else {
-                $from = $this->_parseAddresses(Array($name=>$email));
+                $from = $this->_parseAddresses(Array($name=>trim($email)));
             }
         }
 
@@ -142,9 +142,9 @@ class Mailer {
             $reply = $this->_parseAddresses($name);
         } else {
             if ( func_num_args() == 1 ) {
-                $reply = $this->_parseAddresses(Array($name));
+                $reply = $this->_parseAddresses(Array(trim($name)));
             } else {
-                $reply = $this->_parseAddresses(Array($name=>$email));
+                $reply = $this->_parseAddresses(Array($name=>trim($email)));
             }
         }
 

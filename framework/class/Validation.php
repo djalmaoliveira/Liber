@@ -15,15 +15,15 @@ class Validation {
     const NOTNULL = 1;
 
     const NUMERIC = 2;
-    
+
     const EMAIL   = 4;
-    
+
     const DATE    = 8;
-    
+
     /**
     *   Validates a $value by specified $type.
     *   Return Array of errors matched.
-    *   @param mixed $value 
+    *   @param mixed $value
     *   @param integer $type - See Validation Constants
     *   @return Array.
     */
@@ -41,29 +41,29 @@ class Validation {
 		    if ( !empty($value) and strtotime($value) === false ) {
                 $aOut['DATE'] = $data['DATE'];
 			}
-		}            
+		}
 
-        
+
 		if ( $max >= self::EMAIL ) {
 		    $max -= self::EMAIL;
-		    if ( !filter_var($value, FILTER_VALIDATE_EMAIL) ) {
+		    if ( !filter_var(trim($value), FILTER_VALIDATE_EMAIL) ) {
                 $aOut['EMAIL'] = $data['EMAIL'];
 			}
-		}            
+		}
 
 		if ( $max >= self::NUMERIC ) {
 		    $max -= self::NUMERIC;
 		    if ( !is_numeric($value) ) {
                 $aOut['NUMERIC'] = $data['NUMERIC'];
 			}
-		}            
+		}
 
 		if ( $max >= self::NOTNULL ) {
 		    $max -= self::NOTNULL;
 		    if ( empty($value) ) {
                 $aOut['NOTNULL'] = $data['NOTNULL'];
 			}
-		}            
+		}
 
         return $aOut;
     }
