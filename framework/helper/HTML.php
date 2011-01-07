@@ -55,4 +55,22 @@ function html_meta_( $aData=null ) {
     }
 }
 
+
+/**
+*   Set or get the text to html title tag.
+*   Usage:  html_title_(  ); // used
+*           html_title_(); // print tags to use among html head tags.
+*   @param String $title
+*   @return String
+*/
+function html_title_( $title=null ) {
+    static $_title = '';
+
+    if ( !empty($title) ) {
+        $_title = $title;
+    } else {
+        return $_title;
+    }
+}
+
 ?>
