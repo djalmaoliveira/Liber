@@ -218,7 +218,7 @@ class Liber {
     *   @return mixed
     */
     public static function conf($p, $v=null) {
-        if (  $v === NULL ) {
+        if (  $v === null ) {
             return isset(self::$aConfig[$p])?self::$aConfig[$p]:null;
         }
         elseif( empty ($v) ) {
@@ -511,8 +511,8 @@ class Liber {
         } else {
 
             // normalize to 3
-            if ( count($conf) == 2 ) {
-                $conf[] = '';
+            if ( !isset($conf[2]) ) {
+                $conf[2] = '';
             }
         }
         return $conf;
@@ -534,33 +534,24 @@ class Liber {
     public static function processRoute() {
         $aRoute = &Liber::$aRoute;
 
-        // avoid http:// in url, used to forward by proxy
-        $uri = substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'],$_SERVER['SCRIPT_NAME']));
-
-        // detect subfolder uses
-        if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  {
-            if ( strpos($uri, 'index.php')!==false ) { // with index.php
-                $uri = '/'.str_replace($_SERVER['SCRIPT_NAME'], '', $uri);
-            } else { // without index.php
-                $uri = '/'.str_replace(str_replace('index.php', '', $_SERVER['SCRIPT_NAME']), '', $uri);
+        // get URI
+        $aUrl = parse_url($_SERVER['REQUEST_URI']);
+        if ( ($indexPos = strpos($aUrl['path'], '/index.php')) === false ) { // don't have index.php
+            if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  { // has subdir
+                $uri = str_replace( str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']), '', $aUrl['path']);
+            } else {
+                $uri = &$aUrl['path'];
             }
+        } else {
+            $uri = '/'.substr($aUrl['path'], $indexPos+11);
         }
-
-        // cleaning uri
-        //
-        $uri = str_replace('?'.$_SERVER['QUERY_STRING'], '', $uri);
-        if ( $uri[strlen($uri)-1] == '/' and strlen($uri) > 1 ) {
-            $uri[strlen($uri)-1] = ' ';
-            $uri = rtrim($uri);
-        }
-        $uri = str_replace(Array('index.php','//'),Array('','/'), $uri);
 
         // Direct match, load pre-configured route (the fast way, recommended)
-        $routeOption =  self::getRouteMethod($uri);
+        $routeOption =  Liber::getRouteMethod($uri);
         if ( $routeOption ) {
             $routeConf = Liber::getRouteConf( $routeOption );
+            $m = &$routeConf[2];
             $c = $routeConf[0];
-            $m = $routeConf[2];
 
             if ( Liber::loadController($c, $m) ) {
                 $a = $routeConf[1]=='*'?'index':$routeConf[1];
@@ -580,7 +571,7 @@ class Liber {
             $previousSegment = ($last===0?'/':substr($uri, 0, strrpos($uri, '/')));
 
             if ( isset($aRoute[$previousSegment]) )  {
-                $routeOption =  self::getRouteMethod($previousSegment);
+                $routeOption = Liber::getRouteMethod($previousSegment);
                 $routeConf   = Liber::getRouteConf( $routeOption );
             } else {
                 $routeConf = Array('','','');
@@ -610,8 +601,8 @@ class Liber {
 
             // trying routes with named params
             } else {
-                if ( $aParsed = self::parseRouteParams($aRoute, $uri) ) {
-                   $routeOption =  self::getRouteMethod($aParsed['route']);
+                if ( $aParsed = Liber::parseRouteParams($aRoute, $uri) ) {
+                   $routeOption =  Liber::getRouteMethod($aParsed['route']);
                    $routeConf   = Liber::getRouteConf( $routeOption );
                    $c = $routeConf[0];
                    $a = $routeConf[1];
@@ -630,12 +621,12 @@ class Liber {
         }
 
         // get instance kind of Controller and call method (action).
-        self::$_controller = new $c( Array('module'=>$m, 'params'=>$p) );
+        Liber::$_controller = new $c( Array('module'=>$m, 'params'=>$p) );
 
-        if ( empty($a) or !method_exists(self::$_controller, $a) ) {
-            self::$_controller->index();
+        if ( empty($a) or !method_exists(Liber::$_controller, $a) ) {
+            Liber::$_controller->index();
         } else {
-            self::$_controller->$a();
+            Liber::$_controller->$a();
         }
     }
 

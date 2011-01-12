@@ -58,8 +58,8 @@ function html_meta_( $aData=null ) {
 
 /**
 *   Set or get the text to html title tag.
-*   Usage:  html_title_(  ); // used
-*           html_title_(); // print tags to use among html head tags.
+*   Usage:  html_title_( 'title of page' ); // set title of page, used inside template files
+*           html_title_(); // get title
 *   @param String $title
 *   @return String
 */
