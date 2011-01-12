@@ -155,6 +155,7 @@ class View {
             $this->_layout_once = '';
         }
 
+        // by default, in PROD mode all files doesn't have cache
         if ( $this->cache($fileName) > 0 and Liber::conf('APP_MODE') == 'PROD' ) {
 
             // caching
