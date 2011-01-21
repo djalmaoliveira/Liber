@@ -241,9 +241,10 @@ class Liber {
         $ret = true;
         if (is_array($className)) {
             $out = Array();
-            foreach($className as $class) {
+            $class=current($className);
+            do  {
                 $out[] = self::load($class, $path, $createObj);
-            }
+            } while ( ($class=next($className)) );
             return $out;
         }
         if ( !class_exists($className)  ) {
@@ -310,6 +311,7 @@ class Liber {
     *   @return mixed - object or boolean
     */
     public static function loadController( $cName, $context='', $createObj=false ) {
+
         if ( is_bool($context) ) {
             $createObj = $context;
             $context   = 'controller/';
@@ -318,6 +320,7 @@ class Liber {
         } else {
             $context = ($context[0] == '/'?$context.'controller/':'module/'.$context.'/controller/');
         }
+
         return self::loadContext($cName, $context, $createObj);
     }
 
@@ -431,20 +434,21 @@ class Liber {
     }
 
     /**
-    *   Search for configured route and params returning it.
+    *   Search for configured route and params, returning it.
     *   @param Array $aRoute
     *   @param String $uri
     *   @return boolean
     */
     public static function parseRouteParams($aRoute, $uri) {
-        foreach ( $aRoute as $km => $vm ) {
+
+        foreach ($aRoute as $km => $vm)  {
             if ( strpos($km, ':')===false ) { continue ;}
             if (  substr_count($km, '/') != substr_count($uri, '/') )  { continue; }
             $regex = preg_replace('/(:[a-zA-Z0-9]+:)/', '(.+)', $km);
             $regex = str_replace('/','\/', $regex);
             // there are some route that match ?
             if ( preg_match('/('.$regex.')/', $uri) ) {
-                $out['route'] = $km;
+                $out['route']  = $km;
                 $out['params'] = self::getParams($km, $uri) ;
                 return $out;
             }
