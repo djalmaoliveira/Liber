@@ -549,6 +549,7 @@ class Liber {
         } else {
             $uri = '/'.substr($aUrl['path'], $indexPos+11);
         }
+        ( strlen($uri) > 1 and $uri[strlen($uri)-1]=='/')?($uri[strlen($uri)-1]=''):false;
 
         // Direct match, load pre-configured route (the fast way, recommended)
         $routeOption =  Liber::getRouteMethod($uri);
