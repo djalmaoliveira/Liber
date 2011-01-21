@@ -552,7 +552,7 @@ class Liber {
         ( strlen($uri) > 1 and $uri[strlen($uri)-1]=='/')?($uri[strlen($uri)-1]=''):false;
 
         // Direct match, load pre-configured route (the fast way, recommended)
-        $routeOption =  Liber::getRouteMethod($uri);
+        $routeOption =  Liber::getRouteMethod(trim($uri));
         if ( $routeOption ) {
             $routeConf = Liber::getRouteConf( $routeOption );
             $m = &$routeConf[2];
