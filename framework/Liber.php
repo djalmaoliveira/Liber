@@ -64,30 +64,30 @@ class Liber {
                                     'SYS_ERROR'         => 'SysErrorController',
                                     'LANG'              => 'en'
                                 );
-    /**
-     * Route format:    $r[URI][METHOD] = Array('ControllerName', 'Action', 'ModuleName');
-                        $r[URI][METHOD] = '/othet/route';
-                        METHOD can be: *, get, post, put, delete;
-                        When to use *, the others for the same URI will be skipped;
-        uri             => the relative path of resource like: /article/firstArticle ;
-        ControllerName  => the file name (without extension) of controller inside 'controller/' dir;
-        Action          => the method name of controller;
-                           when it is a "*", means that the next segment after ControllerName is a called action ;
-        ModuleName      => the module name inside 'APP_PATH/module/' dir;
-                            it means that the controller will be called from this module;
-    *  Route examples:  $r['/admin/user']['*'] = Array('UserAdmin', 'index', 'Admin');
-    *                   $r['/admin/user']['*'] = Array('UserAdmin', '*', 'Admin');
-    *                   $r['/blog']['*'] = Array('Blog', 'index');
-    Avoid this routes (don't works or works the wrong way):
-        /blog/:id::name:   -> params together;
-        /blog/post/:post:  -> get all, but depends of declared order;
-        /blog/post/a:post: -> the previous route get this pattern;
-        /blog/a:id:-:mes:  -> allowed only one param per segment;
-    */
 
     /**
-        Route definitions.
-        @var Array
+    *  Route definitions.
+    *  <pre>
+    *  Route format:   $r[URI][METHOD] = Array('ControllerName', 'Action', 'ModuleName');
+    *                  $r[URI][METHOD] = '/othet/route';
+    *                  METHOD can be: *, get, post, put, delete;
+    *                  When to use *, the others for the same URI will be skipped;
+    *  uri             => the relative path of resource like: /article/firstArticle ;
+    *  ControllerName  => the file name (without extension) of controller inside 'controller/' dir;
+    *  Action          => the method name of controller;
+    *                     when it is a "*", means that the action will be a method from Controller ;
+    *  ModuleName      => the module name inside 'APP_PATH/module/' dir;
+    *                     it means that the controller will be called from this module;
+    *  Route examples:<code>
+    *                  $r['/admin/user']['*'] = Array('UserAdmin', 'index', 'Admin');
+    *                  $r['/admin/user']['*'] = Array('UserAdmin', '*', 'Admin');
+    *                  $r['/blog']['*'] = Array('Blog', 'index');</code>
+    *  Avoid this routes (don't works or works the wrong way):<code>
+    *    /blog/:id::name:   -> params together;
+    *    /blog/post/:post:  -> get all, but depends of declared order;
+    *    /blog/post/a:post: -> the previous route get this pattern;
+    *    /blog/a:id:-:mes:  -> allowed only one param per segment;</code></pre>
+    *    @var Array
     */
     public    static $aRoute    = Array();
 
@@ -433,28 +433,6 @@ class Liber {
         return $params;
     }
 
-    /**
-    *   Search for configured route and params, returning it.
-    *   @param Array $aRoute
-    *   @param String $uri
-    *   @return boolean
-    */
-    public static function parseRouteParams($aRoute, $uri) {
-
-        foreach ($aRoute as $km => $vm)  {
-            if ( strpos($km, ':')===false ) { continue ;}
-            if (  substr_count($km, '/') != substr_count($uri, '/') )  { continue; }
-            $regex = preg_replace('/(:[a-zA-Z0-9]+:)/', '(.+)', $km);
-            $regex = str_replace('/','\/', $regex);
-            // there are some route that match ?
-            if ( preg_match('/('.$regex.')/', $uri) ) {
-                $out['route']  = $km;
-                $out['params'] = self::getParams($km, $uri) ;
-                return $out;
-            }
-        }
-        return false;
-    }
 
     /**
     *   Redirect client to another URL.
@@ -489,6 +467,29 @@ class Liber {
             $method = strtolower($_SERVER['REQUEST_METHOD']);
         }
         return $method;
+    }
+
+    /**
+    *   Search for configured route and params, returning it.
+    *   @param Array  $aRoute
+    *   @param String $uri
+    *   @return boolean
+    */
+    public static function parseRouteParams($aRoute, $uri) {
+
+        foreach ($aRoute as $km => $vm)  {
+            if ( strpos($km, ':')===false ) { continue ;}
+            if (  substr_count($km, '/') != substr_count($uri, '/') )  { continue; }
+            $regex = preg_replace('/(:[a-zA-Z0-9]+:)/', '(.+)', $km);
+            $regex = str_replace('/','\/', $regex);
+            // there are some route that match ?
+            if ( preg_match('/('.$regex.')/', $uri) ) {
+                $out['route']  = $km;
+                $out['params'] = self::getParams($km, $uri) ;
+                return $out;
+            }
+        }
+        return false;
     }
 
     /**
@@ -550,9 +551,10 @@ class Liber {
             $uri = '/'.substr($aUrl['path'], $indexPos+11);
         }
         ( strlen($uri) > 1 and $uri[strlen($uri)-1]=='/')?($uri[strlen($uri)-1]=''):false;
+        $uri = trim($uri);
 
         // Direct match, load pre-configured route (the fast way, recommended)
-        $routeOption =  Liber::getRouteMethod(trim($uri));
+        $routeOption =  Liber::getRouteMethod($uri);
         if ( $routeOption ) {
             $routeConf = Liber::getRouteConf( $routeOption );
             $m = &$routeConf[2];
