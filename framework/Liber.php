@@ -239,9 +239,9 @@ class Liber {
      */
     public static function load($className, $path, $createObj=FALSE){
         $ret = true;
-        if (is_array($className)) {
-            $out = Array();
-            $class=current($className);
+        if ( is_array($className) ) {
+            $out   = Array();
+            $class = current($className);
             do  {
                 $out[] = self::load($class, $path, $createObj);
             } while ( ($class=next($className)) );
@@ -361,18 +361,31 @@ class Liber {
     *   Imports the definition of functions Helper file. File is located at <b>BASE_PATH/helper/</b>  or <b>$context/helper/</b>
     *   @param  String $helperName
     *   @param  String|boolean $context  - name of module or boolean
-    *   @param  boolean $createObj
-    *   @return mixed - object or boolean
+    *   @return boolean
     */
     public static function loadHelper( $helperName, $context=false) {
         static $loaded = Array();
-        // avoid to include already included file
-        $i = $context.'helper/'.$helperName;
-        if ( !isset($loaded[$i]) ) {
-            $out        = self::prepareLoad($context, false);
-            $loaded[$i] = true;
-            return self::load($helperName, $out['context'].'helper/'); // Class not exists, so don't need to create
+
+        if ( !is_array($helperName) ) {
+            $helperName = Array($helperName);
         }
+
+        do {
+            $i = $context.'helper/'.current($helperName);
+            // avoid to include already included file
+            if ( !isset($loaded[$i]) ) {
+                $out        = self::prepareLoad($context, false);
+                $loaded[$i] = true;
+
+                if ( file_exists($out['context'].'helper/' . current($helperName).'.php') ) {
+                    $ret =  (include $out['context'].'helper/' . current($helperName).'.php')!=1?false:true;
+                } else {
+                    $ret = false;
+                }
+            }
+        } while (next($helperName));
+
+        return true;
     }
 
     /**
@@ -742,11 +755,11 @@ class Controller {
     *   Load helper from application or module if was instanced with it.
     *   @param String $helperName   - Helper name
     *   @param String|boolean $createObj boolean - if must create a object
-    *   @return mixed - Helper object or boolean
+    *   @return boolean
     */
-    public function loadHelper( $helperName, $createObj=false ) {
+    public function loadHelper( $helperName) {
         $module = !empty($this->module)?$this->module:'';
-        return Liber::loadHelper($helperName, $module, $createObj);
+        return Liber::loadHelper($helperName, $module);
     }
 
     /**
