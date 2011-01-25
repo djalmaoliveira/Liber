@@ -116,6 +116,10 @@ class MainController extends Controller{
         $this->oTPL->load("helper_url.html");
     }
 
+    public function routes() {
+        Liber::loadHelper('Url');
+        $this->oTPL->load("routes.html");
+    }
 
 }
 

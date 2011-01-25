@@ -1,0 +1,43 @@
+<div class="blog">
+<h1>Routes</h1>
+
+
+<p>Routes are a way in which the clients can be reach a resource from application.</p>
+<p>At first, you don't need setup any route in config file because there are a implicit route, for example, if you have a <em>controller/admin.php</em> file (Admin class) and a <em>login</em> method, you can access it by using <em>/admin/login</em> in URI request.</p>
+<p>If you need more specific routes, there are some rules that you can use to build it.</p>
+<p>The default configuration to routes are within config file at <em>config/config.php</em> in application directory.</p>
+<p>Each route has five information: </p>
+<ul>
+    <li><strong>URI:</strong> Uniform Resource Identifier(i.e. http://maps.google.com/);</li>
+    <li><strong>Method Request:</strong> POST, GET, PUT, DELETE or *;</li>
+    <li><strong>Controller Name:</strong> Name of Controller class that will manage the request, stored in <em>controller/</em> directory;</li>
+    <li><strong>Action Name:</strong> Public method name of Controller class to call;</li>
+    <li><strong>Module:</strong> <em>(optional)</em> Name of module directory in which Controller file/class is stored;</li>
+</ul>
+
+<p>Code example:</p>
+
+<pre>
+// Direct match to 'posts' method from controller/BlogController.php
+$route['/blog/posts']['*']  = Array('BlogController', 'posts');
+
+// Same, but accept only POST method request
+$route['/blog/posts']['post']  = Array('BlogController', 'posts');
+
+// Same, but accept only GET method request
+$route['/blog/posts']['get']  = Array('BlogController', 'posts');
+
+// Same, but from a module Blogs (stored in module/Blogs)
+$route['/blog/posts']['get']  = Array('BlogController', 'posts', 'Blogs');
+
+// Using named params, each param is started and ended with ':', can be used one param per segment
+$route['/posts/by/date/:year:/:month:']['*']  = Array('BlogController', 'byDate');
+
+// There are by default, a NotFoundController, when resource can't be found.
+$route['/notfound']['*'] = Array('NotFoundController', 'index');
+
+</pre>
+
+<p>By default, if not exist a method named in the class, the result page will be redirect to NotFoundController, but this behavior can be replaced by only declarate a <em>__call($method_name, $args)</em> method in controller class.</p>
+
+</div>
