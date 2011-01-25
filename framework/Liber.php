@@ -599,12 +599,8 @@ class Liber {
                 $c  = &$seg1;
                 $oC = new $c;
                 $a  = next($aUri);
-                if ( !method_exists($oC, $a) ) {
-                    prev($aUri);
-                    $a = 'index';
-                }
-                $p = array_slice($aUri, key($aUri) );
-                $m = false;
+                $p  = array_slice($aUri, key($aUri) );
+                $m  = false;
 
             // trying routes with named params
             } else {
@@ -629,12 +625,7 @@ class Liber {
 
         // get instance kind of Controller and call method (action).
         Liber::$_controller = new $c( Array('module'=>$m, 'params'=>$p) );
-
-        if ( empty($a) or !method_exists(Liber::$_controller, $a) ) {
-            Liber::$_controller->index();
-        } else {
-            Liber::$_controller->$a();
-        }
+        Liber::$_controller->$a();
     }
 
     /**
@@ -775,7 +766,7 @@ class Controller {
     *   @return View object
     */
     public function view($layout_once='') {
-        if ( $this->_view == NULL ) {
+        if ( !isset($this->_view) ) {
             Liber::loadClass('View');
             $this->_view = new View(Array('module'=>$this->module));
         }
@@ -788,8 +779,20 @@ class Controller {
     *   @param String $name  - Param name
     *   @return String
     */
-    public function params( $name ) {
-        return isset($this->params[$name])?urldecode($this->params[$name]):'';
+    public function params( $name=null ) {
+        if ( !isset($name) ) {
+            return $this->params;
+        } else {
+            return isset($this->params[$name])?urldecode($this->params[$name]):'';
+        }
+    }
+
+    /**
+    *   Called when there aren't a requested action method in controller.
+    *   @param String $action - Action name called
+    */
+    function __call($action, $args) {
+        Liber::loadController(Liber::conf('PAGE_NOT_FOUND'), true)->index($action);
     }
 }
 
