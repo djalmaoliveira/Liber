@@ -10,7 +10,6 @@
     - Refactor View class using Liber::controller() static method
 
 03/04/2010
-    - Create a new cache system using "Fucky Cache" method. May be needed change to a new router system.
     - Create a out put content based URL request like: /blog.html -> html | /blog.xml -> xml | /blog.rss -> rss
 
 25/01/2010

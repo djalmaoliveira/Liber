@@ -64,11 +64,6 @@ function fs_scan_($path, &$func, $recursive=false) {
     static $out = null;
     static $count = 0;
 
-    // initialize output towards first return of $func
-    if ( $out === null ) {
-        $out = gettype($func('a','b'))=='array'?Array():'';
-    }
-
     $count++;
     $entries = scandir($path);
     foreach( $entries as $entry ) {
@@ -81,6 +76,7 @@ function fs_scan_($path, &$func, $recursive=false) {
             if (  key($o) == '0' and count($o) == 1) {
                 $o = current($o);
             }
+            if ($out===null) { $out=Array(); }
             $out[] = $o;
         } else {
             $out .= $o;
