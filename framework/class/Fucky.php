@@ -28,17 +28,21 @@ class Fucky {
 
     /**
     *   Clean a specified $path, recursively or not.
-    *   @param String $path
+    *   @param String  $path
     *   @param boolean $recursive
     */
     function clean($path, $recursive=false) {
         if ( file_exists($path) ) {
-            Liber::loadHelper('FS');
-            $f = create_function('$dir, $file','
-                unlink($dir.$file);
-                return $file;
-            ');
-            fs_scan_($path, $f, $recursive);
+            if ( is_file($path) ) {
+                unlink($path);
+            } else {
+                Liber::loadHelper('FS');
+                $f = create_function('$dir, $file','
+                    unlink($dir.$file);
+                    return $file;
+                ');
+                fs_scan_($path, $f, $recursive);
+            }
         }
     }
 
