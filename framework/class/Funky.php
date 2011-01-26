@@ -5,11 +5,11 @@
 
 
 /**
-*   Class that manage fucky cache files.
-*   Fucky cache simply write a raw html content to a file to improve speed access.
+*   Class that manage funky cache files.
+*   Funky cache simply write a raw html content to a file to improve speed access.
 *   This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example.
 */
-class Fucky {
+class Funky {
 
     /**
     *   Put a raw file data to a specified $path.
