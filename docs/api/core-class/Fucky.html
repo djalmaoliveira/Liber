@@ -147,30 +147,30 @@ Class that manage fucky cache files.<br /><br /><p>Fucky cache simply write a ra
 
   <hr />
 	<a name="methodclean"></a>
-	<h3>method clean <span class="smalllinenumber">[line 23]</span></h3>
+	<h3>method clean <span class="smalllinenumber">[line 34]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>void clean(
-
-$path, [
+String
+$path, [boolean
 $recursive = false])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		<br /><br />
+		Clean a specified $path, recursively or not.<br /><br /><br /><br />
 
 	
         <h4>Parameters:</h4>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$path</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
           <tr>
-        <td class="type">&nbsp;&nbsp;</td>
+        <td class="type">boolean&nbsp;&nbsp;</td>
         <td><b>$recursive</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
@@ -180,30 +180,30 @@ $recursive = false])</code>
   </div>
   <hr />
 	<a name="methodput"></a>
-	<h3>method put <span class="smalllinenumber">[line 15]</span></h3>
+	<h3>method put <span class="smalllinenumber">[line 21]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void put(
-
-$path, 
+		<code>boolean put(
+String
+$path, String
 $data)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		<br /><br />
+		Put a raw file data to a specified $path.<br /><br /><p>Return a boolean value indicating if it did.</p><br /><br /><br />
 
 	
         <h4>Parameters:</h4>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-        <td class="type">&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$path</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
           <tr>
-        <td class="type">&nbsp;&nbsp;</td>
+        <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$data</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
@@ -216,7 +216,7 @@ $data)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 26 Jan 2011 14:38:12 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 26 Jan 2011 14:45:40 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

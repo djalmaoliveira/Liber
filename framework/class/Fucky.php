@@ -11,7 +11,13 @@
 */
 class Fucky {
 
-
+    /**
+    *   Put a raw file data to a specified $path.
+    *   Return a boolean value indicating if it did.
+    *   @param String $path
+    *   @param String $data
+    *   @return boolean
+    */
     function put($path, $data) {
         $aPath = pathinfo($path);
         if ( !file_exists($aPath['dirname']) ) {
@@ -20,19 +26,19 @@ class Fucky {
         return (file_put_contents($aPath['dirname'].'/'.$aPath['basename'], $data, FILE_APPEND) !== false);
     }
 
+    /**
+    *   Clean a specified $path, recursively or not.
+    *   @param String $path
+    *   @param boolean $recursive
+    */
     function clean($path, $recursive=false) {
-        if ( file_exists($path) ) {
-            Liber::loadHelper('FS');
-            $f = create_function('$dir, $file','
-                unlink($dir.$file);
-                return $file;
-            ');
-
-            fs_scan_($path, $f);
-        }
+        Liber::loadHelper('FS');
+        $f = create_function('$dir, $file','
+            unlink($dir.$file);
+            return $file;
+        ');
+        fs_scan_($path, $f, $recursive);
     }
-
-
 }
 
 ?>
