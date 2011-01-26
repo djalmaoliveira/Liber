@@ -23,7 +23,7 @@ class Fucky {
         if ( !file_exists($aPath['dirname']) ) {
             mkdir($aPath['dirname'], 0770, true);
         }
-        return (file_put_contents($aPath['dirname'].'/'.$aPath['basename'], $data, FILE_APPEND) !== false);
+        return (file_put_contents($aPath['dirname'].'/'.$aPath['basename'], $data, LOCK_EX) !== false);
     }
 
     /**
