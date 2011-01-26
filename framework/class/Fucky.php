@@ -32,13 +32,16 @@ class Fucky {
     *   @param boolean $recursive
     */
     function clean($path, $recursive=false) {
-        Liber::loadHelper('FS');
-        $f = create_function('$dir, $file','
-            unlink($dir.$file);
-            return $file;
-        ');
-        fs_scan_($path, $f, $recursive);
+        if ( file_exists($path) ) {
+            Liber::loadHelper('FS');
+            $f = create_function('$dir, $file','
+                unlink($dir.$file);
+                return $file;
+            ');
+            fs_scan_($path, $f, $recursive);
+        }
     }
+
 }
 
 ?>
