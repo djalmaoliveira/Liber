@@ -1,6 +1,6 @@
 01/2011
-    - is it necessary Controller->header() method?
-
+    - Does it need Controller->header() method?
+    - Liber::requestedMethod() to ::request('post') return boolean as a sugestion
 12/2010
     - research about add complete html code in html messages
 11/2010
@@ -14,10 +14,6 @@
 
 03/04/2010
     - Create a out put content based URL request like: /blog.html -> html | /blog.xml -> xml | /blog.rss -> rss
-
-25/01/2010
-    - Store in session URI request and Controller/Method/Module loaded and use on next request direct
-    - Refactorin/recreate route process, using * on unknow method get error. line 536-540 Liber.php
 
 1/12/2009
     - Controller module auto detect on new instance
