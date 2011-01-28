@@ -8,8 +8,31 @@
 *   Class that manage funky cache files.
 *   Funky cache simply write a raw html content to a file to improve speed access.
 *   This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example.
+*
 */
 class Funky {
+
+    /**
+    *   This method is used for return a public URL to cached page and should be overrided by a extended class.
+    *   With it you can create your own rules how your cache should work.
+    *   Work together with create() method.
+    *   @param mixed
+    *   @return mixed
+    */
+    function url($file) {
+        return Liber::conf('APP_URL').'cache/'.$file;
+    }
+
+    /**
+    *   Create a cache data from $aData specified and should be overrided by a extended class.
+    *   With it you can create your own rules how your cache should be created.
+    *   Work together with url() method.
+    *   @param mixed
+    *   @return mixed
+    */
+    function create($aData) {
+        return $this->put(Liber::conf('APP_ROOT').'cache/'.$aData['file'], $aData['content']);
+    }
 
     /**
     *   Put a raw file data to a specified $path.
@@ -19,9 +42,10 @@ class Funky {
     *   @return boolean
     */
     function put($path, $data) {
+        umask(0007);
         $aPath = pathinfo($path);
         if ( !file_exists($aPath['dirname']) ) {
-            mkdir($aPath['dirname'], 0770, true);
+            mkdir($aPath['dirname'], 0777, true);
         }
         return (file_put_contents($aPath['dirname'].'/'.$aPath['basename'], $data, LOCK_EX) !== false);
     }

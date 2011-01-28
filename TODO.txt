@@ -1,6 +1,7 @@
 01/2011
     - Does it need Controller->header() method?
     - Liber::requestedMethod() to ::request('post') return boolean as a sugestion
+    - Mailer should have return invalid fields.
 12/2010
     - research about add complete html code in html messages
 11/2010

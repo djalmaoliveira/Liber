@@ -118,7 +118,9 @@ Source Location: /class/Funky.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../core-class/Funky.html#methodclean">clean</a></li>
+    <li><a href="../core-class/Funky.html#methodcreate">create</a></li>
     <li><a href="../core-class/Funky.html#methodput">put</a></li>
+    <li><a href="../core-class/Funky.html#methodurl">url</a></li>
   </ul>
 </td>
 
@@ -138,7 +140,7 @@ Source Location: /class/Funky.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 12]<br />
+[line 13]<br />
 Class that manage funky cache files.<br /><br /><p>Funky cache simply write a raw html content to a file to improve speed access.    This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example.</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -150,7 +152,7 @@ Class that manage funky cache files.<br /><br /><p>Funky cache simply write a ra
 
   <hr />
 	<a name="methodclean"></a>
-	<h3>method clean <span class="smalllinenumber">[line 34]</span></h3>
+	<h3>method clean <span class="smalllinenumber">[line 58]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -182,8 +184,35 @@ $recursive = false])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodcreate"></a>
+	<h3>method create <span class="smalllinenumber">[line 33]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed create(
+mixed
+$aData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a cache data from $aData specified and should be overrided by a extended class.<br /><br /><p>With it you can create your own rules how your cache should be created.    Work together with url() method.</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$aData</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodput"></a>
-	<h3>method put <span class="smalllinenumber">[line 21]</span></h3>
+	<h3>method put <span class="smalllinenumber">[line 44]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -214,12 +243,39 @@ $data)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodurl"></a>
+	<h3>method url <span class="smalllinenumber">[line 22]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed url(
+mixed
+$file)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This method is used for return a public URL to cached page and should be overrided by a extended class.<br /><br /><p>With it you can create your own rules how your cache should work.    Work together with create() method.</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$file</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 27 Jan 2011 17:22:58 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 28 Jan 2011 15:59:26 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
