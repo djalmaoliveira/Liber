@@ -11,6 +11,25 @@
 *
 */
 class Funky {
+    /**
+    *   Store the pattern String that is used to match against a URL.
+    *   Usefull to match if a random URL is a funky cache directory.
+    *   @var String
+    */
+    protected $urlPattern;
+
+    function __contruct() {
+        $this->urlPattern = Liber::conf('APP_URL');
+    }
+
+    /**
+    *   Try match a $url specified against 'urlPattern', returning true or false.
+    *   @param String $url
+    *   @return boolean
+    */
+    function matchUrl( $url ) {
+        return strpos($url, $this->urlPattern)===0?true:false;
+    }
 
     /**
     *   This method is used for return a public URL to cached page and should be overrided by a extended class.
@@ -56,6 +75,7 @@ class Funky {
     *   @param boolean $recursive
     */
     function clean($path, $recursive=false) {
+        $path = rawurldecode($path);
         if ( file_exists($path) ) {
             if ( is_file($path) ) {
                 unlink($path);

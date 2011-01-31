@@ -73,4 +73,18 @@ function html_title_( $title=null ) {
     }
 }
 
+/**
+*   Set or return script String to use on head tags.
+*   @param String $script
+*   @return String
+*/
+function html_script_($script=null) {
+    static $_scripts = Array();
+
+    if ( $script ) {
+        $_scripts[] = $script;
+    } else {
+        return implode("\n", $_scripts);
+    }
+}
 ?>
