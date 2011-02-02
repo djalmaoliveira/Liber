@@ -112,11 +112,20 @@ Source Location: /class/Security.php<br /><br />
         
 </td>
 
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../core-class/Security.html#var$oSession">$oSession</a></li>
+  </ul>
+</td>
 
 
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
+    <li><a href="../core-class/Security.html#method__construct">__construct</a></li>
+    <li><a href="../core-class/Security.html#methodclientChanged">clientChanged</a></li>
+    <li><a href="../core-class/Security.html#methodclientWatch">clientWatch</a></li>
     <li><a href="../core-class/Security.html#methodtoken">token</a></li>
     <li><a href="../core-class/Security.html#methodvalidToken">validToken</a></li>
   </ul>
@@ -142,6 +151,35 @@ Source Location: /class/Security.php<br /><br />
 Class with some useful method used with security implementations.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$oSession"></a>
+	<p></p>
+	<h4>$oSession = <span class="value"></span></h4>
+	<p>[line 12]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
 
 <hr />
 <a name="class_methods"></a>
@@ -149,8 +187,67 @@ Class with some useful method used with security implementations.<br /><br /></d
 <div class="tags">
 
   <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line 14]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Security __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodclientChanged"></a>
+	<h3>method clientChanged <span class="smalllinenumber">[line 60]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Array clientChanged(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Return Array of changes detected since clientWatch() method call.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodclientWatch"></a>
+	<h3>method clientWatch <span class="smalllinenumber">[line 44]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void clientWatch(
+[Array
+$options = array('ip', 'agent')])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Start watching monitor by client.<br /><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$options</b>&nbsp;&nbsp;</td>
+        <td>- Options that should be verified.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodtoken"></a>
-	<h3>method token <span class="smalllinenumber">[line 17]</span></h3>
+	<h3>method token <span class="smalllinenumber">[line 24]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -177,7 +274,7 @@ $renew = false])</code>
   </div>
   <hr />
 	<a name="methodvalidToken"></a>
-	<h3>method validToken <span class="smalllinenumber">[line 31]</span></h3>
+	<h3>method validToken <span class="smalllinenumber">[line 36]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -207,7 +304,7 @@ $token)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 31 Jan 2011 18:41:30 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 02 Feb 2011 19:23:12 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
