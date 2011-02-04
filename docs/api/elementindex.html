@@ -68,6 +68,10 @@
 				<dd>in file Liber.php, variable <a href="core/Liber.html#var$aConfig">Liber::$aConfig</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Store all configurations of application.</dd>
 							<dt><b>$aDbConfig</b></dt>
 				<dd>in file Liber.php, variable <a href="core/Liber.html#var$aDbConfig">Liber::$aDbConfig</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Database configuration</dd>
+							<dt><b>$aFeed</b></dt>
+				<dd>in file Feed.php, variable <a href="core-class/Feed.html#var$aFeed">Feed::$aFeed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Default feed fields</dd>
+							<dt><b>$aItem</b></dt>
+				<dd>in file Feed.php, variable <a href="core-class/Feed.html#var$aItem">Feed::$aItem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Default feed item fields.</dd>
 							<dt><b>$aLogAll</b></dt>
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$aLogAll">Log::$aLogAll</a></dd>
 							<dt><b>$aLogMsg</b></dt>
@@ -222,10 +226,14 @@
 				<dd>in file JSMinPlus.php, variable <a href="default/JSNode.html#var$funDecls">JSNode::$funDecls</a></dd>
 							<dt><b>FileCache.php</b></dt>
 				<dd>procedural page <a href="cache/_cache---FileCache.php.html">FileCache.php</a></dd>
+							<dt><b>Feed.php</b></dt>
+				<dd>procedural page <a href="core-class/_class---Feed.php.html">Feed.php</a></dd>
 							<dt><b>FileUpdate.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---FileUpdate.php.html">FileUpdate.php</a></dd>
 							<dt><b>Funky.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Funky.php.html">Funky.php</a></dd>
+							<dt><b>Feed</b></dt>
+				<dd>in file Feed.php, class <a href="core-class/Feed.html">Feed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generic class create feeds.</dd>
 							<dt><b>file</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodfile">Mailer::file()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add attachment files.</dd>
 							<dt><b>file</b></dt>
@@ -453,9 +461,9 @@
 							<dt><b>$layout</b></dt>
 				<dd>in file View.php, variable <a href="core-class/View.html#var$layout">View::$layout</a></dd>
 							<dt><b>$lineno</b></dt>
-				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$lineno">JSTokenizer::$lineno</a></dd>
-							<dt><b>$lineno</b></dt>
 				<dd>in file JSMinPlus.php, variable <a href="default/JSToken.html#var$lineno">JSToken::$lineno</a></dd>
+							<dt><b>$lineno</b></dt>
+				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$lineno">JSTokenizer::$lineno</a></dd>
 							<dt><b>$lookahead</b></dt>
 				<dd>in file JSMinPlus.php, variable <a href="default/JSTokenizer.html#var$lookahead">JSTokenizer::$lookahead</a></dd>
 							<dt><b>Log.php</b></dt>
@@ -465,13 +473,15 @@
 							<dt><b>Liber.php</b></dt>
 				<dd>procedural page <a href="core/_Liber.php.html">Liber.php</a></dd>
 							<dt><b>load</b></dt>
-				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
+				<dd>in file Feed.php, method <a href="core-class/Feed.html#methodload">Feed::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load data feed.</dd>
 							<dt><b>load</b></dt>
-				<dd>in file Liber.php, method <a href="core/Liber.html#methodload">Liber::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of class(es) and tries to create an object/a list of objects from the class.</dd>
+				<dd>in file View.php, method <a href="core-class/View.html#methodload">View::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Call 'load' method from template engine instance.</dd>
 							<dt><b>load</b></dt>
 				<dd>in file TemplateEngine.php, method <a href="core-class/TemplateEngine.html#methodload">TemplateEngine::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load and parse a template from file.</dd>
 							<dt><b>load</b></dt>
-				<dd>in file View.php, method <a href="core-class/View.html#methodload">View::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Call 'load' method from template engine instance.</dd>
+				<dd>in file Liber.php, method <a href="core/Liber.html#methodload">Liber::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of class(es) and tries to create an object/a list of objects from the class.</dd>
+							<dt><b>load</b></dt>
+				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
 							<dt><b>loadClass</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadClass">Liber::loadClass()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of one Class. Class file is located at <strong>BASE_PATH/class/</strong> or <strong>$context/class/</strong></dd>
 							<dt><b>loadClass</b></dt>
@@ -483,23 +493,23 @@
 							<dt><b>loadController</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadController">Liber::loadController()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Controller class. Class file is located at <strong>APP_PATH/controller/</strong> or <strong>APP_PATH/ModuleName/controller/</strong></dd>
 							<dt><b>loadHelper</b></dt>
-				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadHelper">Liber::loadHelper()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of functions Helper file. File is located at <strong>BASE_PATH/helper/</strong>  or <strong>$context/helper/</strong></dd>
-							<dt><b>loadHelper</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadHelper">Controller::loadHelper()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load helper from application or module if was instanced with it.</dd>
+							<dt><b>loadHelper</b></dt>
+				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadHelper">Liber::loadHelper()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of functions Helper file. File is located at <strong>BASE_PATH/helper/</strong>  or <strong>$context/helper/</strong></dd>
 							<dt><b>loadModel</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadModel">Liber::loadModel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Model class. Class file is located at <strong>APP_PATH/model/</strong> or</dd>
 							<dt><b>loadModel</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadModel">Controller::loadModel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load model from application or module if was instanced with it.</dd>
 							<dt><b>loadPlugin</b></dt>
-				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadPlugin">Liber::loadPlugin()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Plugin class. Class file is located at <strong>BASE_PATH/plugin/</strong>  or <strong>$context/plugin/</strong></dd>
-							<dt><b>loadPlugin</b></dt>
 				<dd>in file Liber.php, method <a href="default/Controller.html#methodloadPlugin">Controller::loadPlugin()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load plugin from application or module if was instanced with it.</dd>
+							<dt><b>loadPlugin</b></dt>
+				<dd>in file Liber.php, method <a href="core/Liber.html#methodloadPlugin">Liber::loadPlugin()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Imports the definition of Plugin class. Class file is located at <strong>BASE_PATH/plugin/</strong>  or <strong>$context/plugin/</strong></dd>
 							<dt><b>loadUpdate</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodloadUpdate">FileUpdate::loadUpdate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load an update file in current instance, returning the state of operation.</dd>
-							<dt><b>log</b></dt>
-				<dd>in file Liber.php, method <a href="core/Liber.html#methodlog">Liber::log()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a log object instance;</dd>
 							<dt><b>Log</b></dt>
 				<dd>in file Log.php, class <a href="core-class/Log.html">Log</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulate produced logs in general.</dd>
+							<dt><b>log</b></dt>
+				<dd>in file Liber.php, method <a href="core/Liber.html#methodlog">Liber::log()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a log object instance;</dd>
 					</dl>
 	</div>
 	<a href="elementindex.html#top">top</a><br>
@@ -626,6 +636,8 @@
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodreply">Mailer::reply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set Reply-To field with email address.</dd>
 							<dt><b>requestedMethod</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodrequestedMethod">Liber::requestedMethod()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return the requested method.</dd>
+							<dt><b>rss2</b></dt>
+				<dd>in file Feed.php, method <a href="core-class/Feed.html#methodrss2">Feed::rss2()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a RSS2 XML code of feed from loaded data.</dd>
 							<dt><b>run</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodrun">Liber::run()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Start and execute application.</dd>
 					</dl>
@@ -670,6 +682,8 @@
 				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
 							<dt><b>setup</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodsetup">Liber::setup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Complete the basic configuration.</dd>
+							<dt><b>show</b></dt>
+				<dd>in file Feed.php, method <a href="core-class/Feed.html#methodshow">Feed::show()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Show/print the xml data of type of feed specified, setting the correct header content-type.</dd>
 							<dt><b>SqlExtract</b></dt>
 				<dd>in file SqlExtract.php, class <a href="core-class/SqlExtract.html">SqlExtract</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates extraction from databases.</dd>
 							<dt><b>STATEMENT_FORM</b></dt>
@@ -921,7 +935,7 @@
 	<a href="elementindex.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 02 Feb 2011 19:23:08 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 04 Feb 2011 15:17:45 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Docs For Class Funky</title>
+<title>Docs For Class Feed</title>
 <link rel="stylesheet" type="text/css" href="../media/style.css">
 </head>
 <body>
@@ -96,8 +96,8 @@
     <td>
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
-<h1>Class: Funky</h1>
-Source Location: /class/Funky.php<br /><br />
+<h1>Class: Feed</h1>
+Source Location: /class/Feed.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -105,7 +105,7 @@ Source Location: /class/Funky.php<br /><br />
 
 <h3><a href="#class_details">Class Overview</a></h3>
 <pre></pre><br />
-<div class="description">Class that manage funky cache files.</div><br /><br />
+<div class="description">Generic class create feeds.</div><br /><br />
 
 
 
@@ -118,7 +118,8 @@ Source Location: /class/Funky.php<br /><br />
 <td valign="top">
 <h3><a href="#class_vars">Variables</a></h3>
 <ul>
-    <li><a href="../core-class/Funky.html#var$urlPattern">$urlPattern</a></li>
+    <li><a href="../core-class/Feed.html#var$aFeed">$aFeed</a></li>
+    <li><a href="../core-class/Feed.html#var$aItem">$aItem</a></li>
   </ul>
 </td>
 
@@ -126,12 +127,9 @@ Source Location: /class/Funky.php<br /><br />
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
-    <li><a href="../core-class/Funky.html#methodclean">clean</a></li>
-    <li><a href="../core-class/Funky.html#methodcreate">create</a></li>
-    <li><a href="../core-class/Funky.html#methodmatchUrl">matchUrl</a></li>
-    <li><a href="../core-class/Funky.html#methodput">put</a></li>
-    <li><a href="../core-class/Funky.html#methodurl">url</a></li>
-    <li><a href="../core-class/Funky.html#method__contruct">__contruct</a></li>
+    <li><a href="../core-class/Feed.html#methodload">load</a></li>
+    <li><a href="../core-class/Feed.html#methodrss2">rss2</a></li>
+    <li><a href="../core-class/Feed.html#methodshow">show</a></li>
   </ul>
 </td>
 
@@ -151,19 +149,24 @@ Source Location: /class/Funky.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 13]<br />
-Class that manage funky cache files.<br /><br /><p>Funky cache simply write a raw html content to a file to improve speed access.    This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example.</p><br /></div><br /><br />
+[line 11]<br />
+Generic class create feeds.<br /><br /><p>Supported types: rss2</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
 <hr />
 <a name="class_vars"></a>
 <h3>Class Variables</h3>
 <div class="tags">
-	<a name="var$urlPattern"></a>
+	<a name="var$aFeed"></a>
 	<p></p>
-	<h4>$urlPattern = <span class="value"></span></h4>
-	<p>[line 19]</p>
-  Store the pattern String that is used to match against a URL.<br /><br /><p>Usefull to match if a random URL is a funky cache directory.</p><br /><br /><br />
+	<h4>$aFeed = <span class="value">array(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'encoding'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'utf-8',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'Feed',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'feed_url'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'description'&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'items'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;Array())</span></h4>
+	<p>[line 17]</p>
+  Default feed fields<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -178,7 +181,38 @@ Class that manage funky cache files.<br /><br /><p>Funky cache simply write a ra
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td><b>Type:</b>&nbsp;&nbsp;</td>
-      <td>String</td>
+      <td>$aFeed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$aItem"></a>
+	<p></p>
+	<h4>$aItem = <span class="value">array(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'url'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'datetime'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'description'&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'uid'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;&nbsp;'',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'permanent_url'&nbsp;=&gt;&nbsp;''<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span></h4>
+	<p>[line 31]</p>
+  Default feed item fields.<br /><br /><p>'uid' is a unique identification of item. 	If 'permanent_url' has a real URL, then 'uid' will be replaced by it. 	'datetime' field should have 'YYYY-MM-DD HH:II:SS' format.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>$aItem</td>
     </tr>
       </table>
 	</div><br /><br />
@@ -191,19 +225,72 @@ Class that manage funky cache files.<br /><br /><p>Funky cache simply write a ra
 <div class="tags">
 
   <hr />
-	<a name="methodclean"></a>
-	<h3>method clean <span class="smalllinenumber">[line 77]</span></h3>
+	<a name="methodload"></a>
+	<h3>method load <span class="smalllinenumber">[line 45]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void clean(
+		<code>void load(
+[Array
+$aFeed = array()])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Load data feed.<br /><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$aFeed</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodrss2"></a>
+	<h3>method rss2 <span class="smalllinenumber">[line 56]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>String rss2(
+[Array
+$aFeed = array()])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Return a RSS2 XML code of feed from loaded data.<br /><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$aFeed</b>&nbsp;&nbsp;</td>
+        <td>- Can be specified a feed content.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodshow"></a>
+	<h3>method show <span class="smalllinenumber">[line 103]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void show(
 String
-$path, [boolean
-$recursive = false])</code>
+$type)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Clean a specified $path, recursively or not.<br /><br /><br /><br />
+		Show/print the xml data of type of feed specified, setting the correct header content-type.<br /><br /><br /><br />
 
 	
         <h4>Parameters:</h4>
@@ -211,146 +298,11 @@ $recursive = false])</code>
     <table border="0" cellspacing="0" cellpadding="0">
           <tr>
         <td class="type">String&nbsp;&nbsp;</td>
-        <td><b>$path</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">boolean&nbsp;&nbsp;</td>
-        <td><b>$recursive</b>&nbsp;&nbsp;</td>
+        <td><b>$type</b>&nbsp;&nbsp;</td>
         <td></td>
       </tr>
         </table>
     </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodcreate"></a>
-	<h3>method create <span class="smalllinenumber">[line 52]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed create(
-mixed
-$aData)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Create a cache data from $aData specified and should be overrided by a extended class.<br /><br /><p>With it you can create your own rules how your cache should be created.    Work together with url() method.</p><br /><br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$aData</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodmatchUrl"></a>
-	<h3>method matchUrl <span class="smalllinenumber">[line 30]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>boolean matchUrl(
-String
-$url)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Try match a $url specified against 'urlPattern', returning true or false.<br /><br /><br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">String&nbsp;&nbsp;</td>
-        <td><b>$url</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodput"></a>
-	<h3>method put <span class="smalllinenumber">[line 63]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>boolean put(
-String
-$path, String
-$data)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Put a raw file data to a specified $path.<br /><br /><p>Return a boolean value indicating if it did.</p><br /><br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">String&nbsp;&nbsp;</td>
-        <td><b>$path</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">String&nbsp;&nbsp;</td>
-        <td><b>$data</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodurl"></a>
-	<h3>method url <span class="smalllinenumber">[line 41]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>mixed url(
-mixed
-$file)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		This method is used for return a public URL to cached page and should be overrided by a extended class.<br /><br /><p>With it you can create your own rules how your cache should work.    Work together with create() method.</p><br /><br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">mixed&nbsp;&nbsp;</td>
-        <td><b>$file</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="method__contruct"></a>
-	<h3>method __contruct <span class="smalllinenumber">[line 21]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void __contruct(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-
-	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
 </div><br />
@@ -358,7 +310,7 @@ $file)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 04 Feb 2011 15:17:47 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 04 Feb 2011 15:17:46 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

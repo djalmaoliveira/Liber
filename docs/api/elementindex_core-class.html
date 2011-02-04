@@ -39,6 +39,8 @@
 		</a><br>
 			<a href="core-class/_class---Cart.php.html">		Cart.php
 		</a><br>
+			<a href="core-class/_class---Feed.php.html">		Feed.php
+		</a><br>
 			<a href="core-class/_class---FileUpdate.php.html">		FileUpdate.php
 		</a><br>
 			<a href="core-class/_class---Funky.php.html">		Funky.php
@@ -74,6 +76,7 @@
         <div class="package">
 		    		<a href="core-class/BasicDb.html">BasicDb</a><br />
 	    		<a href="core-class/Cart.html">Cart</a><br />
+	    		<a href="core-class/Feed.html">Feed</a><br />
 	    		<a href="core-class/FileUpdate.html">FileUpdate</a><br />
 	    		<a href="core-class/Funky.html">Funky</a><br />
 	    		<a href="core-class/GlobalTemplate.html">GlobalTemplate</a><br />
@@ -159,6 +162,10 @@
 	<div>
 		<h2>a</h2>
 		<dl>
+							<dt><b>$aFeed</b></dt>
+				<dd>in file Feed.php, variable <a href="core-class/Feed.html#var$aFeed">Feed::$aFeed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Default feed fields</dd>
+							<dt><b>$aItem</b></dt>
+				<dd>in file Feed.php, variable <a href="core-class/Feed.html#var$aItem">Feed::$aItem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Default feed item fields.</dd>
 							<dt><b>$aLogAll</b></dt>
 				<dd>in file Log.php, variable <a href="core-class/Log.html#var$aLogAll">Log::$aLogAll</a></dd>
 							<dt><b>$aLogMsg</b></dt>
@@ -261,10 +268,14 @@
 	<div>
 		<h2>f</h2>
 		<dl>
+							<dt><b>Feed.php</b></dt>
+				<dd>procedural page <a href="core-class/_class---Feed.php.html">Feed.php</a></dd>
 							<dt><b>FileUpdate.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---FileUpdate.php.html">FileUpdate.php</a></dd>
 							<dt><b>Funky.php</b></dt>
 				<dd>procedural page <a href="core-class/_class---Funky.php.html">Funky.php</a></dd>
+							<dt><b>Feed</b></dt>
+				<dd>in file Feed.php, class <a href="core-class/Feed.html">Feed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generic class create feeds.</dd>
 							<dt><b>file</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodfile">Mailer::file()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add attachment files.</dd>
 							<dt><b>file</b></dt>
@@ -359,6 +370,8 @@
 				<dd>in file View.php, method <a href="core-class/View.html#methodload">View::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Call 'load' method from template engine instance.</dd>
 							<dt><b>load</b></dt>
 				<dd>in file GlobalTemplate.php, method <a href="core-class/GlobalTemplate.html#methodload">GlobalTemplate::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Same functionality of View::load() method, but using current template.</dd>
+							<dt><b>load</b></dt>
+				<dd>in file Feed.php, method <a href="core-class/Feed.html#methodload">Feed::load()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load data feed.</dd>
 							<dt><b>loadUpdate</b></dt>
 				<dd>in file FileUpdate.php, method <a href="core-class/FileUpdate.html#methodloadUpdate">FileUpdate::loadUpdate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Load an update file in current instance, returning the state of operation.</dd>
 							<dt><b>Log</b></dt>
@@ -445,6 +458,8 @@
 		<dl>
 							<dt><b>reply</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodreply">Mailer::reply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set Reply-To field with email address.</dd>
+							<dt><b>rss2</b></dt>
+				<dd>in file Feed.php, method <a href="core-class/Feed.html#methodrss2">Feed::rss2()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a RSS2 XML code of feed from loaded data.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_core-class.html#top">top</a><br>
@@ -477,6 +492,8 @@
 				<dd>in file View.php, method <a href="core-class/View.html#methodsetLayoutOnce">View::setLayoutOnce()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set layout that must be used once time.</dd>
 							<dt><b>Setup</b></dt>
 				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
+							<dt><b>show</b></dt>
+				<dd>in file Feed.php, method <a href="core-class/Feed.html#methodshow">Feed::show()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Show/print the xml data of type of feed specified, setting the correct header content-type.</dd>
 							<dt><b>SqlExtract</b></dt>
 				<dd>in file SqlExtract.php, class <a href="core-class/SqlExtract.html">SqlExtract</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates extraction from databases.</dd>
 							<dt><b>subject</b></dt>
@@ -570,7 +587,7 @@
 	<a href="elementindex_core-class.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 02 Feb 2011 19:23:08 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Fri, 04 Feb 2011 15:17:45 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
