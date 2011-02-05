@@ -35,7 +35,7 @@ class Setup {
         $aOut           = Array();
         clearstatcache ( ) ;
         $this->prepareAssetDir();
-        
+
         // delete all links from asset root dir
         $path = $this->app_root.$this->assets_dir;
         $aFiles = scandir($path);
@@ -48,14 +48,14 @@ class Setup {
         // publish app assets
         $aOut[] = $this->publishAsset();
 
-        // publish modules assets        
+        // publish modules assets
         $d = dir($this->app_path.'module');
         while (false !== ($entry = $d->read())) {
             if ( $entry == '.' or $entry == '..' ) { continue; }
             $aOut[] = $this->publishAsset($entry);
         }
-        $d->close();        
-        
+        $d->close();
+
         return array_filter($aOut);
     }
 
@@ -65,20 +65,21 @@ class Setup {
     */
     function prepareAssetDir() {
         if ( !file_exists($this->app_root.$this->assets_dir) ) {
+			umask(0007);
             @mkdir($this->app_root.$this->assets_dir, 0775, true);
         }
     }
 
-    
+
     /**
     *   Publish asset dir from context that can be application dir, module dir or layout dir,  and link to a specified name on www.
-    *   @param String $context_path 
-    *   @param String $to_asset_dir 
+    *   @param String $context_path
+    *   @param String $to_asset_dir
     */
     function publishContextAsset($context_path, $to_asset_dir) {
         $this->prepareAssetDir();
 
-        $asset_path = $context_path.$this->assets_dir; 
+        $asset_path = $context_path.$this->assets_dir;
         if ( is_dir($asset_path) ) {
             Liber::loadHelper('FS');
             $link_path = $this->app_root.$this->assets_dir.'/'.$to_asset_dir;
@@ -90,11 +91,11 @@ class Setup {
             symlink ($source , $link_path) ;
         }
     }
-    
+
 
     /**
     *   Publish application assets by default or module assets if specified.
-    *   @param String $moduleName 
+    *   @param String $moduleName
     */
     function publishAsset($moduleName='') {
         if ( !empty($moduleName) ) {
@@ -103,8 +104,8 @@ class Setup {
             $this->publishContextAsset($this->app_path, 'app');
         }
     }
-    
-    
+
+
     /**
     *   Create a layout structure based on current application.
     *   @param String $name  - Layout name
@@ -118,22 +119,22 @@ class Setup {
         if ( $modules === true ) {
             $modules = scandir( $this->app_path.'module/' );
             $k = array_search('.', $modules);
-            if ($k!==false) { unset($modules[$k]); } 
+            if ($k!==false) { unset($modules[$k]); }
             $k = array_search('..', $modules);
-            if ($k!==false) { unset($modules[$k]); } 
-        } 
-        
+            if ($k!==false) { unset($modules[$k]); }
+        }
+
         foreach ( $modules as $moduleName ) {
             $this->_duplicateLayout( $this->app_path.'module/'.$moduleName.'/', $this->app_path.'layout/'.$name.'/module/'.$moduleName.'/' );
         }
     }
-    
-    
+
+
     /**
     *   Publish layout assets from specified name, from application or module.
     *   In $layout can be specified a complete path to layout that not follow the convention.
-    *   @param String $layout 
-    *   @param String $moduleName 
+    *   @param String $layout
+    *   @param String $moduleName
     */
     function publishLayoutAsset($layout, $moduleName='') {
         if ( $layout[0] == '/' ) {
@@ -141,7 +142,7 @@ class Setup {
         } else {
             $layoutPath = $this->app_path.'layout/'.$layout.'/';
         }
-    
+
         if ( !empty($moduleName) ) {
             $path    = $layoutPath.'module/'.$moduleName.'/';
             $context = &$moduleName;
@@ -151,15 +152,15 @@ class Setup {
         }
 
         $this->publishContextAsset($path, $context);
-        
+
     }
 
-    
+
     /**
     *   Return Array of files found using Array of regex patterns as a filter from specified path.
-    *   @param String $path 
-    *   @param Array $pattern 
-    *   @param boolean $recursive 
+    *   @param String $path
+    *   @param Array $pattern
+    *   @param boolean $recursive
     *   @return Array
     */
     private function _listRealFiles($path, $pattern=Array(), $recursive=false) {
@@ -171,16 +172,16 @@ class Setup {
         if ( !is_dir($path) ) {
             return false;
         }
-        
+
         $aOut   = Array('dir'=>Array(), 'file'=>Array());
         $aFiles = Array();
         $aFiles = scandir($path);
 
         $k = array_search('.', $aFiles);
-        if ($k!==false) { unset($aFiles[$k]); } 
+        if ($k!==false) { unset($aFiles[$k]); }
         $k = array_search('..', $aFiles);
-        if ($k!==false) { unset($aFiles[$k]); } 
-        
+        if ($k!==false) { unset($aFiles[$k]); }
+
         foreach ($aFiles as $k => $file) {
             $file_path = $path.'/'.$file;
             if ( is_link( $file_path ) ) { unset($aFiles[$k]); continue;}
@@ -190,22 +191,22 @@ class Setup {
                     $aTemp = $this->_listRealFiles($file_path, $pattern, $recursive);
                     if ( isset($aTemp['file']) ) {
                         foreach ( $aTemp['file'] as $ffile) {
-                            $aOut['file'][] = $ffile; 
+                            $aOut['file'][] = $ffile;
                         }
                     }
-                } 
+                }
             } else {
                 $aOut['file'][] = $file_path;
             }
-        } 
+        }
         return $aOut;
     }
-  
-    
+
+
     /**
-    *   Duplicate dirs and files for Layout. 
-    *   @param String $source_path 
-    *   @param String $dest_path 
+    *   Duplicate dirs and files for Layout.
+    *   @param String $source_path
+    *   @param String $dest_path
     */
     public function _duplicateLayout($source_path, $dest_path) {
         // assets
@@ -213,17 +214,17 @@ class Setup {
         // views
         $this->_duplicateDir($source_path.'view/', $dest_path.'view/');
     }
-    
-    
+
+
     /**
     *   Make a copy from $source_path to $dest_path, only .
-    *   @param String $source_path 
-    *   @param String $dest_path 
+    *   @param String $source_path
+    *   @param String $dest_path
     */
     public function _duplicateDir( $source_path, $dest_path ) {
         $source_path = realpath($source_path);
-        if ( $source_path === false ) { return; }    
-
+        if ( $source_path === false ) { return; }
+		umask(0007);
         @mkdir($dest_path, 0777, true);
         $dest_path   = realpath($dest_path);
         if (  $dest_path === false) { return ; }
@@ -241,6 +242,6 @@ class Setup {
             copy($file, $file_path);
         }
     }
-    
+
 }
 ?>
