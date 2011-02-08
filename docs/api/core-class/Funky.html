@@ -152,7 +152,7 @@ Source Location: /class/Funky.php<br /><br />
 <h3>Class Details</h3>
 <div class="tags">
 [line 13]<br />
-Class that manage funky cache files.<br /><br /><p>Funky cache simply write a raw html content to a file to improve speed access.    This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example.</p><br /></div><br /><br />
+Class that manage funky cache files.<br /><br /><p>Funky cache simply write a raw html content to a file to improve speed access.    This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example. 	Some methods can be overrided by a extended class to adapt to current features of application.</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
 <hr />
@@ -235,7 +235,7 @@ $aData)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		Create a cache data from $aData specified and should be overrided by a extended class.<br /><br /><p>With it you can create your own rules how your cache should be created.    Work together with url() method.</p><br /><br /><br />
+		Create a cache data from $aData specified.<br /><br /><p>With it you can create your own rules how your cache should be created.    Work together with url() method.</p><br /><br /><br />
 
 	
         <h4>Parameters:</h4>
@@ -322,7 +322,7 @@ $file)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		This method is used for return a public URL to cached page and should be overrided by a extended class.<br /><br /><p>With it you can create your own rules how your cache should work.    Work together with create() method.</p><br /><br /><br />
+		This method is used for return a public URL to cached page.<br /><br /><p>With it you can create your own rules how your cache should work.    Work together with create() method.</p><br /><br /><br />
 
 	
         <h4>Parameters:</h4>
@@ -358,7 +358,7 @@ $file)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Sat, 05 Feb 2011 09:16:23 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Tue, 08 Feb 2011 14:55:58 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

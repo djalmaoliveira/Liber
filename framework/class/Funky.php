@@ -8,7 +8,7 @@
 *   Class that manage funky cache files.
 *   Funky cache simply write a raw html content to a file to improve speed access.
 *   This files used to be put on a public url path and auto-created when it's missing, using NotFoundController for example.
-*
+*	Some methods can be overrided by a extended class to adapt to current features of application.
 */
 class Funky {
     /**
@@ -32,7 +32,7 @@ class Funky {
     }
 
     /**
-    *   This method is used for return a public URL to cached page and should be overrided by a extended class.
+    *   This method is used for return a public URL to cached page.
     *   With it you can create your own rules how your cache should work.
     *   Work together with create() method.
     *   @param mixed
@@ -43,7 +43,7 @@ class Funky {
     }
 
     /**
-    *   Create a cache data from $aData specified and should be overrided by a extended class.
+    *   Create a cache data from $aData specified.
     *   With it you can create your own rules how your cache should be created.
     *   Work together with url() method.
     *   @param mixed

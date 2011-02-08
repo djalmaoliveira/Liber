@@ -151,8 +151,11 @@ class Log {
         } else {
             $path = Liber::conf('APP_PATH').Liber::conf('LOG_PATH');
         }
-
-        file_put_contents( $path.date('Ymd').'.log', implode("\n", self::$aLogAll), FILE_APPEND| LOCK_EX );
+		if ( !file_exists($path) ) {
+			umask(0007);
+			mkdir($path, 0770, true);
+		}
+        file_put_contents( $path.date('Ymd').'.log', implode("\n", self::$aLogAll), FILE_APPEND | LOCK_EX );
     }
 
 
