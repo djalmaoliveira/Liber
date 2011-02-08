@@ -2,3 +2,4 @@ app/example/cache/
 app/example/log/
 manual/app/cache
 manual/app/log
+manual/assets/*
