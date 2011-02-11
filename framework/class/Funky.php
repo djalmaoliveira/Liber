@@ -54,7 +54,7 @@ class Funky {
     }
 
     /**
-    *   Put a raw file data to a specified $path.
+    *   Put a raw file $data to a specified $path.
     *   Return a boolean value indicating if it did.
     *   @param String $path
     *   @param String $data
@@ -66,7 +66,7 @@ class Funky {
         if ( !file_exists($aPath['dirname']) ) {
             mkdir($aPath['dirname'], 0777, true);
         }
-        return (file_put_contents($aPath['dirname'].'/'.$aPath['basename'], $data, LOCK_EX) !== false);
+        return (file_put_contents($aPath['dirname'].'/'.$aPath['basename'], $data , LOCK_EX) !== false);
     }
 
     /**

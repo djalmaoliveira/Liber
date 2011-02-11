@@ -75,6 +75,7 @@ class GlobalTemplate {
 
     /**
     *   Same functionality of View::load() method, but using current template.
+	*	If application set a LAYOUT, then it will check if exists a layout template file.
     *   @param String $fileName
     *   @param Array $aData
     *   @param boolean $return
@@ -82,16 +83,26 @@ class GlobalTemplate {
     */
     function load($fileName, $aData=Array(), $return=false) {
         $viewFile = $this->_view->path($fileName);
+		$template_path = $this->contextPath.$this->templateFolderName.'/'.$this->modelName;
+		// detect if exists layout template file
+		if ( Liber::conf('LAYOUT') ) {
+			$layout_template_path = Liber::conf('APP_PATH').'layout/'.Liber::conf('LAYOUT').'/template/'.$this->templateFolderName.'/'.$this->modelName;
+			if ( file_exists($layout_template_path) ) {
+				$template_path = &$layout_template_path;
+			}
+		}
+
         if ($this->_view->cache($fileName) > 0 and  Liber::conf('APP_MODE') == 'PROD'  ) {
 
             $cacheId  = $_SERVER['REQUEST_URI'].$viewFile.$this->modelName;
             if ( !($out = Liber::cache()->get( $cacheId )) ) {
-                $out = $this->_view->engine()->load($this->contextPath.$this->templateFolderName.'/'.$this->modelName, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
+
+                $out = $this->_view->engine()->load($template_path, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
                 Liber::cache()->put($cacheId, $out, is_numeric( $this->_view->cache($fileName) )?$this->_view->cache($fileName):3600 );
             }
 
         } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-            $out = $this->_view->engine()->load($this->contextPath.$this->templateFolderName.'/'.$this->modelName, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
+            $out = $this->_view->engine()->load($template_path, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
         }
 
         if ($return) { return $out; }
