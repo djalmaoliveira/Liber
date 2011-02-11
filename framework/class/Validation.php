@@ -20,6 +20,8 @@ class Validation {
 
     const DATE    = 8;
 
+	const URL	  = 16;
+
     /**
     *   Validates a $value by specified $type.
     *   Return Array of errors matched.
@@ -35,6 +37,14 @@ class Validation {
         }
         $aOut = Array();
         $max  = $type;
+
+		if ( $max >= self::URL ) {
+		    $max -= self::URL;
+		    if ( !empty($value) and !filter_var(trim($value), FILTER_VALIDATE_URL) ) {
+                $aOut['URL'] = $data['URL'];
+			}
+		}
+
 
 		if ( $max >= self::DATE ) {
 		    $max -= self::DATE;
