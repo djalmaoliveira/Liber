@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Docs for page TemplateEngine.php</title>
+<title>Docs For Class SiteMap</title>
 <link rel="stylesheet" type="text/css" href="../media/style.css">
 </head>
 <body>
@@ -99,23 +99,132 @@
     <td>
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
-<h1>Procedural File: TemplateEngine.php</h1>
-Source Location: /class/TemplateEngine.php<br /><br />
+<h1>Class: SiteMap</h1>
+Source Location: /class/SiteMap.php<br /><br />
 
-<br>
-<br>
 
-<div class="contents">
-<h2>Classes:</h2>
-<dt><a href="../core-class/TemplateEngine.html">TemplateEngine</a></dt>
-	<dd>Class base from others Template Engines classes.</dd>
-</div><br /><br />
+<table width="100%" border="0">
+<tr><td valign="top">
 
-<h2>Page Details:</h2>
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">Generic class create sitemaps to Search Engine.</div><br /><br />
+
+
+
+
+
+
+        
+</td>
+
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../core-class/SiteMap.html#methodbuildSiteMap">buildSiteMap</a></li>
+    <li><a href="../core-class/SiteMap.html#methodurl">url</a></li>
+    <li><a href="../core-class/SiteMap.html#methodxml">xml</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 11]<br />
+Generic class create sitemaps to Search Engine.<br /><br /><p>Protocol at http://sitemaps.org/</p><br /></div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="methodbuildSiteMap"></a>
+	<h3>method buildSiteMap <span class="smalllinenumber">[line 52]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>String buildSiteMap(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create a XML content of stores $this-&gt;aUrls<br /><br /><p>Return NULL if doesn't exist any URL</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
 <br /><br />
-<br /><br />
-<br /><br />
-<br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodurl"></a>
+	<h3>method url <span class="smalllinenumber">[line 27]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Array url(
+[Array
+$arr = array()])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set or get urls.<br /><br /><p>Usage: 	url( Array('loc'=&gt;'http://someurl.com') ) to set one url; 			url( Array(Array('loc'=&gt;'http://someurl.com'), Array('loc'=&gt;'http://someurl2.com')) ) put a set of urls replacing current set; 			url() to return Array of urls currently stored;</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">Array&nbsp;&nbsp;</td>
+        <td><b>$arr</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodxml"></a>
+	<h3>method xml <span class="smalllinenumber">[line 43]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>String xml(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Return XML content.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
 
         <div class="credit">
 		    <hr />
