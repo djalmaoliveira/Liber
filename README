@@ -11,3 +11,10 @@ How to install
 2. Unpack on folder with public http access using `tar -pvxf file.tar.gz`, to preserve original permissions;
 3. Open your web browser on folder above and go to 'manual/';
 
+
+Examples
+------------------------------
+	You will find some examples in 'examples/' folder or 'manual/' folder.
+
+
+

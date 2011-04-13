@@ -1,5 +1,6 @@
-app/example/cache/
-app/example/log/
+examples/app/example/cache/
+examples/app/example/log
 manual/app/cache
 manual/app/log
 manual/assets/*
+examples/test_unit/log
