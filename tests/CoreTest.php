@@ -5,8 +5,6 @@ include 'include.php';
 class CoreTest extends PHPUnit_Framework_TestCase {
 
     function SetUp() {
-        include $config = realpath(dirname(__FILE__).'/../demos/test_unit/config/config.php');
-        Liber::loadConfig($aConfigs);
     }
 
     function testLoad() {
@@ -32,7 +30,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals( 'Module', get_class($o), "Didn't instanciate Controller of Module1." );
     }
 
- 
+
     function testLoadAppModel() {
         $this->assertTrue( Liber::loadModel('Model'), "Didn't load App Model." );
     }
@@ -41,7 +39,7 @@ class CoreTest extends PHPUnit_Framework_TestCase {
         $o = Liber::loadModel('Model', true);
         $this->assertEquals( 'Model', get_class($o), "Didn't instanciate App Model." );
     }
-    
+
      function testLoadModuleModel() {
         $this->assertTrue( Liber::loadModel('ModelModule', 'Module1'), "Didn't load ModelModule of Module1." );
     }
@@ -51,6 +49,6 @@ class CoreTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals( 'ModelModule', get_class($o), "Didn't load ModelModule of Module1." );
     }
 
-    
+
 }
 ?>

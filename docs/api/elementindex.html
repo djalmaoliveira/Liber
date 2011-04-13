@@ -349,10 +349,12 @@
 		<dl>
 							<dt><b>$hookLevel</b></dt>
 				<dd>in file JSMinPlus.php, variable <a href="default/JSCompilerContext.html#var$hookLevel">JSCompilerContext::$hookLevel</a></dd>
-							<dt><b>handleError</b></dt>
-				<dd>in file Log.php, method <a href="core-class/Log.html#methodhandleError">Log::handleError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a message of current error triggered.</dd>
 							<dt><b>handler</b></dt>
 				<dd>in file Log.php, method <a href="core-class/Log.html#methodhandler">Log::handler()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set a handler function to control the behavior of log messages.</dd>
+							<dt><b>handlerError</b></dt>
+				<dd>in file Log.php, method <a href="core-class/Log.html#methodhandlerError">Log::handlerError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Add a log message from current error triggered.</dd>
+							<dt><b>handlerLog</b></dt>
+				<dd>in file Log.php, method <a href="core-class/Log.html#methodhandlerLog">Log::handlerLog()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Do the last action with log messages stored.</dd>
 							<dt><b>header</b></dt>
 				<dd>in file Mailer.php, method <a href="core-class/Mailer.html#methodheader">Mailer::header()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set headers of mail, like Reply-to, From.</dd>
 							<dt><b>header</b></dt>
@@ -599,16 +601,14 @@
 				<dd>in file JSMinPlus.php, method <a href="default/JSTokenizer.html#methodpeekOnSameLine">JSTokenizer::peekOnSameLine()</a></dd>
 							<dt><b>post</b></dt>
 				<dd>in file Input.php, method <a href="core-class/Input.html#methodpost">Input::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a identified index from _POST var, or all _POST if not specified.</dd>
-							<dt><b>post</b></dt>
-				<dd>in file Log.php, method <a href="core-class/Log.html#methodpost">Log::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Do the last action with log messages stored.</dd>
 							<dt><b>prepareAssetDir</b></dt>
 				<dd>in file Setup.php, method <a href="core-class/Setup.html#methodprepareAssetDir">Setup::prepareAssetDir()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Create a assets dir on www.</dd>
 							<dt><b>prepareLoad</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodprepareLoad">Liber::prepareLoad()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Detect and return the current configuration about which context should be loaded.</dd>
 							<dt><b>process</b></dt>
-				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#methodprocess">Minify_CSS_Compressor::process()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a CSS string</dd>
-							<dt><b>process</b></dt>
 				<dd>in file Minify_HTML.php, method <a href="Minify/Minify_HTML.html#methodprocess">Minify_HTML::process()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify the markeup given in the constructor</dd>
+							<dt><b>process</b></dt>
+				<dd>in file Minify_CSS_Compressor.php, method <a href="Minify/Minify_CSS_Compressor.html#methodprocess">Minify_CSS_Compressor::process()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Minify a CSS string</dd>
 							<dt><b>processRoute</b></dt>
 				<dd>in file Liber.php, method <a href="core/Liber.html#methodprocessRoute">Liber::processRoute()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Process route, match and create related controller or redirect to default controller if don't match.</dd>
 							<dt><b>processUpdate</b></dt>
@@ -684,7 +684,7 @@
 							<dt><b>setLayoutOnce</b></dt>
 				<dd>in file View.php, method <a href="core-class/View.html#methodsetLayoutOnce">View::setLayoutOnce()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Set layout that must be used once time.</dd>
 							<dt><b>setup</b></dt>
-				<dd>in file Liber.php, method <a href="core/Liber.html#methodsetup">Liber::setup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Complete the basic configuration.</dd>
+				<dd>in file Liber.php, method <a href="core/Liber.html#methodsetup">Liber::setup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Complete the essencial enviroment configuration.</dd>
 							<dt><b>Setup</b></dt>
 				<dd>in file Setup.php, class <a href="core-class/Setup.html">Setup</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Class that manipulates some jobs, to aid set up application.</dd>
 							<dt><b>show</b></dt>
@@ -956,7 +956,7 @@
 	<a href="elementindex.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Tue, 15 Mar 2011 10:53:51 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 13 Apr 2011 18:04:52 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

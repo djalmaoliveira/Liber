@@ -17,6 +17,10 @@ class MainController extends Controller{
 	    echo $_SERVER['HTTP_USER_AGENT'];
 	}
 
+	public function error() {
+		b(); // this function doesn't exist and log this error
+	}
+
 }
 
 ?>

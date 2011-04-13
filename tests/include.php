@@ -9,5 +9,5 @@
     $_SERVER['SERVER_ADMIN'] = 'server_admin@localhost';
 
     Liber::loadConfig($aConfigs);
-    Liber::setup();
+
 ?>
