@@ -21,7 +21,6 @@
 
 14/11/2009
     - (helper ?) to out put XML, Yaml, Json response.
-    - helper to create feed rss.
     - To Refactor Liber:getParams, there is a faster way to exclude empty value
 
 22/10/2009

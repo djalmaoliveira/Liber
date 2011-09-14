@@ -4,10 +4,11 @@ include_once dirname(dirname(__FILE__)).'/include.php';
 
 class MailerTest extends PHPUnit_Framework_TestCase {
 
-
+    var $file;
 
     function SetUp() {
         Liber::loadClass('Mailer');
+        $this->file = __FILE__;
     }
 
     function tearDown() {
@@ -19,21 +20,21 @@ class MailerTest extends PHPUnit_Framework_TestCase {
 
         $m->addTo('test@localhost.home');
         $m->from('from_test@localhost.home');
-        $m->subject('teste subject');
+        $m->subject('test as plain text');
         $m->body('teste body');
-        $m->send();
+        $this->assertTrue($m->send(), 'Mail not sent');
     }
 
 
-    function testSendMailHtmlk() {
+    function testSendMailHtml() {
         $m = new Mailer;
 
         $m->addTo('test@localhost.home');
         $m->from('from_test@localhost.home');
-        $m->subject('teste subject');
-        $m->body('teste <strong>body</strong>');
+        $m->subject('teste as html');
+        $m->body('<html><body>teste <strong>body</strong></body></html>');
         $m->html(true);
-        $m->send();
+        $this->assertTrue($m->send(), 'Mail not sent');
     }
 
     function testSendMailTextWithFile() {
@@ -41,10 +42,10 @@ class MailerTest extends PHPUnit_Framework_TestCase {
 
         $m->addTo('test@localhost.home');
         $m->from('from_test@localhost.home');
-        $m->subject('teste subject');
+        $m->subject('test as plain text with attach');
         $m->body('teste body');
-        $m->file('/home/usuario/a.php');
-        $m->send();
+        $m->file($this->file);
+        $this->assertTrue($m->send(), 'Mail not sent');
     }
 
     function testSendMailHtmlWithFile() {
@@ -52,11 +53,11 @@ class MailerTest extends PHPUnit_Framework_TestCase {
 
         $m->addTo('test@localhost.home');
         $m->from('from_test@localhost.home');
-        $m->subject('teste subject');
+        $m->subject('test as html text with attach');
         $m->body('teste <strong>body</strong>');
-        $m->file('/home/usuario/a.php');
+        $m->file($this->file);
         $m->html(true);
-        $m->send();
+        $this->assertTrue($m->send(), 'Mail not sent');
     }
 
     function testMultipleReplyAddresses() {
@@ -82,20 +83,20 @@ class MailerTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($m->send(), 'Cannot send mail with multiple froms.');
     }
 
-    function testAddressesSpaceSeparated() {
+    function testAddressesSpaceSepareted() {
         $m = new Mailer;
 
         $m->addTo("test@localhost.home");
         $m->subject('test-spaces');
         $m->body('body');
-        $this->assertFalse($m->send(), 'Send mail with spaces among addresses.');
+        $this->assertTrue($m->send(), 'Send mail with spaces among addresses.');
     }
 
-    function testToAddressesWithSpaceSeparated() {
+    function testToAddressesWithSpaceSepareted() {
         $m = new Mailer;
 
-        $m->addTo("test@localhost.home, test2");
-        $m->subject('test-spaces-into-field');
+        $m->addTo("test@localhost.home, test2@localhost.home");
+        $m->subject("You shouldn't see this mail'");
         $m->body('body');
         $this->assertFalse($m->send(), 'Send mail with To Addresses With Space Separated.');
     }

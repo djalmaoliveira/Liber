@@ -19,7 +19,7 @@
  *          $source_path = '/home/user/oldfolder/source';
  * The path will consider that you are on '/home/user/myfolder' and will return '../oldfolder/source'.
  * @param	string $source_path
- * @param   string $dest_path
+ * @param   	string $dest_path
  * @return	string
  */
 function fs_relative_path_($source_path, $dest_path) {

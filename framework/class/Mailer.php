@@ -32,7 +32,7 @@ class Mailer {
     *   Set current charset of mail, default value 'utf-8'.
     *   @param String $charset
     */
-    public function charset($charset='utf-8') {
+    public function charset($charset='UTF-8') {
         $this->aMail['charset'] = $charset;
     }
 
@@ -173,27 +173,29 @@ class Mailer {
     */
     public function send() {
         $to = $this->_parseAddresses(  $this->aMail['to']  );
+        if (empty($to)) {return false;}
+
         // prepare headers
-        $headers = '';
+        $headers = "MIME-Version: 1.0\n";
         foreach( $this->aMail['headers'] as $header => $value ) {
             $headers .= $header.': '.$value."\n";
         }
 
-        $headers .= "MIME-Version: 1.0\n";
-        $message_header = "Content-Type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\nContent-Transfer-Encoding: 8bit";
+        $encoding = "Content-Transfer-Encoding: 8bit";
+        $message_header = "Content-Type: text/".($this->aMail['html']?'html':'plain')."; charset=".$this->aMail['charset']."\n".$encoding;
         $boundary = 'Multipart_Boundary_x'.md5(time()).'x';
 
         // attachments
         if ( count($this->files) > 0 ) {
 
-            $headers  .= 'Content-Type: multipart/mixed; boundary="'."{$boundary}".'"'."\n";
+            $headers  .= "Content-Type: multipart/mixed;\n boundary=\""."{$boundary}".'"'."\n";
 
-            $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--{$boundary}\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
+            $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--$boundary\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
             $attachs = '';
             foreach( $this->files as $filepath ) {
                 if ( file_exists($filepath) ) {
                     $name = basename($filepath);
-                    $h  = "--{$boundary}\n";
+                    $h  = "--$boundary\n";
                     $h .= "Content-Type: application/octet-stream; name=\"$name\"\n";
                     $h .= "Content-Disposition: attachment; filename=\"$name\"\n";
                     $h .= "Content-Transfer-Encoding: base64\n\n";
@@ -207,12 +209,12 @@ class Mailer {
         } else {
             // with text/plain
             if ( $this->aMail['html'] ) {
-                $body  = "This is a MIME encoded message.\n\n--" . $boundary . "\n";
-                $body .= "Content-type: text/plain;charset={$this->aMail['charset']}\n\n";
-                $body .= strip_tags($this->aMail['body'])."\n\n--" . $boundary . "\n";
+                $body  = "This is a multi-part message in MIME format.\n--$boundary\n";
+                $body .= "Content-Type: text/plain; charset={$this->aMail['charset']}; format=flowed\n$encoding\n\n";
+                $body .= strip_tags($this->aMail['body'])."\n\n--$boundary\n";
                 $body .= $message_header."\n\n";
-                $body .= $this->aMail['body']."\n\n--" . $boundary . "\n";
-                $headers = $headers."Content-Type: multipart/alternative;boundary=" . $boundary . "\n";
+                $body .= $this->aMail['body']."\n\n--$boundary--\n";
+                $headers = $headers."Content-Type: multipart/alternative;\n boundary=\"$boundary\" \n\n";
                 $this->aMail['body'] = &$body;
             } else {
                 $headers = $headers.$message_header;
@@ -220,7 +222,7 @@ class Mailer {
         }
 
         // detect Return-Path header
-		$return_path = NULL;
+        $return_path = NULL;
         if ( !empty($this->aMail['headers']['Return-Path']) ) {
             $return_path = '-f '.$this->aMail['headers']['Return-Path'];
         }
