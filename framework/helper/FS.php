@@ -2,11 +2,11 @@
 /**
  *
  * @package core.helpers
- * @author		djalmaoliveira@gmail.com
- * @copyright	djalmaoliveira@gmail.com
+ * @author      djalmaoliveira@gmail.com
+ * @copyright   djalmaoliveira@gmail.com
  * @license
  * @link
- * @since		Version 1.0
+ * @since       Version 1.0
  */
 
 
@@ -18,13 +18,13 @@
  * Example: $dest_path = '/home/user/myfolder/dest_path';
  *          $source_path = '/home/user/oldfolder/source';
  * The path will consider that you are on '/home/user/myfolder' and will return '../oldfolder/source'.
- * @param	string $source_path
- * @param   	string $dest_path
- * @return	string
+ * @param   string $source_path
+ * @param   string $dest_path
+ * @return  string
  */
 function fs_relative_path_($source_path, $dest_path) {
-    $source_path = trim($source_path);
-    $dest_path   = trim($dest_path);
+    $source_path = realpath(trim($source_path).'/');
+    $dest_path   = realpath(trim($dest_path).'/');
 
     $aS = array_filter(explode('/', $source_path));
     $aD = array_filter(explode('/', $dest_path));

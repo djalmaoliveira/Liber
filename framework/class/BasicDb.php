@@ -19,15 +19,18 @@ class BasicDb {
         }
         if ( isset(Liber::$aDbConfig[$app_mode]) ) {
             $config = Liber::$aDbConfig[$app_mode];
-            $host   = ($config[0][0]=='/')?"unix_socket=".$config[0]:"host={$config[0]}";
-            $dsn    = $config[4].":$host;dbname={$config[1]}";
+            switch( $config[4] ) {
+                case 'mysql':
+                    $host   = ($config[0][0]=='/')?"unix_socket=".$config[0]:"host={$config[0]}";
+                    $dsn    = $config[4].":$host;dbname={$config[1]}";
+                    $options = array(
+                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                    );
+                break;
+                default:
+            }
             try {
-                $o  = new PDO($dsn, $config[2], $config[3]);
-                if ($o) {
-                    if ($config[4] == 'mysql') {
-                        $o->exec("set names 'utf8'");
-                    }
-                }
+                $o  = new PDO($dsn, $config[2], $config[3], $options);
                 return $o;
             } catch(PDOException $e) {
                 trigger_error("No database connection."); // Caution: Exception message show password on stack trace.
