@@ -1,12 +1,12 @@
 <?php
 
-class SysErrorController {
+class SysErrorController extends Controller {
 
     public function index() {
         echo "system error"    ;
 
     }
-	
+
 
 }
 ?>

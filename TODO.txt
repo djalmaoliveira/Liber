@@ -1,3 +1,5 @@
+09/2011
+    - Mailer->addTo() and to(), don't work with Array argument.
 01/2011
     - Does it need Controller->header() method?
     - Liber::requestedMethod() to ::request('post') return boolean as a sugestion
