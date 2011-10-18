@@ -87,7 +87,7 @@ Source Location: /helper/HTML.php<br /><br />
 <br />
   <hr />
 	<a name="functionhtml_header_"></a>
-	<h3>html_header_ <span class="smalllinenumber">[line 20]</span></h3>
+	<h3>html_header_ <span class="smalllinenumber">[line 22]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -96,7 +96,7 @@ Source Location: /helper/HTML.php<br /><br />
     </td></tr></table>
     </td></tr></table><br />
 
-		Set or print Html tags for external CSS and JS files included in 'head' tag.<br /><br /><p>Usage:  html_header_('css', 'my.css'); // register a css file in template file, used inside template files            html_header_(); // print tags to use among html head tags.</p><br /><br /><br />
+		Set or print Html tags for external CSS and JS files included in 'head' tag.<br /><br /><p>Usage:  html_header_('css', 'http://abc.com/somefile.css'); // external assets            html_header_('css', '/mycss/my.css'); // absolute path from root path (i.e. www.domain.com/mycss/my.css)            html_header_('css', 'my.css'); // relative to default /css folder (i.e. www.domain.com/css/my.css)            html_header_(); // print tags to use among html head tags.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -117,14 +117,14 @@ Source Location: /helper/HTML.php<br /><br />
 		      <tr>
         <td class="type">String&nbsp;&nbsp;</td>
         <td><b>$url</b>&nbsp;&nbsp;</td>
-        <td>- Relative url to assets folder.</td>
+        <td>- Relative url to assets folder or external url starting with http:// or https://.</td>
       </tr>
 				</table>
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
   <hr />
 	<a name="functionhtml_meta_"></a>
-	<h3>html_meta_ <span class="smalllinenumber">[line 45]</span></h3>
+	<h3>html_meta_ <span class="smalllinenumber">[line 57]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -156,7 +156,7 @@ Source Location: /helper/HTML.php<br /><br />
 	</div>
   <hr />
 	<a name="functionhtml_script_"></a>
-	<h3>html_script_ <span class="smalllinenumber">[line 81]</span></h3>
+	<h3>html_script_ <span class="smalllinenumber">[line 93]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -179,7 +179,7 @@ Source Location: /helper/HTML.php<br /><br />
 	</div>
   <hr />
 	<a name="functionhtml_title_"></a>
-	<h3>html_title_ <span class="smalllinenumber">[line 66]</span></h3>
+	<h3>html_title_ <span class="smalllinenumber">[line 78]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -203,7 +203,7 @@ Source Location: /helper/HTML.php<br /><br />
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 13 Apr 2011 18:16:36 -0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Tue, 18 Oct 2011 18:00:19 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
