@@ -6,19 +6,17 @@ $aConfigs   = Array(
                     //
                     // Configurations
                     //
-                    'APP_PATH'      => realpath(dirname(__FILE__).'/../').'/',
-                    'BASE_PATH'     => realpath(dirname(__FILE__).'/../../../framework/').'/',
-                    'APP_MODE'      => 'PROD',
-                ), 
-            
-                'routes'=>Array(), 
-                
+                    'APP_MODE'      => 'PROD'
+                ),
+
+                'routes'=>Array(),
+
                 'dbconfig'=>Array(
                     'DEV'  => Array('localhost','database_name','user','password', 'database_type'),
                     'PROD' => Array('localhost','database_name','user','password', 'database_type')
                 )
-                
-                
+
+
                 );
 
 $route      = &$aConfigs['routes'];

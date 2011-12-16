@@ -1,3 +1,5 @@
+12/2011
+    - Helper Form HTML compatible
 11/2011
     - Change Liber.php to include on scripts without config file and it works.
 09/2011

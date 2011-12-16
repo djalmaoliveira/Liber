@@ -1,9 +1,11 @@
 <?php
-include 'app/config/config.php';
-include $aConfigs['configs']['BASE_PATH'].'Liber.php';
+// include Liber framework
+include_once "../framework/Liber.php";
 
-Liber::loadConfig($aConfigs);
+// prepares enviroment to Liber application
+Liber::loadApp( realpath('app/').'/' );
 
+// requesting process
 Liber::run();
 
 ?>

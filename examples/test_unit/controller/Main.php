@@ -7,8 +7,12 @@ class Main extends Controller {
     }
 
 	function errorLog() {
-		b();
+		$this->b();
 	}
+
+    function b() {
+
+    }
 }
 
 ?>

@@ -1,19 +1,17 @@
 <?php
+// $path variable has absolute path to application
 
-$project = realpath((dirname(__FILE__)).'/../../../../').'/';
 $aConfigs   = Array(
-                'configs'=>Array(
-                    //
-                    // Configurations
-                    //
-                    'APP_PATH'      => $project.'examples/app/example/',
-                    'BASE_PATH'     => $project.'framework/',
-                    'APP_MODE'      => 'PROD',
+
+                // Configurations
+                //
+                'configs'   =>  Array(
+                    'APP_MODE'      => 'PROD'
                 ),
 
-                'routes'=>Array(),
+                'routes'    =>  Array(),
 
-                'dbconfig'=>Array(
+                'dbconfig'  =>  Array(
                     'DEV'  => Array('localhost','database_name','user','password', 'database_type'),
                     'PROD' => Array('localhost','database_name','user','password', 'database_type')
                 )
