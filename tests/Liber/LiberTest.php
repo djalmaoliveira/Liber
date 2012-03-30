@@ -1,8 +1,8 @@
 <?php
-include 'include.php';
+include '../include.php';
 
 
-class CoreTest extends PHPUnit_Framework_TestCase {
+class LiberTest extends PHPUnit_Framework_TestCase {
 
     function SetUp() {
     }

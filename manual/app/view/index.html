@@ -11,46 +11,78 @@
 
     <p><strong>The <em>app/</em> folder</strong></p>
     <p>This is a folder where you will put your web application, within it you will find the structure of how Liber applications seems.</p>
-    
-    
+
+
     <ul>
         <li><em>app/assets/</em>: where are stored any public file used in your application; (optional)</li>
         <li><em>app/class/</em>: personal classes that yon can use in your application; (optional)</li>
         <li><em>app/config/</em>: store the <em>config.php</em> file, that configure your application or another file that you consider useful to put there;</li>
-        <li><em>app/controller/</em>: store several controller files used by application;</li>        
-        <li><em>app/helper/</em>: store several helper files used by application, the helper file can't be a PHP class, only simple functions; (optional)</li>        
-        <li><em>app/layout/</em>: store layout files that are simple HTML files that replace already existing view files; (optional)</li>                
-        <li><em>app/log/</em>: store several log files wrote by application;</li>        
-        <li><em>app/module/</em>: store several module folders, a module has the same structure that an app has; (optional)</li>        
-        <li><em>app/plugin/</em>: store several plugins files used by application; (optional)</li>        
-        <li><em>app/template/</em>: store several HTML files that build the general visual of application; (optional)</li>        
-        <li><em>app/view/</em>: store several view files used by application; (optional)</li>        
+        <li><em>app/controller/</em>: store several controller files used by application;</li>
+        <li><em>app/helper/</em>: store several helper files used by application, the helper file can't be a PHP class, only simple functions; (optional)</li>
+        <li><em>app/layout/</em>: store layout files that are simple HTML files that replace already existing view files; (optional)</li>
+        <li><em>app/log/</em>: store several log files wrote by application;</li>
+        <li><em>app/module/</em>: store several module folders, a module has the same structure that an app has; (optional)</li>
+        <li><em>app/plugin/</em>: store several plugins files used by application; (optional)</li>
+        <li><em>app/template/</em>: store several HTML files that build the general visual of application; (optional)</li>
+        <li><em>app/view/</em>: store several view files used by application; (optional)</li>
     </ul>
 
-    <p>The minimal structure:</p>
+    <p><strong>The minimal <em>app/</em> folder structure</strong></p>
     <ul>
         <li><em>app/config/</em></li>
         <li><em>app/controller/</em></li>
         <li><em>app/log/</em></li>
     </ul>
 
-    <p>Code Example</p>
+    <p><strong>How to start</strong></p>
+    <p>At first you need load <em>Liber.php</em> class file using:</p>
+    <pre>
+        // You can choose where you will put Liber framework folder
+        // Example including Liber framework path
+        include_once "../Liber/Liber.php";
+    </pre>
+
+    <p>After you need to load the application specifing the <em>app/</em> folder path:</p>
+    <pre>
+        // prepares enviroment to Liber application
+        Liber::loadApp( realpath('../SomeApp/').'/' );
+    </pre>
+
+    <p>And to run your application:</p>
+    <pre>
+        Liber::run();
+    </pre>
+    <p>Running application is when the many things happens, like routing requests, call controllers, views ...</p>
+
+    <p>If you want only use <em>Liber framework</em> classes and helpers inside another existing application, you can ignore the <code>Liber::run()</code> code.</p>
+    <p>But in this case, you need to do some changes in Liber enviroment that are described as follow:</p>
+    <pre>
+        // Liber don't know where your application URL start
+        // setup APP_URL to your real URL application base
+        Liber::conf('APP_URL', "http://www.yourapplication.com/");
+    </pre>
+
+    <p><strong>Others Code Examples</strong></p>
     <pre>
         // get configuration data
         echo Liber::conf('LOG_PATH');
         echo Liber::conf('APP_ROOT');
-        
+
         // set your own configuration value
-        // warning, see on API docs which are the keywords that you can't use
+        // warning, see on API docs which are the keywords to avoid conflicts or strange behaviour
         Liber::conf('MY_PERSONAL_CONFIG', 'value');
-        
+
         // load a class (framework)
         Liber::loadClass('Mailer');
         $m = new Mailer;
-        
+
         // load and return a object class
         $m = Liber::loadClass('Mailer', true);
-        
+
+
+        // load and return many object classes
+        list($m, $cart) = Liber::loadClass( Array('Mailer', 'Cart'), true);
+
     </pre>
 
 
