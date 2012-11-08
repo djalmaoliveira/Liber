@@ -26,6 +26,13 @@ class MainController extends Controller{
         b(); // this function doesn't exist and log this error
     }
 
+    public function options($opt1='', $opt2='') {
+        echo "options selected<br/>";
+        echo $opt1;
+        echo "<br/>";
+        echo $opt2;
+    }
+
 }
 
 ?>

@@ -8,17 +8,17 @@ class LiberTest extends PHPUnit_Framework_TestCase {
     }
 
     function testLoad() {
-        $this->assertTrue( Liber::load('Main', Liber::conf('APP_PATH').'controller/' ) , "Didn't load MainController.");
+        $this->assertTrue( Liber::load('MainController', Liber::conf('APP_PATH').'controller/' ) , "Didn't load MainController.");
     }
 
 
     function testLoadControllerOfApp() {
-        $this->assertTrue( Liber::loadController('Main'), "Didn't load MainController." );
+        $this->assertTrue( Liber::loadController('MainController'), "Didn't load MainController." );
     }
 
     function testLoadControllerOfAppWithReturningObject() {
-        $o = Liber::loadController('Main', true);
-        $this->assertEquals( 'Main', get_class($o), "Didn't instanciate MainController." );
+        $o = Liber::loadController('MainController', true);
+        $this->assertEquals( 'MainController', get_class($o), "Didn't instanciate MainController." );
     }
 
     function testLoadModuleController() {
@@ -48,7 +48,11 @@ class LiberTest extends PHPUnit_Framework_TestCase {
         $o = Liber::loadModel('ModelModule', 'Module1', true);
         $this->assertEquals( 'ModelModule', get_class($o), "Didn't load ModelModule of Module1." );
     }
-
-
+/*
+    function testRoutePassedArgsToControllerMethod() {
+        $_SERVER['REQUEST_URI'] = '/slashArgs/a/b/c/d';
+        Liber::processRoute();
+    }
+     */
 }
 ?>

@@ -39,7 +39,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '1.2.4';
+    const VERSION = '1.2.5';
 
 
     /**
@@ -85,7 +85,7 @@ class Liber {
     *    /blog/:id::name:   -> params together;
     *    /blog/post/:post:  -> get all, but depends of declared order;
     *    /blog/post/a:post: -> the previous route get this pattern;
-    *    /blog/a:id:-:mes:  -> allowed only one param per segment;</code></pre>
+    *    /blog/a:id:-:month:  -> allowed only one param per segment;</code></pre>
     *    @var Array
     */
     public    static $aRoute    = Array();
@@ -580,7 +580,7 @@ class Liber {
                 $a = 'index';
             }
 
-            $p = false;
+            $p = Array();
         } else {
             $aUri = array_filter(explode('/', $uri));
             $seg1 = ucfirst(current($aUri));
@@ -602,7 +602,7 @@ class Liber {
                 $c = &$routeConf[0];
                 $m = &$routeConf[2];
                 $a = basename($uri);
-                $p = false;
+                $p = Array();
                 Liber::loadController($c, $m);
 
             // trying to guess route like: /controller/method/param1/param2...
@@ -629,7 +629,7 @@ class Liber {
                     Liber::loadController( Liber::conf('PAGE_NOT_FOUND') );
                     $c = Liber::conf('PAGE_NOT_FOUND');
                     $a = 'index';
-                    $p = false;
+                    $p = Array();
                     $m = false;
                 }
             }
@@ -638,6 +638,7 @@ class Liber {
         // get instance kind of Controller and call method (action).
         Liber::$_controller = new $c( Array('module'=>$m, 'params'=>$p) );
         Liber::$_controller->$a();
+        //call_user_func_array(array(Liber::$_controller, $a), $p);
     }
 
     /**

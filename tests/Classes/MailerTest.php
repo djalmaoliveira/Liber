@@ -101,7 +101,25 @@ class MailerTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($m->send(), 'Send mail with To Addresses With Space Separated.');
     }
 
+    function testToMultipleAddressesArray() {
+        $m = new Mailer;
 
+        $m->to(Array("test@localhost.home","test2@localhost.home"));
+        $m->subject("Send mail to with two addresses Array.");
+        $m->body('body');
+        $this->assertTrue($m->send(), 'Send mail to with two addresses Array.');
+    }
+
+
+    function testAddToWithEmptyAndInvalidAddress() {
+        $m = new Mailer;
+
+        $m->addTo( Array('', 'asdasdas', "test@localhost.home" ) );
+        $m->from('teste@localhost.home');
+        $m->subject('test-empty_to');
+        $m->body('trying to send to 3 mails address');
+        $this->assertTrue($m->send(), 'Cannot send mail with multiple froms.');
+    }
 
 }
 ?>

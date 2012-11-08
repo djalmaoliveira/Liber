@@ -1,3 +1,11 @@
+09/2012
+    - BasicDb class should use named connections, app_mode will be used to other purpose or something similar
+08/2012
+    - Mailer doesn't work well with repeatead send() call;
+    -
+06/2012
+    - upload helper
+    -
 12/2011
     - Helper Form HTML compatible
 11/2011
@@ -6,7 +14,7 @@
     - Mailer->addTo() and to(), don't work with Array argument.
 01/2011
     - Does it need Controller->header() method?
-    - Liber::requestedMethod() to ::request('post') return boolean as a sugestion
+    - Liber::requestedMethod() to ::request('post') or ::method('post') return boolean as a sugestion
     - Mailer should have return invalid fields.
 12/2010
     - research about add complete html code in html messages
