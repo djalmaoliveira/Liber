@@ -32,7 +32,7 @@ class BasicDb {
                     $options = array();
                 break;
                 case 'sqlite':
-                    $dsn = $config[4].":{$config[1]};";
+                    $dsn = $config[4].":{$config[1]}";
                     $options = array();
                 break;
 
