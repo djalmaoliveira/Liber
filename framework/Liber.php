@@ -39,7 +39,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '1.2.10';
+    const VERSION = '1.2.11';
 
 
     /**
