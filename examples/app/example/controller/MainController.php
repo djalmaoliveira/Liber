@@ -22,16 +22,23 @@ class MainController extends Controller{
         echo $_SERVER['HTTP_USER_AGENT'];
     }
 
+    // catch error
     public function error() {
         b(); // this function doesn't exist and log this error
     }
 
-    public function options($opt1='', $opt2='') {
-        echo "options selected<br/>";
-        echo $opt1;
+    // URL /params/one/two
+    public function params($param1='', $param2='') {
+        echo "Params passed:<br/>";
+        echo $param1;
         echo "<br/>";
-        echo $opt2;
+        echo $param2;
     }
+
+    public function direct() {
+        echo 'Direct routing.';
+    }
+
 
 }
 

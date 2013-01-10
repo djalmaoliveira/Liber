@@ -21,11 +21,12 @@ $aConfigs   = Array(
 
 $route      = &$aConfigs['routes'];
 
-/*
-    $route[URI][METHOD] = Array()
-*/
 
-$route['/']['*']                 = Array('MainController', '*');
-$route['/notfound']['*']         = Array('NotFoundController', 'index');
+# $route[URI][METHOD] = Array('ControllerName', 'MethodName', 'ModuleName')
+
+$route['/']['*']                        = Array('MainController');
+$route['/direct/route']['*']            = Array('MainController', 'direct');
+$route['/process/named/:name:']['*']    = Array('Examples', 'named');
+
 
 ?>
