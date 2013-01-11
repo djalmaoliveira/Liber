@@ -39,7 +39,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '1.3.2';
+    const VERSION = '1.3.3';
 
 
     /**
@@ -158,7 +158,7 @@ class Liber {
     *   @return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.
     */
     public static function &db( $app_mode=null ) {
-        if ( is_object(self::$_db[$app_mode]) ) { return self::$_db[$app_mode]; }
+        if ( isset(self::$_db[$app_mode]) ) { return self::$_db[$app_mode]; }
 
         $c = Liber::conf('DB_LAYER');
         if (  $c == 'BasicDb' ) {
