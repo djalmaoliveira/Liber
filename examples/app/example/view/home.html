@@ -1,12 +1,15 @@
 <html>
 <body>
-		This is a example of application.
-		<p>To see your browser information <a href="browser/">click here</a></p>
-        <p>Example route with params <a href="params/one/two">click here</a></p>
-        <p>Controller Example <a href="Examples/process/one params">click here</a></p>
-        <p>Direct route example <a href="direct/route">click here</a></p>
-        <p>Catch Error example <a href="error">click here</a></p>
-        <p>Named params <a href="process/named/my_named_param">click here</a></p>
+		The application example.
+        <p>Below some routes examples.</p>
+        <br/>
+		<p>To see your browser information: <a href="<?url_to_('/browser')?>">click here</a></p>
+        <p>Example route with params: <a href="<?url_to_('/params/one/two')?>">click here</a></p>
+        <p>Controller Example: <a href="<?url_to_('/Examples/process')?>/one params">click here</a></p>
+        <p>Direct route example: <a href="<?url_to_('/direct/route')?>">click here</a></p>
+        <p>Other direct route: <a href="<?url_to_('/other/direct/route/others')?>">click here</a></p>
+        <p>Catch Error example: <a href="<?url_to_('/error')?>">click here</a></p>
+        <p>Named params: <a href="<?url_to_('/process/named/my_named_param')?>">click here</a></p>
 </body>
 </html>
 

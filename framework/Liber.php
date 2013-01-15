@@ -39,7 +39,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '1.3.3';
+    const VERSION = '1.3.4';
 
 
     /**
@@ -66,14 +66,16 @@ class Liber {
 
     /**
     *  The routing system.
-    *
+    *  <p>In this context a 'segment' of URI is a one of many parts separated by '/'.</p>
+    *  <p>In example '/my/route/test' there are three segments.</p>
     *  <pre>
     *  The route processing obey the follow sequence jumping to the next when not found:
-    *      1º - Search for direct route;
-    *      2º - Search if exist a method in controller of route '/';
-    *      3º - Search for controller name;
-    *      4º - Search for named params in route;
-    *      5º - Load Not Found Controller;
+    *      1º - Search for direct route; (no URI params)
+    *      2º - Search for previous segment direct route; (no URI params)
+    *      3º - Search if exist a method in controller of route '/';
+    *      4º - Search for controller name;
+    *      5º - Search for named params in route;
+    *      6º - Load Not Found Controller;
     *
     *  Route format:   $route[URI][METHOD] = Array('ControllerName', 'Action', 'ModuleName');
     *                  $route[URI][METHOD] = '/othet/route';
@@ -91,7 +93,7 @@ class Liber {
     *      // Module 'Admin' has controller 'UserAdmin' with method 'index'
     *      $route['/admin/user']['*']   = Array('UserAdmin', 'index', 'Admin');
     *
-    *      // Controller 'Home' has 'about' method
+    *      // Controller 'Home' has 'index' method (implicit)
     *      $route['/about']['*']        = Array('Home');
     *
     *      // Controller 'Blog' has 'index' method
@@ -102,7 +104,7 @@ class Liber {
     *  <code>
     *      $route['/about']['*']        = Array('Home');
     *      // if called URI '/about/John'
-    *      // is the same that call
+    *      // the part URI (segment) 'John' will be passed as argument to method when the programmer can catch this value
     *      function about($name) {
     *          echo $name;
     *      }
@@ -634,19 +636,23 @@ class Liber {
 
         // Direct match, load pre-configured route (the fast way, recommended)
         $routeOption = Liber::getRouteMethod($uri);
-        if ( !self::processController( $routeOption[0], (isset($routeOption[1])?$routeOption[1]:'index'), (isset($routeOption[2])?$routeOption[2]:''), $uri_parts ) ) {
-            // Try '/' as a main controller
-            $routeOption =  Liber::getRouteMethod('/');
-            if ( !self::processController( $routeOption[0], $uri_parts[0], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, 1) ) ) {
-                // Try /controller/action...
-                if ( !self::processController( $uri_parts[0], (isset($uri_parts[1])?$uri_parts[1]:'index'), '', array_slice($uri_parts, 2)) ) {
-                    if ( $aParsed = Liber::parseRouteParams($aRoute, $uri) ) {
-                        $routeOption = Liber::getRouteMethod($aParsed['route']);
-                        $routeConf   = Liber::getRouteConf( $routeOption );
-                        self::processController( $routeConf[0], $routeConf[1], $routeConf[2], $aParsed['params']);
-                        return;
+        if ( !self::processController( $routeOption[0], (isset($routeOption[1])?$routeOption[1]:'index'), (isset($routeOption[2])?$routeOption[2]:'') ) ) {
+            // Previous direct match
+            $routeOption = Liber::getRouteMethod( dirname($uri) );
+            if ( !self::processController( $routeOption[0], basename($uri), (isset($routeOption[2])?$routeOption[2]:'') ) ) {
+                // Try '/' as a main controller
+                $routeOption =  Liber::getRouteMethod('/');
+                if ( !self::processController( $routeOption[0], $uri_parts[0], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, 1) ) ) {
+                    // Try /controller/action...
+                    if ( !self::processController( $uri_parts[0], (isset($uri_parts[1])?$uri_parts[1]:'index'), '', array_slice($uri_parts, 2)) ) {
+                        if ( $aParsed = Liber::parseRouteParams($aRoute, $uri) ) {
+                            $routeOption = Liber::getRouteMethod($aParsed['route']);
+                            $routeConf   = Liber::getRouteConf( $routeOption );
+                            self::processController( $routeConf[0], $routeConf[1], $routeConf[2], $aParsed['params']);
+                            return;
+                        }
+                        self::processController( Liber::conf('PAGE_NOT_FOUND'), 'index' ); // force not found
                     }
-                    self::processController( Liber::conf('PAGE_NOT_FOUND'), 'index' ); // force not found
                 }
             }
         }

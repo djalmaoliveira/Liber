@@ -507,13 +507,18 @@ LANG             ->  Application language, used to some system messages. See BAS
 <h2></h2>
 <pre>$aRoute : Array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"><pre>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>In this context a 'segment' of URI is a one of many parts separated by '/'.</p>
+
+<p>In example '/my/route/test' there are three segments.</p>
+
+<pre>
  The route processing obey the follow sequence jumping to the next when not found:
-     1º - Search for direct route;
-     2º - Search if exist a method in controller of route '/';
-     3º - Search for controller name;
-     4º - Search for named params in route;
-     5º - Load Not Found Controller;
+     1º - Search for direct route; (no URI params)
+     2º - Search for previous segment direct route; (no URI params)
+     3º - Search if exist a method in controller of route '/';
+     4º - Search for controller name;
+     5º - Search for named params in route;
+     6º - Load Not Found Controller;
 
  Route format:   $route[URI][METHOD] = Array('ControllerName', 'Action', 'ModuleName');
                  $route[URI][METHOD] = '/othet/route';
@@ -532,7 +537,7 @@ LANG             ->  Application language, used to some system messages. See BAS
 <pre><code>     // Module 'Admin' has controller 'UserAdmin' with method 'index'
      $route['/admin/user']['*']   = Array('UserAdmin', 'index', 'Admin');
 
-     // Controller 'Home' has 'about' method
+     // Controller 'Home' has 'index' method (implicit)
      $route['/about']['*']        = Array('Home');
 
      // Controller 'Blog' has 'index' method
@@ -543,7 +548,7 @@ LANG             ->  Application language, used to some system messages. See BAS
 
 <pre><code>     $route['/about']['*']        = Array('Home');
      // if called URI '/about/John'
-     // is the same that call
+     // the part URI (segment) 'John' will be passed as argument to method when the programmer can catch this value
      function about($name) {
          echo $name;
      }
@@ -608,7 +613,7 @@ LANG             ->  Application language, used to some system messages. See BAS
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-01-10T17:42:09-03:00.<br></footer></div>
+            generated on 2013-01-15T09:58:55-03:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -1394,23 +1394,23 @@ Usage:  url_clean_('http://a b c'); // printcleaned url&amp;lt;br/&gt;
       <error line="88" code="50015">Argument $script is missing from the Docblock of \html_script_()</error>
     </parse_markers>
   </file>
-  <file path="Liber.php" hash="0f4aeaf8d9d4ff0f7c032ce4fc7e4932" package="Default">
+  <file path="Liber.php" hash="151f6bd839ec7bb5e56a06f40e77d82e" package="Default">
     <docblock line="2">
       <description>Main framework class file.</description>
       <long-description>&lt;p&gt;Copyright (c) 2010, 2011 Djalma Oliveira (djalmaoliveira@gmail.com)
 All rights reserved.&lt;/p&gt;</long-description>
       <tag line="2" name="license" description="license.txt"/>
     </docblock>
-    <include line="215" type="Include" package="Default">
+    <include line="217" type="Include" package="Default">
       <name/>
     </include>
-    <include line="290" type="Include" package="Default">
+    <include line="292" type="Include" package="Default">
       <name/>
     </include>
-    <include line="419" type="Include" package="Default">
+    <include line="421" type="Include" package="Default">
       <name/>
     </include>
-    <function namespace="global" line="236" package="Default">
+    <function namespace="global" line="238" package="Default">
       <name>catchError</name>
       <full_name>\catchError</full_name>
     </function>
@@ -1454,10 +1454,10 @@ LANG             -&gt;  Application language, used to some system messages. See 
       <constant namespace="global" line="42" package="core">
         <name>VERSION</name>
         <full_name>VERSION</full_name>
-        <value>'1.3.0'</value>
+        <value>'1.3.3'</value>
         <docblock line="39">
           <description>Framework version</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </constant>
       <property final="false" static="true" visibility="protected" line="51" namespace="global" package="Default">
@@ -1472,18 +1472,23 @@ LANG             -&gt;  Application language, used to some system messages. See 
           </tag>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="public" line="130" namespace="global" package="Default">
+      <property final="false" static="true" visibility="public" line="132" namespace="global" package="Default">
         <name>$aRoute</name>
         <default>array()</default>
         <docblock line="67">
           <description>The routing system.</description>
-          <long-description>&lt;pre&gt;
+          <long-description>&lt;p&gt;In this context a 'segment' of URI is a one of many parts separated by '/'.&lt;/p&gt;
+
+&lt;p&gt;In example '/my/route/test' there are three segments.&lt;/p&gt;
+
+&lt;pre&gt;
  The route processing obey the follow sequence jumping to the next when not found:
-     1º - Search for direct route;
-     2º - Search if exist a method in controller of route '/';
-     3º - Search for controller name;
-     4º - Search for named params in route;
-     5º - Load Not Found Controller;
+     1º - Search for direct route; (no URI params)
+     2º - Search for previous segment direct route; (no URI params)
+     3º - Search if exist a method in controller of route '/';
+     4º - Search for controller name;
+     5º - Search for named params in route;
+     6º - Load Not Found Controller;
 
  Route format:   $route[URI][METHOD] = Array('ControllerName', 'Action', 'ModuleName');
                  $route[URI][METHOD] = '/othet/route';
@@ -1502,7 +1507,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
 &lt;pre&gt;&lt;code&gt;     // Module 'Admin' has controller 'UserAdmin' with method 'index'
      $route['/admin/user']['*']   = Array('UserAdmin', 'index', 'Admin');
 
-     // Controller 'Home' has 'about' method
+     // Controller 'Home' has 'index' method (implicit)
      $route['/about']['*']        = Array('Home');
 
      // Controller 'Blog' has 'index' method
@@ -1513,7 +1518,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
 
 &lt;pre&gt;&lt;code&gt;     $route['/about']['*']        = Array('Home');
      // if called URI '/about/John'
-     // is the same that call
+     // the part URI (segment) 'John' will be passed as argument to method when the programmer can catch this value
      function about($name) {
          echo $name;
      }
@@ -1542,739 +1547,739 @@ LANG             -&gt;  Application language, used to some system messages. See 
           </tag>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="public" line="136" namespace="global" package="Default">
+      <property final="false" static="true" visibility="public" line="138" namespace="global" package="Default">
         <name>$aDbConfig</name>
         <default>array('DEV' =&gt; array(), 'PROD' =&gt; array())</default>
-        <docblock line="132">
+        <docblock line="134">
           <description>Database configuration</description>
           <long-description>&lt;p&gt;@var Array&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="protected" line="142" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="144" namespace="global" package="Default">
         <name>$_db</name>
-        <default/>
-        <docblock line="138">
+        <default></default>
+        <docblock line="140">
           <description>Database layer instance</description>
           <long-description>&lt;p&gt;@var Object&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="protected" line="148" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="150" namespace="global" package="Default">
         <name>$_cache</name>
-        <default/>
-        <docblock line="144">
+        <default></default>
+        <docblock line="146">
           <description>Cache instance</description>
           <long-description>&lt;p&gt;@var Object&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="protected" line="154" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="156" namespace="global" package="Default">
         <name>$_controller</name>
-        <default/>
-        <docblock line="150">
+        <default></default>
+        <docblock line="152">
           <description>Current controller instance</description>
           <long-description>&lt;p&gt;@var Controller&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="160" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="162" package="core">
         <name>db</name>
         <full_name>db</full_name>
-        <docblock line="156">
+        <docblock line="158">
           <description>Returns a database object instance.</description>
           <long-description>&lt;p&gt;@return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="160">
+        <argument line="162">
           <name>$app_mode</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="178" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="180" package="core">
         <name>log</name>
         <full_name>log</full_name>
-        <docblock line="174">
+        <docblock line="176">
           <description>Returns a log object instance;</description>
           <long-description>&lt;p&gt;@return object Log&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="192" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="194" package="core">
         <name>cache</name>
         <full_name>cache</full_name>
-        <docblock line="187">
+        <docblock line="189">
           <description>Returns a cache instance.</description>
           <long-description>&lt;p&gt;@param String $cacheType Cache type: file.&lt;/p&gt;</long-description>
-          <tag line="187" name="return" description="Object." type="\Cache">
+          <tag line="189" name="return" description="Object." type="\Cache">
             <type by_reference="false">\Cache</type>
           </tag>
         </docblock>
-        <argument line="192">
+        <argument line="194">
           <name>$class</name>
           <default>'FileCache'</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="204" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="206" package="core">
         <name>run</name>
         <full_name>run</full_name>
-        <docblock line="201">
+        <docblock line="203">
           <description>Start and execute application.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="214" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="216" package="core">
         <name>loadApp</name>
         <full_name>loadApp</full_name>
-        <docblock line="210">
+        <docblock line="212">
           <description>Set and prepare the enviroment to a Liber application.</description>
           <long-description>&lt;p&gt;@param String $path&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="214">
+        <argument line="216">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="258" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="260" package="core">
         <name>conf</name>
         <full_name>conf</full_name>
-        <docblock line="251">
+        <docblock line="253">
           <description>Set/add config params.</description>
           <long-description>&lt;p&gt;Can be added new params if necessary.&lt;/p&gt;</long-description>
-          <tag line="251" name="param" description="-&gt; param name&#10;  @param String $v -&gt; param value&#10;  @return mixed" type="String" variable="$p">
+          <tag line="253" name="param" description="-&gt; param name&#10;  @param String $v -&gt; param value&#10;  @return mixed" type="String" variable="$p">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="258">
+        <argument line="260">
           <name>$p</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="258">
+        <argument line="260">
           <name>$v</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="278" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="280" package="core">
         <name>load</name>
         <full_name>load</full_name>
-        <docblock line="270">
+        <docblock line="272">
           <description>Imports the definition of class(es) and tries to create an object/a list of objects from the class.</description>
-          <long-description/>
-          <tag line="270" name="param" description="Name of the class to be imported, or Array of classNames to load." type="String|Array" variable="$className">
+          <long-description></long-description>
+          <tag line="272" name="param" description="Name of the class to be imported, or Array of classNames to load." type="String|Array" variable="$className">
             <type by_reference="false">String</type>
             <type by_reference="false">Array</type>
           </tag>
-          <tag line="270" name="param" description="Path to the class file" type="String" variable="$path">
+          <tag line="272" name="param" description="Path to the class file" type="String" variable="$path">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="270" name="param" description="Determined whether to create object(s) of the class" type="bool" variable="$createObj">
+          <tag line="272" name="param" description="Determined whether to create object(s) of the class" type="bool" variable="$createObj">
             <type by_reference="false">bool</type>
           </tag>
-          <tag line="270" name="return" description="returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in, if $classname is a Array it will return an Array of objects created in same order." type="mixed">
+          <tag line="272" name="return" description="returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in, if $classname is a Array it will return an Array of objects created in same order." type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="278">
+        <argument line="280">
           <name>$className</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="278">
+        <argument line="280">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="278">
+        <argument line="280">
           <name>$createObj</name>
           <default>FALSE</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="309" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="311" package="core">
         <name>prepareLoad</name>
         <full_name>prepareLoad</full_name>
-        <docblock line="303">
+        <docblock line="305">
           <description>Detect and return the current configuration about which context should be loaded.</description>
           <long-description>&lt;p&gt;@param String $context  - Module Name&lt;/p&gt;</long-description>
-          <tag line="303" name="param" description="- if it must return a object&#10;  @return Array" type="boolean" variable="$create">
+          <tag line="305" name="param" description="- if it must return a object&#10;  @return Array" type="boolean" variable="$create">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="309">
+        <argument line="311">
           <name>$context</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="309">
+        <argument line="311">
           <name>$create</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="331" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="333" package="core">
         <name>loadContext</name>
         <full_name>loadContext</full_name>
-        <docblock line="323">
+        <docblock line="325">
           <description>Import files of context.</description>
           <long-description>&lt;p&gt;Context can be a Module path or APP_PATH (default).&lt;/p&gt;</long-description>
-          <tag line="323" name="param" description="@param  mixed $contextORcreateObj  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
+          <tag line="325" name="param" description="@param  mixed $contextORcreateObj  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="331">
+        <argument line="333">
           <name>$className</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="331">
+        <argument line="333">
           <name>$contextORcreateObj</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="331">
+        <argument line="333">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="351" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="353" package="core">
         <name>loadController</name>
         <full_name>loadController</full_name>
-        <docblock line="344">
+        <docblock line="346">
           <description>Imports the definition of Controller class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;APP_PATH/controller/&lt;/b&gt; or &lt;b&gt;APP_PATH/ModuleName/controller/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="344" name="param" description="@param  String|boolean  $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$cName">
+          <tag line="346" name="param" description="@param  String|boolean  $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$cName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="351">
+        <argument line="353">
           <name>$cName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="351">
+        <argument line="353">
           <name>$context</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="351">
+        <argument line="353">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="372" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="374" package="core">
         <name>loadModel</name>
         <full_name>loadModel</full_name>
-        <docblock line="365">
+        <docblock line="367">
           <description>Imports the definition of Model class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;APP_PATH/model/&lt;/b&gt; or &lt;b&gt;APP_PATH/ModuleName/model/b&gt;&lt;/p&gt;</long-description>
-          <tag line="365" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$modelName">
+          <tag line="367" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$modelName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="372">
+        <argument line="374">
           <name>$modelName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="372">
+        <argument line="374">
           <name>$context</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="372">
+        <argument line="374">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="391" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="393" package="core">
         <name>loadClass</name>
         <full_name>loadClass</full_name>
-        <docblock line="384">
+        <docblock line="386">
           <description>Imports the definition of one Class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;BASE_PATH/class/&lt;/b&gt; or &lt;b&gt;$context/class/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="384" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
+          <tag line="386" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="391">
+        <argument line="393">
           <name>$className</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="391">
+        <argument line="393">
           <name>$context</name>
           <default>false</default>
           <type/>
         </argument>
-        <argument line="391">
+        <argument line="393">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="404" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="406" package="core">
         <name>loadHelper</name>
         <full_name>loadHelper</full_name>
-        <docblock line="398">
+        <docblock line="400">
           <description>Imports the definition of functions Helper file.</description>
           <long-description>&lt;p&gt;File is located at &lt;b&gt;BASE_PATH/helper/&lt;/b&gt;  or &lt;b&gt;$context/helper/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="398" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @return boolean" type="String" variable="$helperName">
+          <tag line="400" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @return boolean" type="String" variable="$helperName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="404">
+        <argument line="406">
           <name>$helperName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="404">
+        <argument line="406">
           <name>$context</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="436" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="438" package="core">
         <name>loadPlugin</name>
         <full_name>loadPlugin</full_name>
-        <docblock line="429">
+        <docblock line="431">
           <description>Imports the definition of Plugin class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;BASE_PATH/plugin/&lt;/b&gt;  or &lt;b&gt;$context/plugin/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="429" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$pluginName">
+          <tag line="431" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$pluginName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="436">
+        <argument line="438">
           <name>$pluginName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="436">
+        <argument line="438">
           <name>$context</name>
           <default>false</default>
           <type/>
         </argument>
-        <argument line="436">
+        <argument line="438">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="449" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="451" package="core">
         <name>getParams</name>
         <full_name>getParams</full_name>
-        <docblock line="443">
+        <docblock line="445">
           <description>Get named params from uri.</description>
           <long-description>&lt;p&gt;@param Array $rule&lt;/p&gt;</long-description>
-          <tag line="443" name="param" description="@return Array - Array('paramName' =&gt; 'value')" type="Array" variable="$data">
+          <tag line="445" name="param" description="@return Array - Array('paramName' =&gt; 'value')" type="Array" variable="$data">
             <type by_reference="false">Array</type>
           </tag>
         </docblock>
-        <argument line="449">
+        <argument line="451">
           <name>$rule</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="449">
+        <argument line="451">
           <name>$data</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="496" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="498" package="core">
         <name>redirect</name>
         <full_name>redirect</full_name>
-        <docblock line="488">
+        <docblock line="490">
           <description>Redirect client to another URL.</description>
           <long-description>&lt;p&gt;Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.
   If this param don't exist, all urls will be used with 'index.php/'.&lt;/p&gt;</long-description>
-          <tag line="488" name="param" description="@param boolean $return  - if must return a url String instead of redirect client&#10;  @return String" type="String" variable="$url">
+          <tag line="490" name="param" description="@param boolean $return  - if must return a url String instead of redirect client&#10;  @return String" type="String" variable="$url">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="496">
+        <argument line="498">
           <name>$url</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="496">
+        <argument line="498">
           <name>$return</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="515" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="517" package="core">
         <name>requestedMethod</name>
         <full_name>requestedMethod</full_name>
-        <docblock line="511">
+        <docblock line="513">
           <description>Return the requested method.</description>
           <long-description>&lt;p&gt;@return String&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="529" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="531" package="core">
         <name>parseRouteParams</name>
         <full_name>parseRouteParams</full_name>
-        <docblock line="523">
+        <docblock line="525">
           <description>Search for configured route and params, returning it.</description>
           <long-description>&lt;p&gt;@param Array  $aRoute&lt;/p&gt;</long-description>
-          <tag line="523" name="param" description="@return boolean" type="String" variable="$uri">
+          <tag line="525" name="param" description="@return boolean" type="String" variable="$uri">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="529">
+        <argument line="531">
           <name>$aRoute</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="529">
+        <argument line="531">
           <name>$uri</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="552" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="554" package="core">
         <name>getRouteConf</name>
         <full_name>getRouteConf</full_name>
-        <docblock line="546">
+        <docblock line="548">
           <description>Detect sort of configuration from route.</description>
           <long-description>&lt;p&gt;If Array return it, if String, it might be a re-routing or redirect to&lt;/p&gt;</long-description>
-          <tag line="546" name="param" description="@return Array" type="mixed" variable="$conf">
+          <tag line="548" name="param" description="@return Array" type="mixed" variable="$conf">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="552">
+        <argument line="554">
           <name>$conf</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="583" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="585" package="core">
         <name>getRouteMethod</name>
         <full_name>getRouteMethod</full_name>
-        <docblock line="578">
+        <docblock line="580">
           <description>Detects and returns a route options from a specified route, among methods os *.</description>
           <long-description>&lt;p&gt;@param String $route&lt;/p&gt;</long-description>
-          <tag line="578" name="return" description="- Array | String or false if don't find." type="mixed">
+          <tag line="580" name="return" description="- Array | String or false if don't find." type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="583">
+        <argument line="585">
           <name>$route</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="596" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="598" package="core">
         <name>processController</name>
         <full_name>processController</full_name>
-        <docblock line="588">
+        <docblock line="590">
           <description>Process the controller associated with the processed route.</description>
-          <long-description/>
-          <tag line="588" name="param" description="" type="string" variable="$controller">
+          <long-description></long-description>
+          <tag line="590" name="param" description="" type="string" variable="$controller">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="588" name="param" description="" type="string" variable="$method">
+          <tag line="590" name="param" description="" type="string" variable="$method">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="588" name="param" description="" type="string" variable="$module">
+          <tag line="590" name="param" description="" type="string" variable="$module">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="588" name="param" description="" type="Array" variable="$params">
+          <tag line="590" name="param" description="" type="Array" variable="$params">
             <type by_reference="false">Array</type>
           </tag>
-          <tag line="588" name="return" description="" type="boolean">
+          <tag line="590" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="596">
+        <argument line="598">
           <name>$controller</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="596">
+        <argument line="598">
           <name>$method</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="596">
+        <argument line="598">
           <name>$module</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="596">
+        <argument line="598">
           <name>$params</name>
           <default>array()</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="615" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="617" package="core">
         <name>processRoute</name>
         <full_name>processRoute</full_name>
-        <docblock line="612">
+        <docblock line="614">
           <description>Process route, match and create related controller or redirect to default controller if don't match.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="661" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="666" package="core">
         <name>controller</name>
         <full_name>controller</full_name>
-        <docblock line="657">
+        <docblock line="662">
           <description>Return current Controller instance.</description>
           <long-description>&lt;p&gt;@return Controller&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="669" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="674" package="core">
         <name>isAjax</name>
         <full_name>isAjax</full_name>
-        <docblock line="665">
+        <docblock line="670">
           <description>Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools</description>
           <long-description>&lt;p&gt;@return bool&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="677" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="682" package="core">
         <name>isSSL</name>
         <full_name>isSSL</full_name>
-        <docblock line="673">
+        <docblock line="678">
           <description>Check if the connection is a SSL connection</description>
           <long-description>&lt;p&gt;@return bool determined if it is a SSL connection&lt;/p&gt;</long-description>
         </docblock>
       </method>
     </class>
-    <class final="false" abstract="false" namespace="global" line="703" package="Default">
+    <class final="false" abstract="false" namespace="global" line="708" package="Default">
       <extends/>
       <name>Controller</name>
       <full_name>\Controller</full_name>
-      <docblock line="699">
+      <docblock line="704">
         <description>Class that manipulates Controllers, its creation can be relative a module.</description>
         <long-description>&lt;p&gt;All controllers must extends it and have at least the 'index' method.&lt;/p&gt;</long-description>
       </docblock>
-      <property final="false" static="false" visibility="private" line="709" namespace="global" package="Default">
+      <property final="false" static="false" visibility="private" line="714" namespace="global" package="Default">
         <name>$module</name>
-        <default/>
-        <docblock line="705">
+        <default></default>
+        <docblock line="710">
           <description>Module name</description>
           <long-description>&lt;p&gt;@var String&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="private" line="715" namespace="global" package="Default">
+      <property final="false" static="false" visibility="private" line="720" namespace="global" package="Default">
         <name>$params</name>
-        <default/>
-        <docblock line="711">
+        <default></default>
+        <docblock line="716">
           <description>Params detected from uri.</description>
           <long-description>&lt;p&gt;@var Array&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="private" line="721" namespace="global" package="Default">
+      <property final="false" static="false" visibility="private" line="726" namespace="global" package="Default">
         <name>$_view</name>
-        <default/>
-        <docblock line="717">
+        <default></default>
+        <docblock line="722">
           <description>View instance</description>
           <long-description>&lt;p&gt;@var View&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="730" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="735" package="Default">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="724">
+        <docblock line="729">
           <description>Constructor.</description>
           <long-description>&lt;p&gt;@param Array $args
   $args values are:   ['module'] = 'module name' - empty for application controller
                       ['params'] = Array() - values of detected named params from route&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="730">
+        <argument line="735">
           <name>$args</name>
           <default>array('module' =&gt; '', 'params' =&gt; array())</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="741" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="746" package="Default">
         <name>header</name>
         <full_name>header</full_name>
-        <docblock line="736">
+        <docblock line="741">
           <description>Set http headers to send.</description>
           <long-description>&lt;p&gt;See header function on PHP manual.&lt;/p&gt;</long-description>
-          <tag line="736" name="param" description="" type="String" variable="$header">
+          <tag line="741" name="param" description="" type="String" variable="$header">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="741">
+        <argument line="746">
           <name>$header</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="751" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="756" package="Default">
         <name>loadModel</name>
         <full_name>loadModel</full_name>
-        <docblock line="745">
+        <docblock line="750">
           <description>Load model from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $modelName   - Model name&lt;/p&gt;</long-description>
-          <tag line="745" name="param" description="- if must create a object&#10;  @return mixed - Model object or boolean" type="String|boolean" variable="$createObj">
+          <tag line="750" name="param" description="- if must create a object&#10;  @return mixed - Model object or boolean" type="String|boolean" variable="$createObj">
             <type by_reference="false">String</type>
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="751">
+        <argument line="756">
           <name>$modelName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="751">
+        <argument line="756">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="762" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="767" package="Default">
         <name>loadClass</name>
         <full_name>loadClass</full_name>
-        <docblock line="756">
+        <docblock line="761">
           <description>Load Class from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $className   - Model name&lt;/p&gt;</long-description>
-          <tag line="756" name="param" description="boolean - if must create a object&#10;  @return mixed - Class object or boolean" type="String|boolean" variable="$createObj">
+          <tag line="761" name="param" description="boolean - if must create a object&#10;  @return mixed - Class object or boolean" type="String|boolean" variable="$createObj">
             <type by_reference="false">String</type>
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="762">
+        <argument line="767">
           <name>$className</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="762">
+        <argument line="767">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="773" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="778" package="Default">
         <name>loadHelper</name>
         <full_name>loadHelper</full_name>
-        <docblock line="767">
+        <docblock line="772">
           <description>Load helper from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $helperName   - Helper name&lt;/p&gt;</long-description>
-          <tag line="767" name="param" description="boolean - if must create a object&#10;  @return boolean" type="String|boolean" variable="$createObj">
+          <tag line="772" name="param" description="boolean - if must create a object&#10;  @return boolean" type="String|boolean" variable="$createObj">
             <type by_reference="false">String</type>
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="773">
+        <argument line="778">
           <name>$helperName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="784" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="789" package="Default">
         <name>loadPlugin</name>
         <full_name>loadPlugin</full_name>
-        <docblock line="778">
+        <docblock line="783">
           <description>Load plugin from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $pluginName - Plugin name&lt;/p&gt;</long-description>
-          <tag line="778" name="param" description="- if must create a object&#10;  @return mixed - Plugin object or boolean" type="boolean" variable="$createObj">
+          <tag line="783" name="param" description="- if must create a object&#10;  @return mixed - Plugin object or boolean" type="boolean" variable="$createObj">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="784">
+        <argument line="789">
           <name>$pluginName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="784">
+        <argument line="789">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="794" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="799" package="Default">
         <name>view</name>
         <full_name>view</full_name>
-        <docblock line="789">
+        <docblock line="794">
           <description>Get instance of View class.</description>
           <long-description>&lt;p&gt;@param String $layout_once  - Name of layout that this call will use&lt;/p&gt;</long-description>
-          <tag line="789" name="return" description="object" type="\View">
+          <tag line="794" name="return" description="object" type="\View">
             <type by_reference="false">\View</type>
           </tag>
         </docblock>
-        <argument line="794">
+        <argument line="799">
           <name>$layout_once</name>
           <default>''</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="808" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="813" package="Default">
         <name>params</name>
         <full_name>params</full_name>
-        <docblock line="803">
+        <docblock line="808">
           <description>Get named or unamed params from uri.</description>
           <long-description>&lt;p&gt;@param String $name  - Param name&lt;/p&gt;</long-description>
-          <tag line="803" name="return" description="" type="String">
+          <tag line="808" name="return" description="" type="String">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="808">
+        <argument line="813">
           <name>$name</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="820" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="825" package="Default">
         <name>__call</name>
         <full_name>__call</full_name>
-        <docblock line="816">
+        <docblock line="821">
           <description>Called when there aren't a requested action method in controller.</description>
           <long-description>&lt;p&gt;@param String $action - Action name called&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="820">
+        <argument line="825">
           <name>$action</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
-        <argument line="820">
+        <argument line="825">
           <name>$args</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
     </class>
     <parse_markers>
-      <error line="236" code="50009">No DocBlock was found for function \catchError()</error>
-      <error line="156" code="50015">Argument $app_mode is missing from the Docblock of db()</error>
-      <error line="187" code="50015">Argument $class is missing from the Docblock of cache()</error>
-      <error line="210" code="50015">Argument $path is missing from the Docblock of loadApp()</error>
-      <error line="251" code="50015">Argument $v is missing from the Docblock of conf()</error>
-      <error line="303" code="50014">Name of argument $context does not match with the DocBlock's name $create in prepareLoad()</error>
-      <error line="303" code="50015">Argument $create is missing from the Docblock of prepareLoad()</error>
-      <error line="323" code="50015">Argument $contextORcreateObj is missing from the Docblock of loadContext()</error>
-      <error line="323" code="50015">Argument $createObj is missing from the Docblock of loadContext()</error>
-      <error line="344" code="50015">Argument $context is missing from the Docblock of loadController()</error>
-      <error line="344" code="50015">Argument $createObj is missing from the Docblock of loadController()</error>
-      <error line="365" code="50015">Argument $context is missing from the Docblock of loadModel()</error>
-      <error line="365" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
-      <error line="384" code="50015">Argument $context is missing from the Docblock of loadClass()</error>
-      <error line="384" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
-      <error line="398" code="50015">Argument $context is missing from the Docblock of loadHelper()</error>
-      <error line="429" code="50015">Argument $context is missing from the Docblock of loadPlugin()</error>
-      <error line="429" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
-      <error line="443" code="50014">Name of argument $rule does not match with the DocBlock's name $data in getParams()</error>
-      <error line="443" code="50015">Argument $data is missing from the Docblock of getParams()</error>
-      <error line="488" code="50015">Argument $return is missing from the Docblock of redirect()</error>
-      <error line="523" code="50014">Name of argument $aRoute does not match with the DocBlock's name $uri in parseRouteParams()</error>
-      <error line="523" code="50015">Argument $uri is missing from the Docblock of parseRouteParams()</error>
-      <error line="578" code="50015">Argument $route is missing from the Docblock of getRouteMethod()</error>
-      <error line="724" code="50015">Argument $args is missing from the Docblock of __construct()</error>
-      <error line="745" code="50014">Name of argument $modelName does not match with the DocBlock's name $createObj in loadModel()</error>
-      <error line="745" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
-      <error line="756" code="50014">Name of argument $className does not match with the DocBlock's name $createObj in loadClass()</error>
-      <error line="756" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
-      <error line="767" code="50014">Name of argument $helperName does not match with the DocBlock's name $createObj in loadHelper()</error>
-      <notice line="767" code="50013">Parameter $createObj could not be found in loadHelper()</notice>
-      <error line="778" code="50014">Name of argument $pluginName does not match with the DocBlock's name $createObj in loadPlugin()</error>
-      <error line="778" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
-      <error line="789" code="50015">Argument $layout_once is missing from the Docblock of view()</error>
-      <error line="803" code="50015">Argument $name is missing from the Docblock of params()</error>
-      <error line="816" code="50015">Argument $action is missing from the Docblock of __call()</error>
-      <error line="816" code="50015">Argument $args is missing from the Docblock of __call()</error>
+      <error line="238" code="50009">No DocBlock was found for function \catchError()</error>
+      <error line="158" code="50015">Argument $app_mode is missing from the Docblock of db()</error>
+      <error line="189" code="50015">Argument $class is missing from the Docblock of cache()</error>
+      <error line="212" code="50015">Argument $path is missing from the Docblock of loadApp()</error>
+      <error line="253" code="50015">Argument $v is missing from the Docblock of conf()</error>
+      <error line="305" code="50014">Name of argument $context does not match with the DocBlock's name $create in prepareLoad()</error>
+      <error line="305" code="50015">Argument $create is missing from the Docblock of prepareLoad()</error>
+      <error line="325" code="50015">Argument $contextORcreateObj is missing from the Docblock of loadContext()</error>
+      <error line="325" code="50015">Argument $createObj is missing from the Docblock of loadContext()</error>
+      <error line="346" code="50015">Argument $context is missing from the Docblock of loadController()</error>
+      <error line="346" code="50015">Argument $createObj is missing from the Docblock of loadController()</error>
+      <error line="367" code="50015">Argument $context is missing from the Docblock of loadModel()</error>
+      <error line="367" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
+      <error line="386" code="50015">Argument $context is missing from the Docblock of loadClass()</error>
+      <error line="386" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
+      <error line="400" code="50015">Argument $context is missing from the Docblock of loadHelper()</error>
+      <error line="431" code="50015">Argument $context is missing from the Docblock of loadPlugin()</error>
+      <error line="431" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
+      <error line="445" code="50014">Name of argument $rule does not match with the DocBlock's name $data in getParams()</error>
+      <error line="445" code="50015">Argument $data is missing from the Docblock of getParams()</error>
+      <error line="490" code="50015">Argument $return is missing from the Docblock of redirect()</error>
+      <error line="525" code="50014">Name of argument $aRoute does not match with the DocBlock's name $uri in parseRouteParams()</error>
+      <error line="525" code="50015">Argument $uri is missing from the Docblock of parseRouteParams()</error>
+      <error line="580" code="50015">Argument $route is missing from the Docblock of getRouteMethod()</error>
+      <error line="729" code="50015">Argument $args is missing from the Docblock of __construct()</error>
+      <error line="750" code="50014">Name of argument $modelName does not match with the DocBlock's name $createObj in loadModel()</error>
+      <error line="750" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
+      <error line="761" code="50014">Name of argument $className does not match with the DocBlock's name $createObj in loadClass()</error>
+      <error line="761" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
+      <error line="772" code="50014">Name of argument $helperName does not match with the DocBlock's name $createObj in loadHelper()</error>
+      <notice line="772" code="50013">Parameter $createObj could not be found in loadHelper()</notice>
+      <error line="783" code="50014">Name of argument $pluginName does not match with the DocBlock's name $createObj in loadPlugin()</error>
+      <error line="783" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
+      <error line="794" code="50015">Argument $layout_once is missing from the Docblock of view()</error>
+      <error line="808" code="50015">Argument $name is missing from the Docblock of params()</error>
+      <error line="821" code="50015">Argument $action is missing from the Docblock of __call()</error>
+      <error line="821" code="50015">Argument $args is missing from the Docblock of __call()</error>
     </parse_markers>
   </file>
   <file path="i18n/helper/DT.en.php" hash="dc38609e30606c829fb7bf3fd2cbfce6" package="Default">
