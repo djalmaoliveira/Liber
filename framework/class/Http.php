@@ -1,11 +1,8 @@
 <?php
 /**
-*   @package core.class
-*/
-
-
-/**
 *   Class that provide some informations from HTTP request and do some action to HTTP response.
+*   .
+*  @package classes
 */
 class Http {
 

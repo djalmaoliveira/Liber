@@ -40,7 +40,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.1';
+    const VERSION = '2.0.2';
 
 
     /**
@@ -238,6 +238,9 @@ class Liber {
             ini_set('display_errors','Off');
         }
 
+        /**
+         * @ignore
+         */
         function catchError() {
             if ( !error_get_last() ) {
                 return;

@@ -1,11 +1,8 @@
 <?php
 /**
-*   @package core.class
-*/
-
-/**
-*   Basic class that manipulates action with a some database
-*   Should be used as a model for future Database Layers
+*   Basic class that manipulates action with a some database.
+*   Should be used as a model for future Database Layers.
+*   @package classes
 */
 class BasicDb {
 

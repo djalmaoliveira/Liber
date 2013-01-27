@@ -1,27 +1,12 @@
 <?php
-// $path variable has absolute path to application
 
-$aConfigs   = Array(
+$aConfigs['configs']['APP_MODE']    = 'PROD';
+$aConfigs['routes']                 = Array();
+$aConfigs['dbconfig']['DEV']        = Array('localhost','database_name','user','password', 'database_type');
+$aConfigs['dbconfig']['PROD']       = Array('localhost','database_name','user','password', 'database_type');
 
-                // Configurations
-                //
-                'configs'   =>  Array(
-                    'APP_MODE'      => 'PROD'
-                ),
-
-                'routes'    =>  Array(),
-
-                'dbconfig'  =>  Array(
-                    'DEV'  => Array('localhost','database_name','user','password', 'database_type'),
-                    'PROD' => Array('localhost','database_name','user','password', 'database_type')
-                )
-
-
-                );
 
 $route      = &$aConfigs['routes'];
-
-
 # $route[URI][METHOD] = Array('ControllerName', 'MethodName', 'ModuleName')
 
 $route['/']['*']                        = Array('MainController');

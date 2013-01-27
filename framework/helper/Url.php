@@ -1,8 +1,8 @@
 <?php
 
 /**
- *
- * @package core.helpers
+ *  Helpers to URL manipulation.
+ * @package     helpers
  * @author		djalmaoliveira@gmail.com
  * @copyright	djalmaoliveira@gmail.com
  * @license
