@@ -44,6 +44,9 @@ class MainController extends Controller{
         echo 'Direct routing.';
     }
 
+    public function test() {
+        echo Http::get('name');
+    }
 }
 
 ?>

@@ -13,8 +13,6 @@
 09/2011
     - Mailer->addTo() and to(), don't work with Array argument.
 01/2011
-    - Does it need Controller->header() method?
-    - Liber::requestedMethod() to ::request('post') or ::method('post') return boolean as a sugestion
     - Mailer should have return invalid fields.
 12/2010
     - research about add complete html code in html messages
@@ -38,11 +36,10 @@
     - To Refactor Liber:getParams, there is a faster way to exclude empty value
 
 22/10/2009
-    - Add filters Input class
     - Test unit
     - Documentation (Api, Tutorial, lot of examples of use)
     - Scaffolding system ?
     - Module to manager installs of: plugins, templates engines, modules, diagnostics etc.
-    - create route like: ('/a/b/c/e/f' = Array('controller', '*')) to use a controller manage any action (method)
+
 
 

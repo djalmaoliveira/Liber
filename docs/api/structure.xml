@@ -2,8 +2,8 @@
 <project version="2.0.0a12" title="">
   <file path="helper/DT.php" hash="646f1d99e9a2a6d9214b42804c59bd38" package="core\helpers">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.helpers"/>
       <tag line="2" name="author" description="djalmaoliveira@gmail.com"/>
       <tag line="2" name="copyright" description="djalmaoliveira@gmail.com"/>
@@ -28,12 +28,12 @@
       </docblock>
       <argument line="22">
         <name>$past</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="22">
         <name>$future</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="22">
@@ -54,7 +54,7 @@
       </docblock>
       <argument line="67">
         <name>$past</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="67">
@@ -72,8 +72,8 @@
   </file>
   <file path="helper/Form.php" hash="33405c27eb2b999eac2c5808bc540cf2" package="core\helpers">
     <docblock line="3">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="3" name="package" description="core.helpers"/>
       <tag line="3" name="author" description="djalmaoliveira@gmail.com"/>
       <tag line="3" name="copyright" description="djalmaoliveira@gmail.com"/>
@@ -145,7 +145,7 @@
       </docblock>
       <argument line="66">
         <name>$action</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="66">
@@ -169,7 +169,7 @@
       <full_name>\_parse_input_params_</full_name>
       <argument line="80">
         <name>$params</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
     </function>
@@ -400,7 +400,7 @@ Params usage:    (name)
       <full_name>\form_multiselect_</full_name>
       <docblock line="215">
         <description>Multi-select menu</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="215" name="param" description="" type="string" variable="$name">
           <type by_reference="false">string</type>
         </tag>
@@ -448,7 +448,7 @@ Params usage:    (name)
       <full_name>\form_select_</full_name>
       <docblock line="240">
         <description>Creates a 'select' element form.</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="240" name="param" description="string - Name and Id of element." type="\global\" variable="$name"/>
         <tag line="240" name="param" description="array - key/value of filled data." type="\global\" variable="$options"/>
         <tag line="240" name="param" description="array - value that must be selected." type="\global\" variable="$selected"/>
@@ -488,7 +488,7 @@ Params usage:    (name)
       <full_name>\form_checkbox_</full_name>
       <docblock line="309">
         <description>Checkbox Field</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="309" name="param" description="" type="mixed" variable="$data">
           <type by_reference="false">mixed</type>
         </tag>
@@ -536,7 +536,7 @@ Params usage:    (name)
       <full_name>\form_radio_</full_name>
       <docblock line="358">
         <description>Radio Button</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="358" name="param" description="" type="mixed" variable="$data">
           <type by_reference="false">mixed</type>
         </tag>
@@ -584,7 +584,7 @@ Params usage:    (name)
       <full_name>\form_submit_</full_name>
       <docblock line="385">
         <description>Submit Button</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="385" name="param" description="" type="mixed" variable="$data">
           <type by_reference="false">mixed</type>
         </tag>
@@ -624,7 +624,7 @@ Params usage:    (name)
       <full_name>\form_reset_</full_name>
       <docblock line="408">
         <description>Reset Button</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="408" name="param" description="" type="mixed" variable="$data">
           <type by_reference="false">mixed</type>
         </tag>
@@ -664,7 +664,7 @@ Params usage:    (name)
       <full_name>\form_button_</full_name>
       <docblock line="431">
         <description>Form Button</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="431" name="param" description="" type="mixed" variable="$data">
           <type by_reference="false">mixed</type>
         </tag>
@@ -704,7 +704,7 @@ Params usage:    (name)
       <full_name>\form_label_</full_name>
       <docblock line="459">
         <description>Form Label Tag</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="459" name="param" description="The text to appear onscreen" type="string" variable="$label_text">
           <type by_reference="false">string</type>
         </tag>
@@ -785,7 +785,7 @@ use fieldset_close()&lt;/p&gt;</long-description>
       <full_name>\form_fieldset_close_</full_name>
       <docblock line="526">
         <description>Fieldset Close Tag</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="526" name="param" description="" type="string" variable="$extra">
           <type by_reference="false">string</type>
         </tag>
@@ -809,7 +809,7 @@ use fieldset_close()&lt;/p&gt;</long-description>
       <full_name>\form_close_</full_name>
       <docblock line="544">
         <description>Form Close Tag</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="544" name="param" description="" type="string" variable="$extra">
           <type by_reference="false">string</type>
         </tag>
@@ -1005,12 +1005,12 @@ If Form Validation is active it retrieves the info from the validation class&lt;
       </docblock>
       <argument line="804">
         <name>$attributes</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="804">
         <name>$default</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
     </function>
@@ -1033,7 +1033,7 @@ If Form Validation is active it retrieves the info from the validation class&lt;
       </docblock>
       <argument line="851">
         <name>$attributes</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="851">
@@ -1068,8 +1068,8 @@ If Form Validation is active it retrieves the info from the validation class&lt;
   </file>
   <file path="helper/FS.php" hash="3ff8e31ffce2d163bf3cde3c6975109a" package="core\helpers">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.helpers"/>
       <tag line="2" name="author" description="djalmaoliveira@gmail.com"/>
       <tag line="2" name="copyright" description="djalmaoliveira@gmail.com"/>
@@ -1098,12 +1098,12 @@ The path will consider that you are on '/home/user/myfolder' and will return '..
       </docblock>
       <argument line="25">
         <name>$source_path</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="25">
         <name>$dest_path</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
     </function>
@@ -1121,12 +1121,12 @@ The path will consider that you are on '/home/user/myfolder' and will return '..
       </docblock>
       <argument line="63">
         <name>$path</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="63">
         <name>$func</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="63">
@@ -1141,10 +1141,10 @@ The path will consider that you are on '/home/user/myfolder' and will return '..
       <error line="53" code="50015">Argument $recursive is missing from the Docblock of \fs_scan_()</error>
     </parse_markers>
   </file>
-  <file path="helper/Url.php" hash="641fd619cec304e3a878506a4e3ace3a" package="core\helpers">
+  <file path="helper/Url.php" hash="fb72faa09971b1dc02feb6891714cb67" package="core\helpers">
     <docblock line="3">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="3" name="package" description="core.helpers"/>
       <tag line="3" name="author" description="djalmaoliveira@gmail.com"/>
       <tag line="3" name="copyright" description="djalmaoliveira@gmail.com"/>
@@ -1157,7 +1157,7 @@ The path will consider that you are on '/home/user/myfolder' and will return '..
       <full_name>\url_to_</full_name>
       <docblock line="16">
         <description>Create relative url from APP_URL.</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="16" name="access" description="public"/>
         <tag line="16" name="param" description="" type="string" variable="$relative_url">
           <type by_reference="false">string</type>
@@ -1277,7 +1277,7 @@ Usage:  url_clean_('http://a b c'); // printcleaned url&amp;lt;br/&gt;
       </docblock>
       <argument line="123">
         <name>$url</name>
-        <default/>
+        <default></default>
         <type/>
       </argument>
       <argument line="123">
@@ -1305,8 +1305,8 @@ Usage:  url_clean_('http://a b c'); // printcleaned url&amp;lt;br/&gt;
   </file>
   <file path="helper/HTML.php" hash="ecb3ba7345998aa1feecb2209c977f6a" package="core\helpers">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.helpers"/>
       <tag line="2" name="author" description="djalmaoliveira@gmail.com"/>
       <tag line="2" name="copyright" description="djalmaoliveira@gmail.com"/>
@@ -1394,27 +1394,27 @@ Usage:  url_clean_('http://a b c'); // printcleaned url&amp;lt;br/&gt;
       <error line="88" code="50015">Argument $script is missing from the Docblock of \html_script_()</error>
     </parse_markers>
   </file>
-  <file path="Liber.php" hash="151f6bd839ec7bb5e56a06f40e77d82e" package="Default">
+  <file path="Liber.php" hash="ed04eefe5b87dec5a8c56b07ba404f73" package="Default">
     <docblock line="2">
       <description>Main framework class file.</description>
       <long-description>&lt;p&gt;Copyright (c) 2010, 2011 Djalma Oliveira (djalmaoliveira@gmail.com)
 All rights reserved.&lt;/p&gt;</long-description>
       <tag line="2" name="license" description="license.txt"/>
     </docblock>
-    <include line="217" type="Include" package="Default">
+    <include line="218" type="Include" package="Default">
       <name/>
     </include>
-    <include line="292" type="Include" package="Default">
+    <include line="293" type="Include" package="Default">
       <name/>
     </include>
-    <include line="421" type="Include" package="Default">
+    <include line="422" type="Include" package="Default">
       <name/>
     </include>
-    <function namespace="global" line="238" package="Default">
+    <function namespace="global" line="241" package="Default">
       <name>catchError</name>
       <full_name>\catchError</full_name>
     </function>
-    <class final="false" abstract="false" namespace="global" line="37" package="core">
+    <class final="false" abstract="false" namespace="global" line="38" package="core">
       <extends/>
       <name>Liber</name>
       <full_name>\Liber</full_name>
@@ -1449,33 +1449,34 @@ LANG             -&gt;  Application language, used to some system messages. See 
 &lt;p&gt;By default all &lt;i&gt;paths&lt;/i&gt; used, must have a final slash '/', like "/my/log/dir/".&lt;/p&gt;</long-description>
         <tag line="9" name="author" description="Djalma Oliveira (djalmaoliveira@gmail.com)"/>
         <tag line="9" name="package" description="core"/>
+        <tag line="9" name="version" description="2.0.1"/>
         <tag line="9" name="since" description="1.0"/>
       </docblock>
-      <constant namespace="global" line="42" package="core">
+      <constant namespace="global" line="43" package="core">
         <name>VERSION</name>
         <full_name>VERSION</full_name>
-        <value>'1.3.3'</value>
-        <docblock line="39">
+        <value>'2.0.0'</value>
+        <docblock line="40">
           <description>Framework version</description>
           <long-description></long-description>
         </docblock>
       </constant>
-      <property final="false" static="true" visibility="protected" line="51" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="52" namespace="global" package="Default">
         <name>$aConfig</name>
         <default>array('BASE_PATH' =&gt; '', 'APP_PATH' =&gt; '', 'APP_URL' =&gt; '', 'APP_ROOT' =&gt; '', 'APP_MODE' =&gt; 'DEV', 'DB_LAYER' =&gt; 'BasicDb', 'TEMPLATE_ENGINE' =&gt; 'TemplateEngine', 'ASSETS_DIR' =&gt; 'assets', 'LOG_PATH' =&gt; 'log/', 'CACHE_PATH' =&gt; 'cache/', 'PAGE_NOT_FOUND' =&gt; 'NotFoundController', 'SYS_ERROR' =&gt; 'SysErrorController', 'LANG' =&gt; 'en')</default>
-        <docblock line="45">
+        <docblock line="46">
           <description>Store all configurations of application.</description>
           <long-description>&lt;p&gt;Format: $config['config'] = Array - Basic configurations, index are the same properties of Object.
           $config['route'] = Array - Configuration about how controller/action/module are invoke.&lt;/p&gt;</long-description>
-          <tag line="45" name="var" description="" type="Array">
+          <tag line="46" name="var" description="" type="Array">
             <type by_reference="false">Array</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="public" line="132" namespace="global" package="Default">
+      <property final="false" static="true" visibility="public" line="133" namespace="global" package="Default">
         <name>$aRoute</name>
         <default>array()</default>
-        <docblock line="67">
+        <docblock line="68">
           <description>The routing system.</description>
           <long-description>&lt;p&gt;In this context a 'segment' of URI is a one of many parts separated by '/'.&lt;/p&gt;
 
@@ -1542,700 +1543,660 @@ LANG             -&gt;  Application language, used to some system messages. See 
      // If controller 'Main' has 'buy' method, this route won't work as you think
      $route['/buy/:component:']['*']  = Array('Components', 'buy');
  &lt;/code&gt;&lt;/pre&gt;</long-description>
-          <tag line="67" name="var" description="" type="Array">
+          <tag line="68" name="var" description="" type="Array">
             <type by_reference="false">Array</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="public" line="138" namespace="global" package="Default">
+      <property final="false" static="true" visibility="public" line="139" namespace="global" package="Default">
         <name>$aDbConfig</name>
         <default>array('DEV' =&gt; array(), 'PROD' =&gt; array())</default>
-        <docblock line="134">
+        <docblock line="135">
           <description>Database configuration</description>
           <long-description>&lt;p&gt;@var Array&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="protected" line="144" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="145" namespace="global" package="Default">
         <name>$_db</name>
         <default></default>
-        <docblock line="140">
+        <docblock line="141">
           <description>Database layer instance</description>
           <long-description>&lt;p&gt;@var Object&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="protected" line="150" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="151" namespace="global" package="Default">
         <name>$_cache</name>
         <default></default>
-        <docblock line="146">
+        <docblock line="147">
           <description>Cache instance</description>
           <long-description>&lt;p&gt;@var Object&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="true" visibility="protected" line="156" namespace="global" package="Default">
+      <property final="false" static="true" visibility="protected" line="157" namespace="global" package="Default">
         <name>$_controller</name>
         <default></default>
-        <docblock line="152">
+        <docblock line="153">
           <description>Current controller instance</description>
           <long-description>&lt;p&gt;@var Controller&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="162" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="163" package="core">
         <name>db</name>
         <full_name>db</full_name>
-        <docblock line="158">
+        <docblock line="159">
           <description>Returns a database object instance.</description>
           <long-description>&lt;p&gt;@return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="162">
+        <argument line="163">
           <name>$app_mode</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="180" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="181" package="core">
         <name>log</name>
         <full_name>log</full_name>
-        <docblock line="176">
+        <docblock line="177">
           <description>Returns a log object instance;</description>
           <long-description>&lt;p&gt;@return object Log&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="194" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="195" package="core">
         <name>cache</name>
         <full_name>cache</full_name>
-        <docblock line="189">
+        <docblock line="190">
           <description>Returns a cache instance.</description>
           <long-description>&lt;p&gt;@param String $cacheType Cache type: file.&lt;/p&gt;</long-description>
-          <tag line="189" name="return" description="Object." type="\Cache">
+          <tag line="190" name="return" description="Object." type="\Cache">
             <type by_reference="false">\Cache</type>
           </tag>
         </docblock>
-        <argument line="194">
+        <argument line="195">
           <name>$class</name>
           <default>'FileCache'</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="206" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="207" package="core">
         <name>run</name>
         <full_name>run</full_name>
-        <docblock line="203">
+        <docblock line="204">
           <description>Start and execute application.</description>
           <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="216" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="217" package="core">
         <name>loadApp</name>
         <full_name>loadApp</full_name>
-        <docblock line="212">
+        <docblock line="213">
           <description>Set and prepare the enviroment to a Liber application.</description>
           <long-description>&lt;p&gt;@param String $path&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="216">
+        <argument line="217">
           <name>$path</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="260" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="261" package="core">
         <name>conf</name>
         <full_name>conf</full_name>
-        <docblock line="253">
+        <docblock line="254">
           <description>Set/add config params.</description>
           <long-description>&lt;p&gt;Can be added new params if necessary.&lt;/p&gt;</long-description>
-          <tag line="253" name="param" description="-&gt; param name&#10;  @param String $v -&gt; param value&#10;  @return mixed" type="String" variable="$p">
+          <tag line="254" name="param" description="-&gt; param name&#10;  @param String $v -&gt; param value&#10;  @return mixed" type="String" variable="$p">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="260">
+        <argument line="261">
           <name>$p</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="260">
+        <argument line="261">
           <name>$v</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="280" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="281" package="core">
         <name>load</name>
         <full_name>load</full_name>
-        <docblock line="272">
+        <docblock line="273">
           <description>Imports the definition of class(es) and tries to create an object/a list of objects from the class.</description>
           <long-description></long-description>
-          <tag line="272" name="param" description="Name of the class to be imported, or Array of classNames to load." type="String|Array" variable="$className">
+          <tag line="273" name="param" description="Name of the class to be imported, or Array of classNames to load." type="String|Array" variable="$className">
             <type by_reference="false">String</type>
             <type by_reference="false">Array</type>
           </tag>
-          <tag line="272" name="param" description="Path to the class file" type="String" variable="$path">
+          <tag line="273" name="param" description="Path to the class file" type="String" variable="$path">
             <type by_reference="false">String</type>
           </tag>
-          <tag line="272" name="param" description="Determined whether to create object(s) of the class" type="bool" variable="$createObj">
+          <tag line="273" name="param" description="Determined whether to create object(s) of the class" type="bool" variable="$createObj">
             <type by_reference="false">bool</type>
           </tag>
-          <tag line="272" name="return" description="returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in, if $classname is a Array it will return an Array of objects created in same order." type="mixed">
+          <tag line="273" name="return" description="returns true|false by default. If $createObj is TRUE, it creates and return the Object of the class name passed in, if $classname is a Array it will return an Array of objects created in same order." type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="280">
+        <argument line="281">
           <name>$className</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="280">
+        <argument line="281">
           <name>$path</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="280">
+        <argument line="281">
           <name>$createObj</name>
           <default>FALSE</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="311" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="312" package="core">
         <name>prepareLoad</name>
         <full_name>prepareLoad</full_name>
-        <docblock line="305">
+        <docblock line="306">
           <description>Detect and return the current configuration about which context should be loaded.</description>
           <long-description>&lt;p&gt;@param String $context  - Module Name&lt;/p&gt;</long-description>
-          <tag line="305" name="param" description="- if it must return a object&#10;  @return Array" type="boolean" variable="$create">
+          <tag line="306" name="param" description="- if it must return a object&#10;  @return Array" type="boolean" variable="$create">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="311">
+        <argument line="312">
           <name>$context</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="311">
+        <argument line="312">
           <name>$create</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="333" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="334" package="core">
         <name>loadContext</name>
         <full_name>loadContext</full_name>
-        <docblock line="325">
+        <docblock line="326">
           <description>Import files of context.</description>
           <long-description>&lt;p&gt;Context can be a Module path or APP_PATH (default).&lt;/p&gt;</long-description>
-          <tag line="325" name="param" description="@param  mixed $contextORcreateObj  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
+          <tag line="326" name="param" description="@param  mixed $contextORcreateObj  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="333">
+        <argument line="334">
           <name>$className</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="333">
+        <argument line="334">
           <name>$contextORcreateObj</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="333">
+        <argument line="334">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="353" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="354" package="core">
         <name>loadController</name>
         <full_name>loadController</full_name>
-        <docblock line="346">
+        <docblock line="347">
           <description>Imports the definition of Controller class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;APP_PATH/controller/&lt;/b&gt; or &lt;b&gt;APP_PATH/ModuleName/controller/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="346" name="param" description="@param  String|boolean  $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$cName">
+          <tag line="347" name="param" description="@param  String|boolean  $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$cName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="353">
+        <argument line="354">
           <name>$cName</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="353">
+        <argument line="354">
           <name>$context</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="353">
+        <argument line="354">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="374" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="375" package="core">
         <name>loadModel</name>
         <full_name>loadModel</full_name>
-        <docblock line="367">
+        <docblock line="368">
           <description>Imports the definition of Model class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;APP_PATH/model/&lt;/b&gt; or &lt;b&gt;APP_PATH/ModuleName/model/b&gt;&lt;/p&gt;</long-description>
-          <tag line="367" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$modelName">
+          <tag line="368" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$modelName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="374">
+        <argument line="375">
           <name>$modelName</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="374">
+        <argument line="375">
           <name>$context</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="374">
+        <argument line="375">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="393" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="394" package="core">
         <name>loadClass</name>
         <full_name>loadClass</full_name>
-        <docblock line="386">
+        <docblock line="387">
           <description>Imports the definition of one Class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;BASE_PATH/class/&lt;/b&gt; or &lt;b&gt;$context/class/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="386" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
+          <tag line="387" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$className">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="393">
+        <argument line="394">
           <name>$className</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="393">
+        <argument line="394">
           <name>$context</name>
           <default>false</default>
           <type/>
         </argument>
-        <argument line="393">
+        <argument line="394">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="406" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="407" package="core">
         <name>loadHelper</name>
         <full_name>loadHelper</full_name>
-        <docblock line="400">
+        <docblock line="401">
           <description>Imports the definition of functions Helper file.</description>
           <long-description>&lt;p&gt;File is located at &lt;b&gt;BASE_PATH/helper/&lt;/b&gt;  or &lt;b&gt;$context/helper/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="400" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @return boolean" type="String" variable="$helperName">
+          <tag line="401" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @return boolean" type="String" variable="$helperName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="406">
+        <argument line="407">
           <name>$helperName</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="406">
+        <argument line="407">
           <name>$context</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="438" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="439" package="core">
         <name>loadPlugin</name>
         <full_name>loadPlugin</full_name>
-        <docblock line="431">
+        <docblock line="432">
           <description>Imports the definition of Plugin class.</description>
           <long-description>&lt;p&gt;Class file is located at &lt;b&gt;BASE_PATH/plugin/&lt;/b&gt;  or &lt;b&gt;$context/plugin/&lt;/b&gt;&lt;/p&gt;</long-description>
-          <tag line="431" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$pluginName">
+          <tag line="432" name="param" description="@param  String|boolean $context  - name of module or boolean&#10;  @param  boolean $createObj&#10;  @return mixed - object or boolean" type="String" variable="$pluginName">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="438">
+        <argument line="439">
           <name>$pluginName</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="438">
+        <argument line="439">
           <name>$context</name>
           <default>false</default>
           <type/>
         </argument>
-        <argument line="438">
+        <argument line="439">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="451" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="452" package="core">
         <name>getParams</name>
         <full_name>getParams</full_name>
-        <docblock line="445">
+        <docblock line="446">
           <description>Get named params from uri.</description>
           <long-description>&lt;p&gt;@param Array $rule&lt;/p&gt;</long-description>
-          <tag line="445" name="param" description="@return Array - Array('paramName' =&gt; 'value')" type="Array" variable="$data">
+          <tag line="446" name="param" description="@return Array - Array('paramName' =&gt; 'value')" type="Array" variable="$data">
             <type by_reference="false">Array</type>
           </tag>
         </docblock>
-        <argument line="451">
+        <argument line="452">
           <name>$rule</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="451">
+        <argument line="452">
           <name>$data</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="498" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="499" package="core">
         <name>redirect</name>
         <full_name>redirect</full_name>
-        <docblock line="490">
+        <docblock line="491">
           <description>Redirect client to another URL.</description>
           <long-description>&lt;p&gt;Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.
   If this param don't exist, all urls will be used with 'index.php/'.&lt;/p&gt;</long-description>
-          <tag line="490" name="param" description="@param boolean $return  - if must return a url String instead of redirect client&#10;  @return String" type="String" variable="$url">
+          <tag line="491" name="param" description="@param boolean $return  - if must return a url String instead of redirect client&#10;  @return String" type="String" variable="$url">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="498">
+        <argument line="499">
           <name>$url</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="498">
+        <argument line="499">
           <name>$return</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="517" package="core">
-        <name>requestedMethod</name>
-        <full_name>requestedMethod</full_name>
-        <docblock line="513">
-          <description>Return the requested method.</description>
-          <long-description>&lt;p&gt;@return String&lt;/p&gt;</long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="531" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="520" package="core">
         <name>parseRouteParams</name>
         <full_name>parseRouteParams</full_name>
-        <docblock line="525">
+        <docblock line="514">
           <description>Search for configured route and params, returning it.</description>
           <long-description>&lt;p&gt;@param Array  $aRoute&lt;/p&gt;</long-description>
-          <tag line="525" name="param" description="@return boolean" type="String" variable="$uri">
+          <tag line="514" name="param" description="@return boolean" type="String" variable="$uri">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="531">
+        <argument line="520">
           <name>$aRoute</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="531">
+        <argument line="520">
           <name>$uri</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="554" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="543" package="core">
         <name>getRouteConf</name>
         <full_name>getRouteConf</full_name>
-        <docblock line="548">
+        <docblock line="537">
           <description>Detect sort of configuration from route.</description>
           <long-description>&lt;p&gt;If Array return it, if String, it might be a re-routing or redirect to&lt;/p&gt;</long-description>
-          <tag line="548" name="param" description="@return Array" type="mixed" variable="$conf">
+          <tag line="537" name="param" description="@return Array" type="mixed" variable="$conf">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="554">
+        <argument line="543">
           <name>$conf</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="585" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="574" package="core">
         <name>getRouteMethod</name>
         <full_name>getRouteMethod</full_name>
-        <docblock line="580">
+        <docblock line="569">
           <description>Detects and returns a route options from a specified route, among methods os *.</description>
           <long-description>&lt;p&gt;@param String $route&lt;/p&gt;</long-description>
-          <tag line="580" name="return" description="- Array | String or false if don't find." type="mixed">
+          <tag line="569" name="return" description="- Array | String or false if don't find." type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="585">
+        <argument line="574">
           <name>$route</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="598" package="core">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="587" package="core">
         <name>processController</name>
         <full_name>processController</full_name>
-        <docblock line="590">
+        <docblock line="579">
           <description>Process the controller associated with the processed route.</description>
           <long-description></long-description>
-          <tag line="590" name="param" description="" type="string" variable="$controller">
+          <tag line="579" name="param" description="" type="string" variable="$controller">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="590" name="param" description="" type="string" variable="$method">
+          <tag line="579" name="param" description="" type="string" variable="$method">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="590" name="param" description="" type="string" variable="$module">
+          <tag line="579" name="param" description="" type="string" variable="$module">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="590" name="param" description="" type="Array" variable="$params">
+          <tag line="579" name="param" description="" type="Array" variable="$params">
             <type by_reference="false">Array</type>
           </tag>
-          <tag line="590" name="return" description="" type="boolean">
+          <tag line="579" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="598">
+        <argument line="587">
           <name>$controller</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="598">
+        <argument line="587">
           <name>$method</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="598">
+        <argument line="587">
           <name>$module</name>
           <default>''</default>
           <type/>
         </argument>
-        <argument line="598">
+        <argument line="587">
           <name>$params</name>
           <default>array()</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="617" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="606" package="core">
         <name>processRoute</name>
         <full_name>processRoute</full_name>
-        <docblock line="614">
+        <docblock line="603">
           <description>Process route, match and create related controller or redirect to default controller if don't match.</description>
           <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="666" package="core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="655" package="core">
         <name>controller</name>
         <full_name>controller</full_name>
-        <docblock line="662">
+        <docblock line="651">
           <description>Return current Controller instance.</description>
           <long-description>&lt;p&gt;@return Controller&lt;/p&gt;</long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="674" package="core">
-        <name>isAjax</name>
-        <full_name>isAjax</full_name>
-        <docblock line="670">
-          <description>Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools</description>
-          <long-description>&lt;p&gt;@return bool&lt;/p&gt;</long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="682" package="core">
-        <name>isSSL</name>
-        <full_name>isSSL</full_name>
-        <docblock line="678">
-          <description>Check if the connection is a SSL connection</description>
-          <long-description>&lt;p&gt;@return bool determined if it is a SSL connection&lt;/p&gt;</long-description>
-        </docblock>
-      </method>
     </class>
-    <class final="false" abstract="false" namespace="global" line="708" package="Default">
+    <class final="false" abstract="false" namespace="global" line="667" package="Default">
       <extends/>
       <name>Controller</name>
       <full_name>\Controller</full_name>
-      <docblock line="704">
+      <docblock line="663">
         <description>Class that manipulates Controllers, its creation can be relative a module.</description>
         <long-description>&lt;p&gt;All controllers must extends it and have at least the 'index' method.&lt;/p&gt;</long-description>
       </docblock>
-      <property final="false" static="false" visibility="private" line="714" namespace="global" package="Default">
+      <property final="false" static="false" visibility="private" line="673" namespace="global" package="Default">
         <name>$module</name>
         <default></default>
-        <docblock line="710">
+        <docblock line="669">
           <description>Module name</description>
           <long-description>&lt;p&gt;@var String&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="private" line="720" namespace="global" package="Default">
+      <property final="false" static="false" visibility="private" line="679" namespace="global" package="Default">
         <name>$params</name>
         <default></default>
-        <docblock line="716">
+        <docblock line="675">
           <description>Params detected from uri.</description>
           <long-description>&lt;p&gt;@var Array&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="private" line="726" namespace="global" package="Default">
+      <property final="false" static="false" visibility="private" line="685" namespace="global" package="Default">
         <name>$_view</name>
         <default></default>
-        <docblock line="722">
+        <docblock line="681">
           <description>View instance</description>
           <long-description>&lt;p&gt;@var View&lt;/p&gt;</long-description>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="735" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="694" package="Default">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="729">
+        <docblock line="688">
           <description>Constructor.</description>
           <long-description>&lt;p&gt;@param Array $args
   $args values are:   ['module'] = 'module name' - empty for application controller
                       ['params'] = Array() - values of detected named params from route&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="735">
+        <argument line="694">
           <name>$args</name>
           <default>array('module' =&gt; '', 'params' =&gt; array())</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="746" package="Default">
-        <name>header</name>
-        <full_name>header</full_name>
-        <docblock line="741">
-          <description>Set http headers to send.</description>
-          <long-description>&lt;p&gt;See header function on PHP manual.&lt;/p&gt;</long-description>
-          <tag line="741" name="param" description="" type="String" variable="$header">
-            <type by_reference="false">String</type>
-          </tag>
-        </docblock>
-        <argument line="746">
-          <name>$header</name>
-          <default>null</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="756" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="706" package="Default">
         <name>loadModel</name>
         <full_name>loadModel</full_name>
-        <docblock line="750">
+        <docblock line="700">
           <description>Load model from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $modelName   - Model name&lt;/p&gt;</long-description>
-          <tag line="750" name="param" description="- if must create a object&#10;  @return mixed - Model object or boolean" type="String|boolean" variable="$createObj">
+          <tag line="700" name="param" description="- if must create a object&#10;  @return mixed - Model object or boolean" type="String|boolean" variable="$createObj">
             <type by_reference="false">String</type>
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="756">
+        <argument line="706">
           <name>$modelName</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="756">
+        <argument line="706">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="767" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="717" package="Default">
         <name>loadClass</name>
         <full_name>loadClass</full_name>
-        <docblock line="761">
+        <docblock line="711">
           <description>Load Class from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $className   - Model name&lt;/p&gt;</long-description>
-          <tag line="761" name="param" description="boolean - if must create a object&#10;  @return mixed - Class object or boolean" type="String|boolean" variable="$createObj">
+          <tag line="711" name="param" description="boolean - if must create a object&#10;  @return mixed - Class object or boolean" type="String|boolean" variable="$createObj">
             <type by_reference="false">String</type>
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="767">
+        <argument line="717">
           <name>$className</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="767">
+        <argument line="717">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="778" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="728" package="Default">
         <name>loadHelper</name>
         <full_name>loadHelper</full_name>
-        <docblock line="772">
+        <docblock line="722">
           <description>Load helper from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $helperName   - Helper name&lt;/p&gt;</long-description>
-          <tag line="772" name="param" description="boolean - if must create a object&#10;  @return boolean" type="String|boolean" variable="$createObj">
+          <tag line="722" name="param" description="boolean - if must create a object&#10;  @return boolean" type="String|boolean" variable="$createObj">
             <type by_reference="false">String</type>
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="778">
+        <argument line="728">
           <name>$helperName</name>
           <default></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="789" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="739" package="Default">
         <name>loadPlugin</name>
         <full_name>loadPlugin</full_name>
-        <docblock line="783">
+        <docblock line="733">
           <description>Load plugin from application or module if was instanced with it.</description>
           <long-description>&lt;p&gt;@param String $pluginName - Plugin name&lt;/p&gt;</long-description>
-          <tag line="783" name="param" description="- if must create a object&#10;  @return mixed - Plugin object or boolean" type="boolean" variable="$createObj">
+          <tag line="733" name="param" description="- if must create a object&#10;  @return mixed - Plugin object or boolean" type="boolean" variable="$createObj">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="789">
+        <argument line="739">
           <name>$pluginName</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="789">
+        <argument line="739">
           <name>$createObj</name>
           <default>false</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="799" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="749" package="Default">
         <name>view</name>
         <full_name>view</full_name>
-        <docblock line="794">
+        <docblock line="744">
           <description>Get instance of View class.</description>
           <long-description>&lt;p&gt;@param String $layout_once  - Name of layout that this call will use&lt;/p&gt;</long-description>
-          <tag line="794" name="return" description="object" type="\View">
+          <tag line="744" name="return" description="object" type="\View">
             <type by_reference="false">\View</type>
           </tag>
         </docblock>
-        <argument line="799">
+        <argument line="749">
           <name>$layout_once</name>
           <default>''</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="813" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="763" package="Default">
         <name>params</name>
         <full_name>params</full_name>
-        <docblock line="808">
+        <docblock line="758">
           <description>Get named or unamed params from uri.</description>
           <long-description>&lt;p&gt;@param String $name  - Param name&lt;/p&gt;</long-description>
-          <tag line="808" name="return" description="" type="String">
+          <tag line="758" name="return" description="" type="String">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
-        <argument line="813">
+        <argument line="763">
           <name>$name</name>
           <default>null</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="825" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="775" package="Default">
         <name>__call</name>
         <full_name>__call</full_name>
-        <docblock line="821">
+        <docblock line="771">
           <description>Called when there aren't a requested action method in controller.</description>
           <long-description>&lt;p&gt;@param String $action - Action name called&lt;/p&gt;</long-description>
         </docblock>
-        <argument line="825">
+        <argument line="775">
           <name>$action</name>
           <default></default>
           <type/>
         </argument>
-        <argument line="825">
+        <argument line="775">
           <name>$args</name>
           <default></default>
           <type/>
@@ -2243,43 +2204,43 @@ LANG             -&gt;  Application language, used to some system messages. See 
       </method>
     </class>
     <parse_markers>
-      <error line="238" code="50009">No DocBlock was found for function \catchError()</error>
-      <error line="158" code="50015">Argument $app_mode is missing from the Docblock of db()</error>
-      <error line="189" code="50015">Argument $class is missing from the Docblock of cache()</error>
-      <error line="212" code="50015">Argument $path is missing from the Docblock of loadApp()</error>
-      <error line="253" code="50015">Argument $v is missing from the Docblock of conf()</error>
-      <error line="305" code="50014">Name of argument $context does not match with the DocBlock's name $create in prepareLoad()</error>
-      <error line="305" code="50015">Argument $create is missing from the Docblock of prepareLoad()</error>
-      <error line="325" code="50015">Argument $contextORcreateObj is missing from the Docblock of loadContext()</error>
-      <error line="325" code="50015">Argument $createObj is missing from the Docblock of loadContext()</error>
-      <error line="346" code="50015">Argument $context is missing from the Docblock of loadController()</error>
-      <error line="346" code="50015">Argument $createObj is missing from the Docblock of loadController()</error>
-      <error line="367" code="50015">Argument $context is missing from the Docblock of loadModel()</error>
-      <error line="367" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
-      <error line="386" code="50015">Argument $context is missing from the Docblock of loadClass()</error>
-      <error line="386" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
-      <error line="400" code="50015">Argument $context is missing from the Docblock of loadHelper()</error>
-      <error line="431" code="50015">Argument $context is missing from the Docblock of loadPlugin()</error>
-      <error line="431" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
-      <error line="445" code="50014">Name of argument $rule does not match with the DocBlock's name $data in getParams()</error>
-      <error line="445" code="50015">Argument $data is missing from the Docblock of getParams()</error>
-      <error line="490" code="50015">Argument $return is missing from the Docblock of redirect()</error>
-      <error line="525" code="50014">Name of argument $aRoute does not match with the DocBlock's name $uri in parseRouteParams()</error>
-      <error line="525" code="50015">Argument $uri is missing from the Docblock of parseRouteParams()</error>
-      <error line="580" code="50015">Argument $route is missing from the Docblock of getRouteMethod()</error>
-      <error line="729" code="50015">Argument $args is missing from the Docblock of __construct()</error>
-      <error line="750" code="50014">Name of argument $modelName does not match with the DocBlock's name $createObj in loadModel()</error>
-      <error line="750" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
-      <error line="761" code="50014">Name of argument $className does not match with the DocBlock's name $createObj in loadClass()</error>
-      <error line="761" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
-      <error line="772" code="50014">Name of argument $helperName does not match with the DocBlock's name $createObj in loadHelper()</error>
-      <notice line="772" code="50013">Parameter $createObj could not be found in loadHelper()</notice>
-      <error line="783" code="50014">Name of argument $pluginName does not match with the DocBlock's name $createObj in loadPlugin()</error>
-      <error line="783" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
-      <error line="794" code="50015">Argument $layout_once is missing from the Docblock of view()</error>
-      <error line="808" code="50015">Argument $name is missing from the Docblock of params()</error>
-      <error line="821" code="50015">Argument $action is missing from the Docblock of __call()</error>
-      <error line="821" code="50015">Argument $args is missing from the Docblock of __call()</error>
+      <error line="241" code="50009">No DocBlock was found for function \catchError()</error>
+      <error line="159" code="50015">Argument $app_mode is missing from the Docblock of db()</error>
+      <error line="190" code="50015">Argument $class is missing from the Docblock of cache()</error>
+      <error line="213" code="50015">Argument $path is missing from the Docblock of loadApp()</error>
+      <error line="254" code="50015">Argument $v is missing from the Docblock of conf()</error>
+      <error line="306" code="50014">Name of argument $context does not match with the DocBlock's name $create in prepareLoad()</error>
+      <error line="306" code="50015">Argument $create is missing from the Docblock of prepareLoad()</error>
+      <error line="326" code="50015">Argument $contextORcreateObj is missing from the Docblock of loadContext()</error>
+      <error line="326" code="50015">Argument $createObj is missing from the Docblock of loadContext()</error>
+      <error line="347" code="50015">Argument $context is missing from the Docblock of loadController()</error>
+      <error line="347" code="50015">Argument $createObj is missing from the Docblock of loadController()</error>
+      <error line="368" code="50015">Argument $context is missing from the Docblock of loadModel()</error>
+      <error line="368" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
+      <error line="387" code="50015">Argument $context is missing from the Docblock of loadClass()</error>
+      <error line="387" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
+      <error line="401" code="50015">Argument $context is missing from the Docblock of loadHelper()</error>
+      <error line="432" code="50015">Argument $context is missing from the Docblock of loadPlugin()</error>
+      <error line="432" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
+      <error line="446" code="50014">Name of argument $rule does not match with the DocBlock's name $data in getParams()</error>
+      <error line="446" code="50015">Argument $data is missing from the Docblock of getParams()</error>
+      <error line="491" code="50015">Argument $return is missing from the Docblock of redirect()</error>
+      <error line="514" code="50014">Name of argument $aRoute does not match with the DocBlock's name $uri in parseRouteParams()</error>
+      <error line="514" code="50015">Argument $uri is missing from the Docblock of parseRouteParams()</error>
+      <error line="569" code="50015">Argument $route is missing from the Docblock of getRouteMethod()</error>
+      <error line="688" code="50015">Argument $args is missing from the Docblock of __construct()</error>
+      <error line="700" code="50014">Name of argument $modelName does not match with the DocBlock's name $createObj in loadModel()</error>
+      <error line="700" code="50015">Argument $createObj is missing from the Docblock of loadModel()</error>
+      <error line="711" code="50014">Name of argument $className does not match with the DocBlock's name $createObj in loadClass()</error>
+      <error line="711" code="50015">Argument $createObj is missing from the Docblock of loadClass()</error>
+      <error line="722" code="50014">Name of argument $helperName does not match with the DocBlock's name $createObj in loadHelper()</error>
+      <notice line="722" code="50013">Parameter $createObj could not be found in loadHelper()</notice>
+      <error line="733" code="50014">Name of argument $pluginName does not match with the DocBlock's name $createObj in loadPlugin()</error>
+      <error line="733" code="50015">Argument $createObj is missing from the Docblock of loadPlugin()</error>
+      <error line="744" code="50015">Argument $layout_once is missing from the Docblock of view()</error>
+      <error line="758" code="50015">Argument $name is missing from the Docblock of params()</error>
+      <error line="771" code="50015">Argument $action is missing from the Docblock of __call()</error>
+      <error line="771" code="50015">Argument $args is missing from the Docblock of __call()</error>
     </parse_markers>
   </file>
   <file path="i18n/helper/DT.en.php" hash="dc38609e30606c829fb7bf3fd2cbfce6" package="Default">
@@ -2314,8 +2275,8 @@ LANG             -&gt;  Application language, used to some system messages. See 
   </file>
   <file path="cache/FileCache.php" hash="16c549a73183413d3cf8dd039d5ed336" package="cache">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="cache"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="13" package="Default">
@@ -2324,18 +2285,18 @@ LANG             -&gt;  Application language, used to some system messages. See 
       <full_name>\FileCache</full_name>
       <docblock line="7">
         <description>Default class of Caching features.</description>
-        <long-description/>
+        <long-description></long-description>
         <tag line="7" name="author" description="Djalma Oliveira &lt;djalmaoliveira@gmail.com&gt;"/>
         <tag line="7" name="copyright" description="Copyright &amp;copy; 2010 Djalma Oliveira"/>
         <tag line="7" name="license" description="license.txt"/>
       </docblock>
       <property final="false" static="false" visibility="private" line="14" namespace="global" package="Default">
         <name>$context</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="15" namespace="global" package="Default">
         <name>$contextPath</name>
-        <default/>
+        <default></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="Default">
         <name>__construct</name>
@@ -2375,7 +2336,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="48">
           <name>$id</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2391,7 +2352,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="68">
           <name>$id</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="68">
@@ -2431,8 +2392,8 @@ LANG             -&gt;  Application language, used to some system messages. See 
   </file>
   <file path="class/FileUpdate.php" hash="a3fef9c3701ba8a94f790803fd4b271a" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <include line="148" type="Include" package="Default">
@@ -2444,7 +2405,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
       <full_name>\FileUpdate</full_name>
       <docblock line="7">
         <description>Class used for create a update file and to use it for updates remote an application.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <property final="false" static="false" visibility="protected" line="16" namespace="global" package="Default">
         <name>$updateData</name>
@@ -2482,7 +2443,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="48">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="48">
@@ -2500,7 +2461,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="81">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2516,7 +2477,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="91">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="91">
@@ -2537,7 +2498,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="103">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2553,7 +2514,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="117">
           <name>$filePath</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2569,7 +2530,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="129">
           <name>$filePath</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2614,8 +2575,8 @@ LANG             -&gt;  Application language, used to some system messages. See 
   </file>
   <file path="class/Setup.php" hash="4fddb7b0fa8550616dba6b16271bc2d9" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="9" package="Default">
@@ -2624,19 +2585,19 @@ LANG             -&gt;  Application language, used to some system messages. See 
       <full_name>\Setup</full_name>
       <docblock line="6">
         <description>Class that manipulates some jobs, to aid set up application.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <property final="false" static="false" visibility="private" line="11" namespace="global" package="Default">
         <name>$app_root</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="12" namespace="global" package="Default">
         <name>$assets_dir</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="13" namespace="global" package="Default">
         <name>$app_path</name>
-        <default/>
+        <default></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="15" package="Default">
         <name>__construct</name>
@@ -2664,7 +2625,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         <full_name>prepareAssetDir</full_name>
         <docblock line="63">
           <description>Create a assets dir on www.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="79" package="Default">
@@ -2679,12 +2640,12 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="79">
           <name>$context_path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="79">
           <name>$to_asset_dir</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2713,7 +2674,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="114">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="114">
@@ -2734,7 +2695,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="139">
           <name>$layout</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="139">
@@ -2755,7 +2716,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="166">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="166">
@@ -2781,12 +2742,12 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="211">
           <name>$source_path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="211">
           <name>$dest_path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2802,12 +2763,12 @@ LANG             -&gt;  Application language, used to some system messages. See 
         </docblock>
         <argument line="224">
           <name>$source_path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="224">
           <name>$dest_path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2836,7 +2797,7 @@ LANG             -&gt;  Application language, used to some system messages. See 
   <file path="class/Minify_CSS_Compressor.php" hash="131a96ca3f46723cc8360bb331947938" package="Minify">
     <docblock line="2">
       <description>Class Minify_CSS_Compressor</description>
-      <long-description/>
+      <long-description></long-description>
       <tag line="2" name="package" description="Minify"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="21" package="Minify">
@@ -2859,8 +2820,8 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <name>$_options</name>
         <default>null</default>
         <docblock line="38">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="38" name="var" description="options" type="array">
             <type by_reference="false">array</type>
           </tag>
@@ -2870,8 +2831,8 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <name>$_inHack</name>
         <default>false</default>
         <docblock line="43">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="43" name="var" description="Are we &quot;in&quot; a hack? I.e. are some browsers targetted until the next comment?" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -2882,7 +2843,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>process</full_name>
         <docblock line="23">
           <description>Minify a CSS string</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="23" name="param" description="" type="string" variable="$css">
             <type by_reference="false">string</type>
           </tag>
@@ -2895,7 +2856,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="32">
           <name>$css</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="32">
@@ -2909,7 +2870,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="51">
           <description>Constructor</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="51" name="param" description="(currently ignored)" type="array" variable="$options">
             <type by_reference="false">array</type>
           </tag>
@@ -2919,7 +2880,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="58">
           <name>$options</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2928,7 +2889,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>_process</full_name>
         <docblock line="62">
           <description>Minify a CSS string</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="62" name="param" description="" type="string" variable="$css">
             <type by_reference="false">string</type>
           </tag>
@@ -2938,7 +2899,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="69">
           <name>$css</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2947,7 +2908,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>_selectorsCB</full_name>
         <docblock line="157">
           <description>Replace what looks like a set of selectors</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="157" name="param" description="regex matches" type="array" variable="$m">
             <type by_reference="false">array</type>
           </tag>
@@ -2957,7 +2918,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="164">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2966,7 +2927,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>_commentCB</full_name>
         <docblock line="170">
           <description>Process a comment and return a replacement</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="170" name="param" description="regex matches" type="array" variable="$m">
             <type by_reference="false">array</type>
           </tag>
@@ -2976,7 +2937,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="177">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -2985,7 +2946,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>_fontFamilyCB</full_name>
         <docblock line="230">
           <description>Process a font-family listing and return a replacement</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="230" name="param" description="regex matches" type="array" variable="$m">
             <type by_reference="false">array</type>
           </tag>
@@ -2995,7 +2956,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="237">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3003,8 +2964,8 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
   </file>
   <file path="class/SiteMap.php" hash="b7fe2e563783262bf34275084ad0fdb9" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="11" package="Default">
@@ -3020,7 +2981,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <default>array()</default>
         <docblock line="12">
           <description>Store list of urls.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="12" name="var" description="" type="Array">
             <type by_reference="false">Array</type>
           </tag>
@@ -3052,7 +3013,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <full_name>xml</full_name>
         <docblock line="39">
           <description>Return XML content.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="39" name="return" description="" type="String">
             <type by_reference="false">String</type>
           </tag>
@@ -3064,7 +3025,7 @@ minimization badly. A test suite is available.&lt;/p&gt;</long-description>
         <docblock line="47">
           <description>Create a XML content of stores $this-&gt;aUrls
 Return NULL if doesn't exist any URL</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="47" name="return" description="" type="String">
             <type by_reference="false">String</type>
           </tag>
@@ -3077,8 +3038,8 @@ Return NULL if doesn't exist any URL</description>
   </file>
   <file path="class/Funky.php" hash="eb344462e38b657ffb741ba4e802a8ec" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="13" package="Default">
@@ -3093,7 +3054,7 @@ Some methods can be overrided by a extended class to adapt to current features o
       </docblock>
       <property final="false" static="false" visibility="protected" line="19" namespace="global" package="Default">
         <name>$urlPattern</name>
-        <default/>
+        <default></default>
         <docblock line="14">
           <description>Store the pattern String that is used to match against a URL.</description>
           <long-description>&lt;p&gt;Usefull to match if a random URL is a funky cache directory.&lt;/p&gt;</long-description>
@@ -3118,7 +3079,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="30">
           <name>$url</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3135,7 +3096,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="41">
           <name>$file</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3152,7 +3113,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="52">
           <name>$aData</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3168,12 +3129,12 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="63">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="63">
           <name>$data</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3189,7 +3150,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="77">
           <name>$path</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="77">
@@ -3210,8 +3171,8 @@ Some methods can be overrided by a extended class to adapt to current features o
   </file>
   <file path="class/View.php" hash="7cde5c84ce991d9108cf25f5583c0c1e" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="9" package="Default">
@@ -3220,23 +3181,23 @@ Some methods can be overrided by a extended class to adapt to current features o
       <full_name>\View</full_name>
       <docblock line="6">
         <description>Class that manipulates html output and html template engine loads.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <property final="false" static="false" visibility="private" line="11" namespace="global" package="Default">
         <name>$module</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="12" namespace="global" package="Default">
         <name>$module_path</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="13" namespace="global" package="Default">
         <name>$_engine</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="14" namespace="global" package="Default">
         <name>$_template</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="15" namespace="global" package="Default">
         <name>$cache_expires</name>
@@ -3272,7 +3233,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="53">
           <name>$param</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3303,7 +3264,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="110">
           <name>$layout</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3320,7 +3281,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="122">
           <name>$fileName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3336,7 +3297,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="148">
           <name>$fileName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="148">
@@ -3394,8 +3355,8 @@ Some methods can be overrided by a extended class to adapt to current features o
   </file>
   <file path="class/Mailer.php" hash="ab3bb5a9e314a399cb25183a5b823219" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="12" package="Default">
@@ -3461,7 +3422,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="51">
           <name>$subject</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3474,7 +3435,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="59">
           <name>$body</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3490,12 +3451,12 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="68">
           <name>$header</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="68">
           <name>$value</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3512,7 +3473,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="80">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="80">
@@ -3534,7 +3495,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="101">
           <name>$to</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3551,7 +3512,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="117">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="117">
@@ -3573,7 +3534,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="139">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="139">
@@ -3622,7 +3583,7 @@ Some methods can be overrided by a extended class to adapt to current features o
         </docblock>
         <argument line="238">
           <name>$arr</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3647,7 +3608,7 @@ Some methods can be overrided by a extended class to adapt to current features o
   <file path="class/Minify_HTML.php" hash="e1d1c51f9dfe5948887ba2d306adfae9" package="Minify">
     <docblock line="2">
       <description>Class Minify_HTML</description>
-      <long-description/>
+      <long-description></long-description>
       <tag line="2" name="package" description="Minify"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="48" package="Minify">
@@ -3689,7 +3650,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>minify</full_name>
         <docblock line="50">
           <description>"Minify" an HTML page</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="50" name="param" description="" type="string" variable="$html">
             <type by_reference="false">string</type>
           </tag>
@@ -3702,7 +3663,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         </docblock>
         <argument line="68">
           <name>$html</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="68">
@@ -3716,7 +3677,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>__construct</full_name>
         <docblock line="74">
           <description>Create a minifier object</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="74" name="param" description="" type="string" variable="$html">
             <type by_reference="false">string</type>
           </tag>
@@ -3729,7 +3690,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         </docblock>
         <argument line="92">
           <name>$html</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="92">
@@ -3743,7 +3704,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>process</full_name>
         <docblock line="107">
           <description>Minify the markeup given in the constructor</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="107" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -3754,7 +3715,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_commentCB</full_name>
         <argument line="179">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3763,7 +3724,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_reservePlace</full_name>
         <argument line="186">
           <name>$content</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3772,7 +3733,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_outsideTagCB</full_name>
         <argument line="199">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3781,7 +3742,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_removePreCB</full_name>
         <argument line="204">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3790,7 +3751,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_removeTextareaCB</full_name>
         <argument line="209">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3799,7 +3760,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_removeStyleCB</full_name>
         <argument line="214">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3808,7 +3769,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_removeScriptCB</full_name>
         <argument line="236">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3817,7 +3778,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_removeCdata</full_name>
         <argument line="263">
           <name>$str</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3826,7 +3787,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <full_name>_needsCdata</full_name>
         <argument line="270">
           <name>$str</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3850,8 +3811,8 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
   </file>
   <file path="class/Feed.php" hash="abc9f48164e4c081e4660842ec2fe6ba" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="11" package="Default">
@@ -3867,7 +3828,7 @@ STYLE and SCRIPT blocks compressed by callback functions.&lt;/p&gt;
         <default>array('encoding' =&gt; 'utf-8', 'title' =&gt; 'Feed', 'feed_url' =&gt; '', 'description' =&gt; '', 'items' =&gt; array())</default>
         <docblock line="12">
           <description>Default feed fields</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="12" name="var" description="" type="\$aFeed">
             <type by_reference="false">\$aFeed</type>
           </tag>
@@ -3891,7 +3852,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>load</full_name>
         <docblock line="40">
           <description>Load data feed.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="40" name="param" description="" type="Array" variable="$aFeed">
             <type by_reference="false">Array</type>
           </tag>
@@ -3907,7 +3868,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>rss2</full_name>
         <docblock line="51">
           <description>Return a RSS2 XML code of feed from loaded data.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="51" name="param" description="- Can be specified a feed content." type="Array" variable="$aFeed">
             <type by_reference="false">Array</type>
           </tag>
@@ -3926,14 +3887,14 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>show</full_name>
         <docblock line="99">
           <description>Show/print the xml data of type of feed specified, setting the correct header content-type.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="99" name="param" description="" type="String" variable="$type">
             <type by_reference="false">String</type>
           </tag>
         </docblock>
         <argument line="103">
           <name>$type</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -3944,8 +3905,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/Cart.php" hash="426b21398b9087045dcdc169b188679a" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="12" package="Default">
@@ -3959,7 +3920,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </docblock>
       <property final="false" static="false" visibility="protected" line="14" namespace="global" package="Default">
         <name>$session</name>
-        <default/>
+        <default></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="16" package="Default">
         <name>__construct</name>
@@ -3982,7 +3943,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="29">
           <name>$data</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="29">
@@ -4054,12 +4015,12 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="102">
           <name>$data</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="102">
           <name>$field</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4076,8 +4037,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/Minify.php" hash="585bd019462f3c573a2ba206edf6d1bc" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="10" package="Default">
@@ -4086,7 +4047,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\Minify</full_name>
       <docblock line="7">
         <description>Class used to minify HTML, CSS and JavaScript code.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="17" package="Default">
         <name>css</name>
@@ -4100,7 +4061,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="17">
           <name>$css</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4116,7 +4077,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="27">
           <name>$html</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4132,7 +4093,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="37">
           <name>$js</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4146,8 +4107,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/Session.php" hash="7f1fd4b81464e20036f7c2e58771d6f0" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="12" package="Default">
@@ -4161,7 +4122,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </docblock>
       <property final="false" static="false" visibility="public" line="14" namespace="global" package="Default">
         <name>$context</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="true" visibility="public" line="15" namespace="global" package="Default">
         <name>$started</name>
@@ -4193,7 +4154,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="35">
           <name>$f</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="35">
@@ -4215,7 +4176,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>clear</full_name>
         <docblock line="54">
           <description>Cleans current session.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="66" package="Default">
@@ -4223,7 +4184,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>destroy</full_name>
         <docblock line="62">
           <description>Ends current session.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
     </class>
@@ -4237,8 +4198,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/GlobalTemplate.php" hash="afcd3a969031aa1b96f5d5254252eff2" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="10" package="Default">
@@ -4247,14 +4208,14 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\GlobalTemplate</full_name>
       <docblock line="7">
         <description>Class that manipulates global template system.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <property final="false" static="false" visibility="private" line="14" namespace="global" package="Default">
         <name>$templateFolderName</name>
         <default>'default'</default>
         <docblock line="11">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="11" name="var" description="template folder name." type="\Current">
             <type by_reference="false">\Current</type>
           </tag>
@@ -4264,8 +4225,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <name>$modelName</name>
         <default>'default.html'</default>
         <docblock line="16">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="16" name="var" description="file name of template." type="\Current">
             <type by_reference="false">\Current</type>
           </tag>
@@ -4273,10 +4234,10 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="private" line="24" namespace="global" package="Default">
         <name>$contextPath</name>
-        <default/>
+        <default></default>
         <docblock line="21">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="21" name="var" description="context path." type="\Current">
             <type by_reference="false">\Current</type>
           </tag>
@@ -4284,10 +4245,10 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="private" line="29" namespace="global" package="Default">
         <name>$module</name>
-        <default/>
+        <default></default>
         <docblock line="26">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="26" name="var" description="module." type="\Current">
             <type by_reference="false">\Current</type>
           </tag>
@@ -4295,10 +4256,10 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="private" line="34" namespace="global" package="Default">
         <name>$_view</name>
-        <default/>
+        <default></default>
         <docblock line="31">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="31" name="var" description="instance" type="\View">
             <type by_reference="false">\View</type>
           </tag>
@@ -4353,7 +4314,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="84">
           <name>$fileName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="84">
@@ -4411,8 +4372,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/Security.php" hash="8445a5d5c985ba4ebf7838d90e582ead" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="10" package="Default">
@@ -4421,11 +4382,11 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\Security</full_name>
       <docblock line="7">
         <description>Class with some useful method used with security implementations.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <property final="false" static="false" visibility="protected" line="12" namespace="global" package="Default">
         <name>$oSession</name>
-        <default/>
+        <default></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="14" package="Default">
         <name>__construct</name>
@@ -4459,7 +4420,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="36">
           <name>$token</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4468,7 +4429,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>clientWatch</full_name>
         <docblock line="40">
           <description>Start watching monitor by client.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="40" name="param" description="- Options that should be verified." type="Array" variable="$options">
             <type by_reference="false">Array</type>
           </tag>
@@ -4484,7 +4445,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>clientChanged</full_name>
         <docblock line="56">
           <description>Return Array of changes detected since clientWatch() method call.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="56" name="return" description="" type="Array">
             <type by_reference="false">Array</type>
           </tag>
@@ -4501,8 +4462,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/BasicDb.php" hash="747928823c85747d331e03436aa84a4d" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="10" package="Default">
@@ -4512,7 +4473,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <docblock line="6">
         <description>Basic class that manipulates action with a some database
   Should be used as a model for future Database Layers</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="16" package="Default">
         <name>getInstance</name>
@@ -4533,10 +4494,212 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <error line="12" code="50015">Argument $app_mode is missing from the Docblock of getInstance()</error>
     </parse_markers>
   </file>
+  <file path="class/Http.php" hash="bbb1f186563c295c1d3522a119ebe138" package="core\class">
+    <docblock line="2">
+      <description></description>
+      <long-description></long-description>
+      <tag line="2" name="package" description="core.class"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="10" package="Default">
+      <extends/>
+      <name>Http</name>
+      <full_name>\Http</full_name>
+      <docblock line="7">
+        <description>Class that provide some informations from HTTP request and do some action to HTTP response.</description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="17" package="Default">
+        <name>statusCode</name>
+        <full_name>statusCode</full_name>
+        <docblock line="12">
+          <description>Response a status code header specified.</description>
+          <long-description></long-description>
+          <tag line="12" name="param" description="" type="integer" variable="$number">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="12" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="17">
+          <name>$number</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="37" package="Default">
+        <name>contentType</name>
+        <full_name>contentType</full_name>
+        <docblock line="22">
+          <description>Response a content type specified.</description>
+          <long-description>&lt;p&gt;Usage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// by shortcuts:
+    Http::contentType( 'xml' );
+// by specified content-type:
+    Http::contentType( 'application/vnd.ms-excel' );
+// charset:
+    Http::contentType( 'json', 'utf-16' );
+&lt;/code&gt;&lt;/pre&gt;</long-description>
+          <tag line="22" name="param" description="Shortcuts avaliable: pdf, gzip, zip, json, xml, gif, jpeg, png, css, plain, html." type="string" variable="$type">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="22" name="param" description="Default: utf-8" type="string" variable="$charset">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="22" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="37">
+          <name>$type</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="37">
+          <name>$charset</name>
+          <default>'utf-8'</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="71" package="Default">
+        <name>ssl</name>
+        <full_name>ssl</full_name>
+        <docblock line="67">
+          <description>Check if is a SSL connection.</description>
+          <long-description>&lt;p&gt;@return boolean determined if it is a SSL connection&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="94" package="Default">
+        <name>ajax</name>
+        <full_name>ajax</full_name>
+        <docblock line="90">
+          <description>Check if the request is an AJAX request.</description>
+          <long-description>&lt;p&gt;@return boolean&lt;/p&gt;</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="102" package="Default">
+        <name>method</name>
+        <full_name>method</full_name>
+        <docblock line="98">
+          <description>Return the requested method name in lowercase.</description>
+          <long-description></long-description>
+          <tag line="98" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="114" package="Default">
+        <name>clean</name>
+        <full_name>clean</full_name>
+        <docblock line="110">
+          <description>Do a cleaning .</description>
+          <long-description>&lt;p&gt;@return  string [description]&lt;/p&gt;</long-description>
+        </docblock>
+        <argument line="114">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="132" package="Default">
+        <name>get</name>
+        <full_name>get</full_name>
+        <docblock line="120">
+          <description>Return a query value sent by method GET from $_GET var.</description>
+          <long-description>&lt;p&gt;Usage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  // get a query value
+      Http::get('name');
+  // indicate if method request is GET
+      Http::get();
+  &lt;/code&gt;&lt;/pre&gt;</long-description>
+          <tag line="120" name="param" description="@return mixed|boolean" type="String" variable="$field">
+            <type by_reference="false">String</type>
+          </tag>
+        </docblock>
+        <argument line="132">
+          <name>$field</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="152" package="Default">
+        <name>post</name>
+        <full_name>post</full_name>
+        <docblock line="140">
+          <description>Return a post value sent by method POST from $_POST var.</description>
+          <long-description>&lt;p&gt;Usage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  // get a post value
+      Http::post('name');
+  // indicate if method request is POST
+      Http::post();
+  &lt;/code&gt;&lt;/pre&gt;</long-description>
+          <tag line="140" name="param" description="@return mixed|boolean" type="String" variable="$field">
+            <type by_reference="false">String</type>
+          </tag>
+        </docblock>
+        <argument line="152">
+          <name>$field</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="172" package="Default">
+        <name>cookie</name>
+        <full_name>cookie</full_name>
+        <docblock line="160">
+          <description>Return a identified index from $_COOKIE var.</description>
+          <long-description>&lt;p&gt;Usage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  // get a cookie value
+      Http::cookie('name');
+  // indicate if there are cookie values
+      Http::cookie();
+  &lt;/code&gt;&lt;/pre&gt;</long-description>
+          <tag line="160" name="param" description="@return mixed|boolean" type="String" variable="$field">
+            <type by_reference="false">String</type>
+          </tag>
+        </docblock>
+        <argument line="172">
+          <name>$field</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="192" package="Default">
+        <name>file</name>
+        <full_name>file</full_name>
+        <docblock line="180">
+          <description>Return a specifield uploaded file from $_FILES var.</description>
+          <long-description>&lt;p&gt;Usage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  // get a file uploaded
+      Http::file('name');
+  // indicate if there are file uploaded
+      Http::file();
+  &lt;/code&gt;&lt;/pre&gt;</long-description>
+          <tag line="180" name="param" description="@return mixed|boolean" type="String" variable="$field">
+            <type by_reference="false">String</type>
+          </tag>
+        </docblock>
+        <argument line="192">
+          <name>$field</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="2" code="50008">No short description for file class/Http.php</critical>
+      <error line="110" code="50015">Argument $value is missing from the Docblock of clean()</error>
+    </parse_markers>
+  </file>
   <file path="class/Validation.php" hash="f13648fc3bea2be0e4c88ce0c8bf2fd8" package="core\class">
     <docblock line="3">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="3" name="package" description="core.class"/>
     </docblock>
     <include line="36" type="Include" package="Default">
@@ -4548,7 +4711,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\Validation</full_name>
       <docblock line="8">
         <description>Class that manipulates several kind of values validation.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <constant namespace="global" line="15" package="Default">
         <name>NOTNULL</name>
@@ -4587,12 +4750,12 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="32">
           <name>$value</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="32">
           <name>$type</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4602,111 +4765,10 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <error line="25" code="50015">Argument $type is missing from the Docblock of validate()</error>
     </parse_markers>
   </file>
-  <file path="class/Input.php" hash="b56946a97beecf7c5f9682056bfd207a" package="core\class">
-    <docblock line="2">
-      <description/>
-      <long-description/>
-      <tag line="2" name="package" description="core.class"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="global" line="11" package="Default">
-      <extends/>
-      <name>Input</name>
-      <full_name>\Input</full_name>
-      <docblock line="7">
-        <description>Class that manipulates input data from client.</description>
-        <long-description>&lt;p&gt;Parse some filters to clean that values.&lt;/p&gt;</long-description>
-      </docblock>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="global" line="17" package="Default">
-        <name>clean</name>
-        <full_name>clean</full_name>
-        <docblock line="13">
-          <description>Do a cleaning .</description>
-          <long-description/>
-        </docblock>
-        <argument line="17">
-          <name>$value</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="29" package="Default">
-        <name>get</name>
-        <full_name>get</full_name>
-        <docblock line="24">
-          <description>Return a identified index from _GET var, or all _GET if not specified.</description>
-          <long-description>&lt;p&gt;@param String $field&lt;/p&gt;</long-description>
-          <tag line="24" name="return" description="" type="mixed">
-            <type by_reference="false">mixed</type>
-          </tag>
-        </docblock>
-        <argument line="29">
-          <name>$field</name>
-          <default>null</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="38" package="Default">
-        <name>post</name>
-        <full_name>post</full_name>
-        <docblock line="33">
-          <description>Return a identified index from _POST var, or all _POST if not specified.</description>
-          <long-description>&lt;p&gt;@param String $field&lt;/p&gt;</long-description>
-          <tag line="33" name="return" description="" type="mixed">
-            <type by_reference="false">mixed</type>
-          </tag>
-        </docblock>
-        <argument line="38">
-          <name>$field</name>
-          <default>null</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="47" package="Default">
-        <name>cookie</name>
-        <full_name>cookie</full_name>
-        <docblock line="42">
-          <description>Return a identified index from _COOKIE var, or all _COOKIE if not specified.</description>
-          <long-description>&lt;p&gt;@param String $field&lt;/p&gt;</long-description>
-          <tag line="42" name="return" description="" type="mixed">
-            <type by_reference="false">mixed</type>
-          </tag>
-        </docblock>
-        <argument line="47">
-          <name>$field</name>
-          <default>null</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="56" package="Default">
-        <name>file</name>
-        <full_name>file</full_name>
-        <docblock line="51">
-          <description>Return a identified index from _FILES var, or all _FILES if not specified.</description>
-          <long-description>&lt;p&gt;@param String $field&lt;/p&gt;</long-description>
-          <tag line="51" name="return" description="" type="mixed">
-            <type by_reference="false">mixed</type>
-          </tag>
-        </docblock>
-        <argument line="56">
-          <name>$field</name>
-          <default>null</default>
-          <type/>
-        </argument>
-      </method>
-    </class>
-    <parse_markers>
-      <critical line="2" code="50008">No short description for file class/Input.php</critical>
-      <error line="13" code="50015">Argument $value is missing from the Docblock of clean()</error>
-      <error line="24" code="50015">Argument $field is missing from the Docblock of get()</error>
-      <error line="33" code="50015">Argument $field is missing from the Docblock of post()</error>
-      <error line="42" code="50015">Argument $field is missing from the Docblock of cookie()</error>
-      <error line="51" code="50015">Argument $field is missing from the Docblock of file()</error>
-    </parse_markers>
-  </file>
   <file path="class/SqlExtract.php" hash="03525e04093e3d62f8529b88fb06f651" package="core\class">
     <docblock line="3">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="3" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="12" package="Default">
@@ -4727,7 +4789,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="private" line="15" namespace="global" package="Default">
         <name>$db</name>
-        <default/>
+        <default></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="Default">
         <name>__construct</name>
@@ -4750,7 +4812,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="36">
           <name>$tables</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="36">
@@ -4771,7 +4833,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="72">
           <name>$views</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4787,7 +4849,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="99">
           <name>$tables</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4807,7 +4869,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="131">
           <name>$tables</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="131">
@@ -4828,7 +4890,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="188">
           <name>$table</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -4991,7 +5053,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\JSMinPlus</full_name>
       <property final="false" static="false" visibility="private" line="91" namespace="global" package="Default">
         <name>$parser</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="92" namespace="global" package="Default">
         <name>$reserved</name>
@@ -5006,7 +5068,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>minify</full_name>
         <argument line="113">
           <name>$js</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="113">
@@ -5020,12 +5082,12 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>min</full_name>
         <argument line="124">
           <name>$js</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="124">
           <name>$filename</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5034,7 +5096,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>parseTree</full_name>
         <argument line="139">
           <name>$n</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="139">
@@ -5048,7 +5110,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>isValidIdentifier</full_name>
         <argument line="471">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5059,7 +5121,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\JSParser</full_name>
       <property final="false" static="false" visibility="private" line="479" namespace="global" package="Default">
         <name>$t</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="481" namespace="global" package="Default">
         <name>$opPrecedence</name>
@@ -5078,17 +5140,17 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>parse</full_name>
         <argument line="534">
           <name>$s</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="534">
           <name>$f</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="534">
           <name>$l</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5097,7 +5159,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>Script</full_name>
         <argument line="547">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5106,7 +5168,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>Statements</full_name>
         <argument line="557">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5115,7 +5177,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>Block</full_name>
         <argument line="570">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5124,7 +5186,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>Statement</full_name>
         <argument line="579">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5133,17 +5195,17 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>FunctionDefinition</full_name>
         <argument line="896">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="896">
           <name>$requireName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="896">
           <name>$functionForm</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5152,7 +5214,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>Variables</full_name>
         <argument line="937">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5161,7 +5223,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>Expression</full_name>
         <argument line="966">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="966">
@@ -5175,7 +5237,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>ParenExpression</full_name>
         <argument line="1336">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5184,12 +5246,12 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>nest</full_name>
         <argument line="1346">
           <name>$x</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1346">
           <name>$node</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1346">
@@ -5203,12 +5265,12 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>reduce</full_name>
         <argument line="1358">
           <name>$operators</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1358">
           <name>$operands</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5262,7 +5324,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>__construct</full_name>
         <argument line="1410">
           <name>$inFunction</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5273,23 +5335,23 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\JSNode</full_name>
       <property final="false" static="false" visibility="private" line="1418" namespace="global" package="Default">
         <name>$type</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="1419" namespace="global" package="Default">
         <name>$value</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="1420" namespace="global" package="Default">
         <name>$lineno</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="1421" namespace="global" package="Default">
         <name>$start</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="1422" namespace="global" package="Default">
         <name>$end</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1424" namespace="global" package="Default">
         <name>$treeNodes</name>
@@ -5308,7 +5370,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>__construct</full_name>
         <argument line="1428">
           <name>$t</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1428">
@@ -5322,12 +5384,12 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>__set</full_name>
         <argument line="1453">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1453">
           <name>$value</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5336,7 +5398,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>__get</full_name>
         <argument line="1458">
           <name>$name</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5345,7 +5407,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>addNode</full_name>
         <argument line="1466">
           <name>$node</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5360,7 +5422,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="private" line="1475" namespace="global" package="Default">
         <name>$source</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1477" namespace="global" package="Default">
         <name>$tokens</name>
@@ -5384,11 +5446,11 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="public" line="1483" namespace="global" package="Default">
         <name>$filename</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1484" namespace="global" package="Default">
         <name>$lineno</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="private" line="1486" namespace="global" package="Default">
         <name>$keywords</name>
@@ -5404,7 +5466,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="false" visibility="private" line="1543" namespace="global" package="Default">
         <name>$opRegExp</name>
-        <default/>
+        <default></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1545" package="Default">
         <name>__construct</name>
@@ -5415,7 +5477,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>init</full_name>
         <argument line="1560">
           <name>$source</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1560">
@@ -5434,7 +5496,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>getInput</full_name>
         <argument line="1574">
           <name>$chunksize</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5447,7 +5509,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>match</full_name>
         <argument line="1587">
           <name>$tt</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5456,7 +5518,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>mustMatch</full_name>
         <argument line="1592">
           <name>$tt</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5490,7 +5552,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>newSyntaxError</full_name>
         <argument line="1856">
           <name>$m</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5501,27 +5563,27 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\JSToken</full_name>
       <property final="false" static="false" visibility="public" line="1864" namespace="global" package="Default">
         <name>$type</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1865" namespace="global" package="Default">
         <name>$value</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1866" namespace="global" package="Default">
         <name>$start</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1867" namespace="global" package="Default">
         <name>$end</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1868" namespace="global" package="Default">
         <name>$lineno</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="false" visibility="public" line="1869" namespace="global" package="Default">
         <name>$assignOp</name>
-        <default/>
+        <default></default>
       </property>
     </class>
     <markers>
@@ -5615,8 +5677,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/Log.php" hash="c24b0f64c10936624c66eff6d479b5f7" package="core\class">
     <docblock line="3">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="3" name="package" description="core.class"/>
     </docblock>
     <class final="false" abstract="false" namespace="global" line="11" package="Default">
@@ -5625,7 +5687,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\Log</full_name>
       <docblock line="8">
         <description>Class that manipulate produced logs in general.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <property final="false" static="true" visibility="public" line="13" namespace="global" package="Default">
         <name>$aLogMsg</name>
@@ -5645,7 +5707,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       </property>
       <property final="false" static="true" visibility="private" line="17" namespace="global" package="Default">
         <name>$instanced</name>
-        <default/>
+        <default></default>
       </property>
       <property final="false" static="true" visibility="private" line="18" namespace="global" package="Default">
         <name>$error</name>
@@ -5677,7 +5739,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="59">
           <name>$func</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5686,7 +5748,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>handlerError</full_name>
         <docblock line="66">
           <description>Add a log message from current error triggered.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="86" package="Default">
@@ -5701,7 +5763,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="86">
           <name>$context</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -5717,7 +5779,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="109">
           <name>$msg</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="109">
@@ -5731,7 +5793,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         <full_name>toFile</full_name>
         <docblock line="120">
           <description>Write current log to file.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="145" package="Default">
@@ -5767,8 +5829,8 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
   </file>
   <file path="class/TemplateEngine.php" hash="3bda90b8186998396f6c5f6f736d2a0e" package="core\class">
     <docblock line="2">
-      <description/>
-      <long-description/>
+      <description></description>
+      <long-description></long-description>
       <tag line="2" name="package" description="core.class"/>
     </docblock>
     <include line="26" type="Include" package="Default">
@@ -5780,7 +5842,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
       <full_name>\TemplateEngine</full_name>
       <docblock line="7">
         <description>Class base from others Template Engines classes.</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="12" package="Default">
         <name>__construct</name>
@@ -5803,7 +5865,7 @@ If 'permanent_url' has a real URL, then 'uid' will be replaced by it.
         </docblock>
         <argument line="23">
           <name>$fileName</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="23">

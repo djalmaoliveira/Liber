@@ -8,11 +8,11 @@
 <pre>
     $oMailer = Liber::loadClass('Mailer',true);
 
-    $oMailer->addTo(    Input::post('to') );
-    $oMailer->from(     Input::post('from') );
-    $oMailer->reply(    Input::post('reply') );
-    $oMailer->subject(  Input::post('subject') );
-    $oMailer->body(     Input::post('body') );
+    $oMailer->addTo(    Http::post('to') );
+    $oMailer->from(     Http::post('from') );
+    $oMailer->reply(    Http::post('reply') );
+    $oMailer->subject(  Http::post('subject') );
+    $oMailer->body(     Http::post('body') );
     $oMailer->file(     '/path/to/file' ); // attachments
     $oMailer->html(     true );
 

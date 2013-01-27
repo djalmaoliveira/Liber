@@ -32,6 +32,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package core
+ * @version 2.0.1
  * @since 1.0
  */
 class Liber {
@@ -39,7 +40,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '1.3.4';
+    const VERSION = '2.0.1';
 
 
     /**
@@ -224,10 +225,12 @@ class Liber {
         self::$aConfig['APP_PATH']  = $path;
         self::$aConfig['BASE_PATH'] = dirname(__FILE__).'/';
 
+        self::loadClass('Http');
+
         // prepare the enviroment
         //
         self::$aConfig['APP_ROOT'] = dirname($_SERVER['SCRIPT_FILENAME']).DIRECTORY_SEPARATOR;
-        self::$aConfig['APP_URL']  = ((self::isSSL())?'https':'http').'://'.$_SERVER['SERVER_NAME'].str_replace('//','/',  dirname($_SERVER['SCRIPT_NAME']).'/') ;
+        self::$aConfig['APP_URL']  = ((Http::ssl())?'https':'http').'://'.$_SERVER['SERVER_NAME'].str_replace('//','/',  dirname($_SERVER['SCRIPT_NAME']).'/') ;
 
         if (  self::$aConfig['APP_MODE'] == 'DEV' ) {
             error_reporting(-1);
@@ -244,8 +247,6 @@ class Liber {
         }
 
         register_shutdown_function ( 'catchError' ) ;
-        self::loadClass('Input');
-
     }
 
 
@@ -511,18 +512,6 @@ class Liber {
     }
 
     /**
-    *   Return the requested method.
-    *   @return String
-    */
-    public static function requestedMethod() {
-        static $method;
-        if  (empty($method)) {
-            $method = strtolower($_SERVER['REQUEST_METHOD']);
-        }
-        return $method;
-    }
-
-    /**
     *   Search for configured route and params, returning it.
     *   @param Array  $aRoute
     *   @param String $uri
@@ -583,7 +572,7 @@ class Liber {
     *   @return mixed - Array | String or false if don't find.
     */
     protected static function getRouteMethod($route) {
-        return isset(Liber::$aRoute[$route]['*'])?Liber::$aRoute[$route]['*']:  (isset(Liber::$aRoute[$route][self::requestedMethod()])?Liber::$aRoute[$route][self::requestedMethod()]:Array('','',''));
+        return isset(Liber::$aRoute[$route]['*'])?Liber::$aRoute[$route]['*']:  (isset(Liber::$aRoute[$route][Http::method()])?Liber::$aRoute[$route][Http::method()]:Array('','',''));
     }
 
 
@@ -667,37 +656,7 @@ class Liber {
         return self::$_controller;
     }
 
-    /**
-    *   Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools
-    *   @return bool
-    */
-    public static function isAjax(){
-        return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest');
-    }
 
-    /**
-    *  Check if the connection is a SSL connection
-    *  @return bool determined if it is a SSL connection
-    */
-    public static function isSSL(){
-
-        if(!isset($_SERVER['HTTPS']))
-            return FALSE;
-
-        //Apache
-        if($_SERVER['HTTPS'] === 1) {
-            return TRUE;
-        }
-        //IIS
-        elseif ($_SERVER['HTTPS'] === 'on') {
-            return TRUE;
-        }
-        //other servers
-        elseif ($_SERVER['SERVER_PORT'] == 443){
-            return TRUE;
-        }
-        return FALSE;
-    }
 }
 
 
@@ -736,15 +695,6 @@ class Controller {
         $this->module = isset($args['module'])?$args['module']:'';
         $this->params = isset($args['params'])?$args['params']:Array();
         header('Content-Type: text/html; charset=utf-8'); // default values
-    }
-
-    /**
-    *   Set http headers to send. See header function on PHP manual.
-    *   @param String $header
-    *
-    */
-    public function header($header=null) {
-        header($header);
     }
 
     /**
