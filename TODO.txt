@@ -1,5 +1,3 @@
-09/2012
-    - BasicDb class should use named connections, app_mode will be used to other purpose or something similar
 08/2012
     - Mailer doesn't work well with repeatead send() call;
     -

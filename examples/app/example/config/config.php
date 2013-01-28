@@ -2,8 +2,8 @@
 
 $aConfigs['configs']['APP_MODE']    = 'PROD';
 $aConfigs['routes']                 = Array();
-$aConfigs['dbconfig']['DEV']        = Array('localhost','database_name','user','password', 'database_type');
-$aConfigs['dbconfig']['PROD']       = Array('localhost','database_name','user','password', 'database_type');
+$aConfigs['db']['default']          = Array('localhost','database_name','user','password', 'database_type');
+
 
 
 $route      = &$aConfigs['routes'];

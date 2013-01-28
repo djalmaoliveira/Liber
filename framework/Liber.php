@@ -40,7 +40,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.2';
+    const VERSION = '2.0.3';
 
 
     /**
@@ -158,10 +158,11 @@ class Liber {
 
     /**
     *   Returns a database object instance.
+    *   @param string $connection_name
     *   @return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.
     */
-    public static function &db( $app_mode=null ) {
-        if ( isset(self::$_db[$app_mode]) ) { return self::$_db[$app_mode]; }
+    public static function &db( $connection_name='default' ) {
+        if ( isset(self::$_db[$connection_name]) ) { return self::$_db[$connection_name]; }
 
         $c = Liber::conf('DB_LAYER');
         if (  $c == 'BasicDb' ) {
@@ -170,8 +171,8 @@ class Liber {
             self::loadClass(Liber::conf('DB_LAYER'), 'APP');
         }
 
-        self::$_db[$app_mode] = call_user_func($c .'::getInstance', $app_mode);
-        return self::$_db[$app_mode];
+        self::$_db[$connection_name] = call_user_func($c .'::getInstance', $connection_name);
+        return self::$_db[$connection_name];
     }
 
     /**
@@ -220,7 +221,7 @@ class Liber {
         // set config values
         //
         self::$aConfig    = array_merge(self::$aConfig,  $aConfigs['configs']);
-        self::$aDbConfig  = &$aConfigs['dbconfig'];
+        self::$aDbConfig  = &$aConfigs['db'];
         self::$aRoute     = &$aConfigs['routes'];
         self::$aConfig['APP_PATH']  = $path;
         self::$aConfig['BASE_PATH'] = dirname(__FILE__).'/';

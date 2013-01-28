@@ -5,7 +5,7 @@ error_reporting(E_ALL | E_STRICT);
 
 $aConfigs['configs']['APP_MODE']    = 'DEV';
 $aConfigs['routes']                 = Array();
-$aConfigs['dbconfig']               = Array();
+$aConfigs['db']['default']          = Array();
 
 $route      = &$aConfigs['routes'];
 /*
