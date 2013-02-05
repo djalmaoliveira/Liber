@@ -1,7 +1,7 @@
 <?php
 /**
  * Main framework class file.
- * Copyright (c) 2010, 2011 Djalma Oliveira (djalmaoliveira@gmail.com)
+ * Copyright (c) 2010-2013 Djalma Oliveira (djalmaoliveira@gmail.com)
  * All rights reserved.
  * @license license.txt
  */
@@ -32,7 +32,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package core
- * @version 2.0.1
+ * @version 2.0.4
  * @since 1.0
  */
 class Liber {
@@ -40,7 +40,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.3';
+    const VERSION = '2.0.4';
 
 
     /**
@@ -596,12 +596,11 @@ class Liber {
 
         // get instance kind of Controller and call method (action).
         Liber::$_controller = new $controller( Array('module'=>$module, 'params'=>$params) );
-        if ( !method_exists( Liber::$_controller , $method )  ) {
-            return false;
+        if ( method_exists( Liber::$_controller , $method ) or method_exists( Liber::$_controller , '__call' ) ) {
+            call_user_func_array(array(Liber::$_controller, $method), $params);
+            return true;
         }
-
-        call_user_func_array(array(Liber::$_controller, $method), $params);
-        return true;
+        return false;
     }
 
     /**
@@ -772,13 +771,6 @@ class Controller {
         }
     }
 
-    /**
-    *   Called when there aren't a requested action method in controller.
-    *   @param String $action - Action name called
-    */
-    function __call($action, $args) {
-        Liber::loadController(Liber::conf('PAGE_NOT_FOUND'), true)->index($action);
-    }
 }
 
 ?>
