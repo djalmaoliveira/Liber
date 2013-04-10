@@ -13,5 +13,5 @@ $route['/']['*']                        = Array('MainController');
 $route['/direct/route']['*']            = Array('MainController', 'direct');
 $route['/process/named/:name:']['*']    = Array('Examples', 'named');
 $route['/other/direct/route']['*']      = Array('Examples');
-
+$route['/try/detect/route']['*']        = Array('Examples');
 ?>

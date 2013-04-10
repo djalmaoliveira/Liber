@@ -36,7 +36,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">306</span></a></li>
+                <span class="label label-info">304</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>fixme 
                 <span class="label label-info">1</span>
@@ -163,7 +163,7 @@ LANG             ->  Application language, used to some system messages. See BAS
 </tr>
 <tr>
 <th>version</th>
-<td>2.0.1</td>
+<td>2.0.7</td>
 </tr>
 <tr>
 <th>since</th>
@@ -502,10 +502,10 @@ LANG             ->  Application language, used to some system messages. See BAS
 
 <pre>
  The route processing obey the follow sequence jumping to the next when not found:
-     1º - Search for direct route; (no URI params)
-     2º - Search for previous segment direct route; (no URI params)
-     3º - Search if exist a method in controller of route '/';
-     4º - Search for controller name;
+     1º - Search for direct route; (without URI params);
+     2º - Search if exist a method in controller of route '/' (with URI params);
+     3º - Search for controller/action/params name (with URI params);
+     4º - Search for auto detect route (with URI params);
      5º - Search for named params in route;
      6º - Load Not Found Controller;
 
@@ -602,7 +602,7 @@ LANG             ->  Application language, used to some system messages. See BAS
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-01-28T08:27:47-03:00.<br></footer></div>
+            generated on 2013-04-10T10:03:01-03:00.<br></footer></div>
 </div>
 </body>
 </html>

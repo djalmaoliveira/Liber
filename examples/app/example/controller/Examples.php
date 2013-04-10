@@ -31,6 +31,12 @@ class Examples extends Controller{
         echo "Others";
     }
 
+    public function autodetect() {
+        echo "Called from Class <strong>".__CLASS__."</strong>, Method <strong>".__FUNCTION__."</strong>.<hr>";
+        echo "Auto detect.<br/>";
+        print_r( func_get_args() );
+    }
+
 }
 
 ?>
