@@ -1,3 +1,5 @@
+02/2013
+    - In APP_MODE DEV show profile error messagem inside page
 08/2012
     - Mailer doesn't work well with repeatead send() call;
     -

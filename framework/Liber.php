@@ -40,7 +40,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.4';
+    const VERSION = '2.0.6';
 
 
     /**
@@ -136,7 +136,7 @@ class Liber {
     *   Database configuration
     *   @var Array
     */
-    public    static $aDbConfig = Array('DEV'=>Array(), 'PROD' => Array());
+    public    static $aDbConfig = Array('default'=>Array('localhost','database_name','user','password', 'database_type'));
 
     /**
     *   Database layer instance
