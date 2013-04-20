@@ -25,7 +25,6 @@ class SiteMapTest extends PHPUnit_Framework_TestCase {
         $s = new SiteMap;
 		$s->url( Array('loc'=>'http://url.com.br', 'lastmod'=>'2010-11-01') );
 		$xml = $s->xml();
-file_put_contents('/home/usuario/Desktop/s.xml', $xml);
         $this->assertTrue( !empty($xml), "Should have XML data." );
     }
 

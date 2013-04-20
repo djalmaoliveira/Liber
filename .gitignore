@@ -4,3 +4,4 @@ manual/app/cache
 manual/app/log
 manual/assets/*
 examples/test_unit/log
+tests/tablemodel.fdb
