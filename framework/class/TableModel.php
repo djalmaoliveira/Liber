@@ -571,12 +571,14 @@ abstract class TableModel {
     *   searchBy( 'field', 'value' ); // search only one field
     *   searchBy( Array('field' => 'value', ...) ); // search many fields with AND operator
     *   searchBy( Array( 'or' => Array('field' => 'value', ...) ) ); // search many fields with OR operator
+    *   searchBy( 'field1', 'value', array('fields' => array('field2')) ); // search by field1 and return field2 as result
     *   </code>
     *   @param string|array $fields
     *   @param string $value
+    *   @param  array $options      fields=array('field1', field2) to return only specified fields
     *   @return PDOStatement|false
     */
-    function searchBy( $fields, $value=null ) {
+    function searchBy( $fields, $value=null, $options=array() ) {
         if ( is_array($fields) ) {
             $oper = 'and';
             if  ( in_array( strtolower(key($fields)), Array('or', 'xor')) ) {
@@ -594,7 +596,12 @@ abstract class TableModel {
             $params = Array(':value' => $value);
         }
 
-        $sql = "select * from ".$this->table." where  $where";
+        $fields = '*';
+        if ( isset($options['fields']) ) {
+            $fields = implode(', ', $options['fields']);
+        }
+
+        $sql = "select $fields from ".$this->table." where  $where";
         if ( ($q = $this->executePreparedSql($sql, $params)) ) {
             return  $q;
         }

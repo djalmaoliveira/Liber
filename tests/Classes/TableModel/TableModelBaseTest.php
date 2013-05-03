@@ -284,6 +284,10 @@ class Base extends PHPUnit_Framework_TestCase
         $res = $this->Model->searchBy( Array( 'or' => Array('str_value' => 'searchBy', 'id' => $this->Model->field('id') ) ) )->fetch();
         $this->assertEquals( $this->Model->field('str_value'),  $res['str_value'], "Problem with Multiple field searching using 'OR'.");
 
+        // single field search, returning other field
+        $res = $this->Model->searchBy('str_value', 'searchBy', array('fields'=>array('id')))->fetch();
+        $this->assertInternalType('array', $res);
+        $this->assertArrayHasKey( 'id', $res, 'Should return id field.');
     }
 
 
