@@ -659,6 +659,7 @@ abstract class TableModel {
 
     /**
      * Used to add or return errors on current object.
+     * The namespaces 'validation' and 'fields' are reserved words created by internal validation when save data.
      * <code>
      * // Add a new error message using a $namespace.
      * errors('info', 'one error occur.');

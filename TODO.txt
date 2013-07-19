@@ -14,8 +14,6 @@
     - Mailer->addTo() and to(), don't work with Array argument.
 01/2011
     - Mailer should have return invalid fields.
-12/2010
-    - research about add complete html code in html messages
 11/2010
     - images using ETAGs
     - helpers/classes to access API from Twitter, Facebook...
