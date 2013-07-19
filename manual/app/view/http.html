@@ -1,0 +1,33 @@
+<div class="blog">
+<h1>Http Class</h1>
+
+
+<p>This class is used to get requested data, like post, get, cookies and file.</p>
+<p>This class is loaded by default.</p>
+<p>Code example:</p>
+
+<pre>
+
+    // show POST data
+    echo Http::post('name');
+    echo Http::post('email');
+
+    // show GET data
+    echo Http::get('name');
+    echo Http::get('email');
+
+    // show COOKIE data
+    echo Http::cookie('name');
+    echo Http::cookie('email');
+
+    // show FILE data
+    echo Http::file('image1');
+    echo Http::file('image2');
+
+</pre>
+
+<h2>Real example:</h2>
+<a href='?name=Liber'>Click to show get values</a>
+<br/>
+<?=print_r(Http::get('Liber'),true)?>
+</div>

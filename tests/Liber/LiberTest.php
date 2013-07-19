@@ -1,5 +1,5 @@
 <?php
-include '../include.php';
+include dirname(__FILE__).'../include.php';
 
 
 class LiberTest extends PHPUnit_Framework_TestCase {

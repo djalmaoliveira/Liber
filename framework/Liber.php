@@ -1,7 +1,7 @@
 <?php
 /**
  * Main framework class file.
- * Copyright (c) 2010, 2011 Djalma Oliveira (djalmaoliveira@gmail.com)
+ * Copyright (c) 2010-2013 Djalma Oliveira (djalmaoliveira@gmail.com)
  * All rights reserved.
  * @license license.txt
  */
@@ -32,6 +32,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package core
+ * @version 2.0.13
  * @since 1.0
  */
 class Liber {
@@ -39,7 +40,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '1.3.4';
+    const VERSION = '2.0.13';
 
 
     /**
@@ -70,10 +71,10 @@ class Liber {
     *  <p>In example '/my/route/test' there are three segments.</p>
     *  <pre>
     *  The route processing obey the follow sequence jumping to the next when not found:
-    *      1º - Search for direct route; (no URI params)
-    *      2º - Search for previous segment direct route; (no URI params)
-    *      3º - Search if exist a method in controller of route '/';
-    *      4º - Search for controller name;
+    *      1º - Search for direct route; (without URI params);
+    *      2º - Search if exist a method in controller of route '/' (with URI params);
+    *      3º - Search for controller/action/params name (with URI params);
+    *      4º - Search for auto detect route (with URI params);
     *      5º - Search for named params in route;
     *      6º - Load Not Found Controller;
     *
@@ -135,7 +136,7 @@ class Liber {
     *   Database configuration
     *   @var Array
     */
-    public    static $aDbConfig = Array('DEV'=>Array(), 'PROD' => Array());
+    public    static $aDbConfig = Array('default'=>Array('localhost','database_name','user','password', 'database_type'));
 
     /**
     *   Database layer instance
@@ -157,10 +158,11 @@ class Liber {
 
     /**
     *   Returns a database object instance.
+    *   @param string $connection_name
     *   @return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.
     */
-    public static function &db( $app_mode=null ) {
-        if ( isset(self::$_db[$app_mode]) ) { return self::$_db[$app_mode]; }
+    public static function &db( $connection_name='default' ) {
+        if ( isset(self::$_db[$connection_name]) ) { return self::$_db[$connection_name]; }
 
         $c = Liber::conf('DB_LAYER');
         if (  $c == 'BasicDb' ) {
@@ -169,8 +171,8 @@ class Liber {
             self::loadClass(Liber::conf('DB_LAYER'), 'APP');
         }
 
-        self::$_db[$app_mode] = call_user_func($c .'::getInstance', $app_mode);
-        return self::$_db[$app_mode];
+        self::$_db[$connection_name] = call_user_func($c .'::getInstance', $connection_name);
+        return self::$_db[$connection_name];
     }
 
     /**
@@ -219,15 +221,17 @@ class Liber {
         // set config values
         //
         self::$aConfig    = array_merge(self::$aConfig,  $aConfigs['configs']);
-        self::$aDbConfig  = &$aConfigs['dbconfig'];
+        self::$aDbConfig  = &$aConfigs['db'];
         self::$aRoute     = &$aConfigs['routes'];
         self::$aConfig['APP_PATH']  = $path;
         self::$aConfig['BASE_PATH'] = dirname(__FILE__).'/';
 
+        self::loadClass('Http');
+
         // prepare the enviroment
         //
         self::$aConfig['APP_ROOT'] = dirname($_SERVER['SCRIPT_FILENAME']).DIRECTORY_SEPARATOR;
-        self::$aConfig['APP_URL']  = ((self::isSSL())?'https':'http').'://'.$_SERVER['SERVER_NAME'].str_replace('//','/',  dirname($_SERVER['SCRIPT_NAME']).'/') ;
+        self::$aConfig['APP_URL']  = ((Http::ssl())?'https':'http').'://'.$_SERVER['SERVER_NAME'].str_replace('//','/',  dirname($_SERVER['SCRIPT_NAME']).'/') ;
 
         if (  self::$aConfig['APP_MODE'] == 'DEV' ) {
             error_reporting(-1);
@@ -235,6 +239,9 @@ class Liber {
             ini_set('display_errors','Off');
         }
 
+        /**
+         * @ignore
+         */
         function catchError() {
             if ( !error_get_last() ) {
                 return;
@@ -244,8 +251,6 @@ class Liber {
         }
 
         register_shutdown_function ( 'catchError' ) ;
-        self::loadClass('Input');
-
     }
 
 
@@ -511,18 +516,6 @@ class Liber {
     }
 
     /**
-    *   Return the requested method.
-    *   @return String
-    */
-    public static function requestedMethod() {
-        static $method;
-        if  (empty($method)) {
-            $method = strtolower($_SERVER['REQUEST_METHOD']);
-        }
-        return $method;
-    }
-
-    /**
     *   Search for configured route and params, returning it.
     *   @param Array  $aRoute
     *   @param String $uri
@@ -583,7 +576,7 @@ class Liber {
     *   @return mixed - Array | String or false if don't find.
     */
     protected static function getRouteMethod($route) {
-        return isset(Liber::$aRoute[$route]['*'])?Liber::$aRoute[$route]['*']:  (isset(Liber::$aRoute[$route][self::requestedMethod()])?Liber::$aRoute[$route][self::requestedMethod()]:Array('','',''));
+        return isset(Liber::$aRoute[$route]['*'])?Liber::$aRoute[$route]['*']:  (isset(Liber::$aRoute[$route][Http::method()])?Liber::$aRoute[$route][Http::method()]:Array('','',''));
     }
 
 
@@ -603,12 +596,11 @@ class Liber {
 
         // get instance kind of Controller and call method (action).
         Liber::$_controller = new $controller( Array('module'=>$module, 'params'=>$params) );
-        if ( !method_exists( Liber::$_controller , $method )  ) {
-            return false;
+        if ( method_exists( Liber::$_controller , $method ) or method_exists( Liber::$_controller , '__call' ) ) {
+            call_user_func_array(array(Liber::$_controller, $method), $params);
+            return true;
         }
-
-        call_user_func_array(array(Liber::$_controller, $method), $params);
-        return true;
+        return false;
     }
 
     /**
@@ -637,14 +629,23 @@ class Liber {
         // Direct match, load pre-configured route (the fast way, recommended)
         $routeOption = Liber::getRouteMethod($uri);
         if ( !self::processController( $routeOption[0], (isset($routeOption[1])?$routeOption[1]:'index'), (isset($routeOption[2])?$routeOption[2]:'') ) ) {
-            // Previous direct match
-            $routeOption = Liber::getRouteMethod( dirname($uri) );
-            if ( !self::processController( $routeOption[0], basename($uri), (isset($routeOption[2])?$routeOption[2]:'') ) ) {
-                // Try '/' as a main controller
-                $routeOption =  Liber::getRouteMethod('/');
-                if ( !self::processController( $routeOption[0], $uri_parts[0], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, 1) ) ) {
-                    // Try /controller/action...
-                    if ( !self::processController( $uri_parts[0], (isset($uri_parts[1])?$uri_parts[1]:'index'), '', array_slice($uri_parts, 2)) ) {
+            // Try '/' as a main controller
+            $routeOption = Liber::getRouteMethod('/');
+            if ( !self::processController( $routeOption[0], $uri_parts[0], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, 1) ) ) {
+                // Try /controller/action/param1/param2...
+                if ( !self::processController( $uri_parts[0], (isset($uri_parts[1])?$uri_parts[1]:'index'), '', array_slice($uri_parts, 2)) ) {
+                    // Try to detect route
+                    $count_parts = count($uri_parts);
+                    $uri_detect = '';
+                    for ($i=0; $i < $count_parts; $i++) {
+                        $uri_detect .= '/'.$uri_parts[$i];
+                        $routeOption = Liber::getRouteMethod( $uri_detect );
+                        if ( isset( $uri_parts[($i+1)] )  and ($uri_found = self::processController( $routeOption[0], $uri_parts[($i+1)], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, ($i+2)) )) ) {
+                            break;
+                        }
+                    }
+                    // Try named params
+                    if ( isset($uri_found) and !$uri_found ) {
                         if ( $aParsed = Liber::parseRouteParams($aRoute, $uri) ) {
                             $routeOption = Liber::getRouteMethod($aParsed['route']);
                             $routeConf   = Liber::getRouteConf( $routeOption );
@@ -656,6 +657,7 @@ class Liber {
                 }
             }
         }
+
     }
 
 
@@ -667,37 +669,7 @@ class Liber {
         return self::$_controller;
     }
 
-    /**
-    *   Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools
-    *   @return bool
-    */
-    public static function isAjax(){
-        return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest');
-    }
 
-    /**
-    *  Check if the connection is a SSL connection
-    *  @return bool determined if it is a SSL connection
-    */
-    public static function isSSL(){
-
-        if(!isset($_SERVER['HTTPS']))
-            return FALSE;
-
-        //Apache
-        if($_SERVER['HTTPS'] === 1) {
-            return TRUE;
-        }
-        //IIS
-        elseif ($_SERVER['HTTPS'] === 'on') {
-            return TRUE;
-        }
-        //other servers
-        elseif ($_SERVER['SERVER_PORT'] == 443){
-            return TRUE;
-        }
-        return FALSE;
-    }
 }
 
 
@@ -736,15 +708,6 @@ class Controller {
         $this->module = isset($args['module'])?$args['module']:'';
         $this->params = isset($args['params'])?$args['params']:Array();
         header('Content-Type: text/html; charset=utf-8'); // default values
-    }
-
-    /**
-    *   Set http headers to send. See header function on PHP manual.
-    *   @param String $header
-    *
-    */
-    public function header($header=null) {
-        header($header);
     }
 
     /**
@@ -818,13 +781,6 @@ class Controller {
         }
     }
 
-    /**
-    *   Called when there aren't a requested action method in controller.
-    *   @param String $action - Action name called
-    */
-    function __call($action, $args) {
-        Liber::loadController(Liber::conf('PAGE_NOT_FOUND'), true)->index($action);
-    }
 }
 
 ?>

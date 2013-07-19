@@ -41,11 +41,11 @@ class MainController extends Controller{
 	public function mailersend() {
 	    $oMailer = Liber::loadClass('Mailer',true);
 
-	    $oMailer->addTo(    Input::post('to') );
-	    $oMailer->from(     Input::post('from') );
-	    $oMailer->subject(  Input::post('subject') );
-	    $oMailer->body(     Input::post('body') );
-	    $oMailer->html(     Input::post('html'));
+	    $oMailer->addTo(    Http::post('to') );
+	    $oMailer->from(     Http::post('from') );
+	    $oMailer->subject(  Http::post('subject') );
+	    $oMailer->body(     Http::post('body') );
+	    $oMailer->html(     Http::post('html'));
 
 	    if ( $oMailer->send() ) {
 	       $out = "Mail sent.<br/>";
@@ -60,9 +60,9 @@ class MainController extends Controller{
 	}
 
 
-	public function input() {
+	public function http() {
     	Liber::loadHelper('Form');
-        $this->oTPL->load("input.html");
+        $this->oTPL->load("http.html");
 	}
 
 	public function liber() {
@@ -89,10 +89,10 @@ class MainController extends Controller{
     public function cart() {
         $aData['cart'] = Liber::loadClass('Cart', true);
 
-        if ( Input::get('add') == 'true' ) {
+        if ( Http::get('add') == 'true' ) {
             $aData['cart']->insert(Array('#'=>'4548', 'product'=>'Liber Manual'));
         }
-        if ( Input::get('clear') == 'true' ) {
+        if ( Http::get('clear') == 'true' ) {
             $aData['cart']->clear();
         }
 

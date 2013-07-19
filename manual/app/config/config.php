@@ -2,27 +2,16 @@
 error_reporting(E_ALL | E_STRICT);
 
 
-$aConfigs   = Array(
 
-                // Configurations
-                //
-                'configs'   =>  Array(
-                    'APP_MODE'      => 'DEV'
-                ),
-
-                'routes'    =>  Array(),
-
-                'dbconfig'  =>  Array()
-
-
-                );
+$aConfigs['configs']['APP_MODE']    = 'DEV';
+$aConfigs['routes']                 = Array();
+$aConfigs['db']['default']          = Array();
 
 $route      = &$aConfigs['routes'];
-
 /*
     $route[URI][METHOD] = Array()
 */
-$route['/']['*']                 = Array('MainController', '*');
-$route['/notfound']['*']         = Array('NotFoundController', 'index');
+$route['/']['*']                 = Array('MainController');
+$route['/notfound']['*']         = Array('NotFoundController');
 
 ?>

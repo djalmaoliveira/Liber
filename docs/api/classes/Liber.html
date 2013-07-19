@@ -22,7 +22,10 @@
 <li><a>Packages</a></li>
 <li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="../packages/Minify.html"><i class="icon-folder-open"></i> Minify</a></li>
+<li><a href="../packages/cache.html"><i class="icon-folder-open"></i> cache</a></li>
+<li><a href="../packages/classes.html"><i class="icon-folder-open"></i> classes</a></li>
 <li><a href="../packages/core.html"><i class="icon-folder-open"></i> core</a></li>
+<li><a href="../packages/helpers.html"><i class="icon-folder-open"></i> helpers</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -33,7 +36,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">316</span></a></li>
+                <span class="label label-info">304</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>fixme 
                 <span class="label label-info">1</span>
@@ -65,8 +68,6 @@
 <li class="method public "><a href="#method_controller" title="controller :: Return current Controller instance."><span class="description">Return current Controller instance.</span><pre>controller()</pre></a></li>
 <li class="method public "><a href="#method_db" title="db :: Returns a database object instance."><span class="description">Returns a database object instance.</span><pre>db()</pre></a></li>
 <li class="method public "><a href="#method_getParams" title="getParams :: Get named params from uri."><span class="description">Get named params from uri.</span><pre>getParams()</pre></a></li>
-<li class="method public "><a href="#method_isAjax" title="isAjax :: Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools"><span class="description">Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools</span><pre>isAjax()</pre></a></li>
-<li class="method public "><a href="#method_isSSL" title="isSSL :: Check if the connection is a SSL connection"><span class="description">Check if the connection is a SSL connection</span><pre>isSSL()</pre></a></li>
 <li class="method public "><a href="#method_load" title="load :: Imports the definition of class(es) and tries to create an object/a list of objects from the class."><span class="description">Imports the definition of class(es) and tries to create an object/a list of objects from the class.</span><pre>load()</pre></a></li>
 <li class="method public "><a href="#method_loadApp" title="loadApp :: Set and prepare the enviroment to a Liber application."><span class="description">Set and prepare the enviroment to a Liber application.</span><pre>loadApp()</pre></a></li>
 <li class="method public "><a href="#method_loadClass" title="loadClass :: Imports the definition of one Class."><span class="description">Imports the definition of one Class.</span><pre>loadClass()</pre></a></li>
@@ -77,7 +78,6 @@
 <li class="method public "><a href="#method_log" title="log :: Returns a log object instance;"><span class="description">Returns a log object instance;</span><pre>log()</pre></a></li>
 <li class="method public "><a href="#method_processRoute" title="processRoute :: Process route, match and create related controller or redirect to default controller if don't match."><span class="description">Process route, match and create related controller or redirect to default controller if don't match.</span><pre>processRoute()</pre></a></li>
 <li class="method public "><a href="#method_redirect" title="redirect :: Redirect client to another URL."><span class="description">Redirect client to another URL.</span><pre>redirect()</pre></a></li>
-<li class="method public "><a href="#method_requestedMethod" title="requestedMethod :: Return the requested method."><span class="description">Return the requested method.</span><pre>requestedMethod()</pre></a></li>
 <li class="method public "><a href="#method_run" title="run :: Start and execute application."><span class="description">Start and execute application.</span><pre>run()</pre></a></li>
 </ul>
 </li>
@@ -162,6 +162,10 @@ LANG             ->  Application language, used to some system messages. See BAS
 <td><a href="../packages/core.html">core</a></td>
 </tr>
 <tr>
+<th>version</th>
+<td>2.0.7</td>
+</tr>
+<tr>
 <th>since</th>
 <td>1.0</td>
 </tr>
@@ -205,12 +209,15 @@ LANG             ->  Application language, used to some system messages. See BAS
 </div>
 <a id="method_db"></a><div class="element clickable method public method_db" data-toggle="collapse" data-target=".method_db .collapse">
 <h2>Returns a database object instance.</h2>
-<pre>db($app_mode) </pre>
+<pre>db($connection_name) : <a href="../classes/BasicDb.html">\BasicDb</a></pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>@return BasicDb based class,  the database singleton, auto create if the singleton has not been created yet.</p></div>
+<div class="long_description"><p>@param string $connection_name</p></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$app_mode</h4></div>
+<div class="subelement argument"><h4>$connection_name</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/BasicDb.html">\BasicDb</a></code>based class,  the database singleton, auto create if the singleton has not been created yet.</div>
 </div></div>
 </div>
 <a id="method_getParams"></a><div class="element clickable method public method_getParams" data-toggle="collapse" data-target=".method_getParams .collapse">
@@ -226,18 +233,6 @@ LANG             ->  Application language, used to some system messages. See BAS
 <code>Array</code><p>@return Array - Array('paramName' => 'value')</p>
 </div>
 </div></div>
-</div>
-<a id="method_isAjax"></a><div class="element clickable method public method_isAjax" data-toggle="collapse" data-target=".method_isAjax .collapse">
-<h2>Check if the request is an AJAX request usually sent with JS library such as JQuery/YUI/MooTools</h2>
-<pre>isAjax() </pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"><p>@return bool</p></div></div></div>
-</div>
-<a id="method_isSSL"></a><div class="element clickable method public method_isSSL" data-toggle="collapse" data-target=".method_isSSL .collapse">
-<h2>Check if the connection is a SSL connection</h2>
-<pre>isSSL() </pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"><p>@return bool determined if it is a SSL connection</p></div></div></div>
 </div>
 <a id="method_load"></a><div class="element clickable method public method_load" data-toggle="collapse" data-target=".method_load .collapse">
 <h2>Imports the definition of class(es) and tries to create an object/a list of objects from the class.</h2>
@@ -382,12 +377,6 @@ LANG             ->  Application language, used to some system messages. See BAS
 <div class="subelement argument"><h4>$return</h4></div>
 </div></div>
 </div>
-<a id="method_requestedMethod"></a><div class="element clickable method public method_requestedMethod" data-toggle="collapse" data-target=".method_requestedMethod .collapse">
-<h2>Return the requested method.</h2>
-<pre>requestedMethod() </pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"><p>@return String</p></div></div></div>
-</div>
 <a id="method_run"></a><div class="element clickable method public method_run" data-toggle="collapse" data-target=".method_run .collapse">
 <h2>Start and execute application.</h2>
 <pre>run() </pre>
@@ -513,10 +502,10 @@ LANG             ->  Application language, used to some system messages. See BAS
 
 <pre>
  The route processing obey the follow sequence jumping to the next when not found:
-     1º - Search for direct route; (no URI params)
-     2º - Search for previous segment direct route; (no URI params)
-     3º - Search if exist a method in controller of route '/';
-     4º - Search for controller name;
+     1º - Search for direct route; (without URI params);
+     2º - Search if exist a method in controller of route '/' (with URI params);
+     3º - Search for controller/action/params name (with URI params);
+     4º - Search for auto detect route (with URI params);
      5º - Search for named params in route;
      6º - Load Not Found Controller;
 
@@ -613,7 +602,7 @@ LANG             ->  Application language, used to some system messages. See BAS
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-01-15T09:58:55-03:00.<br></footer></div>
+            generated on 2013-04-10T10:03:01-03:00.<br></footer></div>
 </div>
 </body>
 </html>
