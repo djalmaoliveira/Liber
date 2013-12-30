@@ -581,14 +581,14 @@ class Liber {
 
 
     /**
-     * Process the controller associated with the processed route.
-     * @param  string $controller
-     * @param  string $method
-     * @param  string $module
-     * @param  Array  $params
+     * Try to process the controller method's specified.
+     * @param  string $controller   Controller name
+     * @param  string $method       Method name
+     * @param  string $module       Module name
+     * @param  Array  $params       List of detected route params
      * @return boolean
      */
-    protected static function processController( $controller, $method='', $module='', $params=Array() ) {
+    public static function processController( $controller, $method='', $module='', $params=Array() ) {
 
         if ( !(self::loadController( $controller, $module ) )) {
             return false;
