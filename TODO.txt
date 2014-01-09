@@ -1,3 +1,5 @@
+01/2014
+    - View::setTemplate($template_name), will set current View instance to use a specified $template_name.
 02/2013
     - In APP_MODE DEV show profile error messagem inside page
 08/2012
