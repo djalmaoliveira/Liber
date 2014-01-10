@@ -385,5 +385,17 @@ class Base extends PHPUnit_Framework_TestCase
         $this->assertTrue( $this->Model->get( $this->Model->field('id') ), 'Should be stored after commit call.' );
 
     }
+
+    /**
+     * Test Paginate method
+     */
+    public function testPaginate() {
+        // save(), insertion
+        $this->Model->field('str_value', 'saving by insert');
+        $this->assertTrue( $this->Model->save(), "Should be capable to save." ) ;
+        $res = $this->Model->paginate( 'by' );
+        $this->assertGreaterThan(0, count($res), "Should have returned at least one row.");
+
+    }
 }
 ?>

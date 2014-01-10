@@ -88,18 +88,21 @@ abstract class TableModel {
                 $this->meta['concat'] = function($fields) {
                     return "concat_ws(' ', lower(".implode('),lower(', $fields).'))';
                 };
+                $this->meta['limit'] = function($sql, $limit, $start) { return "$sql limit $limit offset $start;"; };
             break;
 
             case 'sqlite':
                 $this->meta['concat'] = function($fields) {
                     return "(' ' || lower(".implode(') || \' \' || lower(', $fields).'))';
                 };
+                $this->meta['limit'] = function($sql, $limit, $start) { return "$sql limit $limit offset $start;"; };
             break;
 
             case 'firebird':
                 $this->meta['concat'] = function($fields) {
                     return "' ' || lower(COALESCE(".implode(', \'\')) || lower(COALESCE(', $fields).', \'\' ))';
                 };
+                $this->meta['limit'] = function($sql, $limit, $start) { return "select first $limit skip $start ".strstr($sql, ' '); };
             break;
         }
         $this->PDO = $PDO;
@@ -611,25 +614,29 @@ abstract class TableModel {
 
     /**
     *   Search $terms from current table model.
-    *   $aOptions possibles: 'from', 'limit', 'start', 'fields', 'order'
-    *   'fields' Array of fields which will search with;
-    *   'from' if the search must be done on another table/view;
-    *   'where' if you want add more filter;
-    *   'limit' limits number of rows returned;
-    *   'start' set which row number the search must begin;
-    *   'order' list of fields separated by comma, can be specified the orientation 'asc' or 'desc';
+    *   <pre>
+    *   $aOptions possibles: 'from', 'limit', 'start', 'fields', 'order', 'rfields'
+    *   'fields'    Array of fields which will search with;
+    *   'from'      If the search must be done on another table/view;
+    *   'where'     If you want add more filter;
+    *   'limit'     Limits number of rows returned;
+    *   'start'     Set which row number the search must begin;
+    *   'order'     List of fields separated by comma, can be specified the orientation 'asc' or 'desc';
+    *   'rfields'   Array of fields that should be returned.
+    *   </pre>
     *   @param String $terms
     *   @param Array $aOptions
     *   @return PDOStatement|false
     */
-    function search($terms, $aOptions=Array() ) {
+    function search( $terms, $aOptions=Array() ) {
         $ret    = Array();
         $params = Array();
         $from   = !isset($aOptions['from'])?$this->table:$aOptions['from'];
-        $limit  = !isset($aOptions['limit'])?'':'limit '.$aOptions['limit'];
-        $start  = !isset($aOptions['start'])?'':' offset '.$aOptions['start'];
+        $limit  = !isset($aOptions['limit'])?'':$aOptions['limit'];
+        $start  = !isset($aOptions['start'])?'':$aOptions['start'];
         $fields = !isset($aOptions['fields'])?array_keys($this->aFields):$aOptions['fields'];
-        $order  = !isset($aOptions['order'])?'':'order by '.$aOptions['order'];
+        $order  = (isset($aOptions['order']) and $aOptions['order'])?'order by '.$aOptions['order']:'';
+        $rfields = (isset($aOptions['rfields']) and $aOptions['rfields'])?implode(',', $aOptions['rfields']):'*';
         $whereOption = !isset($aOptions['where'])?'':$aOptions['where'];
 
         $whereFields = $this->meta['concat']( $fields );
@@ -646,7 +653,10 @@ abstract class TableModel {
         $params[':1'] = $where;
         $where = $whereFields.' like lower(:1)';
 
-        $sql = "select * from $from where ($where) $whereOption  $order $limit $start ";
+        $sql = "select $rfields from $from where ($where) $whereOption  $order";
+        if ( isset($aOptions['limit']) ) {
+            $sql = $this->meta['limit']($sql, $limit, $start);
+        }
 
         $q   = $this->db()->prepare($sql);
 
@@ -656,6 +666,46 @@ abstract class TableModel {
 
         return false;
     }
+
+
+    /**
+     * Search $terms from current table model and set Paginate helper to reflect its results.
+     * @see     TableModel::search()
+     * @return  array List of fetched rows.
+     */
+    function paginate($terms, $options=Array() ) {
+        Liber::loadHelper('Paginate');
+        $op = page_options_();
+        $options['start'] = (($op['page']-1)*$op['rows']);
+        $options['limit'] = $op['rows']+1;
+        $options['order'] = (($op['sort']))?$op['sort'].' '.$op['direct']:'';
+
+        if ( $rs = $this->search($terms, $options) ) {
+            $rows           = $rs->fetchAll() ;
+            $rows_fetched   = count($rows);
+
+            if ( $rows_fetched >= $op['rows'] ) {
+                array_pop($rows);
+            }
+
+            // total
+            unset($options['start']);
+            unset($options['limit']);
+            unset($options['order']);
+            $options['rfields'] = array('count(*) as total');
+            $rs2 = $this->search($terms, $options)->fetch();
+            $total = ceil(current($rs2) / $op['rows']);
+
+            // update page settings
+            page_options_('rows_fetched', $rows_fetched);
+            page_options_('total', $total);
+            page_options_('query', $terms);
+
+            return $rows;
+        }
+        return array();
+    }
+
 
     /**
      * Used to add or return errors on current object.
