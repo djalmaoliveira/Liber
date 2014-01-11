@@ -1,7 +1,8 @@
 <?php
 /**
- *  DateTime helpers.
- * @package     helpers
+ * DateTime helpers.
+ *
+ * @package     helpers_dt
  * @author      djalmaoliveira@gmail.com
  * @copyright   djalmaoliveira@gmail.com
  * @license

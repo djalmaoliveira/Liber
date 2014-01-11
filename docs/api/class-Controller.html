@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Controller</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?695737960"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-cache.html">cache</a>
+						</li>
+				<li><a href="package-classes.html">classes</a>
+						</li>
+				<li><a href="package-helpers.html">helpers<span></span></a>
+						<ul>
+				<li><a href="package-helpers.dt.html">dt</a>
+						</li>
+				<li><a href="package-helpers.form.html">form</a>
+						</li>
+				<li><a href="package-helpers.fs.html">fs</a>
+						</li>
+				<li><a href="package-helpers.html.html">html</a>
+						</li>
+				<li><a href="package-helpers.paginate.html">paginate</a>
+						</li>
+				<li><a href="package-helpers.url.html">url</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="package-liber.html">liber</a>
+						</li>
+				<li><a href="package-Minify.html">Minify</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Controller.html">Controller</a></li>
+				<li><a href="class-Liber.html">Liber</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-liber.html" title="Summary of liber"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Controller</h1>
+
+
+	<div class="description">
+	
+<p>Class that manipulates Controllers, its creation can be relative a module.
+All controllers must extends it and have at least the 'index' method.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-liber.html">liber</a><br>
+
+				<b>License:</b>
+				<a href="license.txt">license.txt</a><br>
+				<b>Author:</b>
+				Djalma Oliveira (<a
+href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com</a>)<br>
+				<b>Since:</b>
+				1.0<br>
+		<b>Located at</b> <a href="source-class-Controller.html#679-790" title="Go to source code">Liber.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Controller.html#707-717" title="Go to source code">__construct</a>( <span>Array <var>$args</var> = <span class="php-keyword1">Array</span>(<span class="php-quote">'module'</span>=&gt;<span class="php-quote">''</span>,<span class="php-quote">'params'</span>=&gt;<span class="php-keyword1">Array</span>()) </span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$args</var></dt>
+					<dd><code>Array</code><br>$args $args values are: ['module'] = 'module name' - empty for application
+controller ['params'] = Array() - values of detected named params from route</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadModel" id="_loadModel">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadModel">#</a>
+		<code><a href="source-class-Controller.html#719-728" title="Go to source code">loadModel</a>( <span>String <var>$modelName</var></span>, <span>String|boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Load model from application or module if was instanced with it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Load model from application or module if was instanced with it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$modelName</var></dt>
+					<dd><code>String</code><br>$modelName - Model name</dd>
+					<dt><var>$createObj</var></dt>
+					<dd><code>String|boolean</code><br>$createObj - if must create a object</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>- Model object or boolean<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadClass" id="_loadClass">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadClass">#</a>
+		<code><a href="source-class-Controller.html#730-739" title="Go to source code">loadClass</a>( <span>String <var>$className</var></span>, <span>String|boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Load Class from application or module if was instanced with it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Load Class from application or module if was instanced with it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$className</var></dt>
+					<dd><code>String</code><br>$className - Model name</dd>
+					<dt><var>$createObj</var></dt>
+					<dd><code>String|boolean</code><br>$createObj boolean - if must create a object</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>- Class object or boolean<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadHelper" id="_loadHelper">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadHelper">#</a>
+		<code><a href="source-class-Controller.html#741-750" title="Go to source code">loadHelper</a>( <span>String <var>$helperName</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Load helper from application or module if was instanced with it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Load helper from application or module if was instanced with it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$helperName</var></dt>
+					<dd><code>String</code><br>$helperName - Helper name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadPlugin" id="_loadPlugin">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadPlugin">#</a>
+		<code><a href="source-class-Controller.html#752-761" title="Go to source code">loadPlugin</a>( <span>String <var>$pluginName</var></span>, <span>boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Load plugin from application or module if was instanced with it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Load plugin from application or module if was instanced with it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pluginName</var></dt>
+					<dd><code>String</code><br>$pluginName - Plugin name</dd>
+					<dt><var>$createObj</var></dt>
+					<dd><code>boolean</code><br>$createObj - if must create a object</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>- Plugin object or boolean<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="view" id="_view">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-View.html">View</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_view">#</a>
+		<code><a href="source-class-Controller.html#763-775" title="Go to source code">view</a>( <span>String <var>$layout_once</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Get instance of View class.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get instance of View class.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$layout_once</var></dt>
+					<dd><code>String</code><br>$layout_once - Name of layout that this call will use</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-View.html">View</a></code></code><br>object<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="params" id="_params">
+
+		<td class="attributes"><code>
+			 public 
+			String
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_params">#</a>
+		<code><a href="source-class-Controller.html#777-788" title="Go to source code">params</a>( <span>String <var>$name</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Get named or unamed params from uri.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get named or unamed params from uri.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>String</code><br>$name - Param name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>String</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

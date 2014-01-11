@@ -71,8 +71,8 @@ class GlobalTemplate {
 
 
     /**
-    *   Same functionality of View::load() method, but using current template.
-	*	If application set a LAYOUT, then it will check if exists a layout template file.
+    *   Same functionality of <b>View::load()</b> method, but using current template.
+	*	If application set a <b>LAYOUT</b>, then it will check if exists a layout template file.
     *   @param String $fileName
     *   @param Array $aData
     *   @param boolean $return

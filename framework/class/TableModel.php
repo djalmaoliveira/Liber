@@ -1,13 +1,16 @@
 <?php
 /**
+ *  @package classes
+ */
+
+/**
  *  Simple Table Model class for Liber framework.
+ *
  *  This class implements a similar Active Record pattern to store, retrieve, manipulate, validate data from a table in database.
  *  The pre-requisite is support to PDO class in PHP installations.
  *  Supported databases: Sqlite, Mysql and Firebird.
  *  Default primary key field name is 'id'.
  *  Default table name is the class name in lower case.
- *  @package classes
- *  @author Djalma Oliveira <djalmaoliveira@gmail.com>
   */
 abstract class TableModel {
 

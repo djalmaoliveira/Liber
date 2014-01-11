@@ -59,14 +59,29 @@ class View {
 
     /**
     *   Set the cache expires.
-    *   Uses:
-    *   ->cache();          // return cache expire time in seconds
-    *   ->cache(true);      // enable caching to default value 3600s
-    *   ->cache(false);     // disable caching
-    *   ->cache('filename.html'); // return current Array data about the specified file
-    *   ->cache('filename.html', true); // set caching to default value for specified file
-    *   ->cache('filename.html', false); // disable caching for specified file
-    *   ->cache('filename.html', 2000); // set caching with 2000s to specific file
+    *   <code>
+    *   Usage:
+    *   // return cache expire time in seconds
+    *   ->cache();
+    *
+    *   // enable caching to default value 3600s
+    *   ->cache(true);
+    *
+    *   // disable caching
+    *   ->cache(false);
+    *
+    *   // return current Array data about the specified file
+    *   ->cache('filename.html');
+    *
+    *   // set caching to default value for specified file
+    *   ->cache('filename.html', true);
+    *
+    *   // disable caching for specified file
+    *   ->cache('filename.html', false);
+    *
+    *   // set caching with 2000s to specific file
+    *   ->cache('filename.html', 2000);
+    *   </code>
     *   @param mixed $arg1  - see above
     *   @param mixed $arg2  - see above
     *   @return mixed

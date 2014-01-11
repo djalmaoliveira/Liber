@@ -25,9 +25,12 @@ class Log {
 
     /**
     *   Do the last action with log messages stored.
+    *   <pre>
     *   The default on error behavior is:   DEV     => open a popup window showing actual information about error and enviroment.
     *                                       PROD    => call to SYS_ERROR controller defined.
+    *
     *   Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].
+    *   </pre>
     */
     public function handlerLog() {
 
@@ -115,7 +118,7 @@ class Log {
 
     /**
     *   Write current log to file.
-    *
+    *   @return  void
     */
     function toFile() {
         if ( !self::$debug or count(self::$aLogMsg)==0 ) { return; }

@@ -1,7 +1,8 @@
 <?php
 /**
  *  Html helpers.
- * @package     helpers
+ *
+ * @package     helpers_html
  * @author		djalmaoliveira@gmail.com
  * @copyright	djalmaoliveira@gmail.com
  * @license     license.txt
@@ -11,10 +12,17 @@
 
 /**
 *   Set or print Html tags for external CSS and JS files included in 'head' tag.
-*   Usage:  html_header_('css', 'http://abc.com/somefile.css'); // external assets
-*           html_header_('css', '/mycss/my.css'); // absolute path from root path (i.e. www.domain.com/mycss/my.css)
-*           html_header_('css', 'my.css'); // relative to default /css folder (i.e. www.domain.com/css/my.css)
-*           html_header_(); // print tags to use among html head tags.
+*   <code>
+*   Usage:
+*       // external assets
+*       html_header_('css', 'http://abc.com/somefile.css');
+*       // absolute path from root path (i.e. www.domain.com/mycss/my.css)
+*       html_header_('css', '/mycss/my.css');
+*       // relative to default /css folder (i.e. www.domain.com/css/my.css)
+*       html_header_('css', 'my.css');
+*       // print tags to use among html head tags.
+*       html_header_();
+*   </code>
 *   @param String $type - 'css' or 'js'
 *   @param String $url - Relative url to assets folder or external url starting with http:// or https://.
 *   @return String - Html tags
@@ -49,8 +57,13 @@ function html_header_($type=null, $url=null) {
 
 /**
 *   Set or print html meta tags with some data, that should be included in 'head' tag.
-*   Usage:  html_meta_( Array('name'=>'author', 'content'=>'Liber framework') ); // set a meta author content, used inside template files
-*           html_meta_(); // print tags to use among html head tags.
+*   <code>
+*   Usage:
+*       // set a meta author content, used inside template files
+*       html_meta_( Array('name'=>'author', 'content'=>'Liber framework') );
+*       // print tags to use among html head tags.
+*       html_meta_();
+*   </code>
 *   @param Array $aData
 *   @return String - Html meta tags
 */
@@ -70,8 +83,13 @@ function html_meta_( $aData=null ) {
 
 /**
 *   Set or get the text to html title tag.
-*   Usage:  html_title_( 'title of page' ); // set title of page, used inside template files
-*           html_title_(); // get title
+*   <code>
+*   Usage:
+*       // set title of page, used inside template files
+*       html_title_( 'title of page' );
+*       // get title
+*       html_title_();
+*   </code>
 *   @param String $title
 *   @return String
 */

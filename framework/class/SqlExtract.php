@@ -116,9 +116,17 @@ class SqlExtract {
     *   Return an array of SQL Insert code of each data retrieved from $tables specified, by table name.
     *   If specified $destFolder, each table data will be written on a file like 'tableName.sql' on this folder and return the path to this file instead of data.
     *   Remember that you have to remove the files written after its use.
-    *   Usage:  ->tableData('customer'); // return Array('customer'=>'INSERT ...');
-    *           ->tableData('customer', '/home/user/sql/'); // written on '/home/user/sql/customer.sql'
-    *           ->tableData('customer', 'temp/'); // written on 'APP_PATH/temp/customer.sql'
+    *   <code>
+    *   Usage:
+    *       // return Array('customer'=>'INSERT ...');
+    *       ->tableData('customer');
+    *
+    *       // written on '/home/user/sql/customer.sql'
+    *       ->tableData('customer', '/home/user/sql/');
+    *
+    *       // written on 'APP_PATH/temp/customer.sql'
+    *       ->tableData('customer', 'temp/');
+    *   </code>
     *   @param String | Array $tables
     *   @param String $destFolder
     *   @return Array
@@ -188,8 +196,5 @@ class SqlExtract {
         }
         return false;
     }
-
-
-
 }
 ?>

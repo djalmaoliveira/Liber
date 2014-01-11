@@ -1,7 +1,8 @@
 <?php
 /**
  * Paginate helpers.
- * @package     helpers
+ *
+ * @package     helpers_paginate
  * @author      djalmaoliveira@gmail.com
  * @copyright   djalmaoliveira@gmail.com
  * @since       Version 2.0.15
@@ -9,9 +10,7 @@
 
 /**
  * Set or return options for paginating helper.
- * @param  array|string $options Paginating options.
- * @param  string $value  Value of option.
- * @param  string $value  Set value option.
+ *
  * <pre>
  *     $options:
  *         'url'            => 'Url base to generate pagination.'
@@ -39,6 +38,9 @@
  *            page_options_('url');
  *
  * </code>
+ * @param  array|string $options Paginating options.
+ * @param  string $value  Value of option.
+ * @param  string $value  Set value option.
  * @return array | void
  */
 function page_options_($options=null, $value=null) {

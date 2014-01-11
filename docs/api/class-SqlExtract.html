@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class SqlExtract</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?695737960"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-cache.html">cache</a>
+						</li>
+				<li class="active"><a href="package-classes.html">classes</a>
+						</li>
+				<li><a href="package-helpers.html">helpers<span></span></a>
+						<ul>
+				<li><a href="package-helpers.dt.html">dt</a>
+						</li>
+				<li><a href="package-helpers.form.html">form</a>
+						</li>
+				<li><a href="package-helpers.fs.html">fs</a>
+						</li>
+				<li><a href="package-helpers.html.html">html</a>
+						</li>
+				<li><a href="package-helpers.paginate.html">paginate</a>
+						</li>
+				<li><a href="package-helpers.url.html">url</a>
+						</li>
+							</ul></li>
+				<li><a href="package-liber.html">liber</a>
+						</li>
+				<li><a href="package-Minify.html">Minify</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-BasicDb.html">BasicDb</a></li>
+				<li><a href="class-Cart.html">Cart</a></li>
+				<li><a href="class-Feed.html">Feed</a></li>
+				<li><a href="class-FileUpdate.html">FileUpdate</a></li>
+				<li><a href="class-Funky.html">Funky</a></li>
+				<li><a href="class-GlobalTemplate.html">GlobalTemplate</a></li>
+				<li><a href="class-Http.html">Http</a></li>
+				<li><a href="class-Log.html">Log</a></li>
+				<li><a href="class-Mailer.html">Mailer</a></li>
+				<li><a href="class-Minify.html">Minify</a></li>
+				<li><a href="class-Security.html">Security</a></li>
+				<li><a href="class-Session.html">Session</a></li>
+				<li><a href="class-Setup.html">Setup</a></li>
+				<li><a href="class-SiteMap.html">SiteMap</a></li>
+				<li class="active"><a href="class-SqlExtract.html">SqlExtract</a></li>
+				<li><a href="class-TableModel.html">TableModel</a></li>
+				<li><a href="class-TemplateEngine.html">TemplateEngine</a></li>
+				<li><a href="class-Validation.html">Validation</a></li>
+				<li><a href="class-View.html">View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-classes.html" title="Summary of classes"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SqlExtract</h1>
+
+
+	<div class="description">
+	
+<p>Class that manipulates extraction from databases. Current suport: MySQL</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-classes.html">classes</a><br>
+
+		<b>Located at</b> <a href="source-class-SqlExtract.html#2-199" title="Go to source code">class/SqlExtract.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SqlExtract.html#12-22" title="Go to source code">__construct</a>( <span>mixed <var>$db_app_mode</var> = <span class="php-quote">'PROD'</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="tableScheme" id="_tableScheme">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_tableScheme">#</a>
+		<code><a href="source-class-SqlExtract.html#25-58" title="Go to source code">tableScheme</a>( <span>String <var>$tables</var></span>, <span>mixed <var>$withoutKeys</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Return the SQL code of table creation.<br />
+Return Array of tables names with its SQL code.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return the SQL code of table creation. Return Array of tables names with its
+SQL code.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$tables</var></dt>
+					<dd><code>String</code><br>| Array $tables</dd>
+					<dt><var>$withoutKeys</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="viewScheme" id="_viewScheme">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_viewScheme">#</a>
+		<code><a href="source-class-SqlExtract.html#61-85" title="Go to source code">viewScheme</a>( <span>String <var>$views</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return the SQL code of view creation specified.<br />
+Return Array of view names with its SQL code.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return the SQL code of view creation specified. Return Array of view names
+with its SQL code.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$views</var></dt>
+					<dd><code>String</code><br>| Array $views</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="tableConstraints" id="_tableConstraints">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_tableConstraints">#</a>
+		<code><a href="source-class-SqlExtract.html#89-112" title="Go to source code">tableConstraints</a>( <span>String <var>$tables</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return the constraints(PRIMARY and FOREIGN KEYS) of $tables specified.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return the constraints(PRIMARY and FOREIGN KEYS) of $tables specified.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$tables</var></dt>
+					<dd><code>String</code><br>| Array $tables</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="tableData" id="_tableData">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_tableData">#</a>
+		<code><a href="source-class-SqlExtract.html#115-182" title="Go to source code">tableData</a>( <span>String <var>$tables</var></span>, <span>String <var>$destFolder</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Return an array of SQL Insert code of each data retrieved from $tables
+specified, by table name.<br />
+If specified $destFolder, each table data will be written on a file like
+'tableName.sql' on this folder and return the path to this file instead of
+data.<br />
+Remember that you have to remove the files written after its use.<br />
+&lt;code&gt;<br />
+Usage:<br />
+// return Array('customer'=&gt;'INSERT ...');<br />
+-&gt;tableData('customer');</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return an array of SQL Insert code of each data retrieved from $tables
+specified, by table name. If specified $destFolder, each table data will be
+written on a file like 'tableName.sql' on this folder and return the path to
+this file instead of data. Remember that you have to remove the files written
+after its use.</p>
+
+<pre>
+  Usage:
+      <span
+class="php-comment">// return Array('customer'=&gt;'INSERT ...');</span>
+      -&gt;tableData(<span
+class="php-quote">'customer'</span>);
+
+<span
+class="php-comment">// written on '/home/user/sql/customer.sql'</span>
+      -&gt;tableData(<span
+class="php-quote">'customer'</span>, <span
+class="php-quote">'/home/user/sql/'</span>);
+
+      <span
+class="php-comment">// written on 'APP_PATH/temp/customer.sql'</span>
+      -&gt;tableData(<span
+class="php-quote">'customer'</span>, <span
+class="php-quote">'temp/'</span>);
+  </pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$tables</var></dt>
+					<dd><code>String</code><br>| Array $tables</dd>
+					<dt><var>$destFolder</var></dt>
+					<dd><code>String</code><br>$destFolder</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isTable" id="_isTable">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isTable">#</a>
+		<code><a href="source-class-SqlExtract.html#185-198" title="Go to source code">isTable</a>( <span>String <var>$table</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return if $table is table or not.<br />
+The entity $table can be a view.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return if $table is table or not. The entity $table can be a view.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$table</var></dt>
+					<dd><code>String</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

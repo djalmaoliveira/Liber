@@ -9,29 +9,9 @@
 /**
  * Liber is a main class of framework.
  *
- * How to setup configuration params:
- * <code>Liber::conf('APP_MODE', 'PROD');</code>
- * and to get params:
- * <code>Liber::conf('APP_MODE');</code>
- * There are many params that can be used:
- * <pre>
- * BASE_PATH        ->  Internal path to Framework;
- * APP_PATH         ->  Internal path to application dir;
- * APP_URL          ->  URL to access aplication (i.e. http://www.domain.com);
- * APP_ROOT         ->  Application path (i.e. /www/app/public_html/);
- * APP_MODE         ->  Values: 'DEV' for development (default) and 'PROD' for production mode;
- * DB_LAYER         ->  Class name used to manipulate the access to database, using BasicDb class by default;
- * TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system, using TemplateEngine class by default;
- * ASSETS_DIR       ->  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
- * LOG_PATH         ->  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
- * CACHE_PATH       ->  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;
- * PAGE_NOT_FOUND   ->  Application Controller name of default for page not found,  'NotFoundController' by default;
- * SYS_ERROR        ->  Application Controller name of default for system error message,  'SysErrorController' by default;
- * LANG             ->  Application language, used to some system messages. See BASE_PATH/i18n. 'en' by default;
- * </pre>
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
- * @package core
+ * @package liber
  * @version 2.0.14
  * @since 1.0
  */
@@ -40,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.14';
+    const VERSION = '2.0.15';
 
 
     /**
@@ -256,12 +236,35 @@ class Liber {
 
 
     /**
-    *   Set/add config params.
-    *   Can be added new params if necessary.
-    *   @param String $p -> param name
-    *   @param String $v -> param value
-    *   @return mixed
-    */
+     * Set/add config params.
+     * Can be added new params if necessary.
+     * <code>
+     * // How to setup configuration params:
+     * Liber::conf('APP_MODE', 'PROD');
+     * // and to get params:
+     * Liber::conf('APP_MODE');
+     * </code>
+     * <pre>
+     * There are many params that can be used:
+     * BASE_PATH        ->  Internal path to Framework;
+     * APP_PATH         ->  Internal path to application dir;
+     * APP_URL          ->  URL to access aplication (i.e. http://www.domain.com);
+     * APP_ROOT         ->  Application path (i.e. /www/app/public_html/);
+     * APP_MODE         ->  Values: 'DEV' for development (default) and 'PROD' for production mode;
+     * DB_LAYER         ->  Class name used to manipulate the access to database, using BasicDb class by default;
+     * TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system, using TemplateEngine class by default;
+     * ASSETS_DIR       ->  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
+     * LOG_PATH         ->  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
+     * CACHE_PATH       ->  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;
+     * PAGE_NOT_FOUND   ->  Application Controller name of default for page not found,  'NotFoundController' by default;
+     * SYS_ERROR        ->  Application Controller name of default for system error message,  'SysErrorController' by default;
+     * LANG             ->  Application language, used to some system messages. See BASE_PATH/i18n. 'en' by default;
+     * </pre>
+     *
+     *   @param String $p Param name
+     *   @param String $v Param value
+     *   @return mixed
+     */
     public static function conf($p, $v=null) {
         if (  $v === null ) {
             return isset(self::$aConfig[$p])?self::$aConfig[$p]:null;
@@ -329,7 +332,7 @@ class Liber {
 
     /**
     *   Import files of context.
-    *   Context can be a Module path or APP_PATH (default).
+    *   Context can be a Module path or <b>APP_PATH</b> (default).
     *   @param  String $className
     *   @param  mixed $contextORcreateObj  - name of module or boolean
     *   @param  boolean $createObj
@@ -494,7 +497,7 @@ class Liber {
 
     /**
     *   Redirect client to another URL.
-    *   Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.
+    *   Detect if <b>Liber_URL_REWRITE</b> was set, your WEB Server should be capable to set this param to retrieve from <b>$_SERVER</b> variable.
     *   If this param don't exist, all urls will be used with 'index.php/'.
     *   @param String $url
     *   @param boolean $return  - if must return a url String instead of redirect client
@@ -676,6 +679,9 @@ class Liber {
 /**
 *   Class that manipulates Controllers, its creation can be relative a module.
 *   All controllers must extends it and have at least the 'index' method.
+* @author Djalma Oliveira (djalmaoliveira@gmail.com)
+* @package liber
+* @since 1.0
 */
 class Controller {
 

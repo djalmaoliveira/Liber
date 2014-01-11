@@ -1,7 +1,8 @@
 <?php
 /**
  *  File system helpers.
- * @package     helpers
+ *
+ * @package     helpers_fs
  * @author      djalmaoliveira@gmail.com
  * @copyright   djalmaoliveira@gmail.com
  * @license
@@ -55,9 +56,9 @@ function fs_relative_path_($source_path, $dest_path) {
 *   The $func accept two parameters: $dir and $file.
 *   The return type of $func must be Array or String.
 *   If $recursive is true, then will scan recursively the $path.
-*   @param String $path
-*   @param Function $func
-*   @param boolean $recursive
+*   @param String $path Path to scan.
+*   @param Function &$func Callback function.
+*   @param boolean $recursive Set true to scan recursively.
 *   @return mixed - Result of callback function
 */
 function fs_scan_($path, &$func, $recursive=false) {

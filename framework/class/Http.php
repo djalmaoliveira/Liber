@@ -115,7 +115,7 @@ class Http {
     }
 
     /**
-    *   Return a query value sent by method GET from $_GET var.
+    *   Return a query value sent by method GET from <b>$_GET</b> var.
     *   Usage:
     *   <code>
     *   // get a query value
@@ -135,7 +135,7 @@ class Http {
     }
 
     /**
-    *   Return a post value sent by method POST from $_POST var.
+    *   Return a post value sent by method POST from <b>$_POST</b> var.
     *   Usage:
     *   <code>
     *   // get a post value
@@ -155,7 +155,7 @@ class Http {
     }
 
     /**
-    *   Return a identified index from $_COOKIE var.
+    *   Return a identified index from <b>$_COOKIE</b> var.
     *   Usage:
     *   <code>
     *   // get a cookie value
@@ -175,7 +175,7 @@ class Http {
     }
 
     /**
-    *   Return a specifield uploaded file from $_FILES var.
+    *   Return a specifield uploaded file from <b>$_FILES</b> var.
     *   Usage:
     *   <code>
     *   // get a file uploaded

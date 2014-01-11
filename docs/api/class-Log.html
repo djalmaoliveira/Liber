@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Log</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?695737960"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-cache.html">cache</a>
+						</li>
+				<li class="active"><a href="package-classes.html">classes</a>
+						</li>
+				<li><a href="package-helpers.html">helpers<span></span></a>
+						<ul>
+				<li><a href="package-helpers.dt.html">dt</a>
+						</li>
+				<li><a href="package-helpers.form.html">form</a>
+						</li>
+				<li><a href="package-helpers.fs.html">fs</a>
+						</li>
+				<li><a href="package-helpers.html.html">html</a>
+						</li>
+				<li><a href="package-helpers.paginate.html">paginate</a>
+						</li>
+				<li><a href="package-helpers.url.html">url</a>
+						</li>
+							</ul></li>
+				<li><a href="package-liber.html">liber</a>
+						</li>
+				<li><a href="package-Minify.html">Minify</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-BasicDb.html">BasicDb</a></li>
+				<li><a href="class-Cart.html">Cart</a></li>
+				<li><a href="class-Feed.html">Feed</a></li>
+				<li><a href="class-FileUpdate.html">FileUpdate</a></li>
+				<li><a href="class-Funky.html">Funky</a></li>
+				<li><a href="class-GlobalTemplate.html">GlobalTemplate</a></li>
+				<li><a href="class-Http.html">Http</a></li>
+				<li class="active"><a href="class-Log.html">Log</a></li>
+				<li><a href="class-Mailer.html">Mailer</a></li>
+				<li><a href="class-Minify.html">Minify</a></li>
+				<li><a href="class-Security.html">Security</a></li>
+				<li><a href="class-Session.html">Session</a></li>
+				<li><a href="class-Setup.html">Setup</a></li>
+				<li><a href="class-SiteMap.html">SiteMap</a></li>
+				<li><a href="class-SqlExtract.html">SqlExtract</a></li>
+				<li><a href="class-TableModel.html">TableModel</a></li>
+				<li><a href="class-TemplateEngine.html">TemplateEngine</a></li>
+				<li><a href="class-Validation.html">Validation</a></li>
+				<li><a href="class-View.html">View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-classes.html" title="Summary of classes"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Log</h1>
+
+
+	<div class="description">
+	
+<p>Class that manipulate produced logs in general. .</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-classes.html">classes</a><br>
+
+		<b>Located at</b> <a href="source-class-Log.html#2-167" title="Go to source code">class/Log.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Log.html#16-23" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handlerLog" id="_handlerLog">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handlerLog">#</a>
+		<code><a href="source-class-Log.html#26-50" title="Go to source code">handlerLog</a>( )</code>
+
+		<div class="description short">
+			
+<p>Do the last action with log messages stored.<br />
+&lt;pre&gt;<br />
+The default on error behavior is: DEV =&gt; open a popup window showing actual
+information about error and enviroment.<br />
+PROD =&gt; call to SYS_ERROR controller defined.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Do the last action with log messages stored.</p>
+
+<pre>
+  The default on error behavior is:   DEV     =&gt; open a popup window showing actual information about error and enviroment.
+                                      PROD    =&gt; call to SYS_ERROR controller defined.
+
+Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].
+  </pre>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handler" id="_handler">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handler">#</a>
+		<code><a href="source-class-Log.html#53-62" title="Go to source code">handler</a>( <span>String <var>$func</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set a handler function to control the behavior of log messages.<br />
+The behavior of this function will be called before the default behavior, if you
+don't want the default behavior, then call die() or exit on $func.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set a handler function to control the behavior of log messages. The behavior
+of this function will be called before the default behavior, if you don't want
+the default behavior, then call die() or exit on $func.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$func</var></dt>
+					<dd><code>String</code><br>$func - a function</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handlerError" id="_handlerError">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handlerError">#</a>
+		<code><a href="source-class-Log.html#65-77" title="Go to source code">handlerError</a>( )</code>
+
+		<div class="description short">
+			
+<p>Add a log message from current error triggered.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add a log message from current error triggered.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-Log.html#103-116" title="Go to source code">add</a>( <span>String <var>$msg</var></span>, <span>String <var>$level</var> = <span class="php-quote">'info'</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a message log.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a message log.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$msg</var></dt>
+					<dd><code>String</code><br>$msg</dd>
+					<dt><var>$level</var></dt>
+					<dd><code>String</code><br>$level - NameSpace to log like 'ERROR', 'URGENT', etc</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toFile" id="_toFile">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toFile">#</a>
+		<code><a href="source-class-Log.html#119-137" title="Go to source code">toFile</a>( )</code>
+
+		<div class="description short">
+			
+<p>Write current log to file.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Write current log to file.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toString" id="_toString">
+
+		<td class="attributes"><code>
+			 public 
+			String
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toString">#</a>
+		<code><a href="source-class-Log.html#140-146" title="Go to source code">toString</a>( )</code>
+
+		<div class="description short">
+			
+<p>Return textual stored log.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return textual stored log.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>String</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toPopUp" id="_toPopUp">
+
+		<td class="attributes"><code>
+			 public 
+			String
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toPopUp">#</a>
+		<code><a href="source-class-Log.html#149-166" title="Go to source code">toPopUp</a>( )</code>
+
+		<div class="description short">
+			
+<p>Generate a html content to show a popup with PHP error.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Generate a html content to show a popup with PHP error.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>String</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="aLogMsg" id="$aLogMsg">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Log.html#9" title="Go to source code"><var>$aLogMsg</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">Array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$aLogMsg" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="aLogAll" id="$aLogAll">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Log.html#10" title="Go to source code"><var>$aLogAll</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">Array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$aLogAll" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="debug" id="$debug">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Log.html#11" title="Go to source code"><var>$debug</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$debug" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

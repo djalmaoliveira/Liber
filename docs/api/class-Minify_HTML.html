@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Minify_HTML</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?695737960"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-cache.html">cache</a>
+						</li>
+				<li><a href="package-classes.html">classes</a>
+						</li>
+				<li><a href="package-helpers.html">helpers<span></span></a>
+						<ul>
+				<li><a href="package-helpers.dt.html">dt</a>
+						</li>
+				<li><a href="package-helpers.form.html">form</a>
+						</li>
+				<li><a href="package-helpers.fs.html">fs</a>
+						</li>
+				<li><a href="package-helpers.html.html">html</a>
+						</li>
+				<li><a href="package-helpers.paginate.html">paginate</a>
+						</li>
+				<li><a href="package-helpers.url.html">url</a>
+						</li>
+							</ul></li>
+				<li><a href="package-liber.html">liber</a>
+						</li>
+				<li class="active"><a href="package-Minify.html">Minify</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Minify_CSS_Compressor.html">Minify_CSS_Compressor</a></li>
+				<li class="active"><a href="class-Minify_HTML.html">Minify_HTML</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-Minify.html" title="Summary of Minify"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Minify_HTML</h1>
+
+
+	<div class="description">
+	
+<p>Compress HTML</p>
+
+<p>This is a heavy regex-based removal of whitespace, unnecessary comments and
+tokens. IE conditional comments are preserved. There are also options to have
+STYLE and SCRIPT blocks compressed by callback functions.</p>
+
+<p>A test suite is available.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-Minify.html">Minify</a><br>
+
+				<b>Author:</b>
+				Stephen Clay &lt;<a
+href="mailto:steve&#64;mrclay.org">steve&#64;<!-- -->mrclay.org</a>&gt;<br>
+		<b>Located at</b> <a href="source-class-Minify_HTML.html#37-275" title="Go to source code">class/Minify_HTML.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="minify" id="_minify">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_minify">#</a>
+		<code><a href="source-class-Minify_HTML.html#51-72" title="Go to source code">minify</a>( <span>string <var>$html</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>"Minify" an HTML page</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>"Minify" an HTML page</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$html</var></dt>
+					<dd><code>string</code><br>$html</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 'cssMinifier' : (optional) callback function to process content of
+STYLE elements. 'jsMinifier' : (optional) callback function to process content
+of SCRIPT elements. Note: the type attribute is ignored. 'xhtml' : (optional
+boolean) should content be treated as XHTML1.0? If unset, minify will sniff for
+an XHTML doctype.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Minify_HTML.html#75-105" title="Go to source code">__construct</a>( <span>string <var>$html</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Create a minifier object</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Create a minifier object</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$html</var></dt>
+					<dd><code>string</code><br>$html</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options 'cssMinifier' : (optional) callback function to process content of
+STYLE elements. 'jsMinifier' : (optional) callback function to process content
+of SCRIPT elements. Note: the type attribute is ignored. 'xhtml' : (optional
+boolean) should content be treated as XHTML1.0? If unset, minify will sniff for
+an XHTML doctype.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>null</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process" id="_process">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process">#</a>
+		<code><a href="source-class-Minify_HTML.html#108-178" title="Go to source code">process</a>( )</code>
+
+		<div class="description short">
+			
+<p>Minify the markeup given in the constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Minify the markeup given in the constructor</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_commentCB" id="__commentCB">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__commentCB">#</a>
+		<code><a href="source-class-Minify_HTML.html#180-185" title="Go to source code">_commentCB</a>( <span>mixed <var>$m</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_reservePlace" id="__reservePlace">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__reservePlace">#</a>
+		<code><a href="source-class-Minify_HTML.html#187-192" title="Go to source code">_reservePlace</a>( <span>mixed <var>$content</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_outsideTagCB" id="__outsideTagCB">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__outsideTagCB">#</a>
+		<code><a href="source-class-Minify_HTML.html#200-203" title="Go to source code">_outsideTagCB</a>( <span>mixed <var>$m</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_removePreCB" id="__removePreCB">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__removePreCB">#</a>
+		<code><a href="source-class-Minify_HTML.html#205-208" title="Go to source code">_removePreCB</a>( <span>mixed <var>$m</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_removeTextareaCB" id="__removeTextareaCB">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__removeTextareaCB">#</a>
+		<code><a href="source-class-Minify_HTML.html#210-213" title="Go to source code">_removeTextareaCB</a>( <span>mixed <var>$m</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_removeStyleCB" id="__removeStyleCB">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__removeStyleCB">#</a>
+		<code><a href="source-class-Minify_HTML.html#215-235" title="Go to source code">_removeStyleCB</a>( <span>mixed <var>$m</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_removeScriptCB" id="__removeScriptCB">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__removeScriptCB">#</a>
+		<code><a href="source-class-Minify_HTML.html#237-262" title="Go to source code">_removeScriptCB</a>( <span>mixed <var>$m</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_removeCdata" id="__removeCdata">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__removeCdata">#</a>
+		<code><a href="source-class-Minify_HTML.html#264-269" title="Go to source code">_removeCdata</a>( <span>mixed <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_needsCdata" id="__needsCdata">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__needsCdata">#</a>
+		<code><a href="source-class-Minify_HTML.html#271-274" title="Go to source code">_needsCdata</a>( <span>mixed <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_isXhtml" id="$_isXhtml">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Minify_HTML.html#194" title="Go to source code"><var>$_isXhtml</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$_isXhtml" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_replacementHash" id="$_replacementHash">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Minify_HTML.html#195" title="Go to source code"><var>$_replacementHash</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$_replacementHash" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_placeholders" id="$_placeholders">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Minify_HTML.html#196" title="Go to source code"><var>$_placeholders</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_placeholders" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_cssMinifier" id="$_cssMinifier">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Minify_HTML.html#197" title="Go to source code"><var>$_cssMinifier</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$_cssMinifier" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_jsMinifier" id="$_jsMinifier">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Minify_HTML.html#198" title="Go to source code"><var>$_jsMinifier</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$_jsMinifier" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
