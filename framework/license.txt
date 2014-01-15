@@ -1,4 +1,4 @@
-﻿Copyright (c) 2010, 2011, Djalma Oliveira (djalmaoliveira@gmail.com)
+﻿Copyright (c) 2010-2014 Djalma Oliveira (djalmaoliveira@gmail.com)
 All rights reserved.
 
 
