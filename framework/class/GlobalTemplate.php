@@ -79,12 +79,12 @@ class GlobalTemplate {
     *   @return mixed <null | String>
     */
     function load($fileName, $aData=Array(), $return=false) {
-        $viewFile = $this->_view->path($fileName);
-		$template_path = $this->contextPath.$this->templateFolderName.'/'.$this->modelName;
+        $viewFile       = $this->_view->path($fileName);
+		$template_path  = $this->contextPath.$this->templateFolderName.'/'.$this->modelName;
 		// detect if exists layout template file
 		$layout = Liber::conf('LAYOUT');
 		if ( $layout ) {
-			// detect if hsa a absolute path
+			// detect if has a absolute path
 			if ( $layout[0] != '/' ) {
 				$layout = Liber::conf('APP_PATH').'layout/'.Liber::conf('LAYOUT');
 			}
@@ -100,12 +100,12 @@ class GlobalTemplate {
             $cacheId  = $_SERVER['REQUEST_URI'].$viewFile.$this->modelName;
             if ( !($out = Liber::cache()->get( $cacheId )) ) {
 
-                $out = $this->_view->engine()->load($template_path, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
+                $out = $this->_view->engine()->element($template_path, Array('content'=> $this->_view->engine()->element($viewFile, $aData, true) ), true);
                 Liber::cache()->put($cacheId, $out, is_numeric( $this->_view->cache($fileName) )?$this->_view->cache($fileName):3600 );
             }
 
         } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-            $out = $this->_view->engine()->load($template_path, Array('content'=> $this->_view->engine()->load($viewFile, $aData, true) ), true);
+            $out = $this->_view->engine()->element($template_path, Array('content'=> $this->_view->engine()->element($viewFile, $aData, true) ), true);
         }
 
         if ($return) { return $out; }

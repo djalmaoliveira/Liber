@@ -1,7 +1,7 @@
 <?php
 /**
  * Main framework class file.
- * Copyright (c) 2010-2013 Djalma Oliveira (djalmaoliveira@gmail.com)
+ * Copyright (c) 2010-2014 Djalma Oliveira (djalmaoliveira@gmail.com)
  * All rights reserved.
  * @license license.txt
  */
@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.0.14
+ * @version 2.0.16
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.15';
+    const VERSION = '2.0.16';
 
 
     /**
@@ -36,7 +36,7 @@ class Liber {
                                     'APP_ROOT'          => '',
                                     'APP_MODE'          => 'DEV',
                                     'DB_LAYER'          => 'BasicDb',
-                                    'TEMPLATE_ENGINE'   => 'TemplateEngine',
+                                    'TEMPLATE_ENGINE'   => '',
                                     'ASSETS_DIR'        => 'assets',
                                     'LOG_PATH'          => 'log/',
                                     'CACHE_PATH'        => 'cache/',
@@ -252,7 +252,7 @@ class Liber {
      * APP_ROOT         ->  Application path (i.e. /www/app/public_html/);
      * APP_MODE         ->  Values: 'DEV' for development (default) and 'PROD' for production mode;
      * DB_LAYER         ->  Class name used to manipulate the access to database, using BasicDb class by default;
-     * TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system, using TemplateEngine class by default;
+     * TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system;
      * ASSETS_DIR       ->  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
      * LOG_PATH         ->  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
      * CACHE_PATH       ->  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;

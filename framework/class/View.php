@@ -26,6 +26,7 @@ class View {
             $this->module_path = Liber::conf('APP_PATH');
         }
 
+        /*
         if ( $this->_engine == null ) {
             // instancing of Template Engine
             $template =  Liber::conf('TEMPLATE_ENGINE');
@@ -40,7 +41,7 @@ class View {
                 Liber::loadClass($template, 'APP');
                 $this->_engine = new $template( $engineSettings );
             }
-        }
+        }*/
     }
 
 
@@ -152,13 +153,13 @@ class View {
 
 
     /**
-    *   Call 'load' method from template engine instance.
-    *   @param  String $fileName
-    *   @param  Array $data
-    *   @param  boolean $output
+    *   Load and process a view file.
+    *   @param  String $fileName    Absolute path to file name or relative to view/ folder.
+    *   @param  Array $data         Array of data to view file.
+    *   @param  boolean $return     If True return the processed content of view file .
     *   @return String - if output is true
     */
-    function load($fileName, $data=null, $output=false) {
+    function load($fileName, $data=null, $return=false) {
 
         $file_path = $this->path($fileName);
 
@@ -174,16 +175,39 @@ class View {
             // caching
             $cacheId = $_SERVER['REQUEST_URI'].$file_path;
             if ( !($out = Liber::cache()->get( $cacheId )) ) {
-                $out = $this->_engine->load($file_path, $data, true);
+                $out = $this->element($file_path, $data, true);
                 Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName]['expires'])?$this->cache_expires[$fileName]['expires']:$this->expireTime );
             }
 
         } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-            $out = $this->_engine->load($file_path, $data, $output);
+            $out = $this->element($file_path, $data, $return);
         }
 
-        if ( $output )  { return $out; }
+        if ( $return )  { return $out; }
         echo $out;
+    }
+
+    /**
+     * Process view file as simple element.
+     * @param  string  $fileName Absolute path to file name or relative to view/ folder.
+     * @param  array  $data      Array of data to view file.
+     * @param  boolean $return   If True return the processed content of view file .
+     * @return string | void
+     */
+    function element($fileName, $data=null, $return=false ) {
+        $fileName = $this->path($fileName);
+
+        if ( is_array($data) )  { extract($data); }
+
+        if ($return) {
+            ob_start();
+            include "$fileName";
+            $data = ob_get_contents();
+            ob_end_clean();
+            return $data;
+        } else {
+            include "$fileName";
+        }
     }
 
 
@@ -192,11 +216,10 @@ class View {
     *   @return GlobaTemplate
     */
     function template( $module = null ) {
-        if (!is_object($this->_template)) {
+        if ( !is_object($this->_template) ) {
             Liber::loadClass('GlobalTemplate');
             $this->_template = new GlobalTemplate($module,$this);
         }
-
         return $this->_template;
     }
 
@@ -206,6 +229,17 @@ class View {
     *   @return Object
     */
     function engine() {
+
+        if ( $this->_engine ) {
+            return $this->_engine;
+        } elseif ( ($template =  Liber::conf('TEMPLATE_ENGINE')) ) {
+            // instancing of Template Engine
+            Liber::loadClass($template, 'APP');
+            $this->_engine = new $template;
+        } else {
+            $this->_engine = &$this;
+        }
+
         return $this->_engine;
     }
 
