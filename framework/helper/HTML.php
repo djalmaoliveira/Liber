@@ -29,30 +29,36 @@
 */
 function html_header_($type=null, $url=null) {
     static $headers = Array('css'=>Array(), 'js'=>Array());
-    if ( $type == null ) {
-        $tag = '';
-        foreach ($headers['css'] as $url) {
-            if ( $url[0] == '/' ) {
-                $url = url_asset_($url, true);
-            } elseif( (strpos($url, "://") === false ) ) { // hasn't http:// or https://
-                $url = url_asset_('/css/', true).$url;
+    static $f;
+    if ( !$f ) {
+        $f = create_function('$type, $urls', '
+            $tag = "";
+            foreach ($urls as $url) {
+                if ( $url[0] == "/" ) {
+                    $url = url_asset_($url, true);
+                } elseif( (strpos($url, "://") === false ) ) {
+                    $url = url_asset_("/$type/", true).$url;
+                }
+                if ( trim($type) == "css" ) {
+                    $tag .= "<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\"  href=\"$url\" />\r\n";
+                } else {
+                    $tag .= "<script src=\"$url\" type=\"text/javascript\"></script>\r\n";
+                }
             }
+            return $tag;
+        ');
+    }
 
-            $tag .= '<link rel="stylesheet" type="text/css" media="screen"  href="'.$url.'" />'."\r\n";
-        }
-        foreach ($headers['js'] as $url) {
-            if ( $url[0] == '/' ) {
-                $url = url_asset_($url, true);
-            } elseif( (strpos($url, "://") === false ) ) { // hasn't http:// or https://
-                $url = url_asset_('/js/', true).$url;
-            }
-
-            $tag .= '<script src="'.$url.'" type="text/javascript"></script>'."\r\n";
-        }
-        echo $tag;
+    $nargs = func_num_args();
+    if ( $nargs == 0 ) {
+        echo $f('css', $headers['css']);
+        echo $f('js', $headers['js']);
+    } elseif ( $nargs == 1 ) {
+        echo $f($type, $headers[$type]);
     } else {
         $headers[$type][] = $url;
     }
+
 }
 
 /**
