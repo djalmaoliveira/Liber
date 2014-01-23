@@ -3,7 +3,7 @@
 <head>
 <title>Liber Manual</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" media="screen"  href="<? url_asset_('/css/main.css') ?>" />
+<link rel="stylesheet" type="text/css" media="screen"  href="<?php url_asset_('/css/main.css') ?>" />
 </head>
 
 <body>
@@ -14,7 +14,7 @@
   <div id="content_wrapper">
     <div id="nav">
   <ul>
-    <li><a href="<? url_to_('/'); ?>">Home</a></li>
+    <li><a href="<?php url_to_('/'); ?>">Home</a></li>
     <li><a href="http://github.com/djalmaoliveira/Liber">Get Source Code</a></li>
     <li><a href="../docs/api/">Learn from API</a></li>
 
@@ -26,7 +26,7 @@
       <div class="box_top"></div>
       <div class="box_side">
         <h1>Version</h1>
-        <?=Liber::VERSION;?>
+        <?php echo Liber::VERSION;?>
       </div>
       <div class="box_bottom"></div>
 
@@ -73,7 +73,7 @@
     </div>
     <div id="main">
 
-        <? echo $content; ?>
+        <?php echo $content; ?>
 
     </div>
     <div class="clear"></div>

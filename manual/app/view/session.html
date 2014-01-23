@@ -14,26 +14,26 @@
     Liber::loadClass('Session');
     // You can still specifies a 'namespace' and 'session_id', they are optional.
     $oSession = new Session('namespace', 'session_id');
-    
+
     // Storing values
     $oSession->val('data1', 'value1');
     $oSession->val('data2', 'value2');
     $oSession->val('data3', Array('value3'));
-    
+
     // Get values
     echo $oSession->val('data1');
     echo $oSession->val('data2');
     print_r( $oSession->val('data3') );
-    
+
     // Return all data stored into Array
     $arr = $oSession->toArray();
-    
+
     // Clear all session data
     $oSession->clear();
-    
+
     // Destroy session
     $oSession->destroy();
-    
+
 </pre>
 
 

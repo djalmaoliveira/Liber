@@ -5,43 +5,27 @@
 *   @package classes
 */
 class View {
-
+    private     $template_name;
+    private     $template_file  = 'default.html';
     private     $module;
     private     $module_path;
     private     $_engine;
-    private     $_template;
     private     $cache_expires  = Array();
     private     $expireTime     = 3600;
     public      $layout         = '';
     private     $_layout_once   = '';
 
-    function __construct($params=Array()) {
-        // set object
+
+    function __construct($module='', $template_name='') {
 
         $this->layout = Liber::conf('LAYOUT');
-        $this->module = &$params['module'];
-        if ( isset($params['module']) and !empty($params['module']) ) {
-            $this->module_path = Liber::conf('APP_PATH').'module/'.$params['module'].'/';
+        $this->module = $module;
+        $this->template_name = $template_name;
+        if ( !empty( $this->module ) ) {
+            $this->module_path = Liber::conf('APP_PATH').'module/'.$this->module.'/';
         } else {
             $this->module_path = Liber::conf('APP_PATH');
         }
-
-        /*
-        if ( $this->_engine == null ) {
-            // instancing of Template Engine
-            $template =  Liber::conf('TEMPLATE_ENGINE');
-            Liber::loadClass($template);
-
-            $engineSettings = Array('cache_expires'=>&$this->cache_expires );
-
-            if ( empty( $template ) ) {
-                Liber::loadClass('TemplateEngine');
-                $this->_engine = new TemplateEngine( $engineSettings );
-            } else {
-                Liber::loadClass($template, 'APP');
-                $this->_engine = new $template( $engineSettings );
-            }
-        }*/
     }
 
 
@@ -169,18 +153,36 @@ class View {
             $this->_layout_once = '';
         }
 
-        // by default, in PROD mode all files doesn't have cache
-        if ( $this->cache($fileName) > 0 and Liber::conf('APP_MODE') == 'PROD' ) {
+        if ( $this->template_file ) {
+            $template_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
+            if ($this->cache($fileName) > 0 and  Liber::conf('APP_MODE') == 'PROD'  ) {
 
-            // caching
-            $cacheId = $_SERVER['REQUEST_URI'].$file_path;
-            if ( !($out = Liber::cache()->get( $cacheId )) ) {
-                $out = $this->element($file_path, $data, true);
-                Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName]['expires'])?$this->cache_expires[$fileName]['expires']:$this->expireTime );
+                $cacheId  = $_SERVER['REQUEST_URI'].$file_path.$this->template_file;
+                if ( !($out = Liber::cache()->get( $cacheId )) ) {
+
+                    $out = $this->element($template_path, Array('content'=> $this->element($file_path, $data, true) ), true);
+                    Liber::cache()->put($cacheId, $out, is_numeric( $this->cache($fileName) )?$this->cache($fileName):3600 );
+                }
+
+            } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
+                $out = $this->element($template_path, Array('content'=> $this->element($file_path, $data, true) ), true);
             }
 
-        } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-            $out = $this->element($file_path, $data, $return);
+        } else {
+
+            // by default, in PROD mode all files doesn't have cache
+            if ( $this->cache($fileName) > 0 and Liber::conf('APP_MODE') == 'PROD' ) {
+
+                // caching
+                $cacheId = $_SERVER['REQUEST_URI'].$file_path;
+                if ( !($out = Liber::cache()->get( $cacheId )) ) {
+                    $out = $this->element($file_path, $data, true);
+                    Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName]['expires'])?$this->cache_expires[$fileName]['expires']:$this->expireTime );
+                }
+
+            } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
+                $out = $this->element($file_path, $data, $return);
+            }
         }
 
         if ( $return )  { return $out; }
@@ -212,20 +214,30 @@ class View {
 
 
     /**
-    *   Return a GlobalTemplate instance base on current view context.
-    *   @return GlobaTemplate
+    *   Set current View with $template_file and $template_name specified.
+    *
+    *   <code>
+    *
+    *   // set current View to use 'admin.html' as template file stored in <b>APP_PATH/template/default/admin.html</b>.
+    *   ->template('admin.html');
+    *
+    *   // set current View to use 'admin.html' as template file and 'admin' as template dir name stored in <b>APP_PATH/template/admin/admin.html</b>.
+    *   ->template('admin.html', 'admin');
+    *
+    *   </code>
+    *   @param  string $template_file Template file name stored in $template_name dir.
+    *   @param  string $template_name Value 'default' by default if not specified.
+    *   @return void
     */
-    function template( $module = null ) {
-        if ( !is_object($this->_template) ) {
-            Liber::loadClass('GlobalTemplate');
-            $this->_template = new GlobalTemplate($module,$this);
-        }
-        return $this->_template;
+    function template( $template_file, $template_name='default'  ) {
+        $this->template_name = $template_name;
+        $this->template_file = $template_file;
     }
 
 
+
     /**
-    *   Return current TemplateEngine instance.
+    *   Return an object instance from class name specified in Liber::conf('TEMPLATE_ENGINE').
     *   @return Object
     */
     function engine() {

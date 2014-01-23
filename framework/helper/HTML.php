@@ -20,6 +20,8 @@
 *       html_header_('css', '/mycss/my.css');
 *       // relative to default /css folder (i.e. www.domain.com/css/my.css)
 *       html_header_('css', 'my.css');
+*       // return only css
+*       html_header_('css');
 *       // print tags to use among html head tags.
 *       html_header_();
 *   </code>

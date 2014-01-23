@@ -8,7 +8,7 @@
 	<title>File Liber.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?695737960"></script>
+	<script type="text/javascript" src="elementlist.js?1706524681"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -105,7 +105,7 @@
 <pre><code><span id="1" class="l"><a class="l" href="#1">  1: </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a class="l" href="#2">  2: </a><span class="php-comment">/**
 </span></span><span id="3" class="l"><a class="l" href="#3">  3: </a><span class="php-comment"> * Main framework class file.
-</span></span><span id="4" class="l"><a class="l" href="#4">  4: </a><span class="php-comment"> * Copyright (c) 2010-2013 Djalma Oliveira (djalmaoliveira@gmail.com)
+</span></span><span id="4" class="l"><a class="l" href="#4">  4: </a><span class="php-comment"> * Copyright (c) 2010-2014 Djalma Oliveira (djalmaoliveira@gmail.com)
 </span></span><span id="5" class="l"><a class="l" href="#5">  5: </a><span class="php-comment"> * All rights reserved.
 </span></span><span id="6" class="l"><a class="l" href="#6">  6: </a><span class="php-comment"> * @license license.txt
 </span></span><span id="7" class="l"><a class="l" href="#7">  7: </a><span class="php-comment"> */</span>
@@ -116,7 +116,7 @@
 </span></span><span id="12" class="l"><a class="l" href="#12"> 12: </a><span class="php-comment"> * By default all &lt;i&gt;paths&lt;/i&gt; used, must have a final slash '/', like &quot;/my/log/dir/&quot;.
 </span></span><span id="13" class="l"><a class="l" href="#13"> 13: </a><span class="php-comment"> * @author Djalma Oliveira (djalmaoliveira@gmail.com)
 </span></span><span id="14" class="l"><a class="l" href="#14"> 14: </a><span class="php-comment"> * @package liber
-</span></span><span id="15" class="l"><a class="l" href="#15"> 15: </a><span class="php-comment"> * @version 2.0.14
+</span></span><span id="15" class="l"><a class="l" href="#15"> 15: </a><span class="php-comment"> * @version 2.0.19
 </span></span><span id="16" class="l"><a class="l" href="#16"> 16: </a><span class="php-comment"> * @since 1.0
 </span></span><span id="17" class="l"><a class="l" href="#17"> 17: </a><span class="php-comment"> */</span>
 </span><span id="18" class="l"><a class="l" href="#18"> 18: </a><span class="php-keyword1">class</span> <a id="Liber" href="#Liber">Liber</a> {
@@ -124,7 +124,7 @@
 </span><span id="20" class="l"><a class="l" href="#20"> 20: </a>    <span class="php-comment">/**
 </span></span><span id="21" class="l"><a class="l" href="#21"> 21: </a><span class="php-comment">    *   Framework version
 </span></span><span id="22" class="l"><a class="l" href="#22"> 22: </a><span class="php-comment">    */</span>
-</span><span id="23" class="l"><a class="l" href="#23"> 23: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'2.0.14'</span>;
+</span><span id="23" class="l"><a class="l" href="#23"> 23: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'2.0.19'</span>;
 </span><span id="24" class="l"><a class="l" href="#24"> 24: </a>
 </span><span id="25" class="l"><a class="l" href="#25"> 25: </a>
 </span><span id="26" class="l"><a class="l" href="#26"> 26: </a>    <span class="php-comment">/**
@@ -140,7 +140,7 @@
 </span><span id="36" class="l"><a class="l" href="#36"> 36: </a>                                    <span class="php-quote">'APP_ROOT'</span>          =&gt; <span class="php-quote">''</span>,
 </span><span id="37" class="l"><a class="l" href="#37"> 37: </a>                                    <span class="php-quote">'APP_MODE'</span>          =&gt; <span class="php-quote">'DEV'</span>,
 </span><span id="38" class="l"><a class="l" href="#38"> 38: </a>                                    <span class="php-quote">'DB_LAYER'</span>          =&gt; <span class="php-quote">'BasicDb'</span>,
-</span><span id="39" class="l"><a class="l" href="#39"> 39: </a>                                    <span class="php-quote">'TEMPLATE_ENGINE'</span>   =&gt; <span class="php-quote">'TemplateEngine'</span>,
+</span><span id="39" class="l"><a class="l" href="#39"> 39: </a>                                    <span class="php-quote">'TEMPLATE_ENGINE'</span>   =&gt; <span class="php-quote">''</span>,
 </span><span id="40" class="l"><a class="l" href="#40"> 40: </a>                                    <span class="php-quote">'ASSETS_DIR'</span>        =&gt; <span class="php-quote">'assets'</span>,
 </span><span id="41" class="l"><a class="l" href="#41"> 41: </a>                                    <span class="php-quote">'LOG_PATH'</span>          =&gt; <span class="php-quote">'log/'</span>,
 </span><span id="42" class="l"><a class="l" href="#42"> 42: </a>                                    <span class="php-quote">'CACHE_PATH'</span>        =&gt; <span class="php-quote">'cache/'</span>,
@@ -356,7 +356,7 @@
 </span></span><span id="252" class="l"><a class="l" href="#252">252: </a><span class="php-comment">     * APP_ROOT         -&gt;  Application path (i.e. /www/app/public_html/);
 </span></span><span id="253" class="l"><a class="l" href="#253">253: </a><span class="php-comment">     * APP_MODE         -&gt;  Values: 'DEV' for development (default) and 'PROD' for production mode;
 </span></span><span id="254" class="l"><a class="l" href="#254">254: </a><span class="php-comment">     * DB_LAYER         -&gt;  Class name used to manipulate the access to database, using BasicDb class by default;
-</span></span><span id="255" class="l"><a class="l" href="#255">255: </a><span class="php-comment">     * TEMPLATE_ENGINE  -&gt;  Class name used to manipulate a Template system, using TemplateEngine class by default;
+</span></span><span id="255" class="l"><a class="l" href="#255">255: </a><span class="php-comment">     * TEMPLATE_ENGINE  -&gt;  Class name used to manipulate a Template system;
 </span></span><span id="256" class="l"><a class="l" href="#256">256: </a><span class="php-comment">     * ASSETS_DIR       -&gt;  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
 </span></span><span id="257" class="l"><a class="l" href="#257">257: </a><span class="php-comment">     * LOG_PATH         -&gt;  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
 </span></span><span id="258" class="l"><a class="l" href="#258">258: </a><span class="php-comment">     * CACHE_PATH       -&gt;  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;
@@ -872,7 +872,7 @@
 </span><span id="768" class="l"><a class="l" href="#768">768: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_view" href="#_view">view</a>(<span class="php-var">$layout_once</span>=<span class="php-quote">''</span>) {
 </span><span id="769" class="l"><a class="l" href="#769">769: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;_view) ) {
 </span><span id="770" class="l"><a class="l" href="#770">770: </a>            Liber::loadClass(<span class="php-quote">'View'</span>);
-</span><span id="771" class="l"><a class="l" href="#771">771: </a>            <span class="php-var">$this</span>-&gt;_view = <span class="php-keyword1">new</span> View(<span class="php-keyword1">Array</span>(<span class="php-quote">'module'</span>=&gt;<span class="php-var">$this</span>-&gt;module));
+</span><span id="771" class="l"><a class="l" href="#771">771: </a>            <span class="php-var">$this</span>-&gt;_view = <span class="php-keyword1">new</span> View(<span class="php-var">$this</span>-&gt;module);
 </span><span id="772" class="l"><a class="l" href="#772">772: </a>        }
 </span><span id="773" class="l"><a class="l" href="#773">773: </a>        <span class="php-var">$this</span>-&gt;_view-&gt;setLayoutOnce(<span class="php-var">$layout_once</span>);
 </span><span id="774" class="l"><a class="l" href="#774">774: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;_view;

@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.0.19
+ * @version 2.0.20
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.19';
+    const VERSION = '2.0.20';
 
 
     /**
@@ -768,7 +768,7 @@ class Controller {
     public function view($layout_once='') {
         if ( !isset($this->_view) ) {
             Liber::loadClass('View');
-            $this->_view = new View(Array('module'=>$this->module));
+            $this->_view = new View($this->module);
         }
         $this->_view->setLayoutOnce($layout_once);
         return $this->_view;

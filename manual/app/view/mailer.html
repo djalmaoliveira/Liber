@@ -22,13 +22,13 @@
 
 <h2>Real example:</h2>
 
-<form method='post' action="<? url_to_('/mailersend')?>">
-    To: <? form_input_('to', ''); ?> <br/>
-    From: <? form_input_('from', ''); ?><br/>
-    Subject: <? form_input_('subject', ''); ?><br/>
-    Is Html: <? form_select_('html', Array('true'=>'Yes', 'false'=>'No')) ?><br/>
-    Body: <? form_textarea_('body', ''); ?><br/>
-    <? form_submit_('Send', 'Test Send'); ?><br/>
+<form method='post' action="<?php url_to_('/mailersend')?>">
+    To: <?php form_input_('to', ''); ?> <br/>
+    From: <?php form_input_('from', ''); ?><br/>
+    Subject: <?php form_input_('subject', ''); ?><br/>
+    Is Html: <?php form_select_('html', Array('true'=>'Yes', 'false'=>'No')) ?><br/>
+    Body: <?php form_textarea_('body', ''); ?><br/>
+    <?php form_submit_('Send', 'Test Send'); ?><br/>
     <em>(Your mail server must be working.)</em>
 </form>
 

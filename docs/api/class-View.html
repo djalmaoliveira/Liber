@@ -7,7 +7,7 @@
 	<title>Class View</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?695737960"></script>
+	<script type="text/javascript" src="elementlist.js?1706524681"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -62,7 +62,6 @@
 				<li><a href="class-Feed.html">Feed</a></li>
 				<li><a href="class-FileUpdate.html">FileUpdate</a></li>
 				<li><a href="class-Funky.html">Funky</a></li>
-				<li><a href="class-GlobalTemplate.html">GlobalTemplate</a></li>
 				<li><a href="class-Http.html">Http</a></li>
 				<li><a href="class-Log.html">Log</a></li>
 				<li><a href="class-Mailer.html">Mailer</a></li>
@@ -73,7 +72,6 @@
 				<li><a href="class-SiteMap.html">SiteMap</a></li>
 				<li><a href="class-SqlExtract.html">SqlExtract</a></li>
 				<li><a href="class-TableModel.html">TableModel</a></li>
-				<li><a href="class-TemplateEngine.html">TemplateEngine</a></li>
 				<li><a href="class-Validation.html">Validation</a></li>
 				<li class="active"><a href="class-View.html">View</a></li>
 			</ul>
@@ -141,7 +139,7 @@
 		
 		<b>Package:</b> <a href="package-classes.html">classes</a><br>
 
-		<b>Located at</b> <a href="source-class-View.html#2-212" title="Go to source code">class/View.php</a><br>
+		<b>Located at</b> <a href="source-class-View.html#2-258" title="Go to source code">class/View.php</a><br>
 	</div>
 
 
@@ -159,7 +157,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-View.html#18-44" title="Go to source code">__construct</a>( <span>mixed <var>$params</var> = <span class="php-keyword1">Array</span>()</span> )</code>
+		<code><a href="source-class-View.html#19-29" title="Go to source code">__construct</a>( <span>mixed <var>$module</var> = <span class="php-quote">''</span></span>, <span>mixed <var>$template_name</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
@@ -188,7 +186,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_current">#</a>
-		<code><a href="source-class-View.html#47-57" title="Go to source code">current</a>( <span>mixed <var>$param</var></span> )</code>
+		<code><a href="source-class-View.html#32-42" title="Go to source code">current</a>( <span>mixed <var>$param</var></span> )</code>
 
 		<div class="description short">
 			
@@ -225,7 +223,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cache">#</a>
-		<code><a href="source-class-View.html#60-116" title="Go to source code">cache</a>( )</code>
+		<code><a href="source-class-View.html#45-101" title="Go to source code">cache</a>( )</code>
 
 		<div class="description short">
 			
@@ -306,7 +304,7 @@ class="php-num">2000</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setLayoutOnce">#</a>
-		<code><a href="source-class-View.html#119-125" title="Go to source code">setLayoutOnce</a>( <span>String <var>$layout</var></span> )</code>
+		<code><a href="source-class-View.html#104-110" title="Go to source code">setLayoutOnce</a>( <span>String <var>$layout</var></span> )</code>
 
 		<div class="description short">
 			
@@ -344,7 +342,7 @@ class="php-num">2000</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_path">#</a>
-		<code><a href="source-class-View.html#128-151" title="Go to source code">path</a>( <span>String <var>$fileName</var></span> )</code>
+		<code><a href="source-class-View.html#113-136" title="Go to source code">path</a>( <span>String <var>$fileName</var></span> )</code>
 
 		<div class="description short">
 			
@@ -390,28 +388,28 @@ it exists.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-View.html#154-187" title="Go to source code">load</a>( <span>String <var>$fileName</var></span>, <span>Array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$output</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-View.html#139-190" title="Go to source code">load</a>( <span>String <var>$fileName</var></span>, <span>Array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Call 'load' method from template engine instance.</p>
+<p>Load and process a view file.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Call 'load' method from template engine instance.</p>
+<p>Load and process a view file.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$fileName</var></dt>
-					<dd><code>String</code><br>$fileName</dd>
+					<dd><code>String</code><br>$fileName Absolute path to file name or relative to view/ folder.</dd>
 					<dt><var>$data</var></dt>
-					<dd><code>Array</code><br>$data</dd>
-					<dt><var>$output</var></dt>
-					<dd><code>boolean</code><br>$output</dd>
+					<dd><code>Array</code><br>$data Array of data to view file.</dd>
+					<dt><var>$return</var></dt>
+					<dd><code>boolean</code><br>$return If True return the processed content of view file .</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -425,36 +423,100 @@ it exists.</p>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="element" id="_element">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_element">#</a>
+		<code><a href="source-class-View.html#192-213" title="Go to source code">element</a>( <span>string <var>$fileName</var></span>, <span>array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Process view file as simple element.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Process view file as simple element.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$fileName</var></dt>
+					<dd><code>string</code><br>$fileName Absolute path to file name or relative to view/ folder.</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data Array of data to view file.</dd>
+					<dt><var>$return</var></dt>
+					<dd><code>boolean</code><br>$return If True return the processed content of view file .</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>| void<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="template" id="_template">
 
 		<td class="attributes"><code>
 			 public 
-			GlobaTemplate
+			
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_template">#</a>
-		<code><a href="source-class-View.html#190-201" title="Go to source code">template</a>( <span>mixed <var>$module</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-View.html#216-235" title="Go to source code">template</a>( <span>string <var>$template_file</var></span>, <span>string <var>$template_name</var> = <span class="php-quote">'default'</span> </span> )</code>
 
 		<div class="description short">
 			
-<p>Return a GlobalTemplate instance base on current view context.</p>
+<p>Set current View with $template_file and $template_name specified.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Return a GlobalTemplate instance base on current view context.</p>
+<p>Set current View with $template_file and $template_name specified.</p>
+
+<pre>
+
+<span
+class="php-comment">// set current View to use 'admin.html' as template file stored in &lt;b&gt;APP_PATH/template/default/admin.html&lt;/b&gt;.</span>
+-&gt;template(<span
+class="php-quote">'admin.html'</span>);
+
+<span
+class="php-comment">// set current View to use 'admin.html' as template file and 'admin' as template dir name stored in &lt;b&gt;APP_PATH/template/admin/admin.html&lt;/b&gt;.</span>
+-&gt;template(<span
+class="php-quote">'admin.html'</span>, <span
+class="php-quote">'admin'</span>);
+
+</pre>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$template_file</var></dt>
+					<dd><code>string</code><br>$template_file Template file name stored in $template_name dir.</dd>
+					<dt><var>$template_name</var></dt>
+					<dd><code>string</code><br>$template_name Value 'default' by default if not specified.</dd>
+				</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>GlobaTemplate</code><br>
-				</div>
 
 
 
@@ -473,17 +535,19 @@ it exists.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_engine">#</a>
-		<code><a href="source-class-View.html#204-210" title="Go to source code">engine</a>( )</code>
+		<code><a href="source-class-View.html#239-256" title="Go to source code">engine</a>( )</code>
 
 		<div class="description short">
 			
-<p>Return current TemplateEngine instance.</p>
+<p>Return an object instance from class name specified in
+Liber::conf('TEMPLATE_ENGINE').</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Return current TemplateEngine instance.</p>
+<p>Return an object instance from class name specified in
+Liber::conf('TEMPLATE_ENGINE').</p>
 
 
 
