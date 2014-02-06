@@ -91,21 +91,21 @@ abstract class TableModel {
                 $this->meta['concat'] = function($fields) {
                     return "concat_ws(' ', lower(".implode('),lower(', $fields).'))';
                 };
-                $this->meta['limit'] = function($sql, $limit, $start) { return "$sql limit $limit offset $start;"; };
+                $this->meta['limit'] = function($sql, $limit, $start) { return "$sql ".($limit?"limit $limit":'')." ".($start?"offset $start":'').";"; };
             break;
 
             case 'sqlite':
                 $this->meta['concat'] = function($fields) {
                     return "(' ' || lower(".implode(') || \' \' || lower(', $fields).'))';
                 };
-                $this->meta['limit'] = function($sql, $limit, $start) { return "$sql limit $limit offset $start;"; };
+                $this->meta['limit'] = function($sql, $limit, $start) { return "$sql ".($limit?"limit $limit":'')." ".($start?"offset $start":'').";"; };
             break;
 
             case 'firebird':
                 $this->meta['concat'] = function($fields) {
                     return "' ' || lower(COALESCE(".implode(', \'\')) || lower(COALESCE(', $fields).', \'\' ))';
                 };
-                $this->meta['limit'] = function($sql, $limit, $start) { return "select first $limit skip $start ".strstr($sql, ' '); };
+                $this->meta['limit'] = function($sql, $limit, $start) { return "select ".($limit?"first $limit":'')." ".($start?"skip $start":'')." ".strstr($sql, ' '); };
             break;
         }
         $this->PDO = $PDO;
@@ -657,7 +657,7 @@ abstract class TableModel {
         $where = $whereFields.' like lower(:1)';
 
         $sql = "select $rfields from $from where ($where) $whereOption  $order";
-        if ( isset($aOptions['limit']) ) {
+        if ( $limit or $start ) {
             $sql = $this->meta['limit']($sql, $limit, $start);
         }
 
