@@ -156,13 +156,13 @@ class View {
         if ( $this->template_file ) {
 
             $template_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
-            if ($this->cache($fileName) > 0 and  Liber::conf('APP_MODE') == 'PROD'  ) {
+            if ( Liber::conf('APP_MODE') == 'PROD' and $this->cache($fileName) > 0 ) {
 
                 $cacheId  = $_SERVER['REQUEST_URI'].$file_path.$this->template_file;
                 if ( !($out = Liber::cache()->get( $cacheId )) ) {
 
                     $out = $this->element($template_path, Array('content'=> $this->element($file_path, $data, true) ), true);
-                    Liber::cache()->put($cacheId, $out, is_numeric( $this->cache($fileName) )?$this->cache($fileName):3600 );
+                    Liber::cache()->put($cacheId, $out, is_numeric( $this->cache($fileName) )?$this->cache($fileName):$this->expireTime );
                 }
 
             } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
@@ -172,7 +172,7 @@ class View {
         } else {
 
             // by default, in PROD mode all files doesn't have cache
-            if ( $this->cache($fileName) > 0 and Liber::conf('APP_MODE') == 'PROD' ) {
+            if ( Liber::conf('APP_MODE') == 'PROD' and $this->cache($fileName) > 0 ) {
 
                 // caching
                 $cacheId = $_SERVER['REQUEST_URI'].$file_path;

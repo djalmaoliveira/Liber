@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.0.23
+ * @version 2.0.24
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.23';
+    const VERSION = '2.0.25';
 
 
     /**
@@ -598,7 +598,7 @@ class Liber {
         }
 
         // get instance kind of Controller and call method (action).
-        Liber::$_controller = new $controller( Array('module'=>$module, 'params'=>$params) );
+        Liber::$_controller = new $controller( Array('module'=>$module, 'params'=>$params, 'method' => $method) );
         if ( method_exists( Liber::$_controller , $method ) or method_exists( Liber::$_controller , '__call' ) ) {
             call_user_func_array(array(Liber::$_controller, $method), $params);
             return true;
@@ -691,6 +691,12 @@ class Controller {
     private $module;
 
     /**
+    *   Name of method called
+    *   @var String
+    */
+    private $method;
+
+    /**
     *   Params detected from uri.
     *   @var Array
     */
@@ -712,6 +718,7 @@ class Controller {
     public function __construct( $args=Array('module'=>'','params'=>Array()) ) {
         $this->module = isset($args['module'])?$args['module']:'';
         $this->params = isset($args['params'])?$args['params']:Array();
+        $this->method = $args['method'];
         header('Content-Type: text/html; charset=utf-8'); // default values
     }
 
@@ -786,6 +793,15 @@ class Controller {
         }
     }
 
+    /**
+     * Load a view file based on Controller::$method name called.
+     * The file name loaded format is: "$method.html"
+     * @param  array $data data for view file
+     * @return void
+     */
+    public function render( $data=array() ) {
+        $this->view()->load( "$this->method.html" );
+    }
 }
 
 ?>
