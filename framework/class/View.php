@@ -6,7 +6,7 @@
 */
 class View {
     private     $template_name;
-    private     $template_file  = 'default.html';
+    private     $template_file;
     private     $module;
     private     $module_path;
     private     $_engine;
@@ -154,6 +154,7 @@ class View {
         }
 
         if ( $this->template_file ) {
+
             $template_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
             if ($this->cache($fileName) > 0 and  Liber::conf('APP_MODE') == 'PROD'  ) {
 
