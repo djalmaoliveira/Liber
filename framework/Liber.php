@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.0.24
+ * @version 2.0.25
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.25';
+    const VERSION = '2.0.26';
 
 
     /**
@@ -644,7 +644,7 @@ class Liber {
                         $uri_detect .= '/'.$uri_parts[$i];
                         $routeOption = Liber::getRouteMethod( $uri_detect );
                         if ( isset( $uri_parts[($i+1)] )  and ($uri_found = self::processController( $routeOption[0], $uri_parts[($i+1)], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, ($i+2)) )) ) {
-                            break;
+                            return;
                         }
                     }
                     // Try named params
