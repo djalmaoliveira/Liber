@@ -22,6 +22,7 @@
  *         'direct'         => 'Current direction, that can be <asc|desc>.'
  *         'page'           => 'Current page number.'
  *         'query'          => 'Current search query terms.'
+ *         'url_query'      => 'Aditional url query params like: name=John&age=25'
  * </pre>
  * <code>
  *      Usages:
@@ -45,24 +46,30 @@
  */
 function page_options_($options=null, $value=null) {
 
-    static $_options = array(
+    static $_options;
+
+    if ( !$_options ) {
+        Liber::loadHelper('Url');
+        $_options = array(
                         'url'           => '',
                         'rows_fetched'  => 0,
                         'rows'          => 15,
                         'total'         => 1,
                         'param'         => 'pagination',
-                        'query'         => ''
+                        'query'         => '',
+                        'url_query'     => $_SERVER['QUERY_STRING']
                         );
 
-    if ( empty($_options['url']) ) {
-        Liber::loadHelper('Url');
         list($_options['url'])    = explode("?", url_current_(true));
+
+        $current = explode(":",Http::get($_options['param']));
+        $_options['page']   = empty($current[0])?1:$current[0];
+        $_options['sort']   = isset($current[1])?$current[1]:'';
+        $_options['direct'] = isset($current[2])?$current[2]:'desc';
+        $_options['query']  = isset($current[3])?$current[3]:$_options['query'];
+
     }
-    $current = explode(":",Http::get($_options['param']));
-    $_options['page']   = empty($current[0])?1:$current[0];
-    $_options['sort']   = isset($current[1])?$current[1]:'';
-    $_options['direct'] = isset($current[2])?$current[2]:'desc';
-    $_options['query']  = isset($current[3])?$current[3]:$_options['query'];
+
 
     if ( func_num_args() == 0 ) {
         return $_options;
@@ -85,8 +92,12 @@ function page_options_($options=null, $value=null) {
  * @return void|string
  */
 function page_url_($options, $return=false ) {
-    $op  = &$options;
-    $url = $op['url']."?{$op['param']}={$op['page']}:{$op['sort']}:{$op['direct']}:{$op['query']}:";
+    $op     = &$options;
+    $query  = array();
+    parse_str($options['url_query'], $query);
+    $query[$op['param']] = "{$op['page']}:{$op['sort']}:{$op['direct']}:{$op['query']}:";
+    $url = $op['url']."?".http_build_query($query);
+
     if ( $return ) {
         return $url;
     }
