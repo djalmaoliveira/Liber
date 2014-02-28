@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.0.29
+ * @version 2.0.30
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.29';
+    const VERSION = '2.0.30';
 
 
     /**
@@ -718,7 +718,7 @@ class Controller {
     public function __construct( $args=Array('module'=>'','params'=>Array(), 'method' => '') ) {
         $this->module = isset($args['module'])?$args['module']:'';
         $this->params = isset($args['params'])?$args['params']:Array();
-        $this->method = $args['method'];
+        $this->method = isset($args['method'])?$args['method']:'';
         header('Content-Type: text/html; charset=utf-8'); // default values
     }
 

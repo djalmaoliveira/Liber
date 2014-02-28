@@ -7,19 +7,24 @@
 */
 class Session {
 
-    public $context;
-    static $started = false;
+    protected $context;
 
     function __construct( $context = 'default', $id=null ) {
 
         $this->context = $context;
-        if ( $id ) { session_id($id);}
-        if ( !self::$started  ) {
+        if ( !$this->started()  ) {
             session_start();
-            self::$started = true;
         }
+        if ( $id ) { session_id($id); }
     }
 
+    /**
+     * Return if there is a session started.
+     * @return boolean
+     */
+    function started() {
+        return (session_id()=='');
+    }
 
     /**
     *   Set field/value to session.
@@ -64,7 +69,5 @@ class Session {
     }
 
 }
-
-
 
 ?>

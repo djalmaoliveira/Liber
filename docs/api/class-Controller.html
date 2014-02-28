@@ -132,7 +132,7 @@ All controllers must extends it and have at least the 'index' method.</p>
 href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com</a>)<br>
 				<b>Since:</b>
 				1.0<br>
-		<b>Located at</b> <a href="source-class-Controller.html#679-790" title="Go to source code">Liber.php</a><br>
+		<b>Located at</b> <a href="source-class-Controller.html#678-805" title="Go to source code">Liber.php</a><br>
 	</div>
 
 
@@ -150,7 +150,7 @@ href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com<
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Controller.html#707-717" title="Go to source code">__construct</a>( <span>Array <var>$args</var> = <span class="php-keyword1">Array</span>(<span class="php-quote">'module'</span>=&gt;<span class="php-quote">''</span>,<span class="php-quote">'params'</span>=&gt;<span class="php-keyword1">Array</span>()) </span> )</code>
+		<code><a href="source-class-Controller.html#712-723" title="Go to source code">__construct</a>( <span>Array <var>$args</var> = <span class="php-keyword1">Array</span>(<span class="php-quote">'module'</span>=&gt;<span class="php-quote">''</span>,<span class="php-quote">'params'</span>=&gt;<span class="php-keyword1">Array</span>(), <span class="php-quote">'method'</span> =&gt; <span class="php-quote">''</span>) </span> )</code>
 
 		<div class="description short">
 			
@@ -189,7 +189,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadModel">#</a>
-		<code><a href="source-class-Controller.html#719-728" title="Go to source code">loadModel</a>( <span>String <var>$modelName</var></span>, <span>String|boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
+		<code><a href="source-class-Controller.html#725-734" title="Go to source code">loadModel</a>( <span>String <var>$modelName</var></span>, <span>String|boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -233,7 +233,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadClass">#</a>
-		<code><a href="source-class-Controller.html#730-739" title="Go to source code">loadClass</a>( <span>String <var>$className</var></span>, <span>String|boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
+		<code><a href="source-class-Controller.html#736-745" title="Go to source code">loadClass</a>( <span>String <var>$className</var></span>, <span>String|boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -277,7 +277,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadHelper">#</a>
-		<code><a href="source-class-Controller.html#741-750" title="Go to source code">loadHelper</a>( <span>String <var>$helperName</var></span> )</code>
+		<code><a href="source-class-Controller.html#747-756" title="Go to source code">loadHelper</a>( <span>String <var>$helperName</var></span> )</code>
 
 		<div class="description short">
 			
@@ -319,7 +319,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadPlugin">#</a>
-		<code><a href="source-class-Controller.html#752-761" title="Go to source code">loadPlugin</a>( <span>String <var>$pluginName</var></span>, <span>boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
+		<code><a href="source-class-Controller.html#758-767" title="Go to source code">loadPlugin</a>( <span>String <var>$pluginName</var></span>, <span>boolean <var>$createObj</var> = <span class="php-keyword1">false</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -363,7 +363,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_view">#</a>
-		<code><a href="source-class-Controller.html#763-775" title="Go to source code">view</a>( <span>String <var>$layout_once</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-Controller.html#769-781" title="Go to source code">view</a>( <span>String <var>$layout_once</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
@@ -405,7 +405,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_params">#</a>
-		<code><a href="source-class-Controller.html#777-788" title="Go to source code">params</a>( <span>String <var>$name</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-Controller.html#783-794" title="Go to source code">params</a>( <span>String <var>$name</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -429,6 +429,46 @@ controller ['params'] = Array() - values of detected named params from route</dd
 				<div class="list">
 					<code>String</code><br>
 				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-Controller.html#796-804" title="Go to source code">render</a>( <span>array <var>$data</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Load a view file based on Controller::$method name called. The file name
+loaded format is: "$method.html"</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Load a view file based on Controller::$method name called. The file name
+loaded format is: "$method.html"</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data data for view file</dd>
+				</dl></div>
+
 
 
 

@@ -139,7 +139,7 @@
 		
 		<b>Package:</b> <a href="package-classes.html">classes</a><br>
 
-		<b>Located at</b> <a href="source-class-Log.html#2-167" title="Go to source code">class/Log.php</a><br>
+		<b>Located at</b> <a href="source-class-Log.html#2-169" title="Go to source code">class/Log.php</a><br>
 	</div>
 
 
@@ -186,7 +186,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_handlerLog">#</a>
-		<code><a href="source-class-Log.html#26-50" title="Go to source code">handlerLog</a>( )</code>
+		<code><a href="source-class-Log.html#26-51" title="Go to source code">handlerLog</a>( )</code>
 
 		<div class="description short">
 			
@@ -230,13 +230,14 @@ Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].
 
 		<td class="name"><div>
 		<a class="anchor" href="#_handler">#</a>
-		<code><a href="source-class-Log.html#53-62" title="Go to source code">handler</a>( <span>String <var>$func</var></span> )</code>
+		<code><a href="source-class-Log.html#54-64" title="Go to source code">handler</a>( <span>String <var>$func</var></span> )</code>
 
 		<div class="description short">
 			
 <p>Set a handler function to control the behavior of log messages.<br />
 The behavior of this function will be called before the default behavior, if you
-don't want the default behavior, then call die() or exit on $func.</p>
+don't want the default behavior, then call die() or exit on $func.<br />
+The $func params is Log::$aLogMsg</p>
 
 		</div>
 
@@ -244,7 +245,8 @@ don't want the default behavior, then call die() or exit on $func.</p>
 			
 <p>Set a handler function to control the behavior of log messages. The behavior
 of this function will be called before the default behavior, if you don't want
-the default behavior, then call die() or exit on $func.</p>
+the default behavior, then call die() or exit on $func. The $func params is
+Log::$aLogMsg</p>
 
 
 
@@ -272,7 +274,7 @@ the default behavior, then call die() or exit on $func.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_handlerError">#</a>
-		<code><a href="source-class-Log.html#65-77" title="Go to source code">handlerError</a>( )</code>
+		<code><a href="source-class-Log.html#67-79" title="Go to source code">handlerError</a>( )</code>
 
 		<div class="description short">
 			
@@ -305,7 +307,7 @@ the default behavior, then call die() or exit on $func.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_add">#</a>
-		<code><a href="source-class-Log.html#103-116" title="Go to source code">add</a>( <span>String <var>$msg</var></span>, <span>String <var>$level</var> = <span class="php-quote">'info'</span></span> )</code>
+		<code><a href="source-class-Log.html#105-118" title="Go to source code">add</a>( <span>String <var>$msg</var></span>, <span>String <var>$level</var> = <span class="php-quote">'info'</span></span> )</code>
 
 		<div class="description short">
 			
@@ -345,7 +347,7 @@ the default behavior, then call die() or exit on $func.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toFile">#</a>
-		<code><a href="source-class-Log.html#119-137" title="Go to source code">toFile</a>( )</code>
+		<code><a href="source-class-Log.html#121-139" title="Go to source code">toFile</a>( )</code>
 
 		<div class="description short">
 			
@@ -378,7 +380,7 @@ the default behavior, then call die() or exit on $func.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toString">#</a>
-		<code><a href="source-class-Log.html#140-146" title="Go to source code">toString</a>( )</code>
+		<code><a href="source-class-Log.html#142-148" title="Go to source code">toString</a>( )</code>
 
 		<div class="description short">
 			
@@ -415,7 +417,7 @@ the default behavior, then call die() or exit on $func.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toPopUp">#</a>
-		<code><a href="source-class-Log.html#149-166" title="Go to source code">toPopUp</a>( )</code>
+		<code><a href="source-class-Log.html#151-168" title="Go to source code">toPopUp</a>( )</code>
 
 		<div class="description short">
 			
