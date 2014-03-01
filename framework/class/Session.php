@@ -9,10 +9,15 @@ class Session {
 
     protected $context;
 
+    /**
+     * Instance new object and start a session.
+     * @param string $context namespace
+     * @param string $id      specific session ID
+     */
     function __construct( $context = 'default', $id=null ) {
 
         $this->context = $context;
-        if ( !$this->started()  ) {
+        if ( !self::started() ) {
             session_start();
         }
         if ( $id ) { session_id($id); }
@@ -22,8 +27,8 @@ class Session {
      * Return if there is a session started.
      * @return boolean
      */
-    function started() {
-        return (session_id()=='');
+    static function started() {
+        return !(session_id()=='');
     }
 
     /**
