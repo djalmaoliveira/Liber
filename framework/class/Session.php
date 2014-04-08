@@ -32,7 +32,7 @@ class Session {
     }
 
     /**
-    *   Set field/value to session.
+    *   Set field/value to context session.
     *   If don't specified $v, then return the value of $f.
     *   @param String $f  - Field Name
     *   @param mixed $v  - Value
@@ -49,16 +49,19 @@ class Session {
     }
 
     /**
-    *   Return array of field/values from current session.
+    *   Return array of field/values from current context session.
     *   @return Array
     */
     function toArray() {
-        return $_SESSION[$this->context];
+        if ( isset($_SESSION[$this->context]) ) {
+            return $_SESSION[$this->context];
+        }
+        return array();
     }
 
 
     /**
-    *   Cleans current session.
+    *   Clean current context session.
     *
     */
     function clear() {
