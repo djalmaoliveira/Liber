@@ -197,10 +197,13 @@ class Http {
 
     /**
      * Initiate the download of a file.
+     *
      * Usage:
+     * <code>
      *     Http::download('/path/to/file');
      *     Http::download('/path/to/file.pdf', array('type' => 'pdf', 'name' => 'report.pdf'));
      *     Http::download(array('content' => 'this is the content file.', 'type' => 'plain', 'name' => 'report.txt'));
+     * </code>
      * Options:
      *     'type' is a content type of file;
      *     'name' is a file name;
