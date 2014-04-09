@@ -24,6 +24,15 @@
     echo Http::file('image1');
     echo Http::file('image2');
 
+    // Download a file from direct path
+    Http::download('/path/to/file');
+
+    // Download a file from direct path, with options
+    Http::download('/path/to/file.pdf', array('type' => 'pdf', 'name' => 'report.pdf'));
+
+    // Download a file specifing the 'content' as String and options.
+    Http::download(array('content' => 'this is the content file.', 'type' => 'plain', 'name' => 'report.txt'));
+
 </pre>
 
 <h2>Real example:</h2>

@@ -141,7 +141,7 @@ data.</p>
 		
 		<b>Package:</b> <a href="package-classes.html">classes</a><br>
 
-		<b>Located at</b> <a href="source-class-Session.html#2-71" title="Go to source code">class/Session.php</a><br>
+		<b>Located at</b> <a href="source-class-Session.html#2-79" title="Go to source code">class/Session.php</a><br>
 	</div>
 
 
@@ -159,16 +159,27 @@ data.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Session.html#12-19" title="Go to source code">__construct</a>( <span>mixed <var>$context</var> = <span class="php-quote">'default'</span></span>, <span>mixed <var>$id</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-Session.html#12-24" title="Go to source code">__construct</a>( <span>string <var>$context</var> = <span class="php-quote">'default'</span></span>, <span>string <var>$id</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			
+<p>Instance new object and start a session.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Instance new object and start a session.</p>
 
 
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$context</var></dt>
+					<dd><code>string</code><br>$context namespace</dd>
+					<dt><var>$id</var></dt>
+					<dd><code>string</code><br>$id specific session ID</dd>
+				</dl></div>
 
 
 
@@ -180,7 +191,7 @@ data.</p>
 	<tr data-order="started" id="_started">
 
 		<td class="attributes"><code>
-			 public 
+			 public static
 			boolean
 			
 			</code>
@@ -188,7 +199,7 @@ data.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_started">#</a>
-		<code><a href="source-class-Session.html#21-27" title="Go to source code">started</a>( )</code>
+		<code><a href="source-class-Session.html#26-32" title="Go to source code">started</a>( )</code>
 
 		<div class="description short">
 			
@@ -225,19 +236,19 @@ data.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_val">#</a>
-		<code><a href="source-class-Session.html#29-44" title="Go to source code">val</a>( <span>String <var>$f</var></span>, <span>mixed <var>$v</var> = <span class="php-keyword1">NULL</span></span> )</code>
+		<code><a href="source-class-Session.html#34-49" title="Go to source code">val</a>( <span>String <var>$f</var></span>, <span>mixed <var>$v</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Set field/value to session.<br />
+<p>Set field/value to context session.<br />
 If don't specified $v, then return the value of $f.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Set field/value to session. If don't specified $v, then return the value of
-$f.</p>
+<p>Set field/value to context session. If don't specified $v, then return the
+value of $f.</p>
 
 
 
@@ -271,17 +282,17 @@ $f.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toArray">#</a>
-		<code><a href="source-class-Session.html#46-52" title="Go to source code">toArray</a>( )</code>
+		<code><a href="source-class-Session.html#51-60" title="Go to source code">toArray</a>( )</code>
 
 		<div class="description short">
 			
-<p>Return array of field/values from current session.</p>
+<p>Return array of field/values from current context session.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Return array of field/values from current session.</p>
+<p>Return array of field/values from current context session.</p>
 
 
 
@@ -308,17 +319,17 @@ $f.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_clear">#</a>
-		<code><a href="source-class-Session.html#55-61" title="Go to source code">clear</a>( )</code>
+		<code><a href="source-class-Session.html#63-69" title="Go to source code">clear</a>( )</code>
 
 		<div class="description short">
 			
-<p>Cleans current session.</p>
+<p>Clean current context session.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Cleans current session.</p>
+<p>Clean current context session.</p>
 
 
 
@@ -341,7 +352,7 @@ $f.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_destroy">#</a>
-		<code><a href="source-class-Session.html#63-69" title="Go to source code">destroy</a>( )</code>
+		<code><a href="source-class-Session.html#71-77" title="Go to source code">destroy</a>( )</code>
 
 		<div class="description short">
 			

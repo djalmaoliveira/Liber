@@ -194,6 +194,49 @@ class Http {
         return ( isset($_FILES[$field])?$_FILES[$field]:null );
     }
 
+
+    /**
+     * Initiate the download of a file.
+     * Usage:
+     *     Http::download('/path/to/file');
+     *     Http::download('/path/to/file.pdf', array('type' => 'pdf', 'name' => 'report.pdf'));
+     *     Http::download(array('content' => 'this is the content file.', 'type' => 'plain', 'name' => 'report.txt'));
+     * Options:
+     *     'type' is a content type of file;
+     *     'name' is a file name;
+     * @param  <string|array> $data
+     * @param  array  $options
+     * @return void
+     */
+    public static function download( $data, $options=array() ) {
+        $opt       = array('type' => '', 'name' => '');
+        $file_path = '';
+
+        if ( is_string($data) ) {
+            $opt       = array_merge($opt, $options);
+            $file_path = $data;
+        } elseif( is_array($data) ) {
+            $opt       = array_merge($opt, $data);
+            $file_path = sys_get_temp_dir().'/'.uniqid('down');
+            file_put_contents($file_path, $data['content']);
+        }
+
+        $opt['name'] = $opt['name']?$opt['name']:basename($file_path);
+        if ( !$opt['type'] ) {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $opt['type'] = $finfo->file($file_path);
+        }
+
+        if ( !file_exists($file_path) ) { return; }
+
+        self::contentType($opt['type']);
+        header("Content-Disposition: attachment; filename=".$opt['name'].";");
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: ".filesize($file_path));
+        @readfile($file_path);
+        exit;
+    }
+
 }
 
 ?>

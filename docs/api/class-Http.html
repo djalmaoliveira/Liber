@@ -140,7 +140,7 @@ HTTP response. .</p>
 		
 		<b>Package:</b> <a href="package-classes.html">classes</a><br>
 
-		<b>Located at</b> <a href="source-class-Http.html#2-197" title="Go to source code">class/Http.php</a><br>
+		<b>Located at</b> <a href="source-class-Http.html#2-240" title="Go to source code">class/Http.php</a><br>
 	</div>
 
 
@@ -647,6 +647,57 @@ class="php-keyword2">file</span>();
 				<div class="list">
 					<code>mixed|boolean</code><br>
 				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="download" id="_download">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_download">#</a>
+		<code><a href="source-class-Http.html#198-238" title="Go to source code">download</a>( <span>&lt;string|array&gt; <var>$data</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Initiate the download of a file. Usage:<br />
+Http::download('/path/to/file');<br />
+Http::download('/path/to/file.pdf', array('type' =&gt; 'pdf', 'name' =&gt;
+'report.pdf'));<br />
+Http::download(array('content' =&gt; 'this is the content file.', 'type' =&gt;
+'plain', 'name' =&gt; 'report.txt')); Options:<br />
+'type' is a content type of file;<br />
+'name' is a file name;</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Initiate the download of a file. Usage: Http::download('/path/to/file');
+Http::download('/path/to/file.pdf', array('type' =&gt; 'pdf', 'name' =&gt;
+'report.pdf')); Http::download(array('content' =&gt; 'this is the content
+file.', 'type' =&gt; 'plain', 'name' =&gt; 'report.txt')); Options: 'type' is a
+content type of file; 'name' is a file name;</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>&lt;string|array&gt;</code><br>$data</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options</dd>
+				</dl></div>
+
 
 
 

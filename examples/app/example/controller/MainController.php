@@ -49,6 +49,21 @@ class MainController extends Controller{
     public function test() {
         echo Http::get('name');
     }
+
+    public function download($method) {
+        switch($method) {
+            case 1:
+                Http::download(Liber::conf('APP_PATH').'data/download.txt');
+            break;
+            case 2:
+                Http::download(Liber::conf('APP_PATH').'data/download.txt', array('type' => 'plain', 'name' => 'report.txt'));
+            break;
+            case 3:
+                Http::download(array('content' => 'this is the content file.', 'type' => 'plain', 'name' => 'other_report.txt'));
+            break;
+        }
+    }
+
 }
 
 ?>
