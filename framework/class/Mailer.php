@@ -84,15 +84,16 @@ class Mailer {
     public function to($name, $email='') {
         $to = '';
         if ( is_array($name) )  {
-            $to = $this->_parseAddresses($name);
+            $this->aMail['to'] = $name;
         } else {
             if ( func_num_args() == 1 ) {
                 $to = $this->_parseAddresses(Array(trim($name)));
             } else {
                 $to = $this->_parseAddresses(Array($name=>trim($email)));
             }
+            $this->aMail['to'] = Array($to);
         }
-        $this->aMail['to'] = Array($to);
+
     }
 
 
@@ -190,6 +191,9 @@ class Mailer {
     *
     *       // attach multiples files
     *       ->file( Array('/path/file1', '/path/file2') );
+    *
+    *       // attach multiples files with file name
+    *       ->file( Array('filename1.txt' => '/path/file1', 'filename2' => '/path/file2') );
     *   </code>
     *   @param String | Array $files
     */
@@ -228,9 +232,12 @@ class Mailer {
 
             $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--$boundary\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
             $attachs = '';
-            foreach( $this->files as $filepath ) {
+            foreach( $this->files as $name => $filepath ) {
                 if ( file_exists($filepath) ) {
-                    $name = basename($filepath);
+                    if ( is_numeric($name) ) {
+                        $name = basename($filepath);
+                    }
+
                     $h  = "--$boundary\n";
                     $h .= "Content-Type: application/octet-stream; name=\"$name\"\n";
                     $h .= "Content-Disposition: attachment; filename=\"$name\"\n";

@@ -15,7 +15,7 @@
     - Mailer should have return invalid fields.
 11/2010
     - images using ETAGs
-    - helpers/classes to access API from Twitter, Facebook...
+    - plugins to access API from Twitter, Facebook...
 09/2010
     - class Out, with shortcut in View (View->out()), with following methods(guess), file,text,json,zip, xml, used to output its content;
 

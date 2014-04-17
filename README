@@ -7,7 +7,7 @@ This is simple MVC based PHP framework.
 How to install
 -----------------------------
 
-1. Download the compressed file from http://github.com/djalmaoliveira/Liber/tarball/master;
+1. Download the compressed file from https://github.com/djalmaoliveira/Liber/releases;
 2. Unpack on folder with public http access using `tar -pvxf file.tar.gz`, to preserve original permissions;
 3. Open your web browser on folder above and go to 'manual/';
 
