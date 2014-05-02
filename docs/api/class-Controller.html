@@ -132,7 +132,7 @@ All controllers must extends it and have at least the 'index' method.</p>
 href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com</a>)<br>
 				<b>Since:</b>
 				1.0<br>
-		<b>Located at</b> <a href="source-class-Controller.html#678-805" title="Go to source code">Liber.php</a><br>
+		<b>Located at</b> <a href="source-class-Controller.html#678-819" title="Go to source code">Liber.php</a><br>
 	</div>
 
 
@@ -363,7 +363,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_view">#</a>
-		<code><a href="source-class-Controller.html#769-781" title="Go to source code">view</a>( <span>String <var>$layout_once</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-Controller.html#769-779" title="Go to source code">view</a>( )</code>
 
 		<div class="description short">
 			
@@ -377,11 +377,6 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$layout_once</var></dt>
-					<dd><code>String</code><br>$layout_once - Name of layout that this call will use</dd>
-				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -405,7 +400,7 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_params">#</a>
-		<code><a href="source-class-Controller.html#783-794" title="Go to source code">params</a>( <span>String <var>$name</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-Controller.html#781-792" title="Go to source code">params</a>( <span>String <var>$name</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -447,26 +442,57 @@ controller ['params'] = Array() - values of detected named params from route</dd
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-Controller.html#796-804" title="Go to source code">render</a>( <span>array <var>$data</var> = <span class="php-keyword1">array</span>() </span> )</code>
+		<code><a href="source-class-Controller.html#794-818" title="Go to source code">render</a>( <span>mixed <var>$data</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span> </span> )</code>
 
 		<div class="description short">
 			
-<p>Load a view file based on Controller::$method name called. The file name
-loaded format is: "$method.html"</p>
+<p>Load a view file based on same Controller::$method name called. The file name
+loaded format will be: "$method.html" &lt;code&gt; Usage: // print the output of
+processed view file -&gt;render();</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Load a view file based on Controller::$method name called. The file name
-loaded format is: "$method.html"</p>
+<p>Load a view file based on same Controller::$method name called. The file name
+loaded format will be: "$method.html"</p>
+
+<pre>
+Usage:
+<span
+class="php-comment">// print the output of processed view file</span>
+-&gt;render();
+
+<span
+class="php-comment">// return the output of processed view file</span>
+-&gt;render(<span
+class="php-keyword1">true</span>);
+
+<span
+class="php-comment">// print the output of processed view file with data specified</span>
+-&gt;render(<span
+class="php-keyword1">array</span>(<span
+class="php-quote">'framework'</span>=&gt;<span
+class="php-quote">'Liber'</span>));
+
+<span
+class="php-comment">// return the output of processed view file with data specified</span>
+-&gt;render(<span
+class="php-keyword1">array</span>(<span
+class="php-quote">'framework'</span>=&gt;<span
+class="php-quote">'Liber'</span>), <span
+class="php-keyword1">true</span>);
+
+</pre>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$data</var></dt>
-					<dd><code>array</code><br>$data data for view file</dd>
+					<dd><code>mixed</code><br>$data data for view file</dd>
+					<dt><var>$return</var></dt>
+					<dd><code>boolean</code><br>$return true return the output content</dd>
 				</dl></div>
 
 

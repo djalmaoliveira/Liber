@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.1.4
+ * @version 2.1.5
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.1.4';
+    const VERSION = '2.1.5';
 
 
     /**
@@ -768,14 +768,12 @@ class Controller {
 
     /**
     *   Get instance of View class.
-    *   @param String $layout_once  - Name of layout that this call will use
     *   @return View object
     */
-    public function view($layout_once='') {
+    public function view() {
         if ( !isset($this->_view) ) {
             Liber::loadClass('View');
             $this->_view = new View($this->module);
-            $this->_view->setLayoutOnce($layout_once);
         }
         return $this->_view;
     }
@@ -794,13 +792,29 @@ class Controller {
     }
 
     /**
-     * Load a view file based on Controller::$method name called.
-     * The file name loaded format is: "$method.html"
-     * @param  array $data data for view file
+     * Load a view file based on same Controller::$method name called.
+     * The file name loaded format will be: "$method.html"
+     * <code>
+     * Usage:
+     * // print the output of processed view file
+     * ->render();
+     *
+     * // return the output of processed view file
+     * ->render(true);
+     *
+     * // print the output of processed view file with data specified
+     * ->render(array('framework'=>'Liber'));
+     *
+     * // return the output of processed view file with data specified
+     * ->render(array('framework'=>'Liber'), true);
+     *
+     * </code>
+     * @param  mixed $data data for view file
+     * @param  boolean $return true return the output content
      * @return void
      */
-    public function render( $data=array() ) {
-        $this->view()->load( "$this->method.html" );
+    public function render( $data=array(), $return=false ) {
+        $this->view()->load( "$this->method.html", $data, $return );
     }
 }
 
