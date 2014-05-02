@@ -92,7 +92,7 @@ class View {
                 $this->cache_expires[func_get_arg(0)] = $arg;
             } elseif ( is_bool($arg) ) {
                 if ( $arg ) {
-                    $this->cache_expires[func_get_arg(0)] = 0;
+                    $this->cache_expires[func_get_arg(0)] = 3600;
                 } else {
                     $this->cache_expires[func_get_arg(0)] = 0;
                 }
@@ -106,7 +106,7 @@ class View {
     *   @param String $layout
     */
     function setLayoutOnce($layout) {
-        $this->layout_once = $layout;
+        $this->_layout_once = $layout;
     }
 
 
@@ -153,37 +153,24 @@ class View {
             $this->_layout_once = '';
         }
 
+        $cacheId = $_SERVER['REQUEST_URI'].$file_path;
         if ( $this->template_file ) {
+            $cacheId   = $cacheId.$this->template_file;
+            $data      = Array('content'=> $this->element($file_path, $data, true) );
+            $file_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
+        }
 
-            $template_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
-            if ( Liber::conf('APP_MODE') == 'PROD' and $this->cache($fileName) > 0 ) {
-
-                $cacheId  = $_SERVER['REQUEST_URI'].$file_path.$this->template_file;
-                if ( !($out = Liber::cache()->get( $cacheId )) ) {
-
-                    $out = $this->element($template_path, Array('content'=> $this->element($file_path, $data, true) ), true);
-                    Liber::cache()->put($cacheId, $out, is_numeric( $this->cache($fileName) )?$this->cache($fileName):$this->expireTime );
-                }
-
-            } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-                $out = $this->element($template_path, Array('content'=> $this->element($file_path, $data, true) ), true);
+        // by default, in PROD mode all files doesn't have cache
+        $out = '';
+        if ( Liber::conf('APP_MODE') == 'PROD' and isset($this->cache_expires[$fileName]) ) {
+            // caching
+            if ( !($out = Liber::cache()->get( $cacheId )) ) {
+                $out = $this->element($file_path, $data, true);
+                Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName])?$this->cache_expires[$fileName]:$this->expireTime );
             }
 
-        } else {
-
-            // by default, in PROD mode all files doesn't have cache
-            if ( Liber::conf('APP_MODE') == 'PROD' and $this->cache($fileName) > 0 ) {
-
-                // caching
-                $cacheId = $_SERVER['REQUEST_URI'].$file_path;
-                if ( !($out = Liber::cache()->get( $cacheId )) ) {
-                    $out = $this->element($file_path, $data, true);
-                    Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName]['expires'])?$this->cache_expires[$fileName]['expires']:$this->expireTime );
-                }
-
-            } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-                $out = $this->element($file_path, $data, $return);
-            }
+        } elseif ( !$out or Liber::conf('APP_MODE') == 'DEV' ) {
+            $out = $this->element($file_path, $data, $return);
         }
 
         if ( $return )  { return $out; }

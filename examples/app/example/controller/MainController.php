@@ -64,6 +64,22 @@ class MainController extends Controller{
         }
     }
 
+
+    public function template() {
+        $this->view()->template('default.html');
+        $this->view()->load('index.html');
+    }
+
+    public function caching() {
+        $this->view()->cache('index.html', true);
+        $this->view()->load('index.html');
+    }
+
+    public function layout() {
+        $this->view()->setLayoutOnce('mylayout');
+        $this->view()->load('index.html');
+    }
+
 }
 
 ?>
