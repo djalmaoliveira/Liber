@@ -140,7 +140,7 @@ HTTP response. .</p>
 		
 		<b>Package:</b> <a href="package-classes.html">classes</a><br>
 
-		<b>Located at</b> <a href="source-class-Http.html#2-240" title="Go to source code">class/Http.php</a><br>
+		<b>Located at</b> <a href="source-class-Http.html#2-243" title="Go to source code">class/Http.php</a><br>
 	</div>
 
 
@@ -665,28 +665,41 @@ class="php-keyword2">file</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_download">#</a>
-		<code><a href="source-class-Http.html#198-238" title="Go to source code">download</a>( <span>&lt;string|array&gt; <var>$data</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>() </span> )</code>
+		<code><a href="source-class-Http.html#198-241" title="Go to source code">download</a>( <span>&lt;string|array&gt; <var>$data</var></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>() </span> )</code>
 
 		<div class="description short">
 			
-<p>Initiate the download of a file. Usage:<br />
-Http::download('/path/to/file');<br />
-Http::download('/path/to/file.pdf', array('type' =&gt; 'pdf', 'name' =&gt;
-'report.pdf'));<br />
-Http::download(array('content' =&gt; 'this is the content file.', 'type' =&gt;
-'plain', 'name' =&gt; 'report.txt')); Options:<br />
-'type' is a content type of file;<br />
-'name' is a file name;</p>
+<p>Initiate the download of a file.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Initiate the download of a file. Usage: Http::download('/path/to/file');
-Http::download('/path/to/file.pdf', array('type' =&gt; 'pdf', 'name' =&gt;
-'report.pdf')); Http::download(array('content' =&gt; 'this is the content
-file.', 'type' =&gt; 'plain', 'name' =&gt; 'report.txt')); Options: 'type' is a
-content type of file; 'name' is a file name;</p>
+<p>Initiate the download of a file.</p>
+
+<p>Usage:</p>
+
+<pre>
+Http::download(<span
+class="php-quote">'/path/to/file'</span>);
+Http::download(<span
+class="php-quote">'/path/to/file.pdf'</span>, <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'type'</span> =&gt; <span
+class="php-quote">'pdf'</span>, <span
+class="php-quote">'name'</span> =&gt; <span
+class="php-quote">'report.pdf'</span>));
+Http::download(<span
+class="php-keyword1">array</span>(<span
+class="php-quote">'content'</span> =&gt; <span
+class="php-quote">'this is the content file.'</span>, <span
+class="php-quote">'type'</span> =&gt; <span
+class="php-quote">'plain'</span>, <span
+class="php-quote">'name'</span> =&gt; <span
+class="php-quote">'report.txt'</span>));
+</pre>
+
+<p>Options: 'type' is a content type of file; 'name' is a file name;</p>
 
 
 

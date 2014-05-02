@@ -139,7 +139,7 @@
 		
 		<b>Package:</b> <a href="package-classes.html">classes</a><br>
 
-		<b>Located at</b> <a href="source-class-View.html#2-259" title="Go to source code">class/View.php</a><br>
+		<b>Located at</b> <a href="source-class-View.html#2-261" title="Go to source code">class/View.php</a><br>
 	</div>
 
 
@@ -388,17 +388,54 @@ it exists.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-View.html#139-191" title="Go to source code">load</a>( <span>String <var>$fileName</var></span>, <span>Array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-View.html#139-192" title="Go to source code">load</a>( <span>String <var>$fileName</var></span>, <span>Array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Load and process a view file.</p>
+<p>Load and process a view file using Template files and/or Layout dir if
+previously specified.<br />
+&lt;code&gt;<br />
+Usage:<br />
+// load index.html<br />
+view()-&gt;load('index.html');</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Load and process a view file.</p>
+<p>Load and process a view file using Template files and/or Layout dir if
+previously specified.</p>
+
+<pre>
+  Usage:
+  <span
+class="php-comment">// load index.html</span>
+  view()-&gt;load(<span
+class="php-quote">'index.html'</span>);
+
+<span
+class="php-comment">// load index.html with data</span>
+  view()-&gt;load(<span
+class="php-quote">'index.html'</span>, <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'framework'</span> =&gt; <span
+class="php-quote">'Liber'</span>));
+
+  <span
+class="php-comment">// load index.html with data and return the output html</span>
+  view()-&gt;load(<span
+class="php-quote">'index.html'</span>, <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'framework'</span> =&gt; <span
+class="php-quote">'Liber'</span>), <span
+class="php-keyword1">true</span>);
+
+  <span
+class="php-comment">// load index.html and return the output html</span>
+  view()-&gt;load(<span
+class="php-quote">'index.html'</span>, <span
+class="php-keyword1">true</span>);
+  </pre>
 
 
 
@@ -434,7 +471,7 @@ it exists.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_element">#</a>
-		<code><a href="source-class-View.html#193-214" title="Go to source code">element</a>( <span>string <var>$fileName</var></span>, <span>array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span> </span> )</code>
+		<code><a href="source-class-View.html#194-216" title="Go to source code">element</a>( <span>string <var>$fileName</var></span>, <span>array <var>$data</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$return</var> = <span class="php-keyword1">false</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -480,7 +517,7 @@ it exists.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_template">#</a>
-		<code><a href="source-class-View.html#217-236" title="Go to source code">template</a>( <span>string <var>$template_file</var></span>, <span>string <var>$template_name</var> = <span class="php-quote">'default'</span> </span> )</code>
+		<code><a href="source-class-View.html#219-238" title="Go to source code">template</a>( <span>string <var>$template_file</var></span>, <span>string <var>$template_name</var> = <span class="php-quote">'default'</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -535,7 +572,7 @@ class="php-quote">'admin'</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_engine">#</a>
-		<code><a href="source-class-View.html#240-257" title="Go to source code">engine</a>( )</code>
+		<code><a href="source-class-View.html#242-259" title="Go to source code">engine</a>( )</code>
 
 		<div class="description short">
 			

@@ -137,14 +137,28 @@ class View {
 
 
     /**
-    *   Load and process a view file.
+    *   Load and process a view file using Template files and/or Layout dir if previously specified.
+    *   <code>
+    *   Usage:
+    *   // load index.html
+    *   view()->load('index.html');
+    *
+    *   // load index.html with data
+    *   view()->load('index.html', array('framework' => 'Liber'));
+    *
+    *   // load index.html with data and return the output html
+    *   view()->load('index.html', array('framework' => 'Liber'), true);
+    *
+    *   // load index.html and return the output html
+    *   view()->load('index.html', true);
+    *   </code>
     *   @param  String $fileName    Absolute path to file name or relative to view/ folder.
     *   @param  Array $data         Array of data to view file.
     *   @param  boolean $return     If True return the processed content of view file .
     *   @return String - if output is true
     */
     function load($fileName, $data=null, $return=false) {
-
+        if ( is_bool($data) ) { $return = $data; }
         $file_path = $this->path($fileName);
 
         // use layout once time.
@@ -185,6 +199,7 @@ class View {
      * @return string | void
      */
     function element($fileName, $data=null, $return=false ) {
+        if ( is_bool($data) ) { $return = $data; }
         $fileName = $this->path($fileName);
 
         if ( is_array($data) )  { extract($data); }

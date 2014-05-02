@@ -80,6 +80,10 @@ class MainController extends Controller{
         $this->view()->load('index.html');
     }
 
+    public function view_load() {
+        echo $this->view()->load('index.html', true);
+    }
+
 }
 
 ?>

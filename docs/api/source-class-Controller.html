@@ -116,7 +116,7 @@
 </span></span><span id="12" class="l"><a class="l" href="#12"> 12: </a><span class="php-comment"> * By default all &lt;i&gt;paths&lt;/i&gt; used, must have a final slash '/', like &quot;/my/log/dir/&quot;.
 </span></span><span id="13" class="l"><a class="l" href="#13"> 13: </a><span class="php-comment"> * @author Djalma Oliveira (djalmaoliveira@gmail.com)
 </span></span><span id="14" class="l"><a class="l" href="#14"> 14: </a><span class="php-comment"> * @package liber
-</span></span><span id="15" class="l"><a class="l" href="#15"> 15: </a><span class="php-comment"> * @version 2.0.33
+</span></span><span id="15" class="l"><a class="l" href="#15"> 15: </a><span class="php-comment"> * @version 2.1.3
 </span></span><span id="16" class="l"><a class="l" href="#16"> 16: </a><span class="php-comment"> * @since 1.0
 </span></span><span id="17" class="l"><a class="l" href="#17"> 17: </a><span class="php-comment"> */</span>
 </span><span id="18" class="l"><a class="l" href="#18"> 18: </a><span class="php-keyword1">class</span> <a id="Liber" href="#Liber">Liber</a> {
@@ -124,7 +124,7 @@
 </span><span id="20" class="l"><a class="l" href="#20"> 20: </a>    <span class="php-comment">/**
 </span></span><span id="21" class="l"><a class="l" href="#21"> 21: </a><span class="php-comment">    *   Framework version
 </span></span><span id="22" class="l"><a class="l" href="#22"> 22: </a><span class="php-comment">    */</span>
-</span><span id="23" class="l"><a class="l" href="#23"> 23: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'2.0.33'</span>;
+</span><span id="23" class="l"><a class="l" href="#23"> 23: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'2.1.3'</span>;
 </span><span id="24" class="l"><a class="l" href="#24"> 24: </a>
 </span><span id="25" class="l"><a class="l" href="#25"> 25: </a>
 </span><span id="26" class="l"><a class="l" href="#26"> 26: </a>    <span class="php-comment">/**
@@ -879,8 +879,8 @@
 </span><span id="775" class="l"><a class="l" href="#775">775: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword1">isset</span>(<span class="php-var">$this</span>-&gt;_view) ) {
 </span><span id="776" class="l"><a class="l" href="#776">776: </a>            Liber::loadClass(<span class="php-quote">'View'</span>);
 </span><span id="777" class="l"><a class="l" href="#777">777: </a>            <span class="php-var">$this</span>-&gt;_view = <span class="php-keyword1">new</span> View(<span class="php-var">$this</span>-&gt;module);
-</span><span id="778" class="l"><a class="l" href="#778">778: </a>        }
-</span><span id="779" class="l"><a class="l" href="#779">779: </a>        <span class="php-var">$this</span>-&gt;_view-&gt;setLayoutOnce(<span class="php-var">$layout_once</span>);
+</span><span id="778" class="l"><a class="l" href="#778">778: </a>            <span class="php-var">$this</span>-&gt;_view-&gt;setLayoutOnce(<span class="php-var">$layout_once</span>);
+</span><span id="779" class="l"><a class="l" href="#779">779: </a>        }
 </span><span id="780" class="l"><a class="l" href="#780">780: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;_view;
 </span><span id="781" class="l"><a class="l" href="#781">781: </a>    }
 </span><span id="782" class="l"><a class="l" href="#782">782: </a>
