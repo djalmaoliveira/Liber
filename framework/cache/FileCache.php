@@ -27,7 +27,7 @@ class FileCache {
             $this->context = &$context;
             $this->contextPath = ($this->context[0] == '/')?$this->context : Liber::conf('APP_PATH').Liber::conf('CACHE_PATH').$this->context.'/';
 
-            if ( !file_exists($this->contextPath) ) {
+            if ( !is_dir($this->contextPath) ) {
                 mkdir($this->contextPath, 0777, true);
             }
         }
@@ -43,7 +43,7 @@ class FileCache {
     */
     public function get($id) {
         $file = md5($id);
-        if ( file_exists($this->contextPath.$file) ) {
+        if ( is_file($this->contextPath.$file) ) {
             $time = filemtime( $this->contextPath.$file );
             if ( $time !== false and time() < $time ) {
                 return file_get_contents($this->contextPath.$file);

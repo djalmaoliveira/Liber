@@ -233,7 +233,7 @@ class Mailer {
             $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--$boundary\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
             $attachs = '';
             foreach( $this->files as $name => $filepath ) {
-                if ( file_exists($filepath) ) {
+                if ( is_file($filepath) ) {
                     if ( is_numeric($name) ) {
                         $name = basename($filepath);
                     }

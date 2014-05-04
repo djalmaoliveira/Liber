@@ -230,7 +230,7 @@ class Http {
             $opt['type'] = $finfo->file($file_path);
         }
 
-        if ( !file_exists($file_path) ) { return; }
+        if ( !is_file($file_path) ) { return; }
 
         self::contentType($opt['type']);
         header("Content-Disposition: attachment; filename=".$opt['name'].";");

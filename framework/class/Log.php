@@ -131,7 +131,7 @@ class Log {
         } else {
             $path = Liber::conf('APP_PATH').Liber::conf('LOG_PATH');
         }
-		if ( !file_exists($path) ) {
+		if ( !is_dir($path) ) {
 			umask(0007);
 			mkdir($path, 0770, true);
 		}

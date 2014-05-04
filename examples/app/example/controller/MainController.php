@@ -84,6 +84,36 @@ class MainController extends Controller{
         echo $this->view()->load('index.html', true);
     }
 
+    public function bench() {
+        $a = '1';
+        $a1 = (integer) $a;
+        $p1 = 'c';
+        $p2 = 'index.php';
+        $b ='';
+        $url = ' /a/b/c/index.php#';
+
+
+        $total=(int) 70000;
+        $ini = microtime(true);
+        for($i=0; $i < $total; $i++) {
+            $b = 'ab'.$url;
+        }
+        echo 'First:  '.(microtime(true)-$ini);
+
+        echo "<br>=$b=";
+
+
+        echo "<hr>";
+
+        $ini = microtime(true);
+        for($i=0; $i < $total; $i++) {
+            $b = "ab$url";
+        }
+        echo 'Second: '.(microtime(true)-$ini);
+
+        echo "<br>=$b=";
+    }
+
 }
 
 ?>

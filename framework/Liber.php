@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package liber
- * @version 2.1.5
+ * @version 2.1.6
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.1.5';
+    const VERSION = '2.1.6';
 
 
     /**
@@ -196,7 +196,7 @@ class Liber {
     *   @param String $path
     */
     public static function loadApp( $path ) {
-        include $path."config/config.php";
+        require $path.'config/config.php';
 
         // set config values
         //
@@ -204,7 +204,7 @@ class Liber {
         self::$aDbConfig  = &$aConfigs['db'];
         self::$aRoute     = &$aConfigs['routes'];
         self::$aConfig['APP_PATH']  = $path;
-        self::$aConfig['BASE_PATH'] = dirname(__FILE__).'/';
+        self::$aConfig['BASE_PATH'] = dirname(__FILE__).DIRECTORY_SEPARATOR;
 
         self::loadClass('Http');
 
@@ -296,7 +296,7 @@ class Liber {
             return $out;
         }
         if ( !class_exists($className)  ) {
-            if ( file_exists($path . $className.'.php') ) {
+            if ( is_file($path . $className.'.php') ) {
                 $ret =  (include $path . $className.'.php')!=1?false:true;
             } else {
                 $ret = false;
@@ -425,7 +425,7 @@ class Liber {
                 $out        = self::prepareLoad($context, false);
                 $loaded[$i] = true;
 
-                if ( file_exists($out['context'].'helper/' . current($helperName).'.php') ) {
+                if ( is_file($out['context'].'helper/' . current($helperName).'.php') ) {
                     $ret =  (include $out['context'].'helper/' . current($helperName).'.php')!=1?false:true;
                 } else {
                     $ret = false;
@@ -506,10 +506,11 @@ class Liber {
     public static function redirect($url, $return=false) {
 
         if ( $url[0] == '/' ) {
+            $url[0] = '';
         	if ( !isset($_SERVER['Liber_URL_REWRITE']) ) {
-                $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);
+                $url = Liber::conf('APP_URL').'index.php/'.(trim($url));
             } else {
-                $url = Liber::conf('APP_URL').substr(trim($url), 1);
+                $url = Liber::conf('APP_URL').(trim($url));
             }
         }
         $url = filter_var($url, FILTER_VALIDATE_URL);
@@ -610,20 +611,20 @@ class Liber {
     *   Process route, match and create related controller or redirect to default controller if don't match.
     */
     public static function processRoute() {
-        $aRoute = &Liber::$aRoute;
 
+        $aRoute = &Liber::$aRoute;
         // get URI
         $aUrl = parse_url($_SERVER['REQUEST_URI']);
         if ( ($indexPos = strpos($aUrl['path'], '/index.php')) === false ) { // don't have index.php
             if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  { // has subdir
-                $uri = str_replace( str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']), '', $aUrl['path']);
+                $uri = str_replace( dirname($_SERVER['SCRIPT_NAME']), '', $aUrl['path']);
             } else {
                 $uri = &$aUrl['path'];
             }
         } else {
             $uri = '/'.substr($aUrl['path'], $indexPos+11);
         }
-        ( strlen($uri) > 1 and $uri[strlen($uri)-1]=='/')?($uri[strlen($uri)-1]=''):false;
+        ( isset($uri[1]) and substr($uri, -1)=='/')?($uri[strlen($uri)-1]=''):false;
         $uri = trim($uri);
 
         $uri_parts = array_values(array_filter(explode('/', $uri)));

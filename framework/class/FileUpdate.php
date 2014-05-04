@@ -112,7 +112,7 @@ class FileUpdate {
     *   @return boolean
     */
     public function loadUpdate($filePath) {
-        if ( file_exists($filePath) ) {
+        if ( is_file($filePath) ) {
             return ($this->updateData = unserialize(base64_decode(file_get_contents($filePath))));
         }
         return false;
@@ -125,7 +125,7 @@ class FileUpdate {
     */
     public function writeUpdate($filePath) {
         $dir = dirname($filePath);
-        if ( !file_exists($dir) ) {
+        if ( !is_dir($dir) ) {
             mkdir($dir, 0700, true);
         }
         return (file_put_contents($filePath, base64_encode(serialize($this->updateData))) !== false);
@@ -153,7 +153,7 @@ class FileUpdate {
                 $errors[$file] = $msg['CHECKSUM'];
                 continue;
             }
-            if ( is_array($aFile) and file_exists($filePath) and !is_writeable($filePath)) {
+            if ( is_array($aFile) and is_file($filePath) and !is_writeable($filePath)) {
                 $errors[$file] = $msg['FILENOTWRITE'];
             }
         }
@@ -222,7 +222,7 @@ class FileUpdate {
                     }
                 }
                 rmdir($filePath);
-            } else if ( file_exists(($filePath)) ) {
+            } else if ( is_file(($filePath)) ) {
                 if ( !unlink($filePath) ) {
                     $errors[$file] = $msg['NOTDELETED'];
                 }

@@ -232,7 +232,7 @@ class View {
     *   @param  string $template_name Value 'default' by default if not specified.
     *   @return void
     */
-    function template( $template_file, $template_name='default'  ) {
+    function template( $template_file, $template_name='default' ) {
         $this->template_name = $template_name;
         $this->template_file = $template_file;
     }

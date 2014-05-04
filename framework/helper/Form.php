@@ -875,7 +875,7 @@ function form_set_radio_($field = '', $value = '', $default = FALSE) {
  * @return	string
  */
 function _attributes_to_string_($attributes, $formtag = FALSE) {
-	if (is_string($attributes) AND strlen($attributes) > 0)
+	if (is_string($attributes) AND isset($attributes[0]) )
 	{
 		if ($formtag == TRUE AND strpos($attributes, 'method=') === FALSE)
 		{

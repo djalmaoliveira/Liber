@@ -62,7 +62,7 @@ class Setup {
     *   Create a assets dir on www.
     */
     function prepareAssetDir() {
-        if ( !file_exists($this->app_root.$this->assets_dir) ) {
+        if ( !is_dir($this->app_root.$this->assets_dir) ) {
 			umask(0007);
             @mkdir($this->app_root.$this->assets_dir, 0775, true);
         }
