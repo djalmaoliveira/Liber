@@ -92,11 +92,11 @@ class MainController extends Controller{
         $b ='';
         $url = ' /a/b/c/index.php#';
 
-
+        define('AAA', '1');
         $total=(int) 70000;
         $ini = microtime(true);
         for($i=0; $i < $total; $i++) {
-            $b = 'ab'.$url;
+            $b =  stream_resolve_include_path('index.php') ;
         }
         echo 'First:  '.(microtime(true)-$ini);
 
@@ -107,7 +107,7 @@ class MainController extends Controller{
 
         $ini = microtime(true);
         for($i=0; $i < $total; $i++) {
-            $b = "ab$url";
+            $b =  is_file('index.php');
         }
         echo 'Second: '.(microtime(true)-$ini);
 
