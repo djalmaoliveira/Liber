@@ -81,7 +81,7 @@ abstract class TableModel {
      * @param PDO $PDO
      */
     function TableModel( PDO $PDO = null ) {
-        if ( get_class($PDO) != 'PDO' ) { trigger_error("No PDO connection."); }
+        if ( get_class($PDO) != 'PDO' ) { trigger_error('Class ['.get_class($this)."] require PDO connection."); exit(1);}
         $PDO->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
         $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $this->meta = Array('concat' => function(){});
