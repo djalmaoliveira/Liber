@@ -8,7 +8,7 @@
 	<title>File helper/Form.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -1003,7 +1003,7 @@
 </span></span><span id="875" class="l"><a class="l" href="#875">875: </a><span class="php-comment"> * @return  string
 </span></span><span id="876" class="l"><a class="l" href="#876">876: </a><span class="php-comment"> */</span>
 </span><span id="877" class="l"><a class="l" href="#877">877: </a><span class="php-keyword1">function</span> <a id="__attributes_to_string_" href="#__attributes_to_string_">_attributes_to_string_</a>(<span class="php-var">$attributes</span>, <span class="php-var">$formtag</span> = <span class="php-keyword1">FALSE</span>) {
-</span><span id="878" class="l"><a class="l" href="#878">878: </a>    <span class="php-keyword1">if</span> (<span class="php-keyword2">is_string</span>(<span class="php-var">$attributes</span>) <span class="php-keyword1">AND</span> <span class="php-keyword2">strlen</span>(<span class="php-var">$attributes</span>) &gt; <span class="php-num">0</span>)
+</span><span id="878" class="l"><a class="l" href="#878">878: </a>    <span class="php-keyword1">if</span> (<span class="php-keyword2">is_string</span>(<span class="php-var">$attributes</span>) <span class="php-keyword1">AND</span> <span class="php-keyword1">isset</span>(<span class="php-var">$attributes</span>[<span class="php-num">0</span>]) )
 </span><span id="879" class="l"><a class="l" href="#879">879: </a>    {
 </span><span id="880" class="l"><a class="l" href="#880">880: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$formtag</span> == <span class="php-keyword1">TRUE</span> <span class="php-keyword1">AND</span> <span class="php-keyword2">strpos</span>(<span class="php-var">$attributes</span>, <span class="php-quote">'method='</span>) === <span class="php-keyword1">FALSE</span>)
 </span><span id="881" class="l"><a class="l" href="#881">881: </a>        {

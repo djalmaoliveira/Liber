@@ -8,7 +8,7 @@
 	<title>File cache/FileCache.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -130,7 +130,7 @@
 </span><span id="27" class="l"><a class="l" href="#27">27: </a>            <span class="php-var">$this</span>-&gt;context = &amp;<span class="php-var">$context</span>;
 </span><span id="28" class="l"><a class="l" href="#28">28: </a>            <span class="php-var">$this</span>-&gt;contextPath = (<span class="php-var">$this</span>-&gt;context[<span class="php-num">0</span>] == <span class="php-quote">'/'</span>)?<span class="php-var">$this</span>-&gt;context : Liber::conf(<span class="php-quote">'APP_PATH'</span>).Liber::conf(<span class="php-quote">'CACHE_PATH'</span>).<span class="php-var">$this</span>-&gt;context.<span class="php-quote">'/'</span>;
 </span><span id="29" class="l"><a class="l" href="#29">29: </a>
-</span><span id="30" class="l"><a class="l" href="#30">30: </a>            <span class="php-keyword1">if</span> ( !<span class="php-keyword2">file_exists</span>(<span class="php-var">$this</span>-&gt;contextPath) ) {
+</span><span id="30" class="l"><a class="l" href="#30">30: </a>            <span class="php-keyword1">if</span> ( !<span class="php-keyword2">is_dir</span>(<span class="php-var">$this</span>-&gt;contextPath) ) {
 </span><span id="31" class="l"><a class="l" href="#31">31: </a>                <span class="php-keyword2">mkdir</span>(<span class="php-var">$this</span>-&gt;contextPath, <span class="php-num">0777</span>, <span class="php-keyword1">true</span>);
 </span><span id="32" class="l"><a class="l" href="#32">32: </a>            }
 </span><span id="33" class="l"><a class="l" href="#33">33: </a>        }
@@ -146,7 +146,7 @@
 </span></span><span id="43" class="l"><a class="l" href="#43">43: </a><span class="php-comment">    */</span>
 </span><span id="44" class="l"><a class="l" href="#44">44: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_get" href="#_get">get</a>(<span class="php-var">$id</span>) {
 </span><span id="45" class="l"><a class="l" href="#45">45: </a>        <span class="php-var">$file</span> = <span class="php-keyword2">md5</span>(<span class="php-var">$id</span>);
-</span><span id="46" class="l"><a class="l" href="#46">46: </a>        <span class="php-keyword1">if</span> ( <span class="php-keyword2">file_exists</span>(<span class="php-var">$this</span>-&gt;contextPath.<span class="php-var">$file</span>) ) {
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>        <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_file</span>(<span class="php-var">$this</span>-&gt;contextPath.<span class="php-var">$file</span>) ) {
 </span><span id="47" class="l"><a class="l" href="#47">47: </a>            <span class="php-var">$time</span> = <span class="php-keyword2">filemtime</span>( <span class="php-var">$this</span>-&gt;contextPath.<span class="php-var">$file</span> );
 </span><span id="48" class="l"><a class="l" href="#48">48: </a>            <span class="php-keyword1">if</span> ( <span class="php-var">$time</span> !== <span class="php-keyword1">false</span> <span class="php-keyword1">and</span> <span class="php-keyword2">time</span>() &lt; <span class="php-var">$time</span> ) {
 </span><span id="49" class="l"><a class="l" href="#49">49: </a>                <span class="php-keyword1">return</span> <span class="php-keyword2">file_get_contents</span>(<span class="php-var">$this</span>-&gt;contextPath.<span class="php-var">$file</span>);

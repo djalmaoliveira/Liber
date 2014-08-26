@@ -8,7 +8,7 @@
 	<title>File class/Log.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -250,7 +250,7 @@
 </span><span id="131" class="l"><a class="l" href="#131">131: </a>        } <span class="php-keyword1">else</span> {
 </span><span id="132" class="l"><a class="l" href="#132">132: </a>            <span class="php-var">$path</span> = Liber::conf(<span class="php-quote">'APP_PATH'</span>).Liber::conf(<span class="php-quote">'LOG_PATH'</span>);
 </span><span id="133" class="l"><a class="l" href="#133">133: </a>        }
-</span><span id="134" class="l"><a class="l" href="#134">134: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword2">file_exists</span>(<span class="php-var">$path</span>) ) {
+</span><span id="134" class="l"><a class="l" href="#134">134: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword2">is_dir</span>(<span class="php-var">$path</span>) ) {
 </span><span id="135" class="l"><a class="l" href="#135">135: </a>            <span class="php-keyword2">umask</span>(<span class="php-num">0007</span>);
 </span><span id="136" class="l"><a class="l" href="#136">136: </a>            <span class="php-keyword2">mkdir</span>(<span class="php-var">$path</span>, <span class="php-num">0770</span>, <span class="php-keyword1">true</span>);
 </span><span id="137" class="l"><a class="l" href="#137">137: </a>        }

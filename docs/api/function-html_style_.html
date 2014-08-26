@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="generator" content="ApiGen 2.8.0">
 
-	<title>Function url_module_asset_</title>
+	<title>Function html_style_</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?901761756"></script>
@@ -33,11 +33,11 @@
 						</li>
 				<li><a href="package-helpers.fs.html">fs</a>
 						</li>
-				<li><a href="package-helpers.html.html">html</a>
+				<li class="active"><a href="package-helpers.html.html">html</a>
 						</li>
 				<li><a href="package-helpers.paginate.html">paginate</a>
 						</li>
-				<li class="active"><a href="package-helpers.url.html">url</a>
+				<li><a href="package-helpers.url.html">url</a>
 						</li>
 							</ul></li>
 				<li><a href="package-liber.html">liber</a>
@@ -62,12 +62,11 @@
 
 			<h3>Functions</h3>
 			<ul>
-				<li><a href="function-url_asset_.html">url_asset_</a></li>
-				<li><a href="function-url_clean_.html">url_clean_</a></li>
-				<li><a href="function-url_current_.html">url_current_</a></li>
-				<li class="active"><a href="function-url_module_asset_.html">url_module_asset_</a></li>
-				<li><a href="function-url_module_name_asset_.html">url_module_name_asset_</a></li>
-				<li><a href="function-url_to_.html">url_to_</a></li>
+				<li><a href="function-html_header_.html">html_header_</a></li>
+				<li><a href="function-html_meta_.html">html_meta_</a></li>
+				<li><a href="function-html_script_.html">html_script_</a></li>
+				<li class="active"><a href="function-html_style_.html">html_style_</a></li>
+				<li><a href="function-html_title_.html">html_title_</a></li>
 			</ul>
 		</div>
 	</div>
@@ -90,7 +89,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="package-helpers.url.html" title="Summary of helpers\url"><span>Package</span></a>
+				<a href="package-helpers.html.html" title="Summary of helpers\html"><span>Package</span></a>
 			</li>
 			<li class="active">
 <span>Function</span>			</li>
@@ -105,44 +104,61 @@
 	</div>
 
 <div id="content" class="function">
-	<h1>Function url_module_asset_</h1>
+	<h1>Function html_style_</h1>
 
 
 	<div class="description">
 	
-<p>Returns a URL to module asset.</p>
+<p>Set or return CSS style content to use on head tags. This helper could be
+used inside template files.</p>
+
+<pre>
+Usage:
+    <span
+class="php-comment">// set style content</span>
+    html_style_( <span
+class="php-quote">'&lt;style&gt;h1 {color:green;}&lt;/style&gt;'</span> );
+    <span
+class="php-comment">// set style content replacing any existent content</span>
+    html_style_( <span
+class="php-quote">'.alert {color:red;}'</span>, <span
+class="php-keyword1">true</span> );
+    <span
+class="php-comment">// print stored content</span>
+    html_style_();
+</pre>
 
 	</div>
 
 	<div class="info">
 		
-		<b>Package:</b> <a href="package-helpers.html">helpers</a>\<a href="package-helpers.url.html">url</a><br>
+		<b>Package:</b> <a href="package-helpers.html">helpers</a>\<a href="package-helpers.html.html">html</a><br>
 				<b>Copyright:</b>
 				<a
 href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com</a><br>
-				<b>License</b>
-				<a href=""></a><br>
+				<b>License:</b>
+				<a href="license.txt">license.txt</a><br>
 				<b>Author:</b>
 				<a
 href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com</a><br>
-		<b>Located at</b> <a href="source-function-url_module_asset_.html#93-107" title="Go to source code">helper/Url.php</a><br>
+		<b>Located at</b> <a href="source-function-html_style_.html#142-167" title="Go to source code">helper/HTML.php</a><br>
 	</div>
 
 
 	<table class="summary" id="parameters">
 	<caption>Parameters summary</caption>
-	<tr id="$relative_url">
-		<td class="name"><code>string</code></td>
-		<td class="value"><code><var>$relative_url</var> = <span class="php-quote">''</span></code></td>
+	<tr id="$style">
+		<td class="name"><code>String</code></td>
+		<td class="value"><code><var>$style</var> = <span class="php-keyword1">null</span></code></td>
 		<td>
 			
 		</td>
 	</tr>
-	<tr id="$return">
+	<tr id="$replace">
 		<td class="name"><code>boolean</code></td>
-		<td class="value"><code><var>$return</var> = <span class="php-keyword1">false</span></code></td>
+		<td class="value"><code><var>$replace</var> = <span class="php-keyword1">false</span></code></td>
 		<td>
-			
+			 If true replace any existent content
 		</td>
 	</tr>
 	</table>
@@ -151,7 +167,7 @@ href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com<
 	<caption>Return value summary</caption>
 	<tr>
 		<td class="name"><code>
-			string
+			String
 		</code></td>
 		<td>
 			

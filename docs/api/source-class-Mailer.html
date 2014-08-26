@@ -8,7 +8,7 @@
 	<title>File class/Mailer.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -352,7 +352,7 @@
 </span><span id="233" class="l"><a class="l" href="#233">233: </a>            <span class="php-var">$this</span>-&gt;aMail[<span class="php-quote">'body'</span>] = <span class="php-quote">&quot;This is a multi-part message in MIME format.\n\n&quot;</span> . <span class="php-quote">&quot;--</span><span class="php-var">$boundary</span><span class="php-quote">\n&quot;</span> .<span class="php-var">$message_header</span>.<span class="php-quote">&quot;\n\n&quot;</span>.<span class="php-var">$this</span>-&gt;aMail[<span class="php-quote">'body'</span>].<span class="php-quote">&quot;\n\n&quot;</span>;
 </span><span id="234" class="l"><a class="l" href="#234">234: </a>            <span class="php-var">$attachs</span> = <span class="php-quote">''</span>;
 </span><span id="235" class="l"><a class="l" href="#235">235: </a>            <span class="php-keyword1">foreach</span>( <span class="php-var">$this</span>-&gt;files <span class="php-keyword1">as</span> <span class="php-var">$name</span> =&gt; <span class="php-var">$filepath</span> ) {
-</span><span id="236" class="l"><a class="l" href="#236">236: </a>                <span class="php-keyword1">if</span> ( <span class="php-keyword2">file_exists</span>(<span class="php-var">$filepath</span>) ) {
+</span><span id="236" class="l"><a class="l" href="#236">236: </a>                <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_file</span>(<span class="php-var">$filepath</span>) ) {
 </span><span id="237" class="l"><a class="l" href="#237">237: </a>                    <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_numeric</span>(<span class="php-var">$name</span>) ) {
 </span><span id="238" class="l"><a class="l" href="#238">238: </a>                        <span class="php-var">$name</span> = <span class="php-keyword2">basename</span>(<span class="php-var">$filepath</span>);
 </span><span id="239" class="l"><a class="l" href="#239">239: </a>                    }

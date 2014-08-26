@@ -8,7 +8,7 @@
 	<title>File class/Setup.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -181,7 +181,7 @@
 </span></span><span id="62" class="l"><a class="l" href="#62"> 62: </a><span class="php-comment">    *   Create a assets dir on www.
 </span></span><span id="63" class="l"><a class="l" href="#63"> 63: </a><span class="php-comment">    */</span>
 </span><span id="64" class="l"><a class="l" href="#64"> 64: </a>    <span class="php-keyword1">function</span> <a id="_prepareAssetDir" href="#_prepareAssetDir">prepareAssetDir</a>() {
-</span><span id="65" class="l"><a class="l" href="#65"> 65: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword2">file_exists</span>(<span class="php-var">$this</span>-&gt;app_root.<span class="php-var">$this</span>-&gt;assets_dir) ) {
+</span><span id="65" class="l"><a class="l" href="#65"> 65: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword2">is_dir</span>(<span class="php-var">$this</span>-&gt;app_root.<span class="php-var">$this</span>-&gt;assets_dir) ) {
 </span><span id="66" class="l"><a class="l" href="#66"> 66: </a>            <span class="php-keyword2">umask</span>(<span class="php-num">0007</span>);
 </span><span id="67" class="l"><a class="l" href="#67"> 67: </a>            @<span class="php-keyword2">mkdir</span>(<span class="php-var">$this</span>-&gt;app_root.<span class="php-var">$this</span>-&gt;assets_dir, <span class="php-num">0775</span>, <span class="php-keyword1">true</span>);
 </span><span id="68" class="l"><a class="l" href="#68"> 68: </a>        }

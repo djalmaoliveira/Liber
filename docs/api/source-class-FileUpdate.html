@@ -8,7 +8,7 @@
 	<title>File class/FileUpdate.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -231,7 +231,7 @@
 </span></span><span id="112" class="l"><a class="l" href="#112">112: </a><span class="php-comment">    *   @return boolean
 </span></span><span id="113" class="l"><a class="l" href="#113">113: </a><span class="php-comment">    */</span>
 </span><span id="114" class="l"><a class="l" href="#114">114: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_loadUpdate" href="#_loadUpdate">loadUpdate</a>(<span class="php-var">$filePath</span>) {
-</span><span id="115" class="l"><a class="l" href="#115">115: </a>        <span class="php-keyword1">if</span> ( <span class="php-keyword2">file_exists</span>(<span class="php-var">$filePath</span>) ) {
+</span><span id="115" class="l"><a class="l" href="#115">115: </a>        <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_file</span>(<span class="php-var">$filePath</span>) ) {
 </span><span id="116" class="l"><a class="l" href="#116">116: </a>            <span class="php-keyword1">return</span> (<span class="php-var">$this</span>-&gt;updateData = <span class="php-keyword2">unserialize</span>(<span class="php-keyword2">base64_decode</span>(<span class="php-keyword2">file_get_contents</span>(<span class="php-var">$filePath</span>))));
 </span><span id="117" class="l"><a class="l" href="#117">117: </a>        }
 </span><span id="118" class="l"><a class="l" href="#118">118: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
@@ -244,7 +244,7 @@
 </span></span><span id="125" class="l"><a class="l" href="#125">125: </a><span class="php-comment">    */</span>
 </span><span id="126" class="l"><a class="l" href="#126">126: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_writeUpdate" href="#_writeUpdate">writeUpdate</a>(<span class="php-var">$filePath</span>) {
 </span><span id="127" class="l"><a class="l" href="#127">127: </a>        <span class="php-var">$dir</span> = <span class="php-keyword2">dirname</span>(<span class="php-var">$filePath</span>);
-</span><span id="128" class="l"><a class="l" href="#128">128: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword2">file_exists</span>(<span class="php-var">$dir</span>) ) {
+</span><span id="128" class="l"><a class="l" href="#128">128: </a>        <span class="php-keyword1">if</span> ( !<span class="php-keyword2">is_dir</span>(<span class="php-var">$dir</span>) ) {
 </span><span id="129" class="l"><a class="l" href="#129">129: </a>            <span class="php-keyword2">mkdir</span>(<span class="php-var">$dir</span>, <span class="php-num">0700</span>, <span class="php-keyword1">true</span>);
 </span><span id="130" class="l"><a class="l" href="#130">130: </a>        }
 </span><span id="131" class="l"><a class="l" href="#131">131: </a>        <span class="php-keyword1">return</span> (<span class="php-keyword2">file_put_contents</span>(<span class="php-var">$filePath</span>, <span class="php-keyword2">base64_encode</span>(<span class="php-keyword2">serialize</span>(<span class="php-var">$this</span>-&gt;updateData))) !== <span class="php-keyword1">false</span>);
@@ -272,7 +272,7 @@
 </span><span id="153" class="l"><a class="l" href="#153">153: </a>                <span class="php-var">$errors</span>[<span class="php-var">$file</span>] = <span class="php-var">$msg</span>[<span class="php-quote">'CHECKSUM'</span>];
 </span><span id="154" class="l"><a class="l" href="#154">154: </a>                <span class="php-keyword1">continue</span>;
 </span><span id="155" class="l"><a class="l" href="#155">155: </a>            }
-</span><span id="156" class="l"><a class="l" href="#156">156: </a>            <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_array</span>(<span class="php-var">$aFile</span>) <span class="php-keyword1">and</span> <span class="php-keyword2">file_exists</span>(<span class="php-var">$filePath</span>) <span class="php-keyword1">and</span> !<span class="php-keyword2">is_writeable</span>(<span class="php-var">$filePath</span>)) {
+</span><span id="156" class="l"><a class="l" href="#156">156: </a>            <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_array</span>(<span class="php-var">$aFile</span>) <span class="php-keyword1">and</span> <span class="php-keyword2">is_file</span>(<span class="php-var">$filePath</span>) <span class="php-keyword1">and</span> !<span class="php-keyword2">is_writeable</span>(<span class="php-var">$filePath</span>)) {
 </span><span id="157" class="l"><a class="l" href="#157">157: </a>                <span class="php-var">$errors</span>[<span class="php-var">$file</span>] = <span class="php-var">$msg</span>[<span class="php-quote">'FILENOTWRITE'</span>];
 </span><span id="158" class="l"><a class="l" href="#158">158: </a>            }
 </span><span id="159" class="l"><a class="l" href="#159">159: </a>        }
@@ -341,7 +341,7 @@
 </span><span id="222" class="l"><a class="l" href="#222">222: </a>                    }
 </span><span id="223" class="l"><a class="l" href="#223">223: </a>                }
 </span><span id="224" class="l"><a class="l" href="#224">224: </a>                <span class="php-keyword2">rmdir</span>(<span class="php-var">$filePath</span>);
-</span><span id="225" class="l"><a class="l" href="#225">225: </a>            } <span class="php-keyword1">else</span> <span class="php-keyword1">if</span> ( <span class="php-keyword2">file_exists</span>((<span class="php-var">$filePath</span>)) ) {
+</span><span id="225" class="l"><a class="l" href="#225">225: </a>            } <span class="php-keyword1">else</span> <span class="php-keyword1">if</span> ( <span class="php-keyword2">is_file</span>((<span class="php-var">$filePath</span>)) ) {
 </span><span id="226" class="l"><a class="l" href="#226">226: </a>                <span class="php-keyword1">if</span> ( !<span class="php-keyword2">unlink</span>(<span class="php-var">$filePath</span>) ) {
 </span><span id="227" class="l"><a class="l" href="#227">227: </a>                    <span class="php-var">$errors</span>[<span class="php-var">$file</span>] = <span class="php-var">$msg</span>[<span class="php-quote">'NOTDELETED'</span>];
 </span><span id="228" class="l"><a class="l" href="#228">228: </a>                }

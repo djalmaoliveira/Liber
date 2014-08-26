@@ -8,7 +8,7 @@
 	<title>File helper/HTML.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -66,6 +66,7 @@
 				<li><a href="function-html_header_.html">html_header_</a></li>
 				<li class="active"><a href="function-html_meta_.html">html_meta_</a></li>
 				<li><a href="function-html_script_.html">html_script_</a></li>
+				<li><a href="function-html_style_.html">html_style_</a></li>
 				<li><a href="function-html_title_.html">html_title_</a></li>
 			</ul>
 		</div>
@@ -219,19 +220,60 @@
 </span><span id="113" class="l"><a class="l" href="#113">113: </a>
 </span><span id="114" class="l"><a class="l" href="#114">114: </a><span class="php-comment">/**
 </span></span><span id="115" class="l"><a class="l" href="#115">115: </a><span class="php-comment">*   Set or return script String to use on head tags.
-</span></span><span id="116" class="l"><a class="l" href="#116">116: </a><span class="php-comment">*   @param String $script
-</span></span><span id="117" class="l"><a class="l" href="#117">117: </a><span class="php-comment">*   @return String
-</span></span><span id="118" class="l"><a class="l" href="#118">118: </a><span class="php-comment">*/</span>
-</span><span id="119" class="l"><a class="l" href="#119">119: </a><span class="php-keyword1">function</span> <a id="_html_script_" href="#_html_script_">html_script_</a>(<span class="php-var">$script</span>=<span class="php-keyword1">null</span>) {
-</span><span id="120" class="l"><a class="l" href="#120">120: </a>    <span class="php-keyword1">static</span> <span class="php-var"><a id="$_scripts" href="#$_scripts">$_scripts</a></span> = <span class="php-keyword1">Array</span>();
-</span><span id="121" class="l"><a class="l" href="#121">121: </a>
-</span><span id="122" class="l"><a class="l" href="#122">122: </a>    <span class="php-keyword1">if</span> ( <span class="php-var">$script</span> ) {
-</span><span id="123" class="l"><a class="l" href="#123">123: </a>        <span class="php-var">$_scripts</span>[] = <span class="php-var">$script</span>;
-</span><span id="124" class="l"><a class="l" href="#124">124: </a>    } <span class="php-keyword1">else</span> {
-</span><span id="125" class="l"><a class="l" href="#125">125: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">implode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$_scripts</span>);
-</span><span id="126" class="l"><a class="l" href="#126">126: </a>    }
-</span><span id="127" class="l"><a class="l" href="#127">127: </a>}
-</span><span id="128" class="l"><a class="l" href="#128">128: </a></span><span class="xlang">?&gt;</span></code></pre>
+</span></span><span id="116" class="l"><a class="l" href="#116">116: </a><span class="php-comment">*   This helper could be used inside template files.
+</span></span><span id="117" class="l"><a class="l" href="#117">117: </a><span class="php-comment">*   &lt;code&gt;
+</span></span><span id="118" class="l"><a class="l" href="#118">118: </a><span class="php-comment">*   Usage:
+</span></span><span id="119" class="l"><a class="l" href="#119">119: </a><span class="php-comment">*       // set script content
+</span></span><span id="120" class="l"><a class="l" href="#120">120: </a><span class="php-comment">*       html_script_( '&lt;script&gt;alert(&quot;My JS Code&quot;);&lt;/script&gt;' );
+</span></span><span id="121" class="l"><a class="l" href="#121">121: </a><span class="php-comment">*       // set script content replacing any existent content
+</span></span><span id="122" class="l"><a class="l" href="#122">122: </a><span class="php-comment">*       html_script_( 'alert(&quot;Hi!&quot;);', true );
+</span></span><span id="123" class="l"><a class="l" href="#123">123: </a><span class="php-comment">*       // print stored content
+</span></span><span id="124" class="l"><a class="l" href="#124">124: </a><span class="php-comment">*       html_script_();
+</span></span><span id="125" class="l"><a class="l" href="#125">125: </a><span class="php-comment">*   &lt;/code&gt;
+</span></span><span id="126" class="l"><a class="l" href="#126">126: </a><span class="php-comment">*   @param String $script
+</span></span><span id="127" class="l"><a class="l" href="#127">127: </a><span class="php-comment">*   @param boolean  $replace  If true replace any existent content
+</span></span><span id="128" class="l"><a class="l" href="#128">128: </a><span class="php-comment">*   @return String
+</span></span><span id="129" class="l"><a class="l" href="#129">129: </a><span class="php-comment">*/</span>
+</span><span id="130" class="l"><a class="l" href="#130">130: </a><span class="php-keyword1">function</span> <a id="_html_script_" href="#_html_script_">html_script_</a>(<span class="php-var">$script</span>=<span class="php-keyword1">null</span>, <span class="php-var">$replace</span>=<span class="php-keyword1">false</span>) {
+</span><span id="131" class="l"><a class="l" href="#131">131: </a>    <span class="php-keyword1">static</span> <span class="php-var"><a id="$_scripts" href="#$_scripts">$_scripts</a></span> = <span class="php-keyword1">Array</span>();
+</span><span id="132" class="l"><a class="l" href="#132">132: </a>
+</span><span id="133" class="l"><a class="l" href="#133">133: </a>    <span class="php-keyword1">if</span> ( <span class="php-var">$script</span> ) {
+</span><span id="134" class="l"><a class="l" href="#134">134: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$replace</span>) { <span class="php-var">$_scripts</span> = <span class="php-keyword1">Array</span>(); }
+</span><span id="135" class="l"><a class="l" href="#135">135: </a>        <span class="php-var">$_scripts</span>[] = <span class="php-var">$script</span>;
+</span><span id="136" class="l"><a class="l" href="#136">136: </a>    } <span class="php-keyword1">else</span> {
+</span><span id="137" class="l"><a class="l" href="#137">137: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">implode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$_scripts</span>);
+</span><span id="138" class="l"><a class="l" href="#138">138: </a>    }
+</span><span id="139" class="l"><a class="l" href="#139">139: </a>}
+</span><span id="140" class="l"><a class="l" href="#140">140: </a>
+</span><span id="141" class="l"><a class="l" href="#141">141: </a>
+</span><span id="142" class="l"><a class="l" href="#142">142: </a><span class="php-comment">/**
+</span></span><span id="143" class="l"><a class="l" href="#143">143: </a><span class="php-comment">*   Set or return CSS style content to use on head tags.
+</span></span><span id="144" class="l"><a class="l" href="#144">144: </a><span class="php-comment">*   This helper could be used inside template files.
+</span></span><span id="145" class="l"><a class="l" href="#145">145: </a><span class="php-comment">*   &lt;code&gt;
+</span></span><span id="146" class="l"><a class="l" href="#146">146: </a><span class="php-comment">*   Usage:
+</span></span><span id="147" class="l"><a class="l" href="#147">147: </a><span class="php-comment">*       // set style content
+</span></span><span id="148" class="l"><a class="l" href="#148">148: </a><span class="php-comment">*       html_style_( '&lt;style&gt;h1 {color:green;}&lt;/style&gt;' );
+</span></span><span id="149" class="l"><a class="l" href="#149">149: </a><span class="php-comment">*       // set style content replacing any existent content
+</span></span><span id="150" class="l"><a class="l" href="#150">150: </a><span class="php-comment">*       html_style_( '.alert {color:red;}', true );
+</span></span><span id="151" class="l"><a class="l" href="#151">151: </a><span class="php-comment">*       // print stored content
+</span></span><span id="152" class="l"><a class="l" href="#152">152: </a><span class="php-comment">*       html_style_();
+</span></span><span id="153" class="l"><a class="l" href="#153">153: </a><span class="php-comment">*   &lt;/code&gt;
+</span></span><span id="154" class="l"><a class="l" href="#154">154: </a><span class="php-comment">*   @param String $style
+</span></span><span id="155" class="l"><a class="l" href="#155">155: </a><span class="php-comment">*   @param boolean  $replace If true replace any existent content
+</span></span><span id="156" class="l"><a class="l" href="#156">156: </a><span class="php-comment">*   @return String
+</span></span><span id="157" class="l"><a class="l" href="#157">157: </a><span class="php-comment">*/</span>
+</span><span id="158" class="l"><a class="l" href="#158">158: </a><span class="php-keyword1">function</span> <a id="_html_style_" href="#_html_style_">html_style_</a>(<span class="php-var">$style</span>=<span class="php-keyword1">null</span>, <span class="php-var">$replace</span>=<span class="php-keyword1">false</span>) {
+</span><span id="159" class="l"><a class="l" href="#159">159: </a>    <span class="php-keyword1">static</span> <span class="php-var"><a id="$_styles" href="#$_styles">$_styles</a></span> = <span class="php-keyword1">Array</span>();
+</span><span id="160" class="l"><a class="l" href="#160">160: </a>
+</span><span id="161" class="l"><a class="l" href="#161">161: </a>    <span class="php-keyword1">if</span> ( <span class="php-var">$style</span> ) {
+</span><span id="162" class="l"><a class="l" href="#162">162: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$replace</span>) { <span class="php-var">$_styles</span> = <span class="php-keyword1">Array</span>(); }
+</span><span id="163" class="l"><a class="l" href="#163">163: </a>        <span class="php-var">$_styles</span>[] = <span class="php-var">$style</span>;
+</span><span id="164" class="l"><a class="l" href="#164">164: </a>    } <span class="php-keyword1">else</span> {
+</span><span id="165" class="l"><a class="l" href="#165">165: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">implode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$_styles</span>);
+</span><span id="166" class="l"><a class="l" href="#166">166: </a>    }
+</span><span id="167" class="l"><a class="l" href="#167">167: </a>}
+</span><span id="168" class="l"><a class="l" href="#168">168: </a>
+</span><span id="169" class="l"><a class="l" href="#169">169: </a></span><span class="xlang">?&gt;</span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

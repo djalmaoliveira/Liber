@@ -7,7 +7,7 @@
 	<title>Package helpers\html</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1706524681"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -65,6 +65,7 @@
 				<li><a href="function-html_header_.html">html_header_</a></li>
 				<li><a href="function-html_meta_.html">html_meta_</a></li>
 				<li><a href="function-html_script_.html">html_script_</a></li>
+				<li><a href="function-html_style_.html">html_style_</a></li>
 				<li><a href="function-html_title_.html">html_title_</a></li>
 			</ul>
 		</div>
@@ -133,7 +134,19 @@ files html_meta_( Array('name'=&gt;'author', 'content'=&gt;'Liber framework') );
 </tr>
 <tr>
 	<td class="name"><a href="function-html_script_.html">html_script_</a></td>
-	<td>Set or return script String to use on head tags.</td>
+	<td>Set or return script String to use on head tags. This helper could be used
+inside template files. &lt;code&gt; Usage: // set script content html_script_(
+'&lt;script&gt;alert("My JS Code");&lt;/script&gt;' ); // set script content
+replacing any existent content html_script_( 'alert("Hi!");', true ); // print
+stored content html_script_(); &lt;/code&gt;</td>
+</tr>
+<tr>
+	<td class="name"><a href="function-html_style_.html">html_style_</a></td>
+	<td>Set or return CSS style content to use on head tags. This helper could be used
+inside template files. &lt;code&gt; Usage: // set style content html_style_(
+'&lt;style&gt;h1 {color:green;}&lt;/style&gt;' ); // set style content replacing
+any existent content html_style_( '.alert {color:red;}', true ); // print stored
+content html_style_(); &lt;/code&gt;</td>
 </tr>
 <tr>
 	<td class="name"><a href="function-html_title_.html">html_title_</a></td>

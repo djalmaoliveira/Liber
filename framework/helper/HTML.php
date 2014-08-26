@@ -113,16 +113,57 @@ function html_title_( $title=null ) {
 
 /**
 *   Set or return script String to use on head tags.
+*   This helper could be used inside template files.
+*   <code>
+*   Usage:
+*       // set script content
+*       html_script_( '<script>alert("My JS Code");</script>' );
+*       // set script content replacing any existent content
+*       html_script_( 'alert("Hi!");', true );
+*       // print stored content
+*       html_script_();
+*   </code>
 *   @param String $script
+*   @param boolean  $replace  If true replace any existent content
 *   @return String
 */
-function html_script_($script=null) {
+function html_script_($script=null, $replace=false) {
     static $_scripts = Array();
 
     if ( $script ) {
+        if ($replace) { $_scripts = Array(); }
         $_scripts[] = $script;
     } else {
         return implode("\n", $_scripts);
     }
 }
+
+
+/**
+*   Set or return CSS style content to use on head tags.
+*   This helper could be used inside template files.
+*   <code>
+*   Usage:
+*       // set style content
+*       html_style_( '<style>h1 {color:green;}</style>' );
+*       // set style content replacing any existent content
+*       html_style_( '.alert {color:red;}', true );
+*       // print stored content
+*       html_style_();
+*   </code>
+*   @param String $style
+*   @param boolean  $replace If true replace any existent content
+*   @return String
+*/
+function html_style_($style=null, $replace=false) {
+    static $_styles = Array();
+
+    if ( $style ) {
+        if ($replace) { $_styles = Array(); }
+        $_styles[] = $style;
+    } else {
+        return implode("\n", $_styles);
+    }
+}
+
 ?>
