@@ -1,8 +1,8 @@
 <?php
-
 /**
  *  Helpers to URL manipulation.
- * @package     helpers
+ *
+ * @package     helpers_url
  * @author		djalmaoliveira@gmail.com
  * @copyright	djalmaoliveira@gmail.com
  * @license
@@ -14,7 +14,7 @@
 
 
 /**
- *  Create relative url from APP_URL.
+ *  Create relative url from <b>APP_URL</b>.
  *
  *
  * @access	public
@@ -35,7 +35,7 @@ function url_to_($relative_url = '', $return=false) {
 
 
 /**
- * Current URL
+ * Current URL.
  *
  * Returns the current URL requested.
  *
@@ -111,10 +111,17 @@ function url_module_asset_($relative_url='', $return=false) {
 /**
 *   Return a clean specified URL.
 *   Change spaces and others charactes to $separator by default '-'.
-*	Usage: 	url_clean_('http://a b c'); // printcleaned url<br/>
-*			url_clean_('http://a b c', '_'); // print cleaned url with '_' separator<br/>
-*			url_clean_('http://a b c', true);// return cleaned url<br/>
-*			url_clean_('http://a b c', '_', true);// return cleaned url with '_' separator
+*   <code>
+*	Usage:
+*        // print cleaned url
+*        url_clean_('http://a b c');
+*        // print cleaned url with '_' separator
+*        url_clean_('http://a b c', '_');
+*        // return cleaned url
+*        url_clean_('http://a b c', true);
+*        // return cleaned url with '_' separator
+*        url_clean_('http://a b c', '_', true);
+*   </code>
 *   @param String $url
 *   @param String $separator
 *   @param boolean $return

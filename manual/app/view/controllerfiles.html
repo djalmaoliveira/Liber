@@ -10,20 +10,20 @@
 <p>Code example:</p>
 
 <pre>
-    <? echo  htmlentities ('
-        <?
+    <?php echo  htmlentities ('
+        <?php
             class MainController extends Controller {
-                
+
                 function __construct($args) {
                     parent::__construct($args); // necessary to set context parameters correctly.
                     // load some resources or validations
                 }
-        
+
                 public function index() {
                     echo "yes, this is index method from ".__CLASS__;
                 }
             }
-            
+
         ?>
 
     ');

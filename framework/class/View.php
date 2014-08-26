@@ -5,41 +5,26 @@
 *   @package classes
 */
 class View {
-
+    private     $template_name;
+    private     $template_file;
     private     $module;
     private     $module_path;
     private     $_engine;
-    private     $_template;
     private     $cache_expires  = Array();
     private     $expireTime     = 3600;
     public      $layout         = '';
     private     $_layout_once   = '';
 
-    function __construct($params=Array()) {
-        // set object
+
+    function __construct($module='', $template_name='') {
 
         $this->layout = Liber::conf('LAYOUT');
-        $this->module = &$params['module'];
-        if ( isset($params['module']) and !empty($params['module']) ) {
-            $this->module_path = Liber::conf('APP_PATH').'module/'.$params['module'].'/';
+        $this->module = $module;
+        $this->template_name = $template_name;
+        if ( !empty( $this->module ) ) {
+            $this->module_path = Liber::conf('APP_PATH').'module/'.$this->module.'/';
         } else {
             $this->module_path = Liber::conf('APP_PATH');
-        }
-
-        if ( $this->_engine == null ) {
-            // instancing of Template Engine
-            $template =  Liber::conf('TEMPLATE_ENGINE');
-            Liber::loadClass($template);
-
-            $engineSettings = Array('cache_expires'=>&$this->cache_expires );
-
-            if ( empty( $template ) ) {
-                Liber::loadClass('TemplateEngine');
-                $this->_engine = new TemplateEngine( $engineSettings );
-            } else {
-                Liber::loadClass($template, 'APP');
-                $this->_engine = new $template( $engineSettings );
-            }
         }
     }
 
@@ -59,14 +44,29 @@ class View {
 
     /**
     *   Set the cache expires.
-    *   Uses:
-    *   ->cache();          // return cache expire time in seconds
-    *   ->cache(true);      // enable caching to default value 3600s
-    *   ->cache(false);     // disable caching
-    *   ->cache('filename.html'); // return current Array data about the specified file
-    *   ->cache('filename.html', true); // set caching to default value for specified file
-    *   ->cache('filename.html', false); // disable caching for specified file
-    *   ->cache('filename.html', 2000); // set caching with 2000s to specific file
+    *   <code>
+    *   Usage:
+    *   // return cache expire time in seconds
+    *   ->cache();
+    *
+    *   // enable caching to default value 3600s
+    *   ->cache(true);
+    *
+    *   // disable caching
+    *   ->cache(false);
+    *
+    *   // return current Array data about the specified file
+    *   ->cache('filename.html');
+    *
+    *   // set caching to default value for specified file
+    *   ->cache('filename.html', true);
+    *
+    *   // disable caching for specified file
+    *   ->cache('filename.html', false);
+    *
+    *   // set caching with 2000s to specific file
+    *   ->cache('filename.html', 2000);
+    *   </code>
     *   @param mixed $arg1  - see above
     *   @param mixed $arg2  - see above
     *   @return mixed
@@ -92,7 +92,7 @@ class View {
                 $this->cache_expires[func_get_arg(0)] = $arg;
             } elseif ( is_bool($arg) ) {
                 if ( $arg ) {
-                    $this->cache_expires[func_get_arg(0)] = 0;
+                    $this->cache_expires[func_get_arg(0)] = 3600;
                 } else {
                     $this->cache_expires[func_get_arg(0)] = 0;
                 }
@@ -106,7 +106,7 @@ class View {
     *   @param String $layout
     */
     function setLayoutOnce($layout) {
-        $this->layout_once = $layout;
+        $this->_layout_once = $layout;
     }
 
 
@@ -137,14 +137,28 @@ class View {
 
 
     /**
-    *   Call 'load' method from template engine instance.
-    *   @param  String $fileName
-    *   @param  Array $data
-    *   @param  boolean $output
+    *   Load and process a view file using Template files and/or Layout dir if previously specified.
+    *   <code>
+    *   Usage:
+    *   // load index.html
+    *   view()->load('index.html');
+    *
+    *   // load index.html with data
+    *   view()->load('index.html', array('framework' => 'Liber'));
+    *
+    *   // load index.html with data and return the output html
+    *   view()->load('index.html', array('framework' => 'Liber'), true);
+    *
+    *   // load index.html and return the output html
+    *   view()->load('index.html', true);
+    *   </code>
+    *   @param  String $fileName    Absolute path to file name or relative to view/ folder.
+    *   @param  Array $data         Array of data to view file.
+    *   @param  boolean $return     If True return the processed content of view file .
     *   @return String - if output is true
     */
-    function load($fileName, $data=null, $output=false) {
-
+    function load($fileName, $data=null, $return=false) {
+        if ( is_bool($data) ) { $return = $data; }
         $file_path = $this->path($fileName);
 
         // use layout once time.
@@ -153,44 +167,94 @@ class View {
             $this->_layout_once = '';
         }
 
-        // by default, in PROD mode all files doesn't have cache
-        if ( $this->cache($fileName) > 0 and Liber::conf('APP_MODE') == 'PROD' ) {
-
-            // caching
-            $cacheId = $_SERVER['REQUEST_URI'].$file_path;
-            if ( !($out = Liber::cache()->get( $cacheId )) ) {
-                $out = $this->_engine->load($file_path, $data, true);
-                Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName]['expires'])?$this->cache_expires[$fileName]['expires']:$this->expireTime );
-            }
-
-        } elseif ( empty($out) or Liber::conf('APP_MODE') == 'DEV' ) {
-            $out = $this->_engine->load($file_path, $data, $output);
+        $cacheId = $_SERVER['REQUEST_URI'].$file_path;
+        if ( $this->template_file ) {
+            $cacheId   = $cacheId.$this->template_file;
+            $data      = Array('content'=> $this->element($file_path, $data, true) );
+            $file_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
         }
 
-        if ( $output )  { return $out; }
+        // by default, in PROD mode all files doesn't have cache
+        $out = '';
+        if ( Liber::conf('APP_MODE') == 'PROD' and isset($this->cache_expires[$fileName]) ) {
+            // caching
+            if ( !($out = Liber::cache()->get( $cacheId )) ) {
+                $out = $this->element($file_path, $data, true);
+                Liber::cache()->put($cacheId, $out, isset($this->cache_expires[$fileName])?$this->cache_expires[$fileName]:$this->expireTime );
+            }
+
+        } elseif ( !$out or Liber::conf('APP_MODE') == 'DEV' ) {
+            $out = $this->element($file_path, $data, $return);
+        }
+
+        if ( $return )  { return $out; }
         echo $out;
     }
 
-
     /**
-    *   Return a GlobalTemplate instance base on current view context.
-    *   @return GlobaTemplate
-    */
-    function template( $module = null ) {
-        if (!is_object($this->_template)) {
-            Liber::loadClass('GlobalTemplate');
-            $this->_template = new GlobalTemplate($module,$this);
-        }
+     * Process view file as simple element.
+     * @param  string  $fileName Absolute path to file name or relative to view/ folder.
+     * @param  array  $data      Array of data to view file.
+     * @param  boolean $return   If True return the processed content of view file .
+     * @return string | void
+     */
+    function element($fileName, $data=null, $return=false ) {
+        if ( is_bool($data) ) { $return = $data; }
+        $fileName = $this->path($fileName);
 
-        return $this->_template;
+        if ( is_array($data) )  { extract($data); }
+
+        if ($return) {
+            ob_start();
+            include "$fileName";
+            $data = ob_get_contents();
+            ob_end_clean();
+            return $data;
+        } else {
+            include "$fileName";
+        }
     }
 
 
     /**
-    *   Return current TemplateEngine instance.
+    *   Set current View with $template_file and $template_name specified.
+    *
+    *   <code>
+    *
+    *   // set current View to use 'admin.html' as template file stored in <b>APP_PATH/template/default/admin.html</b>.
+    *   ->template('admin.html');
+    *
+    *   // set current View to use 'admin.html' as template file and 'admin' as template dir name stored in <b>APP_PATH/template/admin/admin.html</b>.
+    *   ->template('admin.html', 'admin');
+    *
+    *   </code>
+    *   @param  string $template_file Template file name stored in $template_name dir.
+    *   @param  string $template_name Value 'default' by default if not specified.
+    *   @return void
+    */
+    function template( $template_file, $template_name='default' ) {
+        $this->template_name = $template_name;
+        $this->template_file = $template_file;
+    }
+
+
+
+    /**
+    *   Return an object instance from class name specified in Liber::conf('TEMPLATE_ENGINE').
     *   @return Object
     */
     function engine() {
+
+        if ( $this->_engine ) {
+            return $this->_engine;
+        } elseif ( ($template =  Liber::conf('TEMPLATE_ENGINE')) ) {
+            // instancing of Template Engine
+            Liber::loadClass($template, 'APP');
+            $this->_engine = new $template;
+        } else {
+            $this->_engine = &$this;
+        }
+
         return $this->_engine;
     }
 

@@ -13,8 +13,8 @@ class MainController extends Controller{
 
 
     public function index(){
-        //$this->view()->cache('home.html', 10);
-        $this->view()->load('home.html');
+
+        $this->render();
 
     }
 
@@ -44,9 +44,76 @@ class MainController extends Controller{
         echo 'Direct routing.';
     }
 
+
+
     public function test() {
         echo Http::get('name');
     }
+
+    public function download($method) {
+        switch($method) {
+            case 1:
+                Http::download(Liber::conf('APP_PATH').'data/download.txt');
+            break;
+            case 2:
+                Http::download(Liber::conf('APP_PATH').'data/download.txt', array('type' => 'plain', 'name' => 'report.txt'));
+            break;
+            case 3:
+                Http::download(array('content' => 'this is the content file.', 'type' => 'plain', 'name' => 'other_report.txt'));
+            break;
+        }
+    }
+
+
+    public function template() {
+        $this->view()->template('default.html');
+        $this->view()->load('index.html');
+    }
+
+    public function caching() {
+        $this->view()->cache('index.html', true);
+        $this->view()->load('index.html');
+    }
+
+    public function layout() {
+        $this->view()->setLayoutOnce('mylayout');
+        $this->view()->load('index.html');
+    }
+
+    public function view_load() {
+        echo $this->view()->load('index.html', true);
+    }
+
+    public function bench() {
+        $a = '1';
+        $a1 = (integer) $a;
+        $p1 = 'c';
+        $p2 = 'index.php';
+        $b ='';
+        $url = ' /a/b/c/index.php#';
+
+        define('AAA', '1');
+        $total=(int) 70000;
+        $ini = microtime(true);
+        for($i=0; $i < $total; $i++) {
+            $b =  stream_resolve_include_path('index.php') ;
+        }
+        echo 'First:  '.(microtime(true)-$ini);
+
+        echo "<br>=$b=";
+
+
+        echo "<hr>";
+
+        $ini = microtime(true);
+        for($i=0; $i < $total; $i++) {
+            $b =  is_file('index.php');
+        }
+        echo 'Second: '.(microtime(true)-$ini);
+
+        echo "<br>=$b=";
+    }
+
 }
 
 ?>

@@ -3,15 +3,16 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title></title>
-
-	{{url_module_name_asset_('ModuleAdmin')}}
-	<script type="text/javascript" src="{{url_asset_('/js/mootools.js')}}"></script>
-	<script type="text/javascript" src="{{url_module_asset_('/js/main.js')}}"></script>	    
-	<link rel="stylesheet" type="text/css" media="screen" href="{{url_module_asset_('/css/main.css')}}">
+    <style>
+        * {
+            font-family: Arial;
+        }
+    </style>
 </head>
 <body>
-<br>
-{{$content}}
+<h3>This page was loaded using template file.</h3>
+
+<?php echo $content ?>
 
 </body>
 </html>

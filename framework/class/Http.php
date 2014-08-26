@@ -115,7 +115,7 @@ class Http {
     }
 
     /**
-    *   Return a query value sent by method GET from $_GET var.
+    *   Return a query value sent by method GET from <b>$_GET</b> var.
     *   Usage:
     *   <code>
     *   // get a query value
@@ -135,7 +135,7 @@ class Http {
     }
 
     /**
-    *   Return a post value sent by method POST from $_POST var.
+    *   Return a post value sent by method POST from <b>$_POST</b> var.
     *   Usage:
     *   <code>
     *   // get a post value
@@ -155,7 +155,7 @@ class Http {
     }
 
     /**
-    *   Return a identified index from $_COOKIE var.
+    *   Return a identified index from <b>$_COOKIE</b> var.
     *   Usage:
     *   <code>
     *   // get a cookie value
@@ -175,7 +175,7 @@ class Http {
     }
 
     /**
-    *   Return a specifield uploaded file from $_FILES var.
+    *   Return a specifield uploaded file from <b>$_FILES</b> var.
     *   Usage:
     *   <code>
     *   // get a file uploaded
@@ -192,6 +192,52 @@ class Http {
         }
 
         return ( isset($_FILES[$field])?$_FILES[$field]:null );
+    }
+
+
+    /**
+     * Initiate the download of a file.
+     *
+     * Usage:
+     * <code>
+     *     Http::download('/path/to/file');
+     *     Http::download('/path/to/file.pdf', array('type' => 'pdf', 'name' => 'report.pdf'));
+     *     Http::download(array('content' => 'this is the content file.', 'type' => 'plain', 'name' => 'report.txt'));
+     * </code>
+     * Options:
+     *     'type' is a content type of file;
+     *     'name' is a file name;
+     * @param  <string|array> $data
+     * @param  array  $options
+     * @return void
+     */
+    public static function download( $data, $options=array() ) {
+        $opt       = array('type' => '', 'name' => '');
+        $file_path = '';
+
+        if ( is_string($data) ) {
+            $opt       = array_merge($opt, $options);
+            $file_path = $data;
+        } elseif( is_array($data) ) {
+            $opt       = array_merge($opt, $data);
+            $file_path = sys_get_temp_dir().'/'.uniqid('down');
+            file_put_contents($file_path, $data['content']);
+        }
+
+        $opt['name'] = $opt['name']?$opt['name']:basename($file_path);
+        if ( !$opt['type'] ) {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $opt['type'] = $finfo->file($file_path);
+        }
+
+        if ( !is_file($file_path) ) { return; }
+
+        self::contentType($opt['type']);
+        header("Content-Disposition: attachment; filename=".$opt['name'].";");
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: ".filesize($file_path));
+        @readfile($file_path);
+        exit;
     }
 
 }

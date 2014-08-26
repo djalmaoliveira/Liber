@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Funky</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-cache.html">cache</a>
+						</li>
+				<li class="active"><a href="package-classes.html">classes</a>
+						</li>
+				<li><a href="package-helpers.html">helpers<span></span></a>
+						<ul>
+				<li><a href="package-helpers.dt.html">dt</a>
+						</li>
+				<li><a href="package-helpers.form.html">form</a>
+						</li>
+				<li><a href="package-helpers.fs.html">fs</a>
+						</li>
+				<li><a href="package-helpers.html.html">html</a>
+						</li>
+				<li><a href="package-helpers.paginate.html">paginate</a>
+						</li>
+				<li><a href="package-helpers.url.html">url</a>
+						</li>
+							</ul></li>
+				<li><a href="package-liber.html">liber</a>
+						</li>
+				<li><a href="package-Minify.html">Minify</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-BasicDb.html">BasicDb</a></li>
+				<li><a href="class-Cart.html">Cart</a></li>
+				<li><a href="class-Feed.html">Feed</a></li>
+				<li><a href="class-FileUpdate.html">FileUpdate</a></li>
+				<li class="active"><a href="class-Funky.html">Funky</a></li>
+				<li><a href="class-Http.html">Http</a></li>
+				<li><a href="class-Log.html">Log</a></li>
+				<li><a href="class-Mailer.html">Mailer</a></li>
+				<li><a href="class-Minify.html">Minify</a></li>
+				<li><a href="class-Security.html">Security</a></li>
+				<li><a href="class-Session.html">Session</a></li>
+				<li><a href="class-Setup.html">Setup</a></li>
+				<li><a href="class-SiteMap.html">SiteMap</a></li>
+				<li><a href="class-SqlExtract.html">SqlExtract</a></li>
+				<li><a href="class-TableModel.html">TableModel</a></li>
+				<li><a href="class-Validation.html">Validation</a></li>
+				<li><a href="class-View.html">View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-classes.html" title="Summary of classes"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Funky</h1>
+
+
+	<div class="description">
+	
+<p>Class that manage funky cache files. Funky cache simply write a raw html
+content to a file to improve speed access. This files used to be put on a public
+url path and auto-created when it's missing, using NotFoundController for
+example. Some methods can be overrided by a extended class to adapt to current
+features of application.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-classes.html">classes</a><br>
+
+		<b>Located at</b> <a href="source-class-Funky.html#2-89" title="Go to source code">class/Funky.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__contruct" id="___contruct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___contruct">#</a>
+		<code><a href="source-class-Funky.html#17-19" title="Go to source code">__contruct</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="matchUrl" id="_matchUrl">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_matchUrl">#</a>
+		<code><a href="source-class-Funky.html#21-28" title="Go to source code">matchUrl</a>( <span>String <var>$url</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Try match a $url specified against 'urlPattern', returning true or false.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Try match a $url specified against 'urlPattern', returning true or false.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>String</code><br>$url</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="url" id="_url">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_url">#</a>
+		<code><a href="source-class-Funky.html#30-39" title="Go to source code">url</a>( <span>mixed <var>$file</var></span> )</code>
+
+		<div class="description short">
+			
+<p>This method is used for return a public URL to cached page.<br />
+With it you can create your own rules how your cache should work.<br />
+Work together with create() method.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>This method is used for return a public URL to cached page. With it you can
+create your own rules how your cache should work. Work together with create()
+method.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd><code>mixed</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="create" id="_create">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_create">#</a>
+		<code><a href="source-class-Funky.html#41-50" title="Go to source code">create</a>( <span>mixed <var>$aData</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Create a cache data from $aData specified.<br />
+With it you can create your own rules how your cache should be created.<br />
+Work together with url() method.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Create a cache data from $aData specified. With it you can create your own
+rules how your cache should be created. Work together with url() method.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$aData</var></dt>
+					<dd><code>mixed</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="put" id="_put">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_put">#</a>
+		<code><a href="source-class-Funky.html#52-66" title="Go to source code">put</a>( <span>String <var>$path</var></span>, <span>String <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Put a raw file $data to a specified $path.<br />
+Return a boolean value indicating if it did.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Put a raw file $data to a specified $path. Return a boolean value indicating
+if it did.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$path</var></dt>
+					<dd><code>String</code><br>$path</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>String</code><br>$data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clean" id="_clean">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clean">#</a>
+		<code><a href="source-class-Funky.html#68-87" title="Go to source code">clean</a>( <span>String <var>$path</var></span>, <span>boolean <var>$recursive</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Clean a specified $path, recursively or not.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Clean a specified $path, recursively or not.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$path</var></dt>
+					<dd><code>String</code><br>$path</dd>
+					<dt><var>$recursive</var></dt>
+					<dd><code>boolean</code><br>$recursive</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="urlPattern" id="$urlPattern">
+		<td class="attributes"><code>
+			protected  
+			String
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Funky.html#10-15" title="Go to source code"><var>$urlPattern</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$urlPattern" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Store the pattern String that is used to match against a URL.<br />
+Usefull to match if a random URL is a funky cache directory.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Store the pattern String that is used to match against a URL. Usefull to
+match if a random URL is a funky cache directory.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

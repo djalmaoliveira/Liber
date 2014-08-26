@@ -25,17 +25,21 @@ class Log {
 
     /**
     *   Do the last action with log messages stored.
+    *   <pre>
     *   The default on error behavior is:   DEV     => open a popup window showing actual information about error and enviroment.
     *                                       PROD    => call to SYS_ERROR controller defined.
+    *
     *   Both APP_MODE write a file on /log folder with the pattern [yyyymmdd.log].
+    *   </pre>
     */
     public function handlerLog() {
 
         if ( !empty(self::$handler) and count(self::$aLogMsg) > 0) {
             call_user_func(self::$handler, self::$aLogMsg);
+        } else {
+            $this->toFile();
         }
 
-        $this->toFile();
         // do action on error
         if ( self::$error ) {
             if ( Liber::conf('APP_MODE') == 'DEV' ) {
@@ -50,6 +54,7 @@ class Log {
     /**
     *   Set a handler function to control the behavior of log messages.
     *   The behavior of this function will be called before the default behavior, if you don't want the default behavior, then call die() or exit on $func.
+    *   The $func params is Log::$aLogMsg
     *   @param String $func - a function
     */
     function handler($func) {
@@ -106,7 +111,7 @@ class Log {
         if ( !self::$debug ) { return; }
         if ( !array_key_exists($level, self::$aLogMsg) ) { self::$aLogMsg[$level] = Array(); }
 
-        $id = array_push(self::$aLogMsg[$level] , '['. date(DATE_RFC822).'] '.$msg."\n");
+        $id = array_push(self::$aLogMsg[$level] , trim($msg)."\n");
         $id--;
         self::$aLogAll[] = &self::$aLogMsg[$level][$id];
 
@@ -115,7 +120,7 @@ class Log {
 
     /**
     *   Write current log to file.
-    *
+    *   @return  void
     */
     function toFile() {
         if ( !self::$debug or count(self::$aLogMsg)==0 ) { return; }
@@ -126,11 +131,11 @@ class Log {
         } else {
             $path = Liber::conf('APP_PATH').Liber::conf('LOG_PATH');
         }
-		if ( !file_exists($path) ) {
+		if ( !is_dir($path) ) {
 			umask(0007);
 			mkdir($path, 0770, true);
 		}
-        file_put_contents( $path.date('Ymd').'.log', strip_tags(implode("\n", self::$aLogAll)), FILE_APPEND | LOCK_EX );
+        file_put_contents( $path.date('Ymd').'.log', '['. date(DATE_RFC822).'] '.trim(strip_tags(implode("\n", self::$aLogAll))), FILE_APPEND | LOCK_EX );
     }
 
 

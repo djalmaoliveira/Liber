@@ -1,5 +1,3 @@
-01/2014
-    - View::setTemplate($template_name), will set current View instance to use a specified $template_name.
 02/2013
     - In APP_MODE DEV show profile error messagem inside page
 08/2012
@@ -12,13 +10,12 @@
     - Helper Form HTML compatible
 11/2011
     - Change Liber.php to include on scripts without config file and it works.
-09/2011
-    - Mailer->addTo() and to(), don't work with Array argument.
+
 01/2011
     - Mailer should have return invalid fields.
 11/2010
     - images using ETAGs
-    - helpers/classes to access API from Twitter, Facebook...
+    - plugins to access API from Twitter, Facebook...
 09/2010
     - class Out, with shortcut in View (View->out()), with following methods(guess), file,text,json,zip, xml, used to output its content;
 
@@ -32,12 +29,10 @@
     - Controller module auto detect on new instance
 
 14/11/2009
-    - (helper ?) to out put XML, Yaml, Json response.
     - To Refactor Liber:getParams, there is a faster way to exclude empty value
 
 22/10/2009
     - Test unit
-    - Documentation (Api, Tutorial, lot of examples of use)
     - Scaffolding system ?
     - Module to manager installs of: plugins, templates engines, modules, diagnostics etc.
 

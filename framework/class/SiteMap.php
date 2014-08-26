@@ -14,17 +14,18 @@ class SiteMap {
 
 	/**
 	*	Set or get urls.
-	*	Usage:
-	*	<code>
-	*		// to set one url;
-	*	 	url( Array('loc'=>'http://someurl.com') );
 	*
-	*	 	// put a set of urls replacing current set;
-	*		url( Array(Array('loc'=>'http://someurl.com'), Array('loc'=>'http://someurl2.com')) );
+	*<code>
+	*Usage:
+	*	// to set one url;
+	* 	url( Array('loc'=>'http://someurl.com') );
 	*
-	*		// to return Array of urls currently stored;
-	*		url();
-	*	</code>
+	*	// put a set of urls replacing current set;
+	*	url( Array(Array('loc'=>'http://someurl.com'), Array('loc'=>'http://someurl2.com')) );
+	*
+	*	// to return Array of urls currently stored;
+	*	url();
+	*</code>
 	*	@param Array $arr
 	*	@return Array
 	*/
@@ -49,8 +50,8 @@ class SiteMap {
 	}
 
 	/**
-	*	Create a XML content of stores $this->aUrls
-	*	Return NULL if doesn't exist any URL
+	*	Create a XML content of stores <b>$this->aUrls</b>.
+	*	Return NULL if doesn't exist any URL.
 	*	@return String
 	*/
 	protected function buildSiteMap() {

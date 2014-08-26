@@ -10,33 +10,33 @@
 
     // input
     form_input_('name', 'value', 'class="my_input"');
-    <? form_input_('name', 'value', 'class="my_input"'); ?>
+    <?php form_input_('name', 'value', 'class="my_input"'); ?>
 
 
     // password
     form_password_('name', 'value', 'class="my_input"');
-    <? form_password_('name', 'value', 'class="my_input"'); ?>
+    <?php form_password_('name', 'value', 'class="my_input"'); ?>
 
 
     // textarea
     form_textarea_('name', 'value', 'class="my_input"');
-    <? form_textarea_('name', 'value', 'class="my_input"'); ?>
+    <?php form_textarea_('name', 'value', 'class="my_input"'); ?>
 
 
     // button
     form_button_('name', 'button', 'class="my_button"');
-    <? form_button_('name', 'button', 'class="my_button"'); ?>
+    <?php form_button_('name', 'button', 'class="my_button"'); ?>
 
 
     // select
     form_select_('name', Array('T'=>'True', 'F'=>'False'), Array('F'), 'class="my_select"');
-    <? form_select_('name', Array('T'=>'True', 'F'=>'False'), Array('F'), 'class="my_select"'); ?>
+    <?php form_select_('name', Array('T'=>'True', 'F'=>'False'), Array('F'), 'class="my_select"'); ?>
 
 
     // input using Array of values
     $values = Array('name2'=>'value2');
     form_input_('name', $values, 'class="my_input"');
-    <?
+    <?php
         $values = Array('name2'=>'value2');
         form_input_('name2', $values, 'class="my_input"');
     ?>

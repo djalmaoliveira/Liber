@@ -1,7 +1,7 @@
 <?php
 /**
  * Main framework class file.
- * Copyright (c) 2010-2013 Djalma Oliveira (djalmaoliveira@gmail.com)
+ * Copyright (c) 2010-2014 Djalma Oliveira (djalmaoliveira@gmail.com)
  * All rights reserved.
  * @license license.txt
  */
@@ -9,30 +9,10 @@
 /**
  * Liber is a main class of framework.
  *
- * How to setup configuration params:
- * <code>Liber::conf('APP_MODE', 'PROD');</code>
- * and to get params:
- * <code>Liber::conf('APP_MODE');</code>
- * There are many params that can be used:
- * <pre>
- * BASE_PATH        ->  Internal path to Framework;
- * APP_PATH         ->  Internal path to application dir;
- * APP_URL          ->  URL to access aplication (i.e. http://www.domain.com);
- * APP_ROOT         ->  Application path (i.e. /www/app/public_html/);
- * APP_MODE         ->  Values: 'DEV' for development (default) and 'PROD' for production mode;
- * DB_LAYER         ->  Class name used to manipulate the access to database, using BasicDb class by default;
- * TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system, using TemplateEngine class by default;
- * ASSETS_DIR       ->  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
- * LOG_PATH         ->  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
- * CACHE_PATH       ->  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;
- * PAGE_NOT_FOUND   ->  Application Controller name of default for page not found,  'NotFoundController' by default;
- * SYS_ERROR        ->  Application Controller name of default for system error message,  'SysErrorController' by default;
- * LANG             ->  Application language, used to some system messages. See BASE_PATH/i18n. 'en' by default;
- * </pre>
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
- * @package core
- * @version 2.0.14
+ * @package liber
+ * @version 2.1.10
  * @since 1.0
  */
 class Liber {
@@ -40,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.0.14';
+    const VERSION = '2.1.10';
 
 
     /**
@@ -56,7 +36,7 @@ class Liber {
                                     'APP_ROOT'          => '',
                                     'APP_MODE'          => 'DEV',
                                     'DB_LAYER'          => 'BasicDb',
-                                    'TEMPLATE_ENGINE'   => 'TemplateEngine',
+                                    'TEMPLATE_ENGINE'   => '',
                                     'ASSETS_DIR'        => 'assets',
                                     'LOG_PATH'          => 'log/',
                                     'CACHE_PATH'        => 'cache/',
@@ -216,7 +196,7 @@ class Liber {
     *   @param String $path
     */
     public static function loadApp( $path ) {
-        include $path."config/config.php";
+        require $path.'config/config.php';
 
         // set config values
         //
@@ -224,7 +204,7 @@ class Liber {
         self::$aDbConfig  = &$aConfigs['db'];
         self::$aRoute     = &$aConfigs['routes'];
         self::$aConfig['APP_PATH']  = $path;
-        self::$aConfig['BASE_PATH'] = dirname(__FILE__).'/';
+        self::$aConfig['BASE_PATH'] = dirname(__FILE__).DIRECTORY_SEPARATOR;
 
         self::loadClass('Http');
 
@@ -256,12 +236,35 @@ class Liber {
 
 
     /**
-    *   Set/add config params.
-    *   Can be added new params if necessary.
-    *   @param String $p -> param name
-    *   @param String $v -> param value
-    *   @return mixed
-    */
+     * Set/add config params.
+     * Can be added new params if necessary.
+     * <code>
+     * // How to setup configuration params:
+     * Liber::conf('APP_MODE', 'PROD');
+     * // and to get params:
+     * Liber::conf('APP_MODE');
+     * </code>
+     * <pre>
+     * There are many params that can be used:
+     * BASE_PATH        ->  Internal path to Framework;
+     * APP_PATH         ->  Internal path to application dir;
+     * APP_URL          ->  URL to access aplication (i.e. http://www.domain.com);
+     * APP_ROOT         ->  Application path (i.e. /www/app/public_html/);
+     * APP_MODE         ->  Values: 'DEV' for development (default) and 'PROD' for production mode;
+     * DB_LAYER         ->  Class name used to manipulate the access to database, using BasicDb class by default;
+     * TEMPLATE_ENGINE  ->  Class name used to manipulate a Template system;
+     * ASSETS_DIR       ->  Default name to assets dir into web public access, APP_ROOT/assets/ by default;
+     * LOG_PATH         ->  Default name to log dir where is stored log files,  APP_PATH/log/ by default;
+     * CACHE_PATH       ->  Default name to cache dir where is stored cached files, APP_PATH/cache/ by default;
+     * PAGE_NOT_FOUND   ->  Application Controller name of default for page not found,  'NotFoundController' by default;
+     * SYS_ERROR        ->  Application Controller name of default for system error message,  'SysErrorController' by default;
+     * LANG             ->  Application language, used to some system messages. See BASE_PATH/i18n. 'en' by default;
+     * </pre>
+     *
+     *   @param String $p Param name
+     *   @param String $v Param value
+     *   @return mixed
+     */
     public static function conf($p, $v=null) {
         if (  $v === null ) {
             return isset(self::$aConfig[$p])?self::$aConfig[$p]:null;
@@ -293,7 +296,7 @@ class Liber {
             return $out;
         }
         if ( !class_exists($className)  ) {
-            if ( file_exists($path . $className.'.php') ) {
+            if ( is_file($path . $className.'.php') ) {
                 $ret =  (include $path . $className.'.php')!=1?false:true;
             } else {
                 $ret = false;
@@ -329,7 +332,7 @@ class Liber {
 
     /**
     *   Import files of context.
-    *   Context can be a Module path or APP_PATH (default).
+    *   Context can be a Module path or <b>APP_PATH</b> (default).
     *   @param  String $className
     *   @param  mixed $contextORcreateObj  - name of module or boolean
     *   @param  boolean $createObj
@@ -422,7 +425,7 @@ class Liber {
                 $out        = self::prepareLoad($context, false);
                 $loaded[$i] = true;
 
-                if ( file_exists($out['context'].'helper/' . current($helperName).'.php') ) {
+                if ( is_file($out['context'].'helper/' . current($helperName).'.php') ) {
                     $ret =  (include $out['context'].'helper/' . current($helperName).'.php')!=1?false:true;
                 } else {
                     $ret = false;
@@ -494,7 +497,7 @@ class Liber {
 
     /**
     *   Redirect client to another URL.
-    *   Detect if Liber_URL_REWRITE was set, your WEB Server should be capable to set this param to retrieve from $_SERVER variable.
+    *   Detect if <b>Liber_URL_REWRITE</b> was set, your WEB Server should be capable to set this param to retrieve from <b>$_SERVER</b> variable.
     *   If this param don't exist, all urls will be used with 'index.php/'.
     *   @param String $url
     *   @param boolean $return  - if must return a url String instead of redirect client
@@ -503,10 +506,11 @@ class Liber {
     public static function redirect($url, $return=false) {
 
         if ( $url[0] == '/' ) {
+            $url[0] = '';
         	if ( !isset($_SERVER['Liber_URL_REWRITE']) ) {
-                $url = Liber::conf('APP_URL').'index.php/'.substr(trim($url), 1);
+                $url = Liber::conf('APP_URL').'index.php/'.(trim($url));
             } else {
-                $url = Liber::conf('APP_URL').substr(trim($url), 1);
+                $url = Liber::conf('APP_URL').(trim($url));
             }
         }
         $url = filter_var($url, FILTER_VALIDATE_URL);
@@ -595,7 +599,7 @@ class Liber {
         }
 
         // get instance kind of Controller and call method (action).
-        Liber::$_controller = new $controller( Array('module'=>$module, 'params'=>$params) );
+        Liber::$_controller = new $controller( Array('module'=>$module, 'params'=>$params, 'method' => $method) );
         if ( method_exists( Liber::$_controller , $method ) or method_exists( Liber::$_controller , '__call' ) ) {
             call_user_func_array(array(Liber::$_controller, $method), $params);
             return true;
@@ -607,20 +611,20 @@ class Liber {
     *   Process route, match and create related controller or redirect to default controller if don't match.
     */
     public static function processRoute() {
-        $aRoute = &Liber::$aRoute;
 
+        $aRoute = &Liber::$aRoute;
         // get URI
         $aUrl = parse_url($_SERVER['REQUEST_URI']);
         if ( ($indexPos = strpos($aUrl['path'], '/index.php')) === false ) { // don't have index.php
             if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  { // has subdir
-                $uri = str_replace( str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']), '', $aUrl['path']);
+                $uri = str_replace( dirname($_SERVER['SCRIPT_NAME']), '', $aUrl['path']);
             } else {
                 $uri = &$aUrl['path'];
             }
         } else {
             $uri = '/'.substr($aUrl['path'], $indexPos+11);
         }
-        ( strlen($uri) > 1 and $uri[strlen($uri)-1]=='/')?($uri[strlen($uri)-1]=''):false;
+        ( isset($uri[1]) and substr($uri, -1)=='/')?($uri[strlen($uri)-1]=''):false;
         $uri = trim($uri);
 
         $uri_parts = array_values(array_filter(explode('/', $uri)));
@@ -641,7 +645,7 @@ class Liber {
                         $uri_detect .= '/'.$uri_parts[$i];
                         $routeOption = Liber::getRouteMethod( $uri_detect );
                         if ( isset( $uri_parts[($i+1)] )  and ($uri_found = self::processController( $routeOption[0], $uri_parts[($i+1)], (isset($routeOption[2])?$routeOption[2]:''), array_slice($uri_parts, ($i+2)) )) ) {
-                            break;
+                            return;
                         }
                     }
                     // Try named params
@@ -652,12 +656,11 @@ class Liber {
                             self::processController( $routeConf[0], $routeConf[1], $routeConf[2], $aParsed['params']);
                             return;
                         }
-                        self::processController( Liber::conf('PAGE_NOT_FOUND'), 'index' ); // force not found
                     }
+                    self::processController( Liber::conf('PAGE_NOT_FOUND'), 'index' ); // force not found
                 }
             }
         }
-
     }
 
 
@@ -676,6 +679,9 @@ class Liber {
 /**
 *   Class that manipulates Controllers, its creation can be relative a module.
 *   All controllers must extends it and have at least the 'index' method.
+* @author Djalma Oliveira (djalmaoliveira@gmail.com)
+* @package liber
+* @since 1.0
 */
 class Controller {
 
@@ -684,6 +690,12 @@ class Controller {
     *   @var String
     */
     private $module;
+
+    /**
+    *   Name of method called
+    *   @var String
+    */
+    private $method;
 
     /**
     *   Params detected from uri.
@@ -704,9 +716,10 @@ class Controller {
     *   $args values are:   ['module'] = 'module name' - empty for application controller
     *                       ['params'] = Array() - values of detected named params from route
     */
-    public function __construct( $args=Array('module'=>'','params'=>Array()) ) {
+    public function __construct( $args=Array('module'=>'','params'=>Array(), 'method' => '') ) {
         $this->module = isset($args['module'])?$args['module']:'';
         $this->params = isset($args['params'])?$args['params']:Array();
+        $this->method = isset($args['method'])?$args['method']:'';
         header('Content-Type: text/html; charset=utf-8'); // default values
     }
 
@@ -756,15 +769,13 @@ class Controller {
 
     /**
     *   Get instance of View class.
-    *   @param String $layout_once  - Name of layout that this call will use
     *   @return View object
     */
-    public function view($layout_once='') {
+    public function view() {
         if ( !isset($this->_view) ) {
             Liber::loadClass('View');
-            $this->_view = new View(Array('module'=>$this->module));
+            $this->_view = new View($this->module);
         }
-        $this->_view->setLayoutOnce($layout_once);
         return $this->_view;
     }
 
@@ -781,6 +792,31 @@ class Controller {
         }
     }
 
+    /**
+     * Load a view file based on same Controller::$method name called.
+     * The file name loaded format will be: "$method.html"
+     * <code>
+     * Usage:
+     * // print the output of processed view file
+     * ->render();
+     *
+     * // return the output of processed view file
+     * ->render(true);
+     *
+     * // print the output of processed view file with data specified
+     * ->render(array('framework'=>'Liber'));
+     *
+     * // return the output of processed view file with data specified
+     * ->render(array('framework'=>'Liber'), true);
+     *
+     * </code>
+     * @param  mixed $data data for view file
+     * @param  boolean $return true return the output content
+     * @return void
+     */
+    public function render( $data=array(), $return=false ) {
+        $this->view()->load( "$this->method.html", $data, $return );
+    }
 }
 
 ?>

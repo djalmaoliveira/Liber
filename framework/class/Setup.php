@@ -25,7 +25,7 @@ class Setup {
 
     /**
     *   Make public, all assets dir on application, including modules.
-    *   Publish assets dir to APP_ROOT/ASSETS_DIR, and modules assets to APP_ROOT/ASSETS_DIR/MODULE_NAME.
+    *   Publish assets dir to <b>APP_ROOT/ASSETS_DIR</b>, and modules assets to <b>APP_ROOT/ASSETS_DIR/MODULE_NAME</b>.
     *   After it, these dirs going to have public access by web.
     *   @return Array - of messages about something wrong found.
     */
@@ -62,7 +62,7 @@ class Setup {
     *   Create a assets dir on www.
     */
     function prepareAssetDir() {
-        if ( !file_exists($this->app_root.$this->assets_dir) ) {
+        if ( !is_dir($this->app_root.$this->assets_dir) ) {
 			umask(0007);
             @mkdir($this->app_root.$this->assets_dir, 0775, true);
         }

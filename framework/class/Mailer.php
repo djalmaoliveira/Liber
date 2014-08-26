@@ -67,30 +67,46 @@ class Mailer {
 
     /**
     *   Set To mail field.
-    *   You can use:    to('name', 'email') or to('email')
-    *                   to( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') )
+    *   <code>
+    *   You can use:
+    *       // send to 'email' with 'name'
+    *       ->to('name', 'email');
+    *
+    *       // send to 'email'
+    *       ->to('email');
+    *
+    *       // send to multiple addresses
+    *       ->to( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') );
+    *   </code>
     *   @param String $name
     *   @param String $email
     */
     public function to($name, $email='') {
         $to = '';
         if ( is_array($name) )  {
-            $to = $this->_parseAddresses($name);
+            $this->aMail['to'] = $name;
         } else {
             if ( func_num_args() == 1 ) {
                 $to = $this->_parseAddresses(Array(trim($name)));
             } else {
                 $to = $this->_parseAddresses(Array($name=>trim($email)));
             }
+            $this->aMail['to'] = Array($to);
         }
-        $this->aMail['to'] = Array($to);
+
     }
 
 
     /**
     *   Add one or more destinations to mail.
-    *   You can use:    addTo('myname@mydomain.com');
-    *                   addTo(Array('myname@mydomain.com', 'othermail@mydomain.com'));
+    *   <code>
+    *   You can use:
+    *       // add one destination
+    *       ->addTo('myname@mydomain.com');
+    *
+    *       // add multiples destinations
+    *       ->addTo( Array('myname@mydomain.com', 'othermail@mydomain.com') );
+    *   </code>
     *   @param String | Array $to
     */
     public function addTo($to) {
@@ -104,8 +120,17 @@ class Mailer {
 
     /**
     *   Set original sender(s) to mail.
-    *   You can use:    from('name', 'email') or from('email')
-    *                   from( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') )
+    *   <code>
+    *   You can use:
+    *       // set from with name
+    *       ->from('name', 'email');
+    *
+    *       // set from only 'email'
+    *       ->from('email');
+    *
+    *       // set multiples froms
+    *       ->from( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') );
+    *   </code>
     *   @param String $name
     *   @param String $email
     */
@@ -124,10 +149,21 @@ class Mailer {
         $this->header('From', $from);
     }
 
+
     /**
     *   Set Reply-To field with email address.
-    *   You can use:    reply('name', 'email@domain.com') or reply('email@domain.com')
-    *                   reply( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') )
+    *   <code>
+    *   You can use:
+    *       // set reply with name
+    *       ->reply('name', 'email@domain.com');
+    *
+    *       // set reply only email
+    *       ->reply('email@domain.com');
+    *
+    *       // set multiples replies
+    *       ->reply( Array('reply@domain.com', 'reply@domain2.com', 'Liber' => 'djalmaoliveira@gmail.com') );
+    *
+    *   </code>
     *   @param String $name
     *   @param String $email
     */
@@ -148,8 +184,17 @@ class Mailer {
 
     /**
     *   Add attachment files.
-    *   You can use:    file('/path/to/file');
-    *                   file( Array('/path/file1', '/path/file2') );
+    *   <code>
+    *   You can use:
+    *       // attach on file
+    *       ->file('/path/to/file');
+    *
+    *       // attach multiples files
+    *       ->file( Array('/path/file1', '/path/file2') );
+    *
+    *       // attach multiples files with file name
+    *       ->file( Array('filename1.txt' => '/path/file1', 'filename2' => '/path/file2') );
+    *   </code>
     *   @param String | Array $files
     */
     public function file($files=null) {
@@ -187,9 +232,12 @@ class Mailer {
 
             $this->aMail['body'] = "This is a multi-part message in MIME format.\n\n" . "--$boundary\n" .$message_header."\n\n".$this->aMail['body']."\n\n";
             $attachs = '';
-            foreach( $this->files as $filepath ) {
-                if ( file_exists($filepath) ) {
-                    $name = basename($filepath);
+            foreach( $this->files as $name => $filepath ) {
+                if ( is_file($filepath) ) {
+                    if ( is_numeric($name) ) {
+                        $name = basename($filepath);
+                    }
+
                     $h  = "--$boundary\n";
                     $h .= "Content-Type: application/octet-stream; name=\"$name\"\n";
                     $h .= "Content-Disposition: attachment; filename=\"$name\"\n";

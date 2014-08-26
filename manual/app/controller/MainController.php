@@ -10,7 +10,7 @@ class MainController extends Controller{
 
     function __construct() {
      	Liber::loadHelper('Url');
-        $this->oTPL = $this->view()->template();
+        $this->view()->template('default.html');
     }
 
 
@@ -23,7 +23,7 @@ class MainController extends Controller{
 
         $aData['titulo'] = 'Liber Manual';
 
-        $this->oTPL->load("index.html",$aData);
+        $this->view()->load("index.html",$aData);
     }
 
 	public function setup() {
@@ -35,7 +35,7 @@ class MainController extends Controller{
 	public function mailer() {
 
     	Liber::loadHelper('Form');
-        $this->oTPL->load("mailer.html");
+        $this->view()->load("mailer.html");
 	}
 
 	public function mailersend() {
@@ -55,35 +55,35 @@ class MainController extends Controller{
 
         $aData['title'] = "Email data requested ";
         $aData['content'] = $out."<br/>".print_r( $oMailer->toArray() , true);
-        $this->oTPL->load("output.html",$aData);
+        $this->view()->load("output.html",$aData);
 
 	}
 
 
 	public function http() {
     	Liber::loadHelper('Form');
-        $this->oTPL->load("http.html");
+        $this->view()->load("http.html");
 	}
 
 	public function liber() {
-        $this->oTPL->load("liber.html");
+        $this->view()->load("liber.html");
 	}
 
 
 	public function log() {
-        $this->oTPL->load("log.html");
+        $this->view()->load("log.html");
 	}
 
 	public function viewfiles() {
-        $this->oTPL->load("viewfiles.html");
+        $this->view()->load("viewfiles.html");
 	}
 
 	public function controllerfiles() {
-        $this->oTPL->load("controllerfiles.html");
+        $this->view()->load("controllerfiles.html");
 	}
 
     public function session() {
-        $this->oTPL->load("session.html");
+        $this->view()->load("session.html");
     }
 
     public function cart() {
@@ -96,29 +96,29 @@ class MainController extends Controller{
             $aData['cart']->clear();
         }
 
-        $this->oTPL->load("cart.html", $aData);
+        $this->view()->load("cart.html", $aData);
     }
 
 
     public function minify() {
         Liber::loadHelper('Url');
-        $this->oTPL->load("minify.html");
+        $this->view()->load("minify.html");
     }
 
 
     public function helper_form() {
         Liber::loadHelper('Form');
-        $this->oTPL->load("helper_form.html");
+        $this->view()->load("helper_form.html");
     }
 
     public function helper_url() {
         Liber::loadHelper('Url');
-        $this->oTPL->load("helper_url.html");
+        $this->view()->load("helper_url.html");
     }
 
     public function routes() {
         Liber::loadHelper('Url');
-        $this->oTPL->load("routes.html");
+        $this->view()->load("routes.html");
     }
 
 }

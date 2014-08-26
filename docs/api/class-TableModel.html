@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class TableModel</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?901761756"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-cache.html">cache</a>
+						</li>
+				<li class="active"><a href="package-classes.html">classes</a>
+						</li>
+				<li><a href="package-helpers.html">helpers<span></span></a>
+						<ul>
+				<li><a href="package-helpers.dt.html">dt</a>
+						</li>
+				<li><a href="package-helpers.form.html">form</a>
+						</li>
+				<li><a href="package-helpers.fs.html">fs</a>
+						</li>
+				<li><a href="package-helpers.html.html">html</a>
+						</li>
+				<li><a href="package-helpers.paginate.html">paginate</a>
+						</li>
+				<li><a href="package-helpers.url.html">url</a>
+						</li>
+							</ul></li>
+				<li><a href="package-liber.html">liber</a>
+						</li>
+				<li><a href="package-Minify.html">Minify</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-BasicDb.html">BasicDb</a></li>
+				<li><a href="class-Cart.html">Cart</a></li>
+				<li><a href="class-Feed.html">Feed</a></li>
+				<li><a href="class-FileUpdate.html">FileUpdate</a></li>
+				<li><a href="class-Funky.html">Funky</a></li>
+				<li><a href="class-Http.html">Http</a></li>
+				<li><a href="class-Log.html">Log</a></li>
+				<li><a href="class-Mailer.html">Mailer</a></li>
+				<li><a href="class-Minify.html">Minify</a></li>
+				<li><a href="class-Security.html">Security</a></li>
+				<li><a href="class-Session.html">Session</a></li>
+				<li><a href="class-Setup.html">Setup</a></li>
+				<li><a href="class-SiteMap.html">SiteMap</a></li>
+				<li><a href="class-SqlExtract.html">SqlExtract</a></li>
+				<li class="active"><a href="class-TableModel.html">TableModel</a></li>
+				<li><a href="class-Validation.html">Validation</a></li>
+				<li><a href="class-View.html">View</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-classes.html" title="Summary of classes"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class TableModel</h1>
+
+
+	<div class="description">
+	
+<p>Simple Table Model class for Liber framework.</p>
+
+<p>This class implements a similar Active Record pattern to store, retrieve,
+manipulate, validate data from a table in database. The pre-requisite is support
+to PDO class in PHP installations. Supported databases: Sqlite, Mysql and
+Firebird. Default primary key field name is 'id'. Default table name is the
+class name in lower case.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		
+		<b>Package:</b> <a href="package-classes.html">classes</a><br>
+
+		<b>Located at</b> <a href="source-class-TableModel.html#6-819" title="Go to source code">class/TableModel.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="TableModel" id="_TableModel">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_TableModel">#</a>
+		<code><a href="source-class-TableModel.html#79-114" title="Go to source code">TableModel</a>( <span><code><a href="class-PDO.html">PDO</a></code> <var>$PDO</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$PDO</var></dt>
+					<dd><code><code><a href="class-PDO.html">PDO</a></code></code><br>$PDO</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="beginTransaction" id="_beginTransaction">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_beginTransaction">#</a>
+		<code><a href="source-class-TableModel.html#117-136" title="Go to source code">beginTransaction</a>( )</code>
+
+		<div class="description short">
+			
+<p>Start a new transaction. If not exist a current transaction it will start
+one. For each beginTransaction() called must have the same number of commit() or
+rollback() calls.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Start a new transaction. If not exist a current transaction it will start
+one. For each beginTransaction() called must have the same number of commit() or
+rollback() calls.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="commit" id="_commit">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_commit">#</a>
+		<code><a href="source-class-TableModel.html#138-163" title="Go to source code">commit</a>( )</code>
+
+		<div class="description short">
+			
+<p>Commit current transaction.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Commit current transaction.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rollback" id="_rollback">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rollback">#</a>
+		<code><a href="source-class-TableModel.html#165-184" title="Go to source code">rollback</a>( )</code>
+
+		<div class="description short">
+			
+<p>Rollback current transaction.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Rollback current transaction.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="db" id="_db">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-PDO.html">PDO</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_db">#</a>
+		<code><a href="source-class-TableModel.html#187-193" title="Go to source code">db</a>( )</code>
+
+		<div class="description short">
+			
+<p>Return a PDO database connection.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return a PDO database connection.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-PDO.html">PDO</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addValidation" id="_addValidation">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addValidation">#</a>
+		<code><a href="source-class-TableModel.html#196-203" title="Go to source code">addValidation</a>( <span>string <var>$name</var></span>, <span>function <var>$func</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Add a function for validation.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add a function for validation.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$func</var></dt>
+					<dd><code>function</code><br>$func</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validateData" id="_validateData">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validateData">#</a>
+		<code><a href="source-class-TableModel.html#205-231" title="Go to source code">validateData</a>( )</code>
+
+		<div class="description short">
+			
+<p>Do validation checking on changed fields.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Do validation checking on changed fields.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="turnValidation" id="_turnValidation">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_turnValidation">#</a>
+		<code><a href="source-class-TableModel.html#233-249" title="Go to source code">turnValidation</a>( <span>String <var>$field</var></span>, <span>String <var>$switch</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Turn validation field 'on' or 'off'.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Turn validation field 'on' or 'off'.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>String</code><br>$field Field name</dd>
+					<dt><var>$switch</var></dt>
+					<dd><code>String</code><br>$switch on | off</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="beforeSave" id="_beforeSave">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_beforeSave">#</a>
+		<code><a href="source-class-TableModel.html#251-257" title="Go to source code">beforeSave</a>( )</code>
+
+		<div class="description short">
+			
+<p>Method called before save data.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Method called before save data.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="afterSave" id="_afterSave">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_afterSave">#</a>
+		<code><a href="source-class-TableModel.html#259-265" title="Go to source code">afterSave</a>( )</code>
+
+		<div class="description short">
+			
+<p>Method called after data saved.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Method called after data saved.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="changed" id="_changed">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_changed">#</a>
+		<code><a href="source-class-TableModel.html#267-274" title="Go to source code">changed</a>( <span>string <var>$field</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return true if field was changed.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return true if field was changed.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd><code>string</code><br>$field</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insert" id="_insert">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insert">#</a>
+		<code><a href="source-class-TableModel.html#276-325" title="Go to source code">insert</a>( <span>array <var>$data</var> = <span class="php-keyword1">Array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Insert a new record, returning true if get to do it.<br />
+To setup a field with null, fill it with empty ''.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Insert a new record, returning true if get to do it. To setup a field with
+null, fill it with empty ''.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="update" id="_update">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_update">#</a>
+		<code><a href="source-class-TableModel.html#328-364" title="Go to source code">update</a>( <span>Array <var>$data</var> = <span class="php-keyword1">Array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Update a existing record, returning true if get to do it.<br />
+To setup a field with null, fill it with empty ''.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Update a existing record, returning true if get to do it. To setup a field
+with null, fill it with empty ''.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>Array</code><br>$data - $data[field] = value</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="delete" id="_delete">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_delete">#</a>
+		<code><a href="source-class-TableModel.html#367-384" title="Go to source code">delete</a>( <span>integer <var>$id</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Delete a existing record, returning true if get to do it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Delete a existing record, returning true if get to do it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="save" id="_save">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_save">#</a>
+		<code><a href="source-class-TableModel.html#387-406" title="Go to source code">save</a>( <span>Array <var>$data</var> = <span class="php-keyword1">Array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Save current data.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Save current data.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>Array</code><br>$data Optional</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="field" id="_field">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_field">#</a>
+		<code><a href="source-class-TableModel.html#411-428" title="Go to source code">field</a>( <span>String <var>$f</var></span>, <span>String <var>$v</var> = <span class="php-keyword1">NULL</span></span>, <span>boolean <var>$notUpdate</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Set or Get a value from field specified.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set or Get a value from field specified.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$f</var></dt>
+					<dd><code>String</code><br>$f - Field Name</dd>
+					<dt><var>$v</var></dt>
+					<dd><code>String</code><br>$v - Field Value, optional</dd>
+					<dt><var>$notUpdate</var></dt>
+					<dd><code>boolean</code><br>$notUpdate - Indicates if field must be set up as changed.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="desc" id="_desc">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_desc">#</a>
+		<code><a href="source-class-TableModel.html#431-446" title="Go to source code">desc</a>( <span>string <var>$f</var></span>, <span>string <var>$v</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Return $f field description.<br />
+If $v specified, it will attribute this value to field $f.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return $f field description. If $v specified, it will attribute this value to
+field $f.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$f</var></dt>
+					<dd><code>string</code><br>$f</dd>
+					<dt><var>$v</var></dt>
+					<dd><code>string</code><br>$v</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getField" id="_getField">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getField">#</a>
+		<code><a href="source-class-TableModel.html#449-468" title="Go to source code">getField</a>( <span>integer <var>$id</var></span>, <span>mixed <var>$aFields</var> = <span class="php-keyword1">Array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Return a value of $aFields specified from $id.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return a value of $aFields specified from $id.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id</dd>
+					<dt><var>$aFields</var></dt>
+					<dd><code>mixed</code><br>$aFields $aFields can be a field name or Array of field names.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-TableModel.html#471-513" title="Go to source code">get</a>( <span>integer <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return or load a model from table.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return or load a model from table.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd><code>integer</code><br>| array $val</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>| array<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clear" id="_clear">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clear">#</a>
+		<code><a href="source-class-TableModel.html#516-530" title="Go to source code">clear</a>( <span>boolean <var>$all</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Clear fields data, by default use the default model data values.<br />
+If $all specified with true, all field data will receive a empty value.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Clear fields data, by default use the default model data values. If $all
+specified with true, all field data will receive a empty value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$all</var></dt>
+					<dd><code>boolean</code><br>$all</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadFrom" id="_loadFrom">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadFrom">#</a>
+		<code><a href="source-class-TableModel.html#533-551" title="Go to source code">loadFrom</a>( <span>Array <var>$data</var></span>, <span>boolean <var>$notUpdate</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Load current object with $data specified.<br />
+If field not found in $data, it will be replace by ''. (clear method called do
+this)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Load current object with $data specified. If field not found in $data, it
+will be replace by ''. (clear method called do this)</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>Array</code><br>$data</dd>
+					<dt><var>$notUpdate</var></dt>
+					<dd><code>boolean</code><br>$notUpdate</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toArray" id="_toArray">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toArray">#</a>
+		<code><a href="source-class-TableModel.html#553-570" title="Go to source code">toArray</a>( <span>String <var>$op</var> = <span class="php-quote">'field'</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Return an Array of current fields model values or descriptions.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return an Array of current fields model values or descriptions.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$op</var></dt>
+					<dd><code>String</code><br>$op - 'field' (default) - return field values; 'desc' - return description
+fields</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="searchBy" id="_searchBy">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-PDOStatement.html">PDOStatement</a></code>|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_searchBy">#</a>
+		<code><a href="source-class-TableModel.html#573-615" title="Go to source code">searchBy</a>( <span>string|array <var>$fields</var></span>, <span>string <var>$value</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$options</var> = <span class="php-keyword1">array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Search a specified $fields, returning Array of entire records matched.</p>
+
+<pre>
+Usage:
+searchBy( <span class="php-quote">'field'</span>, <span
+class="php-quote">'value'</span> ); <span
+class="php-comment">// search only one field</span>
+searchBy( <span
+class="php-keyword1">Array</span>(<span
+class="php-quote">'field'</span> =&gt; <span
+class="php-quote">'value'</span>, ...) ); <span
+class="php-comment">// search many fields with AND operator</span>
+searchBy( <span
+class="php-keyword1">Array</span>( <span
+class="php-quote">'or'</span> =&gt; <span
+class="php-keyword1">Array</span>(<span
+class="php-quote">'field'</span> =&gt; <span
+class="php-quote">'value'</span>, ...) ) ); <span
+class="php-comment">// search many fields with OR operator</span>
+searchBy( <span
+class="php-quote">'field1'</span>, <span class="php-quote">'value'</span>, <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'fields'</span> =&gt; <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'field2'</span>)) ); <span
+class="php-comment">// search by field1 and return field2 as result</span>
+</pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Search a specified $fields, returning Array of entire records matched.</p>
+
+<pre>
+Usage:
+searchBy( <span class="php-quote">'field'</span>, <span
+class="php-quote">'value'</span> ); <span
+class="php-comment">// search only one field</span>
+searchBy( <span
+class="php-keyword1">Array</span>(<span
+class="php-quote">'field'</span> =&gt; <span
+class="php-quote">'value'</span>, ...) ); <span
+class="php-comment">// search many fields with AND operator</span>
+searchBy( <span
+class="php-keyword1">Array</span>( <span
+class="php-quote">'or'</span> =&gt; <span
+class="php-keyword1">Array</span>(<span
+class="php-quote">'field'</span> =&gt; <span
+class="php-quote">'value'</span>, ...) ) ); <span
+class="php-comment">// search many fields with OR operator</span>
+searchBy( <span
+class="php-quote">'field1'</span>, <span class="php-quote">'value'</span>, <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'fields'</span> =&gt; <span
+class="php-keyword1">array</span>(<span
+class="php-quote">'field2'</span>)) ); <span
+class="php-comment">// search by field1 and return field2 as result</span>
+</pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$fields</var></dt>
+					<dd><code>string|array</code><br>$fields</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value</dd>
+					<dt><var>$options</var></dt>
+					<dd><code>array</code><br>$options fields=array('field1', field2) to return only specified fields</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-PDOStatement.html">PDOStatement</a></code>|false</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="search" id="_search">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-PDOStatement.html">PDOStatement</a></code>|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_search">#</a>
+		<code><a href="source-class-TableModel.html#618-671" title="Go to source code">search</a>( <span>String <var>$terms</var></span>, <span>Array <var>$aOptions</var> = <span class="php-keyword1">Array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Search $terms from current table model.</p>
+
+<pre>
+  $aOptions possibles: 'from', 'limit', 'start', 'fields', 'order', 'rfields'
+  'fields'    Array of fields which will search with;
+  'from'      If the search must be done on another table/view;
+  'where'     If you want add more filter;
+  'limit'     Limits number of rows returned;
+  'start'     Set which row number the search must begin;
+  'order'     List of fields separated by comma, can be specified the orientation 'asc' or 'desc';
+  'rfields'   Array of fields that should be returned.
+  </pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Search $terms from current table model.</p>
+
+<pre>
+  $aOptions possibles: 'from', 'limit', 'start', 'fields', 'order', 'rfields'
+  'fields'    Array of fields which will search with;
+  'from'      If the search must be done on another table/view;
+  'where'     If you want add more filter;
+  'limit'     Limits number of rows returned;
+  'start'     Set which row number the search must begin;
+  'order'     List of fields separated by comma, can be specified the orientation 'asc' or 'desc';
+  'rfields'   Array of fields that should be returned.
+  </pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$terms</var></dt>
+					<dd><code>String</code><br>$terms</dd>
+					<dt><var>$aOptions</var></dt>
+					<dd><code>Array</code><br>$aOptions</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-PDOStatement.html">PDOStatement</a></code>|false</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="paginate" id="_paginate">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_paginate">#</a>
+		<code><a href="source-class-TableModel.html#674-710" title="Go to source code">paginate</a>( <span>mixed <var>$terms</var></span>, <span>mixed <var>$options</var> = <span class="php-keyword1">Array</span>() </span> )</code>
+
+		<div class="description short">
+			
+<p>Search $terms from current table model and set Paginate helper to reflect its
+results.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Search $terms from current table model and set Paginate helper to reflect its
+results.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>List of fetched rows.<br>
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-TableModel.html#_search">TableModel::search()</a></code></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="errors" id="_errors">
+
+		<td class="attributes"><code>
+			 public 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_errors">#</a>
+		<code><a href="source-class-TableModel.html#713-742" title="Go to source code">errors</a>( <span>String <var>$namespace</var> = <span class="php-keyword1">null</span></span>, <span>String <var>$message</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Used to add or return errors on current object. The namespaces 'validation'
+and 'fields' are reserved words created by internal validation when save
+data.</p>
+
+<pre>
+<span
+class="php-comment">// Add a new error message using a $namespace.</span>
+errors(<span
+class="php-quote">'info'</span>, <span
+class="php-quote">'one error occur.'</span>);
+<span
+class="php-comment">// Get an errors array of $namespace specified.</span>
+errors(<span
+class="php-quote">'info'</span>);
+<span
+class="php-comment">// Get an array of all errors added.</span>
+errors();
+</pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Used to add or return errors on current object. The namespaces 'validation'
+and 'fields' are reserved words created by internal validation when save
+data.</p>
+
+<pre>
+<span
+class="php-comment">// Add a new error message using a $namespace.</span>
+errors(<span
+class="php-quote">'info'</span>, <span
+class="php-quote">'one error occur.'</span>);
+<span
+class="php-comment">// Get an errors array of $namespace specified.</span>
+errors(<span
+class="php-quote">'info'</span>);
+<span
+class="php-comment">// Get an array of all errors added.</span>
+errors();
+</pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$namespace</var></dt>
+					<dd><code>String</code><br>$namespace</dd>
+					<dt><var>$message</var></dt>
+					<dd><code>String</code><br>$message</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fieldFilter" id="_fieldFilter">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fieldFilter">#</a>
+		<code><a href="source-class-TableModel.html#746-755" title="Go to source code">fieldFilter</a>( )</code>
+
+		<div class="description short">
+			
+<p>Default strip_tags filter for fields.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Default strip_tags filter for fields.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="prepareParams" id="_prepareParams">
+
+		<td class="attributes"><code>
+			 protected 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_prepareParams">#</a>
+		<code><a href="source-class-TableModel.html#758-773" title="Go to source code">prepareParams</a>( <span>Array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return Array() with prepared params and correspondent SQL 'where' part.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return Array() with prepared params and correspondent SQL 'where' part.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>Array</code><br>$data Array with key/value data to build prepared statement.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>Array('params' =&gt; Array(), 'parts' =&gt; Array())<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="executePreparedSql" id="_executePreparedSql">
+
+		<td class="attributes"><code>
+			 protected 
+			boolean|<code><a href="class-PDOStatement.html">PDOStatement</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_executePreparedSql">#</a>
+		<code><a href="source-class-TableModel.html#776-790" title="Go to source code">executePreparedSql</a>( <span>String <var>$sql</var></span>, <span>Array <var>$params</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Execute a SQL and return a PDOStatement object if success, else return
+false.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Execute a SQL and return a PDOStatement object if success, else return
+false.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sql</var></dt>
+					<dd><code>String</code><br>$sql</dd>
+					<dt><var>$params</var></dt>
+					<dd><code>Array</code><br>$params prepared Params to $sql</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean|<code><a href="class-PDOStatement.html">PDOStatement</a></code></code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="returnKeys" id="_returnKeys">
+
+		<td class="attributes"><code>
+			 protected 
+			Array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_returnKeys">#</a>
+		<code><a href="source-class-TableModel.html#793-817" title="Go to source code">returnKeys</a>( <span><code><a href="class-PDOStatement.html">PDOStatement</a></code> <var>$rs</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return Array of associated fields from PDO result set PDOStatement.<br />
+The key of array is the first column value.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return Array of associated fields from PDO result set PDOStatement. The key
+of array is the first column value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$rs</var></dt>
+					<dd><code><code><a href="class-PDOStatement.html">PDOStatement</a></code></code><br>$rs</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Array</code><br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="table" id="$table">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#17-21" title="Go to source code"><var>$table</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$table" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Table name.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Table name.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="idField" id="$idField">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#23-27" title="Go to source code"><var>$idField</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'id'</span></code></td>
+		<td class="description"><div>
+			<a href="#$idField" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Primary Key Field key name.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Primary Key Field key name.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="sequenceName" id="$sequenceName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#29-33" title="Go to source code"><var>$sequenceName</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$sequenceName" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Name of sequence/generator registered on database used to get next ID.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Name of sequence/generator registered on database used to get next ID.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="errors" id="$errors">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#36-40" title="Go to source code"><var>$errors</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">Array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$errors" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Array of stored errors.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Array of stored errors.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="aFields" id="$aFields">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#42-46" title="Go to source code"><var>$aFields</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">Array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$aFields" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Array of table fields.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Array of table fields.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="aChanges" id="$aChanges">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#48-52" title="Go to source code"><var>$aChanges</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">Array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$aChanges" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Array of changed fields value.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Array of changed fields value.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="PDO" id="$PDO">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-PDO.html">PDO</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#54-58" title="Go to source code"><var>$PDO</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$PDO" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>PDO instance</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>PDO instance</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="fValidations" id="$fValidations">
+		<td class="attributes"><code>
+			protected  
+			Array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#60-64" title="Go to source code"><var>$fValidations</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">Array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$fValidations" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Array of functions for validations</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Array of functions for validations</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="transaction_count" id="$transaction_count">
+		<td class="attributes"><code>
+			protected static 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#66-70" title="Go to source code"><var>$transaction_count</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$transaction_count" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Transaction count, how many times beginTransaction() was called.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Transaction count, how many times beginTransaction() was called.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="rollback_count" id="$rollback_count">
+		<td class="attributes"><code>
+			protected static 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-TableModel.html#72-76" title="Go to source code"><var>$rollback_count</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$rollback_count" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Rollback count, how many times rollback() was called.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Rollback count, how many times rollback() was called.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

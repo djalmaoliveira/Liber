@@ -60,6 +60,18 @@ class MailerTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($m->send(), 'Mail not sent');
     }
 
+    function testSendMailWithFileNamed() {
+        $m = new Mailer;
+
+        $m->addTo('test@localhost.home');
+        $m->from('from_test@localhost.home');
+        $m->subject('test mail with named file attachment');
+        $m->body('teste body');
+        $m->file( array('file_name_attached.txt' => $this->file) );
+        $this->assertTrue($m->send(), 'Mail not sent');
+    }
+
+
     function testMultipleReplyAddresses() {
         $m = new Mailer;
 
@@ -104,7 +116,7 @@ class MailerTest extends PHPUnit_Framework_TestCase {
     function testToMultipleAddressesArray() {
         $m = new Mailer;
 
-        $m->to(Array("test@localhost.home","test2@localhost.home"));
+        $m->to( Array("test@localhost.home","test2@localhost.home") );
         $m->subject("Send mail to with two addresses Array.");
         $m->body('body');
         $this->assertTrue($m->send(), 'Send mail to with two addresses Array.');

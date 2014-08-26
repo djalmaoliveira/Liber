@@ -7,22 +7,32 @@
 */
 class Session {
 
-    public $context;
-    static $started = false;
+    protected $context;
 
+    /**
+     * Instance new object and start a session.
+     * @param string $context namespace
+     * @param string $id      specific session ID
+     */
     function __construct( $context = 'default', $id=null ) {
 
         $this->context = $context;
-        if ( $id ) { session_id($id);}
-        if ( !self::$started  ) {
+        if ( !self::started() ) {
             session_start();
-            self::$started = true;
         }
+        if ( $id ) { session_id($id); }
     }
 
+    /**
+     * Return if there is a session started.
+     * @return boolean
+     */
+    static function started() {
+        return !(session_id()=='');
+    }
 
     /**
-    *   Set field/value to session.
+    *   Set field/value to context session.
     *   If don't specified $v, then return the value of $f.
     *   @param String $f  - Field Name
     *   @param mixed $v  - Value
@@ -39,16 +49,19 @@ class Session {
     }
 
     /**
-    *   Return array of field/values from current session.
+    *   Return array of field/values from current context session.
     *   @return Array
     */
     function toArray() {
-        return $_SESSION[$this->context];
+        if ( isset($_SESSION[$this->context]) ) {
+            return $_SESSION[$this->context];
+        }
+        return array();
     }
 
 
     /**
-    *   Cleans current session.
+    *   Clean current context session.
     *
     */
     function clear() {
@@ -64,7 +77,5 @@ class Session {
     }
 
 }
-
-
 
 ?>
