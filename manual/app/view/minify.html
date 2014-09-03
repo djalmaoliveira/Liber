@@ -6,7 +6,7 @@
 <p>This class use a code which was developed from 3rd party programmers.</p>
 <ul>
     <li><strong>Minify_HTML:</strong> Ryan Grove < ryan@wonko.com > and Steve Clay < steve@mrclay.org ></li>
-    <li><strong>Minify_CSS_Compressor:</strong> Stephen Clay < steve@mrclay.org ></li>
+    <li><strong>CSSmin:</strong> Tubal Martin - http://tubalmartin.me/</li>
     <li><strong>JSMinPlus:</strong> Tino Zijdel < crisp@tweakers.net ></li>
 </ul>
 
@@ -32,8 +32,10 @@
     $js_file = file_get_contents('file.js');
     // output Minified version
     echo Minify::js($js_file);
-
 </pre>
 
-
+<p>Output example:</p>
+<p><a href="<?php url_to_('/minify/html') ?>">HTML file</a></p>
+<p><a href="<?php url_to_('/minify/css') ?>">CSS file</a></p>
+<p><a href="<?php url_to_('/minify/js') ?>">JS file</a></p>
 </div>

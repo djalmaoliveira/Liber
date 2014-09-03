@@ -100,9 +100,33 @@ class MainController extends Controller{
     }
 
 
-    public function minify() {
+    public function minify($type='') {
         Liber::loadHelper('Url');
-        $this->view()->load("minify.html");
+        Liber::loadClass('Minify');
+
+        switch ($type) {
+            case 'css':
+                $css_file = file_get_contents( Liber::conf('APP_PATH').'assets/css/main.css' );
+                echo Minify::css($css_file);
+            break;
+
+            case 'js':
+                $js_file = file_get_contents(Liber::conf('APP_PATH').'assets/js/jquery.js');
+                echo Minify::js($js_file);
+            break;
+
+            case 'html':
+                $html_file = file_get_contents(url_to_('/minify', true));
+                echo Minify::html($html_file);
+            break;
+
+            case '':
+                $this->view()->load("minify.html");
+            break;
+        }
+
+
+
     }
 
 
@@ -120,6 +144,7 @@ class MainController extends Controller{
         Liber::loadHelper('Url');
         $this->view()->load("routes.html");
     }
+
 
 }
 

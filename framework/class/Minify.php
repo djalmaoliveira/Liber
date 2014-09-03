@@ -12,8 +12,8 @@ class Minify {
     *   @return String
     */
     static public function css($css) {
-        Liber::loadClass('Minify_CSS_Compressor');
-        return Minify_CSS_Compressor::process($css);
+        $CSSmin = Liber::load('CSSmin', Liber::conf('BASE_PATH').'vendor/CSSmin/', true);
+        return $CSSmin->run($css);
     }
 
     /**
@@ -22,7 +22,7 @@ class Minify {
     *   @return String
     */
     static public function html($html) {
-        Liber::loadClass('Minify_HTML');
+        Liber::load('Minify_HTML', Liber::conf('BASE_PATH').'vendor/Minify_HTML/' );
         return Minify_HTML::minify($html);
     }
 
@@ -32,7 +32,7 @@ class Minify {
     *   @return String
     */
     static public function js($js) {
-        Liber::loadClass('JSMinPlus');
+        Liber::load('JSMinPlus', Liber::conf('BASE_PATH').'vendor/JSMinPlus/');
         return JSMinPlus::minify($js);
     }
 
