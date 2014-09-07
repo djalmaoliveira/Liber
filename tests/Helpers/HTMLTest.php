@@ -23,19 +23,22 @@ class HTMLTest extends PHPUnit_Framework_TestCase {
 
     function testScript() {
         html_script_('alert()');
-        $this->assertEquals( 'alert()', html_script_() );
+        $this->assertEquals( 'alert()', html_script_(true) );
 
         html_script_('alert("ok");', true);
-        $this->assertEquals( 'alert("ok");', html_script_() );
+        $this->assertEquals( 'alert("ok");', html_script_(true) );
     }
 
 
     function testStyle() {
         html_style_('h1 {color:white}');
-        $this->assertEquals( 'h1 {color:white}', html_style_() );
+        $this->assertEquals( 'h1 {color:white}', html_style_(true) );
 
         html_style_('h1 {color:red}', true);
-        $this->assertEquals( 'h1 {color:red}', html_style_() );
+        $this->assertEquals( 'h1 {color:red}', html_style_(true) );
+
+        $style = html_style_(true);
+        $this->assertFalse( empty($style), 'Style not returned.' );
     }
 
 }

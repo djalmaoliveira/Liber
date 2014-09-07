@@ -120,6 +120,8 @@ function html_title_( $title=null ) {
 *       html_script_( '<script>alert("My JS Code");</script>' );
 *       // set script content replacing any existent content
 *       html_script_( 'alert("Hi!");', true );
+*       // return stored content
+*       $script = html_script_(true);
 *       // print stored content
 *       html_script_();
 *   </code>
@@ -130,11 +132,15 @@ function html_title_( $title=null ) {
 function html_script_($script=null, $replace=false) {
     static $_scripts = Array();
 
+    if ( func_num_args() == 0 ) {
+        echo implode("\n", $_scripts); return;
+    }
+    if ( is_bool($script) and $script ) {
+        return implode("\n", $_scripts);
+    }
     if ( $script ) {
         if ($replace) { $_scripts = Array(); }
         $_scripts[] = $script;
-    } else {
-        return implode("\n", $_scripts);
     }
 }
 
@@ -148,6 +154,8 @@ function html_script_($script=null, $replace=false) {
 *       html_style_( '<style>h1 {color:green;}</style>' );
 *       // set style content replacing any existent content
 *       html_style_( '.alert {color:red;}', true );
+*       // return stored content
+*       $style = html_style_(true);
 *       // print stored content
 *       html_style_();
 *   </code>
@@ -158,11 +166,15 @@ function html_script_($script=null, $replace=false) {
 function html_style_($style=null, $replace=false) {
     static $_styles = Array();
 
+    if ( func_num_args() == 0 ) {
+        echo implode("\n", $_styles); return;
+    }
+    if ( is_bool($style) and $style ) {
+        return implode("\n", $_styles);
+    }
     if ( $style ) {
         if ($replace) { $_styles = Array(); }
         $_styles[] = $style;
-    } else {
-        return implode("\n", $_styles);
     }
 }
 

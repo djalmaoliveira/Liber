@@ -7,7 +7,7 @@
 	<title>Package helpers\html</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?382237389"></script>
+	<script type="text/javascript" src="elementlist.js?4199484543"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -41,10 +41,6 @@
 						</li>
 							</ul></li>
 				<li><a href="package-liber.html">liber</a>
-						</li>
-				<li><a href="package-Minify.html">Minify</a>
-						</li>
-				<li><a href="package-None.html">None</a>
 						</li>
 				<li><a href="package-PHP.html">PHP</a>
 						</li>
@@ -137,16 +133,18 @@ files html_meta_( Array('name'=&gt;'author', 'content'=&gt;'Liber framework') );
 	<td>Set or return script String to use on head tags. This helper could be used
 inside template files. &lt;code&gt; Usage: // set script content html_script_(
 '&lt;script&gt;alert("My JS Code");&lt;/script&gt;' ); // set script content
-replacing any existent content html_script_( 'alert("Hi!");', true ); // print
-stored content html_script_(); &lt;/code&gt;</td>
+replacing any existent content html_script_( 'alert("Hi!");', true ); // return
+stored content $script = html_script_(true); // print stored content
+html_script_(); &lt;/code&gt;</td>
 </tr>
 <tr>
 	<td class="name"><a href="function-html_style_.html">html_style_</a></td>
 	<td>Set or return CSS style content to use on head tags. This helper could be used
 inside template files. &lt;code&gt; Usage: // set style content html_style_(
 '&lt;style&gt;h1 {color:green;}&lt;/style&gt;' ); // set style content replacing
-any existent content html_style_( '.alert {color:red;}', true ); // print stored
-content html_style_(); &lt;/code&gt;</td>
+any existent content html_style_( '.alert {color:red;}', true ); // return
+stored content $style = html_style_(true); // print stored content
+html_style_(); &lt;/code&gt;</td>
 </tr>
 <tr>
 	<td class="name"><a href="function-html_title_.html">html_title_</a></td>
