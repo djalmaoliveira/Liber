@@ -106,7 +106,7 @@ function html_meta_( $aData=null ) {
 function html_title_( $title=false ) {
     static $_title = '';
 
-    if ( is_bool($title) and $title) {
+    if ( is_bool($title) ) {
         if ( $title ) { return $_title;}
         echo $_title;
     } else {
