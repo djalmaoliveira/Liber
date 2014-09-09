@@ -60,8 +60,8 @@ function html_header_($type=null, $url=null) {
     } else {
         $headers[$type][] = $url;
     }
-
 }
+
 
 /**
 *   Set or print html meta tags with some data, that should be included in 'head' tag.
@@ -95,21 +95,25 @@ function html_meta_( $aData=null ) {
 *   Usage:
 *       // set title of page, used inside template files
 *       html_title_( 'title of page' );
-*       // get title
+*       // print current stored title
 *       html_title_();
+*       // return stored title
+*       $title = html_title_(true);
 *   </code>
-*   @param String $title
+*   @param String/boolean $title
 *   @return String
 */
-function html_title_( $title=null ) {
+function html_title_( $title=false ) {
     static $_title = '';
 
-    if ( !empty($title) ) {
-        $_title = $title;
+    if ( is_bool($title) and $title) {
+        if ( $title ) { return $_title;}
+        echo $_title;
     } else {
-        return $_title;
+        $_title = $title;
     }
 }
+
 
 /**
 *   Set or return script String to use on head tags.

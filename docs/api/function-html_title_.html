@@ -114,8 +114,13 @@ class="php-comment">// set title of page, used inside template files</span>
     html_title_( <span
 class="php-quote">'title of page'</span> );
     <span
-class="php-comment">// get title</span>
+class="php-comment">// print current stored title</span>
     html_title_();
+    <span
+class="php-comment">// return stored title</span>
+    <span
+class="php-var">$title</span> = html_title_(<span
+class="php-keyword1">true</span>);
 </pre>
 
 	</div>
@@ -131,15 +136,15 @@ href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com<
 				<b>Author:</b>
 				<a
 href="mailto:djalmaoliveira&#64;gmail.com">djalmaoliveira&#64;<!-- -->gmail.com</a><br>
-		<b>Located at</b> <a href="source-function-html_title_.html#92-112" title="Go to source code">helper/HTML.php</a><br>
+		<b>Located at</b> <a href="source-function-html_title_.html#92-115" title="Go to source code">helper/HTML.php</a><br>
 	</div>
 
 
 	<table class="summary" id="parameters">
 	<caption>Parameters summary</caption>
 	<tr id="$title">
-		<td class="name"><code>String</code></td>
-		<td class="value"><code><var>$title</var> = <span class="php-keyword1">null</span></code></td>
+		<td class="name"><code>String/boolean</code></td>
+		<td class="value"><code><var>$title</var> = <span class="php-keyword1">false</span></code></td>
 		<td>
 			
 		</td>

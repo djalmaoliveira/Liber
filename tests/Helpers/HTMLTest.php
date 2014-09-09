@@ -11,7 +11,7 @@ class HTMLTest extends PHPUnit_Framework_TestCase {
 
 
 
-    function testHtmheader() {
+    function testHeader() {
         html_header_('css', 'a.css');
         html_header_('css');
 
@@ -39,6 +39,11 @@ class HTMLTest extends PHPUnit_Framework_TestCase {
 
         $style = html_style_(true);
         $this->assertFalse( empty($style), 'Style not returned.' );
+    }
+
+    function testTitle() {
+        html_title_('Title');
+        $this->assertEquals('Title', html_title_(true), 'Title text should be the same.' );
     }
 
 }
