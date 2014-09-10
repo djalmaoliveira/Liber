@@ -11,8 +11,8 @@
  *
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
- * @package liber
- * @version 2.2.2
+ * @package Liber
+ * @version 2.2.3
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.2.2';
+    const VERSION = '2.2.3';
 
 
     /**
@@ -612,20 +612,19 @@ class Liber {
     */
     public static function processRoute() {
 
-        $aRoute = &Liber::$aRoute;
         // get URI
-        $aUrl = parse_url($_SERVER['REQUEST_URI']);
-        if ( ($indexPos = strpos($aUrl['path'], '/index.php')) === false ) { // don't have index.php
-            if ( $_SERVER['SCRIPT_NAME'] != '/index.php' )  { // has subdir
-                $uri = str_replace( dirname($_SERVER['SCRIPT_NAME']), '', $aUrl['path']);
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        if ( isset($_SERVER['Liber_URL_REWRITE']) ) { // hide index
+            if ( strlen($_SERVER['SCRIPT_NAME']) > 10 ) { // with directory
+                $uri = substr($path, strlen($_SERVER['SCRIPT_NAME'])-10);
             } else {
-                $uri = &$aUrl['path'];
+                $uri = &$path;
             }
-        } else {
-            $uri = '/'.substr($aUrl['path'], $indexPos+11);
+        } else { // without directory
+            $uri = substr($path, strlen($_SERVER['SCRIPT_NAME']));
+            if (!$uri) { $uri = '/';}
         }
-        ( isset($uri[1]) and substr($uri, -1)=='/')?($uri[strlen($uri)-1]=''):false;
-        $uri = trim($uri);
 
         $uri_parts = array_values(array_filter(explode('/', $uri)));
         if ( !$uri_parts ) { $uri_parts = Array('',''); }
@@ -650,7 +649,7 @@ class Liber {
                     }
                     // Try named params
                     if ( isset($uri_found) and !$uri_found ) {
-                        if ( $aParsed = Liber::parseRouteParams($aRoute, $uri) ) {
+                        if ( $aParsed = Liber::parseRouteParams(Liber::$aRoute, $uri) ) {
                             $routeOption = Liber::getRouteMethod($aParsed['route']);
                             $routeConf   = Liber::getRouteConf( $routeOption );
                             self::processController( $routeConf[0], $routeConf[1], $routeConf[2], $aParsed['params']);
