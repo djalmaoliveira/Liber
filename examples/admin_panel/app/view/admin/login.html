@@ -1,0 +1,88 @@
+<?php
+    $url_current = url_current_(true);
+    html_header_('js', '/crypto-js/sha256.js');
+    html_header_('js', '/crypto-js/hmac-sha256.js');
+    html_title_('Login');
+    html_script_('
+        function login() {
+            $("#password").val( CryptoJS.SHA256($("#p_password").val().trim()).toString() );
+            $("#p_password").val("");
+            $.post("'.$url_current.'", $("#frm").serialize(), function(resp){
+
+                if ( resp.status ) {
+
+                } else {
+                    //$(".not_found").removeClass("hide");
+                    $(".not_found").show("slow");
+                    $(".btn_login").button("reset");
+                }
+            }, "json");
+
+        }
+
+        $(".btn_login").bind("click", function (){
+            if ( $.trim($("#username").val()).length == 0 ) {
+                $("#username").val("");
+                $("#username").focus();
+                return;
+            }
+            if ( $.trim($("#p_password").val()).length == 0 ) {
+                $("#p_password").val("");
+                $("#p_password").focus();
+                return;
+            }
+
+            $(".not_found").hide("slow");
+            $(".btn_login").button("loading");
+            login();
+        });
+    ');
+
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4" >
+            <div class="" style='width:400px'>
+                <div class="panel panel-default content-area">
+                    <div class="panel-heading"><h3 class="panel-title">Only members access, please provide your details</h3></div>
+                      <div class="panel-body">
+                        <form action="login" method="post" onsubmit="return false" id='frm'>
+
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" value="" placeholder="Username" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="p_password">Password:</label>
+                                <input type="password" id="p_password" name="p_password" value="" placeholder="Password" class="form-control"/>
+                                <input type="hidden" id="password" name="password" value="" />
+                            </div>
+
+                            <div class="alert alert-warning text-center not_found" style='display:none'>
+                                Username and/or password was not found.
+                            </div>
+
+                            <div class="pull-right">
+                                <span class="login-checkbox">
+                                    <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+                                    <label class="choice" for="Field">Keep me signed in</label>
+                                </span>
+
+                                <button class="button btn btn-success btn-large btn_login">Sign In</button>
+                            </div>
+
+                        </form>
+
+                      </div>
+                      <div class="panel-footer text-right"><a href="<?php url_to_('/recover_access') ?>">Recover your access</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+

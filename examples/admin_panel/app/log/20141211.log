@@ -1,0 +1,518 @@
+[Thu, 11 Dec 14 10:39:38 -0200] TYPE: 1 LINE: 307
+				FILE: /var/www/html/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Class 'Securty' not found
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 25475
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418301578.808
+    [REQUEST_TIME] => 1418301578
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 11 Dec 14 10:39:41 -0200] TYPE: 1 LINE: 307
+				FILE: /var/www/html/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Class 'Securty' not found
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/admin_panel/public_html/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 25477
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418301581.595
+    [REQUEST_TIME] => 1418301581
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 11 Dec 14 10:40:24 -0200] TYPE: 1 LINE: 307
+				FILE: /var/www/html/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Class 'Securty' not found
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/admin_panel/public_html/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 25591
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418301624.305
+    [REQUEST_TIME] => 1418301624
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 11 Dec 14 10:40:40 -0200] TYPE: 4 LINE: 11
+				FILE: /app/view/admin/recover_access1.html
+				MESSAGE: syntax error, unexpected '' ) ) {' (T_CONSTANT_ENCAPSED_STRING)
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/admin_panel/public_html/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 25627
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418301640.335
+    [REQUEST_TIME] => 1418301640
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: Array
+(
+    [security] => Array
+        (
+            [token] => liber548990c85507c
+        )
+
+    [default] => Array
+        (
+            [recover_data] => Array
+                (
+                    [step] => 1
+                )
+
+        )
+
+)
+
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 11 Dec 14 10:53:54 -0200] TYPE: 8 LINE: 420
+				FILE: /var/www/html/projetos/Liber/project/framework/class/TableModel.php
+				MESSAGE: Undefined index: recover_answer
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 37
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_ORIGIN] => http://dev.d
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/admin_panel/public_html/recover_access/2
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=qio493m1qgest097qmrbcj0346
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 27326
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access/3
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access/3
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418302434.049
+    [REQUEST_TIME] => 1418302434
+)
+
+_POST: Array
+(
+    [token] => liber548993d5cb793
+    [answer] => liber
+)
+
+_GET: Array
+(
+)
+
+_SESSION: Array
+(
+    [security] => Array
+        (
+            [token] => liber548993d5cb793
+        )
+
+    [default] => Array
+        (
+            [recover_data] => Array
+                (
+                    [step] => 12
+                    [user_id] => 1
+                )
+
+        )
+
+)
+
+_COOKIE: Array
+(
+    [PHPSESSID] => qio493m1qgest097qmrbcj0346
+)
+
+_FILES: Array
+(
+)[Thu, 11 Dec 14 10:55:53 -0200] TYPE: 2 LINE: 209
+				FILE: /var/www/html/projetos/Liber/project/framework/class/View.php
+				MESSAGE: include(): Failed opening '/var/www/html/projetos/Liber/project/examples/admin_panel/app/view/admin/recover_access3.html' for inclusion (include_path='.:/usr/share/php:/usr/share/pear:/var/www/html/projetos/Liber/checkouts:/var/www/html/projetos/LiberSB/checkouts')
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 37
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_ORIGIN] => http://dev.d
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/admin_panel/public_html/recover_access/2
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=qio493m1qgest097qmrbcj0346
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 27581
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access/3
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access/3
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418302553.994
+    [REQUEST_TIME] => 1418302553
+)
+
+_POST: Array
+(
+    [token] => liber5489944ad688f
+    [answer] => liber
+)
+
+_GET: Array
+(
+)
+
+_SESSION: Array
+(
+    [security] => Array
+        (
+            [token] => liber5489944ad688f
+        )
+
+    [default] => Array
+        (
+            [recover_data] => Array
+                (
+                    [step] => 123
+                    [user_id] => 1
+                )
+
+        )
+
+)
+
+_COOKIE: Array
+(
+    [PHPSESSID] => qio493m1qgest097qmrbcj0346
+)
+
+_FILES: Array
+(
+)[Thu, 11 Dec 14 11:44:52 -0200] TYPE: 2 LINE: 59
+				FILE: /var/www/html/projetos/Liber/project/framework/class/Security.php
+				MESSAGE: Invalid argument supplied for foreach()
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 69
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_ORIGIN] => http://dev.d
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/admin_panel/public_html/recover_access
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=qio493m1qgest097qmrbcj0346
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REMOTE_PORT] => 33715
+    [REDIRECT_URL] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access/2
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/admin_panel/public_html/recover_access/2
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/admin_panel/public_html/index.php
+    [REQUEST_TIME_FLOAT] => 1418305492.514
+    [REQUEST_TIME] => 1418305492
+)
+
+_POST: Array
+(
+    [token] => liber54899fcee8d6d
+    [user_name] => liber
+    [email] => liber@djalma.blog.br
+)
+
+_GET: Array
+(
+)
+
+_SESSION: Array
+(
+    [security] => Array
+        (
+            [token] => liber54899fcee8d6d
+            [monitor] => 
+        )
+
+    [default] => Array
+        (
+            [recover_data] => Array
+                (
+                    [step] => 12
+                    [user_id] => 1
+                )
+
+        )
+
+)
+
+_COOKIE: Array
+(
+    [PHPSESSID] => qio493m1qgest097qmrbcj0346
+)
+
+_FILES: Array
+(
+)

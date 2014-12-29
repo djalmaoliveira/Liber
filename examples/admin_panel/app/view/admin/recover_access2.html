@@ -1,0 +1,54 @@
+<?php
+    $url_current = url_current_(true);
+    html_title_('Recover Access');
+    html_script_('
+        function next_step() {
+            if ( $.trim( $("#answer").val()) == ""  ) {
+                $("#answer").focus();
+                return false;
+            }
+            $(".btn_continue").button("loading");
+
+            return true;
+        }
+        $("#answer").focus();
+    ');
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4" >
+            <div class="" style='width:400px'>
+                <div class="panel panel-default content-area">
+                    <div class="panel-heading">
+
+                            <h3 class="panel-title">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <span >Fill the form to recover your access</span>
+                            </h3>
+
+                    </div>
+                      <div class="panel-body">
+                        <form action="<?php echo $url ?>/3" method="post" id='frm' onsubmit="return next_step()" >
+                            <input type="hidden" name='token' value='<?php echo $token ?>'>
+                            <div class="form-group ">
+                                <label for="answer" class="control-label"><?php echo $descUser['recover_question'] ?>: <?php echo $question ?></label>
+                                <input type="text" id="answer" name="answer" value="" placeholder="Answer" class="form-control" />
+                            </div>
+
+                            <div class="pull-right">
+                                <button class="button btn btn-success btn-large btn_continue" data-loading-text="Requesting..." autocomplete="off">Continue</button>
+                            </div>
+                        </form>
+
+                      </div>
+                      <div class="panel-footer text-right"><a href="<?php url_to_('/login') ?>">Login</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+

@@ -38,12 +38,12 @@ class Security {
 	*	Start watching monitor by client.
 	*	@param Array $options - Options that should be verified.
 	*/
-	function clientWatch( $options=Array('ip', 'agent') ) {
-		$monitors = Array();
-		if ( isset($options['ip']) ) {
+	function clientWatch( $options=array('ip', 'agent') ) {
+		$monitors = array();
+		if ( in_array('ip', $options) ) {
 			$monitors['ip'] = $_SERVER['REMOTE_ADDR'];
 		}
-		if ( isset($options['agent']) ) {
+		if ( in_array('agent', $options) ) {
 			$monitors['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
 		}
 
@@ -55,7 +55,7 @@ class Security {
 	*	@return Array
 	*/
 	function clientChanged() {
-		$changes = Array();
+		$changes = array();
 		foreach( $this->oSession->val('monitor') as $type => $value ) {
 			switch ($type) {
 

@@ -1,0 +1,140 @@
+[Tue, 08 Jul 14 00:26:18 -0300] TYPE: 1 LINE: 30
+				FILE: /example/controller/MainController.php
+				MESSAGE: Call to undefined function b()
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}; __utma=48233394.1791835618.1401371765.1402320277.1402400766.3; __utmc=48233394; __utmz=48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); THEBUGGENIE=pjfkiauqrbgg6la63qu2scnp71; MANTIS_secure_session=1; MANTIS_STRING_COOKIE=a339f6420964b4166499c876fa8d936f9b9d54971baccfacfbdfa9c6591f03da; XDEBUG_SESSION=sublime.xdebug
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.27
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 52695
+    [REDIRECT_URL] => /projetos/Liber/project/examples/app/error
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/error
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME_FLOAT] => 1404789978.862
+    [REQUEST_TIME] => 1404789978
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+    [__utma] => 48233394.1791835618.1401371765.1402320277.1402400766.3
+    [__utmc] => 48233394
+    [__utmz] => 48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+    [THEBUGGENIE] => pjfkiauqrbgg6la63qu2scnp71
+    [MANTIS_secure_session] => 1
+    [MANTIS_STRING_COOKIE] => a339f6420964b4166499c876fa8d936f9b9d54971baccfacfbdfa9c6591f03da
+    [XDEBUG_SESSION] => sublime.xdebug
+)
+
+_FILES: Array
+(
+)[Tue, 08 Jul 14 11:10:21 -0300] TYPE: 1 LINE: 30
+				FILE: /example/controller/MainController.php
+				MESSAGE: Call to undefined function b()
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}; __utma=48233394.1791835618.1401371765.1402320277.1402400766.3; __utmc=48233394; __utmz=48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); THEBUGGENIE=pjfkiauqrbgg6la63qu2scnp71; MANTIS_secure_session=1; MANTIS_STRING_COOKIE=a339f6420964b4166499c876fa8d936f9b9d54971baccfacfbdfa9c6591f03da
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.43.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 47313
+    [REDIRECT_URL] => /projetos/Liber/project/examples/app/error
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/error
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME_FLOAT] => 1404828621.422
+    [REQUEST_TIME] => 1404828621
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+    [__utma] => 48233394.1791835618.1401371765.1402320277.1402400766.3
+    [__utmc] => 48233394
+    [__utmz] => 48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+    [THEBUGGENIE] => pjfkiauqrbgg6la63qu2scnp71
+    [MANTIS_secure_session] => 1
+    [MANTIS_STRING_COOKIE] => a339f6420964b4166499c876fa8d936f9b9d54971baccfacfbdfa9c6591f03da
+)
+
+_FILES: Array
+(
+)

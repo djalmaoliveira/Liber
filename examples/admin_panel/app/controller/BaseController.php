@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * Common routines controller.
+ */
+class BaseController extends Controller {
+
+    var $method;
+    var $user;
+
+    function __construct($p) {
+        parent::__construct($p);
+        $this->method = $p['method'];
+        Liber::loadHelper( array('Url', 'HTML', 'Paginate') );
+
+    }
+
+
+    protected function confirmarLogin() {
+        $User = Liber::loadModel('User', true);
+        if ( !($User->hasLogin())  ) {
+            Liber::redirect('/login');
+        }
+
+        $this->user = $User->loggedUser();
+    }
+
+    private function resp($status, $msg, $data=array()) {
+        $resp['status'] = $status;
+        $resp['info']   = $msg;
+        if ( $data ) {
+            $resp = array_merge($resp, $data);
+        }
+
+        Http::contentType('json');
+        echo json_encode($resp, true);
+    }
+
+    protected function respOk($msg, $data=array()) {
+        $this->resp(true, $msg, $data);
+    }
+
+    protected function respError($msg, $data=array()) {
+        $this->resp(false, $msg, $data);
+    }
+
+    /**
+     * Register app events.
+     * @return void
+     */
+    protected function log( $msg='' ) {
+        $hashtag = "#".get_class($this).'/'.$this->method;
+        Liber::log()->add( "$hashtag $msg" );
+    }
+
+
+}
+
+?>

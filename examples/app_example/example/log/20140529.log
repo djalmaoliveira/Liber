@@ -1,0 +1,395 @@
+[Thu, 29 May 14 12:59:40 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/index.php/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 34936
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401368380.328
+    [REQUEST_TIME] => 1401368380
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 29 May 14 12:59:42 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/index.php/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 34944
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401368382.029
+    [REQUEST_TIME] => 1401368382
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 29 May 14 12:59:58 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/index.php/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 34946
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401368398.456
+    [REQUEST_TIME] => 1401368398
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 29 May 14 13:00:05 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/index.php/caching
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 34951
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401368405.653
+    [REQUEST_TIME] => 1401368405
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 29 May 14 13:00:06 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/index.php/caching
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 34954
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401368406.739
+    [REQUEST_TIME] => 1401368406
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 29 May 14 13:00:07 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/index.php/caching
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 34956
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401368407.53
+    [REQUEST_TIME] => 1401368407
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)[Thu, 29 May 14 13:21:19 +0000] TYPE: 2 LINE: 72
+				FILE: /var/www/html/projetos/Liber/project/framework/cache/FileCache.php
+				MESSAGE: touch(): Unable to create file /var/www/html/projetos/Liber/project/examples/app/example/cache/default/79328eb8bb76828eee2438dcccdb7cc6 because Permission denied
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_HOST] => localhost
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36
+    [HTTP_REFERER] => http://localhost/projetos/Liber/project/examples/app/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] => Apache/2.4.7 (Ubuntu) Server at localhost Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.4.7 (Ubuntu)
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 172.17.42.1
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => webmaster@localhost
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 40954
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/index.php/caching
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PATH_INFO] => /caching
+    [PATH_TRANSLATED] => /var/www/html/caching
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php/caching
+    [REQUEST_TIME_FLOAT] => 1401369679.178
+    [REQUEST_TIME] => 1401369679
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+)
+
+_FILES: Array
+(
+)

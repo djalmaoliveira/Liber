@@ -1,0 +1,20 @@
+
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+        <div><h4>Recovering processes was not possible this time.</h4></div>
+        <?php if ( ($type == 'invalid') ) { ?>
+        <div class="alert alert-warning text-center">
+            Invalid data, <a href="<?php url_to_('/recover_access') ?>">please start again</a>.
+        </div>
+        <?php } ?>
+
+        <?php if ( ($type == 'wait') ) { ?>
+        <div class="alert alert-warning text-center">
+            By account security reasons, you have to wait at least <?php echo $wait_time ?> before to try again.
+        </div>
+        <?php } ?>
+
+    </div>
+    <div class="col-xs-4"></div>
+</div>

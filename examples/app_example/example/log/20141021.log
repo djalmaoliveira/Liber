@@ -1,0 +1,126 @@
+[Tue, 21 Oct 14 12:22:24 -0200] TYPE: 1 LINE: 30
+				FILE: /example/controller/MainController.php
+				MESSAGE: Call to undefined function b()
+				STATE: 
+_SERVER: Array
+(
+    [USER] => usuario
+    [HOME] => /home/usuario
+    [FCGI_ROLE] => RESPONDER
+    [QUERY_STRING] => 
+    [REQUEST_METHOD] => GET
+    [CONTENT_TYPE] => 
+    [CONTENT_LENGTH] => 
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app_example/index.php
+    [REQUEST_URI] => /projetos/Liber/project/examples/app_example/index.php/error
+    [DOCUMENT_URI] => /projetos/Liber/project/examples/app_example/index.php/error
+    [DOCUMENT_ROOT] => /var/www/html
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_SOFTWARE] => _server_
+    [REMOTE_ADDR] => 172.17.43.1
+    [REMOTE_PORT] => 34171
+    [SERVER_ADDR] => 172.17.0.16
+    [SERVER_PORT] => 80
+    [SERVER_NAME] => dev.d
+    [REDIRECT_STATUS] => 200
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app_example/index.php
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36
+    [HTTP_HOST] => dev.d
+    [SERVER_ADMIN] => webserver@dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/app_example/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; __utma=48233394.1791835618.1401371765.1402320277.1402400766.3; __utmc=48233394; __utmz=48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); MANTIS_secure_session=1; MANTIS_STRING_COOKIE=a339f6420964b4166499c876fa8d936f9b9d54971baccfacfbdfa9c6591f03da; THEBUGGENIE=08iomiepe7shi9cl18icrmm6j7; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22%2C%22lhc_hnh%22:%221405089562%22}
+    [PHP_SELF] => /projetos/Liber/project/examples/app_example/index.php
+    [REQUEST_TIME_FLOAT] => 1413901344.6
+    [REQUEST_TIME] => 1413901344
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [__utma] => 48233394.1791835618.1401371765.1402320277.1402400766.3
+    [__utmc] => 48233394
+    [__utmz] => 48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+    [MANTIS_secure_session] => 1
+    [MANTIS_STRING_COOKIE] => a339f6420964b4166499c876fa8d936f9b9d54971baccfacfbdfa9c6591f03da
+    [THEBUGGENIE] => 08iomiepe7shi9cl18icrmm6j7
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs","lhc_hnh":"1405089562"}
+)
+
+_FILES: Array
+(
+)[Tue, 21 Oct 14 22:15:53 -0200] TYPE: 1 LINE: 30
+				FILE: /example/controller/MainController.php
+				MESSAGE: Call to undefined function b()
+				STATE: 
+_SERVER: Array
+(
+    [USER] => usuario
+    [HOME] => /home/usuario
+    [FCGI_ROLE] => RESPONDER
+    [Liber_URL_REWRITE] => 1
+    [QUERY_STRING] => 
+    [REQUEST_METHOD] => GET
+    [CONTENT_TYPE] => 
+    [CONTENT_LENGTH] => 
+    [SCRIPT_NAME] => /index.php
+    [REQUEST_URI] => /error
+    [DOCUMENT_URI] => /index.php
+    [DOCUMENT_ROOT] => /var/www/html/projetos/Liber/project/examples/app_example
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_SOFTWARE] => _server_
+    [REMOTE_ADDR] => 172.17.43.1
+    [REMOTE_PORT] => 12721
+    [SERVER_ADDR] => 172.17.0.2
+    [SERVER_PORT] => 80
+    [SERVER_NAME] => liber.dev.d
+    [REDIRECT_STATUS] => 200
+    [SCRIPT_FILENAME] => /var/www/html/projetos/Liber/project/examples/app_example/index.php
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36
+    [HTTP_HOST] => liber.dev.d
+    [SERVER_ADMIN] => webserver@dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_REFERER] => http://liber.dev.d/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => __utma=48233394.1791835618.1401371765.1402320277.1402400766.3; __utmc=48233394; __utmz=48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22%2C%22lhc_hnh%22:%221405089562%22}
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1413936953.8054
+    [REQUEST_TIME] => 1413936953
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [__utma] => 48233394.1791835618.1401371765.1402320277.1402400766.3
+    [__utmc] => 48233394
+    [__utmz] => 48233394.1401371765.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs","lhc_hnh":"1405089562"}
+)
+
+_FILES: Array
+(
+)

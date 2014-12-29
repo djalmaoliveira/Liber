@@ -1,0 +1,21 @@
+<?php
+    $url_current = url_current_(true);
+    html_title_('Remember username');
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+
+        <div class="col-xs-12" >
+            <div class="">
+                <p>Hi,</p>
+                <p>Your username registered is: <?php echo $user['user_name'] ?></p>
+                <p>If you didn't request to remember your username, <a href="<?php url_to_("/not_requested/remember_username") ?>">please let us know clicking here.</a></p>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Page loaded time: 10:33:58</p>
+
+		The application example.
+        <p>Below some routes examples.</p>
+        <br/>
+		<p>To see your browser information: <a href="http://dev.d/projetos/Liber/project/examples/app/browser">click here</a></p>
+        <p>Example route with params: <a href="http://dev.d/projetos/Liber/project/examples/app/params/one/two">click here</a></p>
+        <p>Controller Example: <a href="http://dev.d/projetos/Liber/project/examples/app/Examples/process/one params">click here</a></p>
+        <p>Direct route example: <a href="http://dev.d/projetos/Liber/project/examples/app/direct/route">click here</a></p>
+        <p>Other direct route: <a href="http://dev.d/projetos/Liber/project/examples/app/other/direct/route/others">click here</a></p>
+        <p>Catch Error example: <a href="http://dev.d/projetos/Liber/project/examples/app/error">click here</a></p>
+        <p>Named params: <a href="http://dev.d/projetos/Liber/project/examples/app/process/named/my_named_param">click here</a></p>
+        <p>Auto detect route with params: <a href="http://dev.d/projetos/Liber/project/examples/app/try/detect/route/autodetect/param1/param2">click here</a></p>
+        <hr>
+        <p><a href="http://dev.d/projetos/Liber/project/examples/app/template">This page using template file.</a></p>
+        <p><a href="http://dev.d/projetos/Liber/project/examples/app/">This page not using template file.</a></p>
+        <p><a href="http://dev.d/projetos/Liber/project/examples/app/caching">This page using caching.</a></p>
+        <p><a href="http://dev.d/projetos/Liber/project/examples/app/layout">This page using layout.</a></p>
+</body>
+</html>
+
