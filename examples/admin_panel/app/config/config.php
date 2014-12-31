@@ -9,7 +9,8 @@ $aConfigs['db']['default']          = Array('localhost','liber_panel','root','',
 $route      = &$aConfigs['routes'];
 # $route[URI][METHOD] = Array('ControllerName', 'MethodName', 'ModuleName')
 
-$route['/']['*']                        = Array('MainController');
-$route['/error']['*']                   = Array('SysErrorController', 'error');
+$route['/']['*']      = Array('MainController');
+$route['/user']['*']  = Array('UserController', 'index', 'User');
+$route['/error']['*'] = Array('SysErrorController', 'error');
 
 ?>

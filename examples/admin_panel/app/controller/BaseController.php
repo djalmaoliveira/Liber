@@ -16,10 +16,10 @@ class BaseController extends Controller {
     }
 
 
-    protected function confirmarLogin() {
-        $User = Liber::loadModel('User', true);
+    protected function isUserLogged() {
+        $User = Liber::loadModel('User', 'User' ,  true);
         if ( !($User->hasLogin())  ) {
-            Liber::redirect('/login');
+            Liber::redirect('/user/login');
         }
 
         $this->user = $User->loggedUser();
@@ -50,7 +50,7 @@ class BaseController extends Controller {
      */
     protected function log( $msg='' ) {
         $hashtag = "#".get_class($this).'/'.$this->method;
-        Liber::log()->add( "$hashtag $msg" );
+        Liber::log()->add( "$hashtag $msg \r\n" );
     }
 
 

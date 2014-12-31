@@ -12,7 +12,7 @@
  * By default all <i>paths</i> used, must have a final slash '/', like "/my/log/dir/".
  * @author Djalma Oliveira (djalmaoliveira@gmail.com)
  * @package Liber
- * @version 2.3.1
+ * @version 2.4.1
  * @since 1.0
  */
 class Liber {
@@ -20,7 +20,7 @@ class Liber {
     /**
     *   Framework version
     */
-    const VERSION = '2.3.1';
+    const VERSION = '2.4.1';
 
 
     /**

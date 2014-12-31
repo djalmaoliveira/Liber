@@ -28,24 +28,38 @@ class User extends TableModel {
     }
 
 
+    function beforeSave() {
+        if ( !$this->field($this->idField) )  {
+            $this->field('created', date('Y-m-d H:i:s'));
+        }
+        $this->field('modified', date('Y-m-d H:i:s'));
+    }
+
 
     /**
      * Return current logged user.
      * @return array
      */
     function loggedUser() {
-        $Session = Liber::loadClass('Session',true);
-        return $Session->val('logged_user');
+        Liber::loadClass('Session');
+        $Session = new Session('user-login');
+        return $Session->val('user');
     }
 
 
     /**
      * Indicates if a login session exists.
+     * Also verify if IP and AGENT is the same.
      * @return boolean
      */
     function hasLogin() {
-        $Session = Liber::loadClass('Session',true);
-        return is_array( $Session->val('logged_user') );
+        Liber::loadClass( array('Session', 'Security') );
+        $Sec             = new Security;
+        $Session         = new Session('user-login');
+        $isUserLogged    = is_array( $Session->val('user') );
+        $isClientChanged = $Sec->clientChanged();
+        if ( $isClientChanged ) { Liber::log()->add( 'Logged client changed.'.print_r($isSameMachine, true) ); }
+        return ($isUserLogged and !$isClientChanged);
     }
 
     /**
@@ -55,9 +69,12 @@ class User extends TableModel {
      */
     function login( $user ) {
         if ( is_array($user) ) {
-            $Session    = Liber::loadClass('Session', true);
-            unset($user['password_hash']);
-            $Session->val('logged_user', $user);
+            Liber::loadClass( array('Session', 'Security') );
+            $Sec     = new Security;
+            $Session = new Session('user-login');
+            unset($user['password_hash'], $user['password_salt']);
+            $Session->val('user', $user);
+            Liber::log()->add( 'Monitoring login. '.print_r($Sec->clientWatch(), true) );
             return true;
         }
         return false;
@@ -69,8 +86,9 @@ class User extends TableModel {
      * @return void
      */
     function logout() {
-        $Session = Liber::loadClass('Session',true);
-        $Session->val('logged_user', '');
+        Liber::loadClass('Session');
+        $Session = new Session('user-login');
+        $Session->clear();
     }
 
 
@@ -90,9 +108,9 @@ class User extends TableModel {
                 return false;
             }
 
-            $password_hash = $this->passwordHash( $password, $user['password_salt'] ) ;
+            $algo = $this->hashAlgo( $user['password_hash'] );
+            $password_hash = crypt( $password, $algo.$user['password_salt'] ) ;
             if ( $user['password_hash'] == $password_hash ) {
-                $this->login( $user );
                 return true;
             }
         }
@@ -103,13 +121,29 @@ class User extends TableModel {
 
 
     /**
+     * Return the string of hash algorithm used in $password_hash specified.
+     * @param  String $password_hash
+     * @return String
+     */
+    function hashAlgo( $password_hash ) {
+        $count = 0;
+
+        foreach ( str_split($password_hash) as $key => $value ) {
+            if ( $value == '$' ) { $count++; }
+            if ( $count == 3 ) { break; }
+        }
+
+        return substr($password_hash, 0, $key+1);
+    }
+
+    /**
      * Calculate a hashed $password using $password_salt specified.
      * @param  string $password
      * @param  string $password_salt
      * @return string
      */
     function passwordHash( $password, $password_salt ) {
-        return crypt($password, "$2y$17$".$password_salt);
+        return crypt($password, '$2y$14$'.$password_salt);
     }
 
 
@@ -132,60 +166,19 @@ class User extends TableModel {
      */
     function changePassword( $user_id, $password ) {
         $User = new User();
-        $changed = false;
+
         if ( $User->get( $user_id ) ) {
             $password_salt = $this->passwordSalt();
             $password_hash = $this->passwordHash( $password, $password_salt );
             $User->field('password_hash', $password_hash);
             $User->field('password_salt', $password_salt);
-            $changed = $User->save();
-            if ( $changed ) {
-                $this->sendPasswordChangedMail( $User->toArray() );
-            }
+            return $User->save();
         }
 
-        return $changed;
+        return false;
     }
 
-    /**
-     * Send a mail to $user about your password changed.
-     * @param  array $user User data
-     * @return boolean
-     */
-    function sendPasswordChangedMail( $user ) {
-        $User    = new User;
-        $MailTpl = Liber::loadClass('MailTemplate','APP', true);
-        $Mail    = Liber::loadClass('Mailer', true);
 
-        // send mail
-        unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
-        $body = $MailTpl->password_changed( $user );
-        $Mail->subject("Password changed");
-        $Mail->body($body);
-        $Mail->to($user['email']);
-        $Mail->html(true);
-        return $Mail->send();
-    }
-
-    /**
-     * Send a mail to $user about to remember your username.
-     * @param  array $user User data
-     * @return boolean
-     */
-    function sendUserNameRememberMail( $user ) {
-        $User    = new User;
-        $MailTpl = Liber::loadClass('MailTemplate','APP', true);
-        $Mail    = Liber::loadClass('Mailer', true);
-
-        // send mail
-        unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
-        $body = $MailTpl->remember_username( $user );
-        $Mail->subject("Remember username");
-        $Mail->body($body);
-        $Mail->to($user['email']);
-        $Mail->html(true);
-        return $Mail->send();
-    }
 
 
 
