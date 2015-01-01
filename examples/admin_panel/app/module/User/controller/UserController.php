@@ -408,7 +408,8 @@ class UserController extends BaseController {
         $data['user']     = $user;
 
 
-        $View = new View( $this->view()->current('module') );
+        $View = new View( $this->module );
+
         $View->template('mail.html');
         $body = $View->load('remember_username_mail_tpl.html', $data, true);
 

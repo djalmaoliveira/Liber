@@ -5,14 +5,15 @@
  */
 class BaseController extends Controller {
 
-    var $method;
-    var $user;
+    protected $module;
+    protected $method;
+    protected $user;
 
     function __construct($p) {
         parent::__construct($p);
         $this->method = $p['method'];
+        $this->module = $p['module'];
         Liber::loadHelper( array('Url', 'HTML', 'Paginate') );
-
     }
 
 

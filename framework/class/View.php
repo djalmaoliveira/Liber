@@ -171,7 +171,7 @@ class View {
         if ( $this->template_file ) {
             $cacheId   = $cacheId.$this->template_file;
             $data      = Array('content'=> $this->element($file_path, $data, true) );
-            $file_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
+            $file_path = $this->module_path.'/template/'.$this->template_name.'/'.$this->template_file;
         }
 
         // by default, in PROD mode all files doesn't have cache
