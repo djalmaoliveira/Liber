@@ -110,10 +110,7 @@ class Security {
      */
     function stopDelay() {
         $wait = $this->start_delay + $this->delay_time;
-        $now = microtime(true);
-        if ( $now < $wait ) {
-            sleep( (int) ($wait - $now) );
-        }
+        time_sleep_until($wait);
     }
 }
 

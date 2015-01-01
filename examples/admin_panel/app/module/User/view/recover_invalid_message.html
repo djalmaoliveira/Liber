@@ -2,18 +2,28 @@
 <div class="row">
     <div class="col-xs-4"></div>
     <div class="col-xs-4">
-        <div><h4>Recovering processes was not possible this time.</h4></div>
         <?php if ( ($type == 'invalid') ) { ?>
-        <div class="alert alert-warning text-center">
-            Invalid data, <a href="<?php url_to_($url_base.'recover_access') ?>">please start again</a>.
-        </div>
+            <div class="text-center"><h4>Recovering processes was not possible this time.</h4></div>
+            <div class="alert alert-warning text-center">
+                Invalid data, <a href="<?php url_to_($url_base.'recover_access') ?>">please start again</a>.
+            </div>
         <?php } ?>
 
         <?php if ( ($type == 'wait') ) { ?>
-        <div class="alert alert-warning text-center">
-            By account security reasons, you have to wait at least <?php echo $wait_time ?> before to try again.
-        </div>
+            <div class="text-center"><h4>Wait time is needed.</h4></div>
+            <div class="alert alert-warning text-center">
+                By account security reasons, you have to wait at least <?php echo $wait_time ?> before to try again.
+            </div>
         <?php } ?>
+
+        <?php if ( ($type == 'reset') ) { ?>
+            <div class="text-center"><h4>Reset your password was not possible this time.</h4></div>
+            <div class="alert alert-warning text-center">
+                <p>This request is no longer valid.</p>
+                <p>If you want reset your password, <a href="<?php url_to_($url) ?>">please click here</a>.</p>
+            </div>
+        <?php } ?>
+
 
     </div>
     <div class="col-xs-4"></div>

@@ -158,7 +158,7 @@ class UserController extends BaseController {
 
                 // fill answer question
                 if ( $to_step == 2 ) {
-
+                    $Sec->startDelay(1);
                     $recover_data     = $Session->val('recover_data');
                     $user_by_email    = $User->searchBy('email', Http::post('email'))->fetch();
                     $user_by_username = $User->searchBy('user_name', Http::post('user_name'))->fetch();
@@ -174,15 +174,18 @@ class UserController extends BaseController {
                         $data['question']   = $user_by_email['recover_question'];
 
                         $this->view()->load( "recover_access2.html" , $data);
-                        return;
+
                     } else {
                         unset($recover_data['user_id']);
                         $Session->val('recover_data', $recover_data);
                         $Attempt->increase();
                         $data['type'] = 'invalid';
                         $this->view()->load( "recover_invalid_message.html", $data);
-                        return;
+
                     }
+
+                    $Sec->stopDelay();
+                    return;
                 }
 
                 // fill new password
@@ -193,17 +196,19 @@ class UserController extends BaseController {
                         $recover_data['step'] = '123';
                         $Session->val('recover_data', $recover_data);
                         $data['token'] = Http::post('token');
-
+                        $data['url']   = $data['url'].'/4';
                         $this->view()->load( "recover_access3.html" , $data);
-                        return;
+
                     } else {
                         unset($recover_data['user_id']);
                         $Session->val('recover_data', $recover_data);
                         $Attempt->increase();
                         $data['type'] = 'invalid';
                         $this->view()->load( "recover_invalid_message.html", $data);
-                        return;
+
                     }
+
+                    return;
                 }
 
                 // change password
@@ -219,6 +224,8 @@ class UserController extends BaseController {
                     } else {
                         $this->respError('Problem changing password, please try again.');
                     }
+
+                    return;
                 }
 
             } else {
@@ -229,9 +236,82 @@ class UserController extends BaseController {
     }
 
 
+    public function reset_password( $reset_token='' ) {
+        $Sec              = Liber::loadClass('Security', true);
+        $User             = Liber::loadModel('User', 'User', true);
+        $data['url']      = $this->url_base.__FUNCTION__;
+        $data['url_base'] = $this->url_base;
+        $data['descUser'] = $User->toArray('desc');
+
+
+        if ( Http::post() and $Sec->token() == Http::post('token') ) {
+            // send request mail
+            $Sec->startDelay(1);
+            if ( Http::post('email') ) {
+                $this->log( "Request mail => ".Http::post('email') );
+                if ( ($user = $User->searchBy('email', Http::post('email'))->fetch()) ) {
+                    $this->sendPasswordResetMail($user);
+                }
+
+                $data['show'] = 'sent_reset';
+                $this->view()->load('reset_password.html', $data);
+            }
+            $Sec->stopDelay();
+
+            // reset password
+            if ( Http::post('hpassword') ) {
+                Liber::loadClass('Session');
+                $Session = new Session('reset-password');
+                $this->log( "Reset password user_id=> ".$Session->val('user_id') );
+                if ( $User->changePassword($Session->val('user_id'), Http::post('hpassword')) ) {
+                    $User->get($Session->val('user_id'));
+                    $this->sendPasswordChangedMail( $User->toArray() );
+                    $Session->clear();
+                    $User->resetPasswordToken( $User->toArray(), true );
+                    $this->respOk('ok');
+                } else {
+                    $this->respError('Problem changing password, please try again.');
+                }
+            }
+
+        } else {
+
+            // show password form
+            if ( $reset_token ) {
+
+                $Sec->startDelay(1);
+                if ( $User->isValidResetPasswordToken($reset_token) ) {
+                    Liber::loadClass('Session');
+                    $Session = new Session('reset-password');
+                    $user = $User->searchBy('reset_pass_token', $reset_token)->fetch();
+                    $Session->val('user_id', $user['user_id']);
+
+                    $data['token'] = $Sec->token(true);
+                    $this->view()->load('recover_access3.html', $data);
+
+                    $this->log( "Show password form for user_id => ".$user['user_id'] );
+                } else {
+                    $data['type'] = 'reset';
+                    $this->view()->load( "recover_invalid_message.html", $data);
+                }
+                $Sec->stopDelay();
+
+            // show request form
+            } else {
+                $data['token'] = $Sec->token(true);
+                $data['show']  = 'form';
+                $this->view()->load('reset_password.html', $data);
+            }
+
+        }
+
+
+    }
+
 
 
     public function remember_username() {
+        $Sec              = Liber::loadClass('Security', true);
         $User             = Liber::loadModel('User', 'User', true);
         $data['url']      = $this->url_base.__FUNCTION__;
         $data['url_base'] = $this->url_base;
@@ -239,14 +319,15 @@ class UserController extends BaseController {
         $data['show']     = 'form';
 
 
-        if ( Http::post() ) {
+        if ( Http::post() and $Sec->token()==Http::post('token') ) {
             if ( ($user = $User->searchBy('email', Http::post('email'))->fetch() ) ) {
-                $this->log( $user['user_name'] );
+                $this->log( Http::post('email') );
                 $this->sendUserNameRememberMail($user);
             }
             $data['show']     = 'sent_message';
         }
 
+        $data['token']    = $Sec->token(true);
         $this->view()->load('remember_username.html', $data);
     }
 
@@ -265,6 +346,31 @@ class UserController extends BaseController {
             default:
                 # code...
             break;
+        }
+    }
+
+    /**
+     * Send a mail to $user about reset your password.
+     * @param  array $user User data
+     * @return boolean
+     */
+    private function sendPasswordResetMail( $user ) {
+        $User = Liber::loadModel('User', 'User', true);
+        $Mail = Liber::loadClass('Mailer', true);
+
+        if ( ($data['reset_token'] = $User->resetPasswordToken($user)) ) {
+
+            $data['url_base']    = $this->url_base;
+            $data['url']         = $this->url_base.'reset_password/';
+            $data['user']        = $user;
+            $body                = $this->view()->element('password_reset_mail_tpl.html', $data, true);
+
+            unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
+            $Mail->subject("Password reset");
+            $Mail->body($body);
+            $Mail->to($user['email']);
+            $Mail->html(true);
+            return $Mail->send();
         }
     }
 
@@ -289,6 +395,7 @@ class UserController extends BaseController {
         return $Mail->send();
     }
 
+
     /**
      * Send a mail to $user about to remember your username.
      * @param  array $user User data
@@ -299,7 +406,11 @@ class UserController extends BaseController {
 
         $data['url_base'] = $this->url_base;
         $data['user']     = $user;
-        $body             = $this->view()->element('remember_username_mail_tpl.html', $data, true);
+
+
+        $View = new View( $this->view()->current('module') );
+        $View->template('mail.html');
+        $body = $View->load('remember_username_mail_tpl.html', $data, true);
 
         unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
         $Mail->subject("Remember username");

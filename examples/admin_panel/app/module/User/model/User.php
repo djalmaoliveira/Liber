@@ -16,8 +16,8 @@ class User extends TableModel {
             'password_salt'    => Array('', 'Salted password', Validation::NOTNULL),
             'email'            => Array('', 'E-mail address', Validation::EMAIL),
             'status'           => Array('', 'Status', Validation::NOTNULL),
-            'recover_token'    => Array('', 'Recover token', 0),
-            'recover_dt'       => Array('', 'Recover Date/Time', 0),
+            'reset_pass_token' => Array('', 'Reset password token', 0),
+            'reset_pass_dt'    => Array('', 'Reset password Date/Time', 0),
             'recover_question' => Array('', 'Security question', 0),
             'recover_answer'   => Array('', 'Question answer', 0),
             'blocked'          => Array('', 'Account blocked', 0),
@@ -179,25 +179,46 @@ class User extends TableModel {
     }
 
 
+    /**
+     * Update a reset password token of $user specified.
+     * If $clear is true, then the token will be set to null.
+     * @param  array  $user
+     * @param  boolean $clear
+     * @return string
+     */
+    function resetPasswordToken( $user, $clear=false ) {
+        $User = new User;
+        if ( $User->get($user['user_id']) ) {
+            if ( !$clear ) {
+                $User->field('reset_pass_token', sha1( $user['user_id'].microtime(true) ));
+                $User->field('reset_pass_dt', date('Y-m-d H:i:s'));
+            } else {
+                $User->field('reset_pass_token', null);
+                $User->field('reset_pass_dt', null);
+            }
+            $User->save();
+        }
 
+        return $User->field('reset_pass_token');
+    }
 
 
     /**
-     * Indicates if a $token of $user_name specified is valid.
+     * Indicates if a $token specified is valid.
      *
      * @param  string  $user_name
      * @param  string  $token
      * @return boolean
      */
-    function isValidRecoverToken($user_name, $token) {
+    function isValidResetPasswordToken($token) {
 
         // token should exist
-        if ( !($user = $this->searchBy(array('user_name' => $user_name, 'recover_token' => $token))->fetch()) )  {
+        if ( !($user = $this->searchBy('reset_pass_token', $token)->fetch()) )  {
             return false;
         }
 
         // should not be expired, token expire in 30 minutes.
-        $token_time = strtotime($user['recover_dt']);
+        $token_time = strtotime($user['reset_pass_dt']);
         if ( (time()) > ($token_time+(30*60)) ) {
             return false;
         }
