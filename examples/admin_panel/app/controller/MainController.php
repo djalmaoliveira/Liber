@@ -6,12 +6,15 @@ Liber::loadController('BaseController');
  * MainController
  *
  */
-class MainController extends BaseController{
+class MainController extends BaseController {
+
+    var $url_base;
 
     function __construct($p) {
         parent::__construct($p);
         Liber::loadHelper(array('Url', 'HTML'));
         $this->view()->template('default.html');
+        $this->url_base = url_to_('/', true);
     }
 
     // after deploy setup application
@@ -25,7 +28,8 @@ class MainController extends BaseController{
 
     public function index() {
         $this->isUserLogged();
-        echo 'a';
+        $data['url'] = url_to_('/user', true).'/';
+        $this->view()->load( "index.html", $data );
     }
 
 }

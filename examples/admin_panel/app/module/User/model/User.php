@@ -172,6 +172,10 @@ class User extends TableModel {
             $password_hash = $this->passwordHash( $password, $password_salt );
             $User->field('password_hash', $password_hash);
             $User->field('password_salt', $password_salt);
+            // set reset pass token as not used
+            $User->field('reset_pass_token', null);
+            $User->field('reset_pass_dt', null);
+
             return $User->save();
         }
 

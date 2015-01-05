@@ -9,12 +9,14 @@ Liber::loadController('BaseController');
 class UserController extends BaseController {
 
     var $url_base;
+    var $panel_template;
 
     function __construct($p) {
         parent::__construct($p);
         Liber::loadHelper(array('Url', 'HTML'));
         $this->view()->template('default.html');
         $this->url_base = url_to_('/user', true).'/';
+        $this->panel_template = Liber::conf('APP_PATH').'template/default.html';
     }
 
     public function index() {
@@ -262,12 +264,12 @@ class UserController extends BaseController {
             if ( Http::post('hpassword') ) {
                 Liber::loadClass('Session');
                 $Session = new Session('reset-password');
-                $this->log( "Reset password user_id=> ".$Session->val('user_id') );
+                $this->log( "Reset password user_id => ".$Session->val('user_id') );
                 if ( $User->changePassword($Session->val('user_id'), Http::post('hpassword')) ) {
                     $User->get($Session->val('user_id'));
                     $this->sendPasswordChangedMail( $User->toArray() );
                     $Session->clear();
-                    $User->resetPasswordToken( $User->toArray(), true );
+
                     $this->respOk('ok');
                 } else {
                     $this->respError('Problem changing password, please try again.');
@@ -349,6 +351,37 @@ class UserController extends BaseController {
         }
     }
 
+
+    // manage profile frontend
+    //
+    public function profile() {
+        $Sec              = Liber::loadClass('Security', true);
+        $User             = Liber::loadModel('User', 'User', true);
+        $data['url']      = $this->url_base.__FUNCTION__;
+        $data['url_base'] = $this->url_base;
+        $data['descUser'] = $User->toArray('desc');
+
+        if ( Http::post() ) {
+
+        } else {
+            $data['token']    = $Sec->token(true);
+            $this->view()->loadWithTemplate($this->panel_template, 'profile.html', $data);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Send a mail to $user about reset your password.
      * @param  array $user User data
@@ -360,10 +393,11 @@ class UserController extends BaseController {
 
         if ( ($data['reset_token'] = $User->resetPasswordToken($user)) ) {
 
-            $data['url_base']    = $this->url_base;
-            $data['url']         = $this->url_base.'reset_password/';
-            $data['user']        = $user;
-            $body                = $this->view()->element('password_reset_mail_tpl.html', $data, true);
+            $data['url_base'] = $this->url_base;
+            $data['url']      = $this->url_base.'reset_password/';
+            $data['user']     = $user;
+
+            $body = $this->view()->loadWithTemplate('mail.html', 'password_reset_mail_tpl.html', $data, true);
 
             unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
             $Mail->subject("Password reset");
@@ -381,11 +415,12 @@ class UserController extends BaseController {
      * @return boolean
      */
     private function sendPasswordChangedMail( $user ) {
-        $Mail    = Liber::loadClass('Mailer', true);
+        $Mail = Liber::loadClass('Mailer', true);
 
         $data['url_base'] = $this->url_base;
         $data['user']     = $user;
-        $body             = $this->view()->element('password_changed_mail_tpl.html', $data, true);
+
+        $body = $this->view()->loadWithTemplate('mail.html', 'password_changed_mail_tpl.html', $data, true);
 
         unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
         $Mail->subject("Password changed");
@@ -402,16 +437,12 @@ class UserController extends BaseController {
      * @return boolean
      */
     private function sendUserNameRememberMail( $user ) {
-        $Mail    = Liber::loadClass('Mailer', true);
+        $Mail = Liber::loadClass('Mailer', true);
 
         $data['url_base'] = $this->url_base;
         $data['user']     = $user;
 
-
-        $View = new View( $this->module );
-
-        $View->template('mail.html');
-        $body = $View->load('remember_username_mail_tpl.html', $data, true);
+        $body = $this->view()->loadWithTemplate('mail.html', 'remember_username_mail_tpl.html', $data, true);
 
         unset( $user['password_hash'], $user['password_salt'], $user['recover_dt'] );
         $Mail->subject("Remember username");

@@ -1,5 +1,5 @@
-examples/app/example/cache/
-examples/app/example/log
+examples/app_example/example/cache/
+examples/app_example/example/log/
 examples/admin_panel/app/log/
 examples/admin_panel/app/cache/
 manual/app/cache
