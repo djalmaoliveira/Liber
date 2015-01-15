@@ -18,6 +18,7 @@ class BaseController extends Controller {
 
 
     protected function isUserLogged() {
+
         $User = Liber::loadModel('User', 'User' ,  true);
         if ( !($User->hasLogin())  ) {
             Liber::redirect('/user/login');

@@ -15,7 +15,7 @@
             $(".btn_continue").button("loading");
             return true;
         }
-        $("#user_name").focus();
+
     ');
 ?>
 
@@ -35,11 +35,11 @@
 
                     </div>
                       <div class="panel-body">
-                        <form action="<?php echo $url ?>/2" method="post" id='frm' onsubmit="return next_step()" >
+                        <form action="<?php echo $url ?>/2" method="post" id='frm' onsubmit="return next_step()" autocomplete="off" >
                             <input type="hidden" name='token' value='<?php echo $token ?>'>
                             <div class="form-group ">
                                 <label for="user_name" class="control-label"><?php echo $descUser['user_name'] ?></label>
-                                <input type="text" id="user_name" name="user_name" value="" placeholder="Username" class="form-control" />
+                                <input type="text" id="user_name" name="user_name" value="" placeholder="Username" class="form-control" autofocus />
                             </div>
 
                             <div class="form-group ">

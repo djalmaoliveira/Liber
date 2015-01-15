@@ -1,6 +1,6 @@
 <?php
 
-$aConfigs['configs']['APP_MODE']    = 'PROD';
+$aConfigs['configs']['APP_MODE']    = 'DEV';
 $aConfigs['routes']                 = Array();
 $aConfigs['db']['default']          = Array('localhost','liber_panel','root','', 'mysql');
 

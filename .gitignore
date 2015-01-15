@@ -2,6 +2,8 @@ examples/app_example/example/cache/
 examples/app_example/example/log/
 examples/admin_panel/app/log/
 examples/admin_panel/app/cache/
+examples/admin_panel/app/vendor/
+examples/admin_panel/composer.lock
 manual/app/cache
 manual/app/log
 manual/assets/*

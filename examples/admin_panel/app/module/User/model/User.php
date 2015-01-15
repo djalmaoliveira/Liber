@@ -2,6 +2,7 @@
 
 Liber::loadClass('TableModel');
 
+
 class User extends TableModel {
 
     function __construct () {
@@ -12,14 +13,13 @@ class User extends TableModel {
         $this->aFields = Array (
             'user_id'          => Array('', 'User ID', 0),
             'user_name'        => Array('', 'User name', Validation::NOTNULL),
-            'password_hash'    => Array('', 'Hashed password', Validation::NOTNULL),
-            'password_salt'    => Array('', 'Salted password', Validation::NOTNULL),
+            'password_hash'    => Array('', 'Password', Validation::NOTNULL),
             'email'            => Array('', 'E-mail address', Validation::EMAIL),
             'status'           => Array('', 'Status', Validation::NOTNULL),
             'reset_pass_token' => Array('', 'Reset password token', 0),
             'reset_pass_dt'    => Array('', 'Reset password Date/Time', 0),
             'recover_question' => Array('', 'Security question', 0),
-            'recover_answer'   => Array('', 'Question answer', 0),
+            'recover_answer_hash'   => Array('', 'Question answer', 0),
             'blocked'          => Array('', 'Account blocked', 0),
             'blocked_dt'       => Array('', 'Account blocked Date/Time', 0),
             'modified'         => Array('', 'Last modified', Validation::NOTNULL),
@@ -33,6 +33,10 @@ class User extends TableModel {
             $this->field('created', date('Y-m-d H:i:s'));
         }
         $this->field('modified', date('Y-m-d H:i:s'));
+    }
+
+    protected function _compat_password() {
+        require Liber::conf('APP_PATH').'../vendor/ircmaxell/password-compat/lib/password.php';
     }
 
 
@@ -62,6 +66,7 @@ class User extends TableModel {
         return ($isUserLogged and !$isClientChanged);
     }
 
+
     /**
      * Create a valid session to logged user.
      * @param  array $user
@@ -72,7 +77,7 @@ class User extends TableModel {
             Liber::loadClass( array('Session', 'Security') );
             $Sec     = new Security;
             $Session = new Session('user-login');
-            unset($user['password_hash'], $user['password_salt']);
+            unset($user['password_hash'], $user['recover_answer_hash']);
             $Session->val('user', $user);
             Liber::log()->add( 'Monitoring login. '.print_r($Sec->clientWatch(), true) );
             return true;
@@ -99,7 +104,6 @@ class User extends TableModel {
      * @return bool
      */
     function authenticate($user_name, $password) {
-
         $users = $this->searchBy('user_name', $user_name)->fetchAll();
         if ( $users and count($users) == 1  ) {
             $user = current($users);
@@ -108,14 +112,31 @@ class User extends TableModel {
                 return false;
             }
 
-            $algo = $this->hashAlgo( $user['password_hash'] );
-            $password_hash = crypt( $password, $algo.$user['password_salt'] ) ;
-            if ( $user['password_hash'] == $password_hash ) {
+            $this->_compat_password();
+            if ( password_verify($password, $user['password_hash']) ) {
                 return true;
             }
         }
 
-        $this->logout();
+        return false;
+    }
+
+
+    /**
+     * Indicates if $user_id match with $answer specified.
+     * @param  String $user_name
+     * @param  String $password
+     * @return bool
+     */
+    function isAnswer($user_id, $answer) {
+
+        if ( $user = $this->searchBy('user_id', $user_id)->fetch() ) {
+            $this->_compat_password();
+            if ( password_verify($answer, $user['recover_answer_hash']) ) {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -135,6 +156,7 @@ class User extends TableModel {
 
         return substr($password_hash, 0, $key+1);
     }
+
 
     /**
      * Calculate a hashed $password using $password_salt specified.
@@ -157,6 +179,27 @@ class User extends TableModel {
         return $salt;
     }
 
+    /**
+     * Change the $question and $answer of $user_id specified.
+     * @param  integer $user_id
+     * @param  string $question
+     * @param  string $answer
+     * @return boolean
+     */
+    function changeQuestion( $user_id, $question, $answer ) {
+        $User = new User();
+
+        if ( $User->get( $user_id ) ) {
+            $hash = $this->passwordHash( $answer, $this->passwordSalt() );
+            $User->field('recover_question', $question);
+            $User->field('recover_answer_hash', $hash);
+
+            return $User->save();
+        }
+
+        return false;
+    }
+
 
     /**
      * Change a password from $user_id specified.
@@ -171,7 +214,7 @@ class User extends TableModel {
             $password_salt = $this->passwordSalt();
             $password_hash = $this->passwordHash( $password, $password_salt );
             $User->field('password_hash', $password_hash);
-            $User->field('password_salt', $password_salt);
+
             // set reset pass token as not used
             $User->field('reset_pass_token', null);
             $User->field('reset_pass_dt', null);

@@ -13,7 +13,7 @@ class MainController extends BaseController {
     function __construct($p) {
         parent::__construct($p);
         Liber::loadHelper(array('Url', 'HTML'));
-        $this->view()->template('default.html');
+        $this->view()->template('panel.html');
         $this->url_base = url_to_('/', true);
     }
 
@@ -27,6 +27,8 @@ class MainController extends BaseController {
     }
 
     public function index() {
+
+
         $this->isUserLogged();
         $data['url'] = url_to_('/user', true).'/';
         $this->view()->load( "index.html", $data );

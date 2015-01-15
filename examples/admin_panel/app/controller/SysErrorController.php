@@ -19,8 +19,7 @@ class SysErrorController extends Controller {
 
     public function error() {
         header('HTTP/1.0 500 Not Found');
-        $this->view()->template('default.html');
-        $this->view()->load('error.html');
+        $this->view()->loadWithTemplate('error.html', 'error.html');
         exit;
     }
 

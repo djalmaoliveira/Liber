@@ -1,17 +1,21 @@
 <?php
-    $url_current = url_current_(true);
+    html_header_('js', '/crypto-js/sha256.js');
+    html_header_('js', '/crypto-js/hmac-sha256.js');
     html_title_('Recover Access');
     html_script_('
         function next_step() {
+
             if ( $.trim( $("#answer").val()) == ""  ) {
                 $("#answer").focus();
                 return false;
             }
+
+            $("#answer").val( CryptoJS.SHA256($("#answer").val().trim()).toString() );
             $(".btn_continue").button("loading");
 
             return true;
         }
-        $("#answer").focus();
+
     ');
 ?>
 
@@ -31,11 +35,11 @@
 
                     </div>
                       <div class="panel-body">
-                        <form action="<?php echo $url ?>/3" method="post" id='frm' onsubmit="return next_step()" >
+                        <form action="<?php echo $url ?>/3" method="post" id='frm' onsubmit="return next_step()" autocomplete="off" autofocus>
                             <input type="hidden" name='token' value='<?php echo $token ?>'>
                             <div class="form-group ">
                                 <label for="answer" class="control-label"><?php echo $descUser['recover_question'] ?>: <?php echo $question ?></label>
-                                <input type="text" id="answer" name="answer" value="" placeholder="Answer" class="form-control" />
+                                <input type="password" id="answer" name="answer" value="" placeholder="Answer" class="form-control" autofocus/>
                             </div>
 
                             <div class="pull-right">

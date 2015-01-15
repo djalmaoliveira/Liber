@@ -20,7 +20,7 @@
     <!-- Custom Fonts -->
     <link href="<?php url_asset_('/sbadmin/bower_components/fontawesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
 
-    <link href="<?php url_asset_('/css/default.css') ?>" rel="stylesheet">
+    <link href="<?php url_asset_('/css/panel.css') ?>" rel="stylesheet">
     <?php html_header_('css'); ?>
 
 
@@ -31,7 +31,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script><?php html_script_(); ?></script>
 </head>
 
 <body>
@@ -54,11 +53,8 @@
             <div class="navbar-default navbar-collapse   navbar-top-links  collapse navbar-left" role="navigation">
 
                 <ul class="nav">
-                    <li><a href=""><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href=""><i class="fa fa-dollar"></i> Resources</a></li>
-                    <li><a href=""><i class="fa fa-dollar"></i> Resources</a></li>
-                    <li><a href=""><i class="fa fa-dollar"></i> Resources</a></li>
-                    <li><a href=""><i class="fa fa-dollar"></i> Resources</a></li>
+                    <li><a href="<?php url_to_('/user/browser') ?>"><i class="fa fa-dashboard"></i> Users</a></li>
+                    <li><a href=""><i class="fa fa-dollar"></i> Settings</a></li>
                 </ul>
 
             </div>
@@ -70,7 +66,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="<?php url_to_('/user/profile') ?>"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                        <li><a href="<?php url_to_('/user/profile/logged') ?>"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
                         <li class="divider"></li>
                         <li><a href="<?php url_to_('/user/logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                     </ul>
@@ -99,7 +95,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php url_asset_('/sbadmin/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
 
+    <script src="<?php url_asset_('/js/panel.js') ?>"></script>
+
     <?php html_header_('js'); ?>
+    <script><?php html_script_(); ?></script>
+
 </body>
 
 </html>

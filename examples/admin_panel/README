@@ -1,0 +1,10 @@
+This is a functional admin panel example using Liber framework.
+
+This app can be used as a base to a real web application.
+
+How to install:
+
+1. Create a MySql database, and create a table structure based on file 'database.sql';
+2. Install some dependencies packages using composer (composer install);
+3. Configure you webserver with PHP parser enabled and set the server root to 'public_html/' folder;
+4. Try to access using your browser.

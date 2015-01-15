@@ -5,7 +5,10 @@
     <title><?php html_title_(); ?></title>
 
     <link href="<?php url_asset_('/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?php url_asset_('/css/panel.css') ?>" rel="stylesheet">
+    <link href="<?php url_asset_('/css/default.css') ?>" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="<?php url_asset_('/sbadmin/bower_components/fontawesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
+
     <?php html_header_('css'); ?>
 
 </head>
@@ -13,9 +16,5 @@
 
     <?php echo $content; ?>
 
-<script src="<?php url_asset_('/jquery/jquery-1.11.1.min.js')?>"></script>
-<script src="<?php url_asset_('/bootstrap/js/bootstrap.min.js')?>"></script>
-<?php html_header_('js'); ?>
-<script><?php html_script_(); ?></script>
 </body>
 </html>
