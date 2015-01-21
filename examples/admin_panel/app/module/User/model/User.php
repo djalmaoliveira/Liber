@@ -35,11 +35,6 @@ class User extends TableModel {
         $this->field('modified', date('Y-m-d H:i:s'));
     }
 
-    protected function _compat_password() {
-        require Liber::conf('APP_PATH').'../vendor/ircmaxell/password-compat/lib/password.php';
-    }
-
-
     /**
      * Return current logged user.
      * @return array
@@ -62,7 +57,7 @@ class User extends TableModel {
         $Session         = new Session('user-login');
         $isUserLogged    = is_array( $Session->val('user') );
         $isClientChanged = $Sec->clientChanged();
-        if ( $isClientChanged ) { Liber::log()->add( 'Logged client changed.'.print_r($isSameMachine, true) ); }
+        if ( $isClientChanged ) { Liber::log()->add( 'Logged client changed.'.print_r($isClientChanged, true) ); }
         return ($isUserLogged and !$isClientChanged);
     }
 
@@ -274,6 +269,11 @@ class User extends TableModel {
     }
 
 
+
+
+    protected function _compat_password() {
+        require_once Liber::conf('APP_PATH').'../vendor/ircmaxell/password-compat/lib/password.php';
+    }
 
 
 }

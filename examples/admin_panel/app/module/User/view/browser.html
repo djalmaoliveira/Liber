@@ -10,7 +10,8 @@
                 $(".actions", $(this) ).show();
             });
             $(".btn-remove").bind("click", function(){
-                var rowid = $(this).parents("tr").attr("rowid");
+                var tr_elem = $(this).parents("tr");
+                var rowid = $(tr_elem).attr("rowid");
                 show_modal_("Removing user", "The user selected will be removed, what would you like to do ?", [
                     {
                         "text": "Cancel",
@@ -23,12 +24,15 @@
                             $(btn).attr("data-loading-text", "Removing...");
                             $(btn).button("loading");
 
-                            $.post("$url_remove", {"id": rowid, "token": "$token"} , function(resp) {
+                            $.post("$url_remove", {"id": rowid, "token": $("#token").val()} , function(resp) {
                                 if ( resp.status ) {
                                     btn.close_modal();
+                                    $("#token").val( resp.token );
+                                    $(tr_elem).remove();
                                 } else {
 
                                 }
+                                $(btn).button("reset");
                             });
 
                         },
@@ -55,6 +59,7 @@ SCRIPT;
             <div class="panel-body ">
 
                 <div class="row">
+                    <input type='hidden' name='token' id='token' value="<?php echo $token ?>"/>
                     <form class="form-inline" role="form">
                         <div class="form-group col-xs-6">
                             <label class="sr-only" for="search">Search:</label>

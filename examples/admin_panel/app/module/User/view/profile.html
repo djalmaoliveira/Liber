@@ -27,6 +27,7 @@
 
                 if ( resp.status ) {
                     $(".alert").addClass("alert-success");
+                    $("#token").val( resp.token );
                 } else {
                     $(".alert").addClass("alert-warning");
                     if ( resp.fields ) {
@@ -63,7 +64,7 @@
              for ( i=0; i < fields.length; i++ ) {
                 var v = fields[i];
 
-                if ( $.trim($("#user_id").val()).length > 0 && v == "#recover_answer" ) { continue; } // only new user
+                if ( v == "#recover_answer" && $.trim($("#user_id").val()).length > 0   ) { continue; } // only new user
 
                 if ( $.trim($(v).val()).length == 0 ) {
                     warning_field( v );
@@ -115,7 +116,7 @@
 
             <form action="<?php echo $url ?>" id='frm' onsubmit='return false'>
                 <input type='hidden' id='user_id' name='user_id' value="<?php echo $user['user_id'] ?>"/>
-                <input type='hidden' name='token' value="<?php echo $token ?>"/>
+                <input type='hidden' name='token' id='token' value="<?php echo $token ?>"/>
                 <input type="hidden" name='hcpassword' id='hcpassword'>
 
 

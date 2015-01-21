@@ -6,34 +6,35 @@
 
 
         function login() {
+            var url_redirect = "";
             $.post("'.$url.'", $("#pre-frm").serialize(), function(r) {
 
                 if ( r.status ) {
 
                     $("#hpassword").val( CryptoJS.SHA256($("#p_password").val().trim()).toString() );
                     $("#p_password").val("");
+                    $("#token").val( r.token );
                     $.post("'.$url.'", $("#frm").serialize(), function(resp){
 
                         if ( resp.status ) {
                             $(".login-form").hide("slow", function(){
                                 $(".login-success").show("slow");
                             });
-                            location.replace(resp.redirect);
                         } else {
 
                             $(".not_found").show("slow");
                             $(".btn_login").button("reset");
                             $(".has-success").each(function(i,v){   $(v).removeClass("has-success")  });
                             $("#username").focus();
-                            if ( resp.redirect ) {
-                                location.replace(resp.redirect);
-                            }
                         }
+
+                        if ( resp.redirect ) { location.replace(resp.redirect);  }
+
                     }, "json");
 
 
                 } else {
-
+                    $(".btn_login").button("reset");
                 }
             }, "json");
 
@@ -100,7 +101,7 @@
                                     <div class="form-group">
                                         <label class='control-label' for="username">Username</label>
                                         <input type="text" id="username" name="username" value="" placeholder="Username" class="form-control" />
-                                        <input type="hidden" id="t" name="t" value="<?php echo $token ?>" />
+
                                     </div>
                                 </form>
 
@@ -109,7 +110,7 @@
                                         <label class='control-label' for="p_password">Password:</label>
                                         <input type="password" id="p_password" name="p_password" value="" placeholder="Password" class="form-control"/>
                                         <input type="hidden" id="hpassword" name="hpassword" value="" />
-                                        <input type="hidden" id="t" name="t" value="<?php echo $token ?>" />
+                                        <input type="hidden"  name="token" id='token' value="" />
                                     </div>
 
                                     <div class="alert alert-warning text-center not_found" style='display:none'>

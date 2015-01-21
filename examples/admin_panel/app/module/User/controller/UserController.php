@@ -31,7 +31,7 @@ class UserController extends BaseController {
     }
 
     public function login() {
-        list($Sec, $Attempt) = Liber::loadClass(array('Security', 'Attempt'));
+        list($Attempt) = Liber::loadClass(array('Attempt'));
         Liber::loadHelper('DT');
         Liber::loadClass(array('Session'));
 
@@ -44,22 +44,21 @@ class UserController extends BaseController {
         if ( Http::post() ) {
             $PreLogin = new Session('pre-login');
 
-            // verify token
-            if ( $Sec->token() == Http::post('t') ) {
 
                 // first post
                 if ( Http::post('username') ) {
 
                     $PreLogin->val('username', Http::post('username'));
-                    $this->respOk('ok');
+                    $this->respOk('ok', array('token' => $Sec->token(true) ));
                     return;
 
                 // second post
                 } elseif ( Http::post('hpassword') ) {
+                    $this->checkToken();
 
                     $hasError = false;
                     $Attempt->watch(3);
-                    $Sec->startDelay(3); // avoid timing attack
+                    $Sec->startDelay(2); // avoid timing attack
 
                     if ( !$Attempt->isBlocked() ) {
 
@@ -100,16 +99,13 @@ class UserController extends BaseController {
                     $Sec->stopDelay();
                 }
 
-            } else {
-                $this->log( "token missing." );
-            }
 
         } else {
 
             $User->logout();
             $data['wait_time']      = dt_timesince_(time()-$Attempt->waitTime());
             $data['isLoginBlocked'] = $Attempt->isBlocked();
-            $data['token']          = $Sec->token(true);
+
             $this->view()->load( "login.html", $data );
         }
     }
@@ -138,7 +134,7 @@ class UserController extends BaseController {
             Liber::loadHelper('DT');
             $data['wait_time'] = dt_timesince_( time()-$Attempt->waitTime() );
             $data['type']      = 'wait';
-            $this->view()->load( "recover_invalid_message.html" , $data);
+            $this->view()->load( "recover_message.html" , $data);
             return;
         }
 
@@ -151,10 +147,11 @@ class UserController extends BaseController {
             $this->view()->load( "recover_access1.html" , $data);
         } else {
             if ( Http::post() ) {
-                if ( !$Sec->validToken( Http::post('token') ) or $Sec->clientChanged() ) {
+                $this->checkToken();
+                if ( $Sec->clientChanged() ) {
                     $Attempt->increase();
                     $data['type'] = 'invalid';
-                    $this->view()->load( "recover_invalid_message.html", $data);
+                    $this->view()->load( "recover_message.html", $data);
                     return;
                 }
 
@@ -182,7 +179,7 @@ class UserController extends BaseController {
                         $Session->val('recover_data', $recover_data);
                         $Attempt->increase();
                         $data['type'] = 'invalid';
-                        $this->view()->load( "recover_invalid_message.html", $data);
+                        $this->view()->load( "recover_message.html", $data);
 
                     }
 
@@ -206,7 +203,7 @@ class UserController extends BaseController {
                         $Session->val('recover_data', $recover_data);
                         $Attempt->increase();
                         $data['type'] = 'invalid';
-                        $this->view()->load( "recover_invalid_message.html", $data);
+                        $this->view()->load( "recover_message.html", $data);
 
                     }
 
@@ -246,13 +243,16 @@ class UserController extends BaseController {
         $data['descUser'] = $User->toArray('desc');
 
 
-        if ( Http::post() and $Sec->token() == Http::post('token') ) {
+        if ( Http::post() ) {
+            $this->checkToken();
+
             // send request mail
             $Sec->startDelay(1);
             if ( Http::post('email') ) {
                 $this->log( "Request mail => ".Http::post('email') );
                 if ( ($user = $User->searchBy('email', Http::post('email'))->fetch()) ) {
                     $this->sendPasswordResetMail($user);
+                    $Sec->token(true);
                 }
 
                 $data['show'] = 'sent_reset';
@@ -294,7 +294,7 @@ class UserController extends BaseController {
                     $this->log( "Show password form for user_id => ".$user['user_id'] );
                 } else {
                     $data['type'] = 'reset';
-                    $this->view()->load( "recover_invalid_message.html", $data);
+                    $this->view()->load( "recover_message.html", $data);
                 }
                 $Sec->stopDelay();
 
@@ -321,22 +321,34 @@ class UserController extends BaseController {
         $data['show']     = 'form';
 
 
-        if ( Http::post() and $Sec->token()==Http::post('token') ) {
+        if ( Http::post() ) {
+            $this->checkToken();
             if ( ($user = $User->searchBy('email', Http::post('email'))->fetch() ) ) {
                 $this->log( Http::post('email') );
                 $this->sendUserNameRememberMail($user);
             }
-            $data['show']     = 'sent_message';
+            $data['show'] = 'sent_message';
         }
 
-        $data['token']    = $Sec->token(true);
+        $data['token'] = $Sec->token(true);
         $this->view()->load('remember_username.html', $data);
     }
 
 
 
     public function not_requested( $type, $id='' ) {
+        $User             = Liber::loadModel('User', 'User', true);
+        $data['url']      = $this->url_base.__FUNCTION__;
+        $data['url_base'] = $this->url_base;
+
         switch ($type) {
+            case 'password_reset':
+
+                $user = $User->searchBy('reset_pass_token', $id)->fetch();
+                $User->resetPasswordToken( $user, true );
+                $this->log( 'user_id:'.$user['user_id']. ",  token:$id" );
+            break;
+
             case 'password_change':
                 echo $type;
             break;
@@ -349,13 +361,16 @@ class UserController extends BaseController {
                 # code...
             break;
         }
+
+        $data['type'] = 'not_requested';
+        $this->view()->load( "recover_message.html", $data);
     }
 
     // manage profile frontend
     //
     public function profile( $user_id=null ) {
         $this->isUserLogged();
-        $Sec                       = Liber::loadClass('Security', true);
+        $Sec                       = new Security;
         $User                      = Liber::loadModel('User', 'User', true);
         $data['url']               = $this->url_base.__FUNCTION__;
         $data['url_base']          = $this->url_base;
@@ -363,33 +378,37 @@ class UserController extends BaseController {
         $data['recover_questions'] = array('What framework ?', 'Other question ?');
         $errors                    = array();
 
+
+
         // request processing
         if ( Http::post() ) {
-            $post = &$_POST;
-            if ( $Sec->token() == $post['token'] and $User->authenticate($this->user['user_name'], $post['hcpassword']) ) {
+            $this->checkToken();
+
+            if ( $User->authenticate($this->user['user_name'], Http::post('hcpassword')) ) {
 
                 // user exists or is a new
-                if ( $post['user_id']  ) {
-                    $User->get( $post['user_id'] );
+                if ( Http::post('user_id')  ) {
+                    $User->get( Http::post('user_id') );
                 }
 
-                $User->field('email', $post['email']);
-                $User->field('user_name', $post['username']);
+                $User->field('email', Http::post('email'));
+                $User->field('user_name', Http::post('username') );
 
                 if ( $User->save() ) {
                     // new password
-                    if ( $post['hnpassword'] ) {
-                        $User->changePassword( $User->field('user_id'), $post['hnpassword'] );
+                    if ( Http::post('hnpassword') ) {
+                        $User->changePassword( $User->field('user_id'), Http::post('hnpassword') );
+                        $this->sendPasswordChangedMail( $User->toArray() );
                     }
 
                     // recover question
-                    if ( $post['hrecover_answer'] ) {
-                        $User->changeQuestion( $User->field('user_id'), $post['recover_question'], $post['hrecover_answer'] );
+                    if ( Http::post('hrecover_answer') ) {
+                        $User->changeQuestion( $User->field('user_id'), Http::post('recover_question'), Http::post('hrecover_answer') );
                     }
 
-                    unset($post['recover_question'], $post['hrecover_answer'], $post['hnpassword'], $post['hcpassword']);
-                    $this->log( "saved. ".print_r(array_filter($post), true) );
-                    $this->respOk('Data saved.', array('user_id' => $User->field('user_id')));
+                    unset($_POST['recover_question'], $_POST['hrecover_answer'], $_POST['hnpassword'], $_POST['hcpassword']);
+                    $this->log( "saved. ".print_r(array_filter($_POST), true) );
+                    $this->respOk('Profile saved.', array('user_id' => $User->field('user_id'), 'token' => $Sec->token(true) ));
                     return;
                 }
 
@@ -402,6 +421,7 @@ class UserController extends BaseController {
 
         // show form
         } else {
+
 
             if ( $user_id == 'logged' ) { $user_id = $this->user['user_id']; }
             $User->get( $user_id );
@@ -420,7 +440,7 @@ class UserController extends BaseController {
         $this->isUserLogged();
 
         Liber::loadHelper('Html', 'APP');
-        $Sec                = Liber::loadClass('Security', true);
+        $Sec                = new Security;
         $User               = Liber::loadModel('User', 'User', true);
         $data['url']        = $this->url_base.__FUNCTION__;
         $data['url_base']   = $this->url_base;
@@ -439,22 +459,24 @@ class UserController extends BaseController {
 
     }
 
+
     /**
      * Remove user.
      * @return
      */
     function remove() {
         $this->isUserLogged();
-        $Sec              = Liber::loadClass('Security', true);
         $User             = Liber::loadModel('User', 'User', true);
         $data['url']      = $this->url_base.__FUNCTION__;
         $data['url_base'] = $this->url_base;
 
         // request processing
         $this->log( 'user_id:'.Http::post('id') );
-        if ( Http::post() and Http::post('token') == $Sec->token() ) {
+        if ( Http::post() ) {
+            $this->checkToken();
             if ( $User->delete( Http::post('id') ) ) {
-                $this->respOk("User removed.");
+                $Sec = new Security;
+                $this->respOk("User removed.", array('token' => $Sec->token(true) ) );
                 return;
             }
         }

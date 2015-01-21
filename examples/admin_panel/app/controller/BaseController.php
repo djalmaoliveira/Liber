@@ -14,8 +14,25 @@ class BaseController extends Controller {
         $this->method = $p['method'];
         $this->module = $p['module'];
         Liber::loadHelper( array('Url', 'HTML', 'Paginate') );
+        $Sec = Liber::loadClass('Security', true);
     }
 
+    protected function checkToken() {
+        $Sec = new Security;
+        if ( !$Sec->validToken( Http::post('token') ) ) {
+            $User = Liber::loadModel('User', 'User' ,  true);
+            $User->logout();
+            $this->log( "Invalid token. IP[{$_SERVER['REMOTE_ADDR']}], AGENT[{$_SERVER['HTTP_USER_AGENT']}]" );
+
+            $url_login = url_to_('/user/login', true);
+            if ( Http::ajax() ) {
+                $this->respError("Access blocked for security reasons.", array('redirect' => $url_login));
+                exit;
+            }
+
+            Liber::redirect($url_login);
+        }
+    }
 
     protected function isUserLogged() {
 
@@ -54,7 +71,6 @@ class BaseController extends Controller {
         $hashtag = "#".get_class($this).'/'.$this->method;
         Liber::log()->add( "$hashtag $msg \r\n" );
     }
-
 
 }
 
