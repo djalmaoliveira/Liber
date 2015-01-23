@@ -69,7 +69,7 @@ class BaseController extends Controller {
      */
     protected function log( $msg='' ) {
         $hashtag = "#".get_class($this).'/'.$this->method;
-        Liber::log()->add( "$hashtag $msg \r\n" );
+        Liber::log()->add( "$hashtag $msg" );
     }
 
 }

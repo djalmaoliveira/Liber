@@ -350,21 +350,18 @@ class UserController extends BaseController {
             break;
 
             case 'password_change':
-                echo $type;
+                $this->log( "Track:$id" );
             break;
 
             case 'remember_username':
-                echo $type;
-            break;
-
-            default:
-                # code...
+                $this->log( "Track:$id" );
             break;
         }
 
         $data['type'] = 'not_requested';
         $this->view()->load( "recover_message.html", $data);
     }
+
 
     // manage profile frontend
     //
@@ -526,6 +523,8 @@ class UserController extends BaseController {
 
         $data['url_base'] = $this->url_base;
         $data['user']     = $user;
+        $data['token']    = microtime(true);
+        $this->log( "Password change, Track:{$data['token']}, IP[{$_SERVER['REMOTE_ADDR']}], AGENT[{$_SERVER['HTTP_USER_AGENT']}]" );
 
         $body = $this->view()->loadWithTemplate('mail.html', 'password_changed_mail_tpl.html', $data, true);
 
@@ -548,6 +547,8 @@ class UserController extends BaseController {
 
         $data['url_base'] = $this->url_base;
         $data['user']     = $user;
+        $data['token']    = microtime(true);
+        $this->log( "Remember user name, Track:{$data['token']}, IP[{$_SERVER['REMOTE_ADDR']}], AGENT[{$_SERVER['HTTP_USER_AGENT']}]" );
 
         $body = $this->view()->loadWithTemplate('mail.html', 'remember_username_mail_tpl.html', $data, true);
 
