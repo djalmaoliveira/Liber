@@ -135,7 +135,7 @@ class Log {
 			umask(0007);
 			mkdir($path, 0770, true);
 		}
-        file_put_contents( $path.date('Ymd').'.log', '['. date(DATE_RFC822).'] '.trim(strip_tags(implode("\n", self::$aLogAll))), FILE_APPEND | LOCK_EX );
+        file_put_contents( $path.date('Ymd').'.log', '['. date(DATE_RFC822).'] '.(strip_tags(implode("\n", self::$aLogAll))), FILE_APPEND | LOCK_EX );
     }
 
 

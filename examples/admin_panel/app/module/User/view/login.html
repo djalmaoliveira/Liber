@@ -1,0 +1,146 @@
+<?php
+    html_header_('js', '/crypto-js/sha256.js');
+    html_header_('js', '/crypto-js/hmac-sha256.js');
+    html_title_('Login');
+    html_script_('
+
+
+        function login() {
+            var url_redirect = "";
+            $.post("'.$url.'", $("#pre-frm").serialize(), function(r) {
+
+                if ( r.status ) {
+
+                    $("#hpassword").val( CryptoJS.SHA256($("#p_password").val().trim()).toString() );
+                    $("#p_password").val("");
+                    $("#token").val( r.token );
+                    $.post("'.$url.'", $("#frm").serialize(), function(resp){
+
+                        if ( resp.status ) {
+                            $(".login-form").hide("slow", function(){
+                                $(".login-success").show("slow");
+                            });
+                        } else {
+
+                            $(".not_found").show("slow");
+                            $(".btn_login").button("reset");
+                            $(".has-success").each(function(i,v){   $(v).removeClass("has-success")  });
+                            $("#username").focus();
+                        }
+
+                        if ( resp.redirect ) { location.replace(resp.redirect);  }
+
+                    }, "json");
+
+
+                } else {
+                    $(".btn_login").button("reset");
+                }
+            }, "json");
+
+        }
+
+        function validate() {
+            $(".has-warning").each(function(i,v){   $(v).removeClass("has-warning")  });
+            if ( $.trim($("#username").val()).length == 0 ) {
+                $("#username").val("");
+                $("#username").focus();
+                $("#username").parent().addClass("has-warning");
+                return false;
+            } else{
+                $("#username").parent().addClass("has-success");
+            }
+
+            if ( $.trim($("#p_password").val()).length == 0 ) {
+                $("#p_password").val("");
+                $("#p_password").focus();
+                $("#p_password").parent().addClass("has-warning");
+                return false;
+            } else {
+                $("#p_password").parent().addClass("has-success");
+            }
+
+            return true;
+        }
+
+        $(".btn_login").bind("click", function () {
+            if ( !validate() ) { return; };
+            $(".not_found").hide("slow");
+            $(".btn_login").button("loading");
+            login();
+        });
+
+        $(function() {
+            $("#username").focus();
+        });
+    ');
+
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4" >
+            <div class="" style='width:400px'>
+                <div class="panel panel-default content-area">
+                    <div class="panel-heading"><h3 class="panel-title">Only members access, please provide your details</h3></div>
+                        <div class="panel-body">
+
+                            <?php if ( $isLoginBlocked ) { ?>
+                            <div class="login-blocked">
+                                <div class="alert alert-warning text-center" >
+                                    For security reasons your login was blocked, you have to wait <?php echo $wait_time ?> before <a href="<?php url_to_($url) ?>">try again</a>.
+                                </div>
+                            </div>
+                            <?php } ?>
+
+                            <?php if ( !$isLoginBlocked ) { ?>
+                            <div class='login-form'>
+                                <form action="<?php echo $url ?>" method="post" onsubmit="return false" id='pre-frm' autocomplete="off">
+                                    <div class="form-group">
+                                        <label class='control-label' for="username">Username</label>
+                                        <input type="text" id="username" name="username" value="" placeholder="Username" class="form-control" />
+
+                                    </div>
+                                </form>
+
+                                <form action="<?php echo $url ?>" method="post" onsubmit="return false" id='frm'>
+                                    <div class="form-group">
+                                        <label class='control-label' for="p_password">Password:</label>
+                                        <input type="password" id="p_password" name="p_password" value="" placeholder="Password" class="form-control"/>
+                                        <input type="hidden" id="hpassword" name="hpassword" value="" />
+                                        <input type="hidden"  name="token" id='token' value="" />
+                                    </div>
+
+                                    <div class="alert alert-warning text-center not_found" style='display:none'>
+                                        Username and/or password was not found.
+                                    </div>
+
+                                    <div class="pull-right">
+
+                                        <button class="button btn btn-success btn-large btn_login" data-loading-text="Processing...">Sign In</button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="login-success" style='display:none'>
+                                <div class="alert alert-success text-center" >
+                                    Authentication completed, redirecting to dashboard...
+                                </div>
+                            </div>
+                            <?php } ?>
+
+                        </div>
+                        <div class="panel-footer text-right">
+                        <a href="<?php url_to_($url_base.'reset_password') ?>">Reset your password</a> /
+                        <a href="<?php url_to_($url_base.'recover_access') ?>">Recover your access</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Page loaded time: 23:58:55</p>
+
+		The application example.
+        <p>Below some routes examples.</p>
+        <br/>
+		<p>To see your browser information: <a href="http://liber.d/browser">click here</a></p>
+        <p>Example route with params: <a href="http://liber.d/params/one/two">click here</a></p>
+        <p>Controller Example: <a href="http://liber.d/Examples/process/one params">click here</a></p>
+        <p>Direct route example: <a href="http://liber.d/direct/route">click here</a></p>
+        <p>Other direct route: <a href="http://liber.d/other/direct/route/others">click here</a></p>
+        <p>Catch Error example: <a href="http://liber.d/error">click here</a></p>
+        <p>Named params: <a href="http://liber.d/process/named/my_named_param">click here</a></p>
+        <p>Auto detect route with params: <a href="http://liber.d/try/detect/route/autodetect/param1/param2">click here</a></p>
+        <hr>
+        <p><a href="http://liber.d/template">This page using template file.</a></p>
+        <p><a href="http://liber.d/">This page not using template file.</a></p>
+        <p><a href="http://liber.d/caching">This page using caching.</a></p>
+        <p><a href="http://liber.d/layout">This page using layout.</a></p>
+</body>
+</html>
+

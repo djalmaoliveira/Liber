@@ -1,0 +1,723 @@
+[Fri, 02 May 14 10:32:52 -0300] TYPE: 2 LINE: 232
+				FILE: /var/www/projetos/Liber/project/framework/class/View.php
+				MESSAGE: include(): Failed opening '/var/www/projetos/Liber/project/examples/app/example/template/default/default' for inclusion (include_path='.:/usr/share/php:/usr/share/pear:/var/www/projetos/Liber/checkouts:/var/www/projetos/LiberSB/checkouts')
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 52595
+    [REDIRECT_URL] => /projetos/Liber/project/examples/app/template
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/template
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399037572
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:06:27 -0300] TYPE: 1 LINE: 30
+				FILE: /example/controller/MainController.php
+				MESSAGE: Call to undefined function b()
+				STATE: 
+_SERVER: Array
+(
+    [REDIRECT_HTTP_AUTHORIZATION] => 
+    [REDIRECT_Liber_URL_REWRITE] => 1
+    [REDIRECT_STATUS] => 200
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/app/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38209
+    [REDIRECT_URL] => /projetos/Liber/project/examples/app/error
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/error
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399075587
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:12:39 -0300] TYPE: 2 LINE: 603
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: file_put_contents(/projetos/Liber/project/examples/app/): failed to open stream: No such file or directory
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_REFERER] => http://dev.d/projetos/Liber/project/examples/app/
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38220
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399075959
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:13:22 -0300] TYPE: 2 LINE: 603
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: file_put_contents(/projetos/Liber/project/examples/app/): failed to open stream: No such file or directory
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38226
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076002
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:27:21 -0300] TYPE: 2 LINE: 618
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: call_user_func_array() expects parameter 2 to be array, null given
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38264
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076841
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:27:22 -0300] TYPE: 2 LINE: 618
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: call_user_func_array() expects parameter 2 to be array, null given
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38265
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076842
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:27:22 -0300] TYPE: 2 LINE: 618
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: call_user_func_array() expects parameter 2 to be array, null given
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38266
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076842
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:28:26 -0300] TYPE: 2 LINE: 619
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: call_user_func_array() expects parameter 2 to be array, null given
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38269
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076906
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:29:37 -0300] TYPE: 8 LINE: 617
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Undefined offset: 3
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38270
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076977
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:29:45 -0300] TYPE: 8 LINE: 617
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Undefined offset: 3
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38271
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076985
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:29:46 -0300] TYPE: 8 LINE: 617
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Undefined offset: 3
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38272
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076986
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:29:46 -0300] TYPE: 8 LINE: 617
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Undefined offset: 3
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38273
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076986
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)[Fri, 02 May 14 21:29:54 -0300] TYPE: 8 LINE: 617
+				FILE: /var/www/projetos/Liber/project/framework/Liber.php
+				MESSAGE: Undefined offset: 3
+				STATE: 
+_SERVER: Array
+(
+    [HTTP_AUTHORIZATION] => 
+    [Liber_URL_REWRITE] => 1
+    [HTTP_HOST] => dev.d
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36
+    [HTTP_ACCEPT_ENCODING] => gzip,deflate,sdch
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.8,pt-BR;q=0.6,pt;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=v11f6p23mj53ett53ijgmi68p6; lhc_per={%22vid%22:%22b343yeweqnuq5tmnmifs%22}
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [SERVER_SIGNATURE] => Apache/2.2.22 (Ubuntu) Server at dev.d Port 80
+
+    [SERVER_SOFTWARE] => Apache/2.2.22 (Ubuntu)
+    [SERVER_NAME] => dev.d
+    [SERVER_ADDR] => 192.168.122.135
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.122.1
+    [DOCUMENT_ROOT] => /var/www
+    [SERVER_ADMIN] => djalmafilho@gmail.com
+    [SCRIPT_FILENAME] => /var/www/projetos/Liber/project/examples/app/index.php
+    [REMOTE_PORT] => 38274
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /projetos/Liber/project/examples/app/
+    [SCRIPT_NAME] => /projetos/Liber/project/examples/app/index.php
+    [PHP_SELF] => /projetos/Liber/project/examples/app/index.php
+    [REQUEST_TIME] => 1399076994
+)
+
+_POST: Array
+(
+)
+
+_GET: Array
+(
+)
+
+_SESSION: 
+_COOKIE: Array
+(
+    [PHPSESSID] => v11f6p23mj53ett53ijgmi68p6
+    [lhc_per] => {"vid":"b343yeweqnuq5tmnmifs"}
+)
+
+_FILES: Array
+(
+)

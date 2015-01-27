@@ -1,0 +1,123 @@
+<?php
+    html_title_('Users list');
+
+    $script = <<<SCRIPT
+
+        $(function() {
+
+            $("table.table tbody tr" ).bind('mouseover  click',function () {
+                $("tbody .actions", $("table") ).hide();
+                $(".actions", $(this) ).show();
+            });
+            $(".btn-remove").bind("click", function(){
+                var tr_elem = $(this).parents("tr");
+                var rowid = $(tr_elem).attr("rowid");
+                show_modal_("Removing user", "The user selected will be removed, what would you like to do ?", [
+                    {
+                        "text": "Cancel",
+                        "handler" : function(btn) { btn.close_modal(); }
+                    },
+                    {
+                        "text": "Remove selected user",
+                        "handler" : function(btn) {
+                            $(btn).addClass("btn-danger");
+                            $(btn).attr("data-loading-text", "Removing...");
+                            $(btn).button("loading");
+
+                            $.post("$url_remove", {"id": rowid, "token": $("#token").val()} , function(resp) {
+                                if ( resp.status ) {
+                                    btn.close_modal();
+                                    $("#token").val( resp.token );
+                                    $(tr_elem).remove();
+                                } else {
+
+                                }
+                                $(btn).button("reset");
+                            });
+
+                        },
+                        "class" : "btn-danger"
+                    }
+                    ]
+                );
+            });
+
+        });
+
+SCRIPT;
+    html_script_($script);
+    include_show_modal_();
+?>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default   content-area">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php html_title_() ?></h3>
+            </div>
+            <div class="panel-body ">
+
+                <div class="row">
+                    <input type='hidden' name='token' id='token' value="<?php echo $token ?>"/>
+                    <form class="form-inline" role="form">
+                        <div class="form-group col-xs-6">
+                            <label class="sr-only" for="search">Search:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id='search' placeholder="Search..." name='search' autofocus>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group  col-xs-6">
+                            <label class="sr-only" for="new">New user</label>
+                            <a href='<?php url_to_($url_base) ?>profile' class="btn btn-primary form-control pull-right" id='new' name='new'>New user</a>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div>&nbsp;</div>
+
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th><a href="<?php page_sort_('user_name') ?>" class=''><?php echo $descUser['user_name'] ?></a> <i class="fa fa-sort"></i></th>
+                        <th><a href="<?php page_sort_('email') ?>" class=''><?php echo $descUser['email'] ?></a> <i class="fa fa-sort"></i></th>
+                        <th width="160px">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="">
+                        <?php foreach ($users as $key => $user) { ?>
+                            <tr height="47px" rowid='<?php echo $user['user_id'] ?>'>
+                            <td><?php echo $user['user_name'] ?></td>
+                            <td><?php echo $user['email'] ?></td>
+                            <td>
+                                <div class="actions" style="display:none">
+                                    <a href="<?php url_to_($url_base.'profile/'.$user['user_id']) ?>" type="button" class="btn btn-default btn-sm"> <i class="fa  fa-edit"></i> Edit</a>
+                                    <button type="button" class="btn btn-default btn-sm btn-remove" ><i class="fa  fa-times"></i>  Remove</button>
+                                </div>
+                            </td>
+                            </tr>
+                        <?php } ?>
+                        <?php if (!$users) {?>
+                            <tr>
+                            <td colspan="3">No results.</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+            <ul class="pagination">
+                <li class="<?php echo (page_options_('page')==1)?'disabled':'' ?>"><a href="<?php page_prev_() ?>">&laquo;</a></li>
+                <?php   for($i=1; $i <= page_options_('total'); $i++) { ?>
+                <li class="<?php echo (page_options_('page')==$i)?'active':'' ?>"><a href="<?php page_num_($i) ?>"><?php echo $i ?></a></li>
+                <?php   } ?>
+                <li class='<?php echo (page_options_('page')==page_options_('total'))?'disabled':'' ?>'><a href="<?php page_next_() ?>">&raquo;</a></li>
+            </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

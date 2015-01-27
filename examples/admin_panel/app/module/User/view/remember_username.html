@@ -1,0 +1,70 @@
+<?php
+    $url_current = url_current_(true);
+    html_title_('Remember username');
+    html_script_('
+        function next_step() {
+            if ( $.trim( $("#email").val()) == ""  ) {
+                $("#email").focus();
+                return false;
+            }
+            $(".btn_continue").button("loading");
+
+            return true;
+        }
+        $("#email").focus();
+    ');
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4" >
+            <div class="" style='width:400px'>
+                <div class="panel panel-default content-area">
+
+                    <?php if ( $show == 'form' ) { ?>
+                    <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                <span >Fill the form to recover your username</span>
+                            </h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="<?php echo $url_current ?>" method="post" id='frm' onsubmit="return next_step()" autocomplete="off">
+                            <div class="form-group ">
+                                <label for="email" class="control-label"><?php echo $descUser['email'] ?>:</label>
+                                <input type="text" id="email" name="email" value="" placeholder="Email address" class="form-control" />
+                                <input type="hidden" name='token' value="<?php echo $token ?>">
+                            </div>
+
+                            <div class="pull-right">
+                                <button class="button btn btn-success btn-large btn_continue" data-loading-text="Requesting..." autocomplete="off">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                    <?php } ?>
+
+                    <?php if ( $show == 'sent_message' ) { ?>
+                    <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                <span >Request sent to your email address</span>
+                            </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class='alert alert-success text-center'>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> If you fill a existing email address, you will receive a mail indicating your username.
+                        </div>
+
+                    </div>
+                    <?php } ?>
+
+                    <div class="panel-footer text-right"><a href="<?php url_to_($url_base.'login') ?>">Login</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+

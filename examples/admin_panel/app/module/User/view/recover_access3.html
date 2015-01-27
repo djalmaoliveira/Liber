@@ -1,0 +1,100 @@
+<?php
+    $url_current = url_current_(true);
+    html_header_('js', '/crypto-js/sha256.js');
+    html_header_('js', '/crypto-js/hmac-sha256.js');
+    html_title_('Recover Access');
+    html_script_('
+        function next_step() {
+            if ( $.trim( $("#password").val()) == ""  ) {
+                $("#password").focus();
+                return false;
+            }
+
+            if ( $.trim( $("#password2").val()) == ""  ) {
+                $("#password2").focus();
+                return false;
+            }
+
+            if ( $.trim( $("#password").val()) != $.trim( $("#password2").val())  ) {
+
+                return false;
+            }
+
+            $("#hpassword").val( CryptoJS.SHA256($("#password").val().trim()).toString() );
+            $("#password").val("");
+            $("#password2").val("");
+
+            $(".btn_continue").button("loading");
+            $.post($("#frm").attr("action"), $("#frm").serialize(), function(resp){
+
+                if ( resp.status ) {
+                    $(".msg_changed").show();
+                    $("#frm").hide();
+                } else {
+                    $(".msg_changed").hide();
+                    $(".btn_continue").button("reset");
+                    $(".msg_error").show();
+                    $(".msg_error").text(resp.info);
+                }
+            }, "json");
+
+            return false;
+        }
+
+    ');
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4" >
+            <div class="" style='width:400px'>
+                <div class="panel panel-default content-area">
+                    <div class="panel-heading">
+
+                        <h3 class="panel-title">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <span >Change your password</span>
+                        </h3>
+
+                    </div>
+                      <div class="panel-body">
+                        <form action="<?php echo $url ?>" method="post" id='frm' onsubmit="return next_step()" autocomplete="off" autofocus>
+                            <input type="hidden" name='token' value='<?php echo $token ?>'>
+                            <input type="hidden" name='hpassword' id='hpassword' value=''>
+                            <div class="form-group ">
+                                <label for="password" class="control-label">New password:</label>
+                                <input type="password" id="password" name="password" value="" placeholder="Password" class="form-control" autofocus/>
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="password2" class="control-label">Repeat new password:</label>
+                                <input type="password" id="password2" name="password2" value="" placeholder="Repeat password" class="form-control" />
+                            </div>
+
+                            <div class="pull-right">
+                                <button class="button btn btn-success btn-large btn_continue" data-loading-text="Processing..." autocomplete="off">Confirm change</button>
+                            </div>
+                        </form>
+
+                        <div class='msg_changed alert alert-success text-center' style='display:none'>
+                            <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Your password was changed, <a href="<?php url_to_($url_base.'login') ?>">try login now</a>.
+                        </div>
+
+
+                      </div>
+                      <div class="panel-footer ">
+                        <div class='msg_error alert alert-warning text-center' style='display:none'>
+
+                        </div>
+
+
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+

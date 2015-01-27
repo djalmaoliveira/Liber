@@ -5,7 +5,7 @@
 *   @package classes
 */
 class View {
-    private     $template_name;
+
     private     $template_file;
     private     $module;
     private     $module_path;
@@ -16,11 +16,9 @@ class View {
     private     $_layout_once   = '';
 
 
-    function __construct($module='', $template_name='') {
+    function __construct($module='') {
 
-        $this->layout = Liber::conf('LAYOUT');
         $this->module = $module;
-        $this->template_name = $template_name;
         if ( !empty( $this->module ) ) {
             $this->module_path = Liber::conf('APP_PATH').'module/'.$this->module.'/';
         } else {
@@ -120,12 +118,13 @@ class View {
     function path($fileName) {
         if ($fileName[0] == '/') { return $fileName; }  // if specified complete path
         $file_path = $this->module_path.'view/'.$fileName;
-        if ( !empty($this->layout) ) {
+        $layout    = Liber::conf('LAYOUT');
+        if ( !empty($layout) ) {
             $context = empty($this->module)?'':$this->module.'/';
-            if ( $this->layout[0] == '/' ) { // complete path to layout dir
-                $file_path = $this->layout.$context.'view/'.$fileName;
+            if ( $layout[0] == '/' ) { // complete path to layout dir
+                $file_path = $layout.$context.'view/'.$fileName;
             } else { // default app layout dir
-                $file_path = Liber::conf('APP_PATH').'layout/'.$this->layout.'/'.$context.'view/'.$fileName;
+                $file_path = Liber::conf('APP_PATH').'layout/'.$layout.'/'.$context.'view/'.$fileName;
             }
 
             if ( !file_exists($file_path) ) { // return original template file
@@ -138,6 +137,7 @@ class View {
 
     /**
     *   Load and process a view file using Template files and/or Layout dir if previously specified.
+    *
     *   <code>
     *   Usage:
     *   // load index.html
@@ -159,6 +159,7 @@ class View {
     */
     function load($fileName, $data=null, $return=false) {
         if ( is_bool($data) ) { $return = $data; }
+
         $file_path = $this->path($fileName);
 
         // use layout once time.
@@ -171,7 +172,7 @@ class View {
         if ( $this->template_file ) {
             $cacheId   = $cacheId.$this->template_file;
             $data      = Array('content'=> $this->element($file_path, $data, true) );
-            $file_path = Liber::conf('APP_PATH').'template/'.$this->template_name.'/'.$this->template_file;
+            $file_path = $this->template_file;
         }
 
         // by default, in PROD mode all files doesn't have cache
@@ -192,7 +193,27 @@ class View {
     }
 
     /**
+     * Works like <em>load()</em> method, but load a $view_filename using a $template_filename as template.
+     *
+     * @param  string  $template_filename Follow the same rules specified in <em>template()</em> method;
+     * @param  string  $view_filename
+     * @param  array  $data
+     * @param  boolean $return
+     * @return mixed
+     */
+    function loadWithTemplate($template_filename, $view_filename, $data=null, $return=false) {
+        $current_template = $this->template_file;
+        $this->template($template_filename);
+        $out = $this->load( $view_filename, $data, true );
+        $this->template($current_template);
+        if ( $return )  { return $out; }
+        echo $out;
+    }
+
+
+    /**
      * Process view file as simple element.
+     *
      * @param  string  $fileName Absolute path to file name or relative to view/ folder.
      * @param  array  $data      Array of data to view file.
      * @param  boolean $return   If True return the processed content of view file .
@@ -217,30 +238,37 @@ class View {
 
 
     /**
-    *   Set current View with $template_file and $template_name specified.
+    *   Change the current View instance to use a specified template.
+    *   You can specify the template by two ways.
     *
     *   <code>
     *
-    *   // set current View to use 'admin.html' as template file stored in <b>APP_PATH/template/default/admin.html</b>.
+    *   // Specifing only template file name from current module.
+    *   // Set current View instance to use 'admin.html' as template file from current module.
+    *   // if current View instance is inside a module called, for example, 'User', then the template file will be loaded from <b>APP_PATH/module/User/template/admin.html</b>.
     *   ->template('admin.html');
     *
-    *   // set current View to use 'admin.html' as template file and 'admin' as template dir name stored in <b>APP_PATH/template/admin/admin.html</b>.
-    *   ->template('admin.html', 'admin');
+    *   // Specifing a full path of template file name.
+    *   // Set current View instance to use '/full/path/to/template/file/admin.html' as template file.
+    *   ->template('/full/path/to/template/file/admin.html' );
     *
     *   </code>
-    *   @param  string $template_file Template file name stored in $template_name dir.
-    *   @param  string $template_name Value 'default' by default if not specified.
+    *   @param  string $template_filename
     *   @return void
     */
-    function template( $template_file, $template_name='default' ) {
-        $this->template_name = $template_name;
-        $this->template_file = $template_file;
+    function template($template_filename) {
+        if ( $template_filename[0] == '/' ) {
+            $this->template_file = $template_filename;
+        } else {
+            $this->template_file = $this->module_path.'template/'.$template_filename;
+        }
     }
 
 
 
     /**
     *   Return an object instance from class name specified in Liber::conf('TEMPLATE_ENGINE').
+    *
     *   @return Object
     */
     function engine() {

@@ -1,0 +1,63 @@
+<?php
+    $url_current = url_current_(true);
+    html_title_('Recover Access');
+    html_script_('
+        function next_step() {
+            if ( $.trim( $("#user_name").val()) == ""  ) {
+                $("#user_name").focus();
+                return false;
+            }
+
+            if ( $.trim( $("#email").val()) == ""  ) {
+                $("#email").focus();
+                return false;
+            }
+            $(".btn_continue").button("loading");
+            return true;
+        }
+
+    ');
+?>
+
+<div class='content-fluid' >
+
+    <div class="row" style='margin-top:50px'>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4" >
+            <div class="" style='width:400px'>
+                <div class="panel panel-default content-area">
+                    <div class="panel-heading">
+
+                            <h3 class="panel-title">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <span >Fill the form to recover your access</span>
+                            </h3>
+
+                    </div>
+                      <div class="panel-body">
+                        <form action="<?php echo $url ?>/2" method="post" id='frm' onsubmit="return next_step()" autocomplete="off" >
+                            <input type="hidden" name='token' value='<?php echo $token ?>'>
+                            <div class="form-group ">
+                                <label for="user_name" class="control-label"><?php echo $descUser['user_name'] ?></label>
+                                <input type="text" id="user_name" name="user_name" value="" placeholder="Username" class="form-control" autofocus />
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="email" class="control-label"><?php echo $descUser['email'] ?></label>
+                                <input type="text" id="email" name="email" value="" placeholder="Email address" class="form-control" />
+                            </div>
+
+                            <div class="pull-right">
+                                <button class="button btn btn-success btn-large btn_continue" data-loading-text="Requesting..." autocomplete="off">Continue</button>
+                            </div>
+                        </form>
+
+                      </div>
+                      <div class="panel-footer text-right"><a href="<?php url_to_($url_base.'remember_username') ?>">Remember username</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+

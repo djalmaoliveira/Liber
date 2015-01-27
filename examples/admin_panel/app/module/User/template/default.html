@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?php html_title_(); ?></title>
+
+    <link href="<?php url_asset_('/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php url_asset_('/css/panel.css') ?>" rel="stylesheet">
+    <?php html_header_('css'); ?>
+
+</head>
+<body>
+
+    <?php echo $content; ?>
+
+<script src="<?php url_asset_('/jquery/jquery-1.11.1.min.js')?>"></script>
+<script src="<?php url_asset_('/bootstrap/js/bootstrap.min.js')?>"></script>
+<?php html_header_('js'); ?>
+<script><?php html_script_(); ?></script>
+</body>
+</html>

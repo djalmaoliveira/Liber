@@ -1,0 +1,13 @@
+.content-area {
+    box-shadow: 2px 3px 29px #a8a8a8;
+}
+
+.alert-button {
+    height: 34px;
+    margin-bottom: 0px;
+    padding: 7px;
+}
+
+table.table td {
+    vertical-align: middle !important;
+}
